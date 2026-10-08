@@ -1,0 +1,150 @@
+9/9/26, 9:10 AM              Ukraine WTC catalog Altium client check : HRBS-14331
+
+Created by Nataliia Hahan about 22 hours ago                                                          HRBlizz Support Team
+Updated by Nataliia Hahan about 2 hours ago
+
+Ukraine WTC catalog Altium client check
+
+       Project               CCs                         Priority                                              Type
+
+      HRBlizz                No CCs               M Medium                                             S Service
+      Support                                                                                                Request⁠
+                                        Assignee         Support Group
+       State                                                                                          Resolution Time
+                                      Wallisson   C Compliance                                              Paused
+P Pending on                          dos Santos        Support⁠
+      reporter⁠                       Gomes                                                                    Spent time
+                                                         Estimation
+       SLA Violation                    Country                                                        ??
+                                                  ??
+? Reason                        U Ukraine                                                                      Legal Entity
+      ----                                               SLA status                                            Phase
+                                        Client
+       Environment                                ? No sla status                                      ? Please
+                                ? No client                                                                  choose legal
+? No                                                                                                         entity phase
+      environment
+
+                 Boards
+
+                 No visible
+                 boards
+
+Wallisson, please review the Altium Catalogue — could you take a look at the points below? Link
+below.
+
+https://docs.google.com/spreadsheets/d/1FV2VgiNP0eqXoiowpYfyuFGca3osW752/edit?
+gid=700094827#gid=700094827
+
+ 1. Additional columns — average earnings inclusion
+     We need additional columns indicating which wage type (WT) codes should be included in
+     the average earnings calculation, and which should not. Using these columns, we'll be able to
+     collect data on past periods for the last 12 months.
+
+ 2. Highlighted wage types
+     There's a question regarding the highlighted wage types in the link — please take a look at
+     those and cross-check them against the master catalogue.
+
+Company Name
+Altium Ukraine
+GSK Ukraine
+SDL Ukraine
+
+https://youtrack.hrblizz.dev/tickets/HRBS-14331/Ukraine-WTC-catalog-Altium-client-check?backToIssues                         1/3
+9/9/26, 9:10 AM                              Ukraine WTC catalog Altium client check : HRBS-14331
+
+                 Nataliia Hahan Commented about 22 hours ago
+                 @Wallisson dos Santos Gomes Foe Your Action, please.
+
+                 @Vaishnavi Mane FYI
+
+                 Wallisson dos Santos Gomes  Commented about 10 hours ago
+                 @Nataliia Hahan
+
+                 1. Average-earnings inclusion columns
+
+                 Already in the catalogue — columns J, K, L, populated for all 114 wage types:
+
+                 Vacation pay (J): 12-month base — Порядок №100, п. 2.
+                 Sick leave (K): 6-month base on ЄСВ-taxed income — Постанова №1266, п. 4.
+                 Business trips / donor leave (L): 2-month base — Порядок №100, п. 2.
+
+                 The 12-month history referenced maps to column J only. Sick leave (K) runs on a 6-month
+                 base, business trip/donor leave (L) on 2 months.
+
+                 2. Highlighted wage types — cross-check
+
+                 Checked against current statutory text and the master catalogue.
+
+                 Row 5, "Non-taxable individual anniversary gifts": corrected PIT/Military Tax from Yes/Yes
+
+                 to No/No — same formula and 4DF code 160 as Row 2 (пп. 165.1.39 ПКУ).
+
+                 Rows 93, 95, 97, 99, 101 (medical/life/family insurance, representation expenses):
+
+                 PIT=Yes/Military Tax=Yes confirmed correct — п. 16-1, підрозд. 10, розд. XX ПКУ.
+Projects / HRBlizz Support / Tickets /
+HRBS-143R3o1w 17, "Payment Civil Contractors": PIT/Military Tax/USC E=nYteers/sYeeas…/Yes doesn2't mofa7tch п.A…
+
+                 177.8 ПКУ, which exempts all three once the entrepreneur provides registration proof. Not
+
+                 yet resolved — no code finalized for this scenario.
+
+                 Remaining rows (2, 3, 4, 26, 90, 92, 94, 96, 98, 100, 102, 103, 111): confirmed correct.
+
+                 WTC_Altium_Ukraine_2026_2
+
+                 Kind regards,
+                 Wallisson dos Santos Gomes
+
+                 Nataliia Hahan Commented about 3 hours ago
+                 Dear @Wallisson dos Santos Gomes
+
+                      Payment Civil Contractors (for individual entrepreneurs) has code 157 ( if civil
+                      contractor can be self employer) please confirm and update Ukr WTC with correct
+                      code.
+
+                      Life insurance - this is the base for SSC - should be YES.
+
+                 Please provide us with the correct codes. @Vaishnavi Mane cant understand which code
+                 she can use here. Which from here the codes is grossed up, which no. (The clients in
+                 Ukraine use the separate columns with benefit and with grossed up amount of the
+                 coeficient taxes):
+
+                 Additional benefit 1
+                 Additional benefit
+                 Medical insurance (PIT)
+                 Medical insurance (PIT only, no military tax)
+                 Representation expenses (subject to PIT)
+                 Representation expenses (PIT only, no military tax)
+                 Life insurance
+                 Life insurance (no base for military tax of gross up part)
+
+https://youtrack.hrblizz.dev/tickets/HRBS-14331/Ukraine-WTC-catalog-Altium-client-check?backToIssues            2/3
+9/9/26, 9:10 AM                 Ukraine WTC catalog Altium client check : HRBS-14331
+
+                 Representation expenses (financial reporting)
+                 Representation expenses (financial, no military tax)
+                 Family insurance
+                 Family insurance without Military tax
+                 Taxation of English language courses
+                 Taxation of English courses (PIT) without Military tax
+
+                 https://docs.google.com/spreadsheets/d/1FV2VgiNP0eqXoiowpYfyuFGca3osW752/edit?
+                 gid=700094827#gid=700094827
+
+                 Best Regards,
+                 Natalia
+
+                 Nataliia Hahan Commented about 2 hours ago
+                 @Wallisson dos Santos Gomes
+                 Please update and confirm that the days which was worked in public holidays and
+                 weekends have to to payd with duble salary - these days should be included to the future
+                 average salary for vacations as work days additionaly. For example - in a month we have
+                 20 work days, if EE worked + 3 public holidays in that moth - in average should be
+                 included 23 works day for calculation of the Quartary and Yearly bonus proration.
+
+                 Thank you.
+
+https://youtrack.hrblizz.dev/tickets/HRBS-14331/Ukraine-WTC-catalog-Altium-client-check?backToIssues       3/3
+

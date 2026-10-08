@@ -1,0 +1,79 @@
+9/28/26, 10:38 AM                         SILTRA Notifications Integration to HRB : HRBS-14528        10 of 10
+
+  Projects / HRBlizz Support / Tickets /                        A... Enter sea...
+
+   HRBS-14528
+
+Created by Mohamed Nabil 16 days ago                                                                  HRBlizz Support Team
+Updated by Manju Shetija 4 days ago
+
+SILTRA Notifications Integration to HRB
+
+  Tier 3
+
+       Project        CCs                          Priority                                                    Type
+
+      HRBlizz         No CCs                M Medium                                                   Q Question /
+      Support                                                                                                Inquiry
+                                 Assignee          Support Group
+       State                                                                                          Resolution Time
+                               Wallisson    C Compliance                                                -11d
+O Open                         dos Santos         Support
+                               Gomes                                                                           Spent time
+       SLA Violation                               Estimation
+                                 Country                                                               ??
+? Reason                                    ??
+      ----               S Spain                                                                               Legal Entity
+                                                   SLA status
+       Environment               Client                                                                L Phase
+                                            ? No sla status                                                  Live/BAU
+P Production                   KGS - Kidde
+                         K Global
+       Boards
+                               Solutions
+      No visible
+      boards
+
+Hello Team,
+We need to integrate the notification received on siltra to be reflecting in HRB.
+
+Please note that we are not sending any file to receive this notification, this is sent from SS to
+inform about any action needed from our or client side.
+
+There is a response and PDF file which will contain a link which will open the SS portal on the
+required notification.
+2- Siltra folder to receive the Notification Msg. (C:\SILTRA\SVA\Msjrec)
+4- Sample of Notification. (1996557362.msj / 1994345724.msj)
+
+Please let me know if anything else is reuired.
+
+Company Name
+KGS
+
+Attachments 4
+
+   PDF                   PDF                  MSJ                                                       MSJ
+1994345724 197 kB     1996557362 197 kB     1996557362 2 kB                                           1994345724 2 kB
+
+https://youtrack.hrblizz.dev/tickets/HRBS-14528/SILTRA-Notifications-Integration-to-HRB?backToIssues                         1/2
+9/28/26, 10:38 AM  SILTRA Notifications Integration to HRB : HRBS-14528
+
+KR Katrin Rudi Commented 12 days ago
+        @stripathi I believe this requires research from Manju's team before we start
+        configuration.
+
+Kind regards,
+Katrin Rudi
+
+stripathi Commented 11 days ago
+Team,
+I am changing the support group to compliance team as Katrin suggested this ticket
+requires research.
+please revert tis ticket back to configuration team after your research.
+
+Kind regards,
+stripathi
+Support Engineer
+
+https://youtrack.hrblizz.dev/tickets/HRBS-14528/SILTRA-Notifications-Integration-to-HRB?backToIssues  2/2
+

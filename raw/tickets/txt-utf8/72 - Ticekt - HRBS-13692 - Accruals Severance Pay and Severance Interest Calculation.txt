@@ -1,0 +1,210 @@
+9/16/26, 8:19 AM      Accruals Severance Pay and Severance Interest Calculation : HRBS-13692
+
+Projects / HRBlizz Support / Tickets /         A… Enter sea…                                                            8 of 95
+
+HRBS-13692
+
+Created by Heidy Ballesteros Puyo 22 days ago                        HRBlizz Support Team
+Updated by Mohit Jain 13 days ago
+
+Accruals Severance Pay and Severance Interest
+Calculation
+
+  Tier 1
+
+       Project        CCs                             Priority                Type
+
+      HRBlizz         No CCs                   M Medium               Q Question /
+      Support                                                               Inquiry⁠
+                                 Assignee             Support Group
+       State                                                         Resolution Time
+                               Wallisson       C Compliance            -19d
+O Open⁠                        dos Santos            Support⁠
+                               Gomes                                          Spent time
+       SLA Violation                                  Estimation
+                                 Country                              ??
+? Reason                                       ??
+      ----               C Colombia                                           Legal Entity
+                                                      SLA status
+       Environment               Client                               L Phase
+                                               ? No sla status              Live/BAU⁠
+P Production             P Philip Morris
+                               International
+       Boards
+
+      No visible
+      boards
+
+Severance Pay and Severance Pay Interest Consolidation
+
+ 1. Importance of Severance Pay and Interest Consolidation
+
+In Colombia, companies are required to recognize and control the labor obligations accrued in
+favor of their employees, including severance pay and interest on severance pay.
+
+https://docs.google.com/spreadsheets/u/0/d/1P9p70Y2XGozEtKj7YwruSh0jOJgqn_Jf/edit?
+usp=sheets_home&ths=true&rtpof=true
+
+https://docs.google.com/spreadsheets/d/1d_UGgW8l4mDg0z_6K3bkSaf2dKK4V3mM/edit?
+gid=1947946747#gid=1947946747
+
+The consolidation process allows the company to determine the amounts accrued for each
+employee as of a specific cutoff date. It also facilitates reconciliation between payroll and
+accounting records and forms part of the information required for the payroll closing process and
+client delivery.
+
+ 2. Severance Pay Calculation
+
+Under Colombian labor regulations, severance pay corresponds to one month's salary for each
+year of service, or the proportional amount for a fraction of a year.
+
+For calculation purposes, the salary basis must consider the employee's salary and the payments
+that legally qualify as salary under Colombian regulations.
+
+https://youtrack.hrblizz.dev/tickets/HRBS-13692/Accruals-Severance-Pay-and-Severance-Interest-Calculation?backToIssues           1/4
+9/16/26, 8:19 AM             Accruals Severance Pay and Severance Interest Calculation : HRBS-13692
+
+For this company, the severance pay consolidation must consider:
+
+Employee salary.
+The average of the salary-related concepts accrued during the applicable period.
+Employee hire date.
+Days effectively accrued.
+Severance pay payments or settlements made during the period, when applicable.
+
+When variable salary-related concepts apply, they must be included in the applicable average
+according to the rules governing severance pay calculations. Article 253 of the Colombian Labor
+Code establishes that when the salary has varied during the previous three months or when the
+employee has a variable salary, the average amount earned during the last year of service, or
+during the time worked if less than one year, must be used.
+
+3. Severance Pay Interest Calculation
+
+Employees are entitled to interest on severance pay at a rate of 12% per year, or proportionally
+according to the applicable period.
+
+For consolidation purposes, interest must be calculated based on the accrued severance pay and
+proportionally according to the corresponding period.
+
+The general calculation is:
+
+Severance Pay Interest = Accrued Severance Pay × 12% × Accrued Days / 360
+
+Colombian regulations establish that this interest is recognized on the severance pay balance
+and must generally be paid in January of the following year, or proportionally in the event of
+termination or partial settlement of severance pay.
+
+4. Severance Pay Provision
+
+Currently, the system does not automatically generate the severance pay provision.
+
+The provision is currently calculated externally by the payroll team and subsequently uploaded
+into the system through an Excel file.
+
+The following concept must be used for the severance pay provision:
+
+22110 - Provision Severance - Social Benefits Provision Accrual 1
+
+The system should automatically calculate this provision, considering the applicable salary basis,
+the average of salary-related concepts, and the days accrued by each employee.
+
+5. Severance Pay Interest Provision
+
+Currently, the system also does not automatically generate the provision for interest on
+severance pay.
+
+The calculation is performed externally and subsequently uploaded into the system through
+Excel.
+
+The following concept must be used for the severance pay interest provision:
+
+22112 - Provision Interest Severance Pay - Social Benefits
+
+The system should automatically calculate this provision based on the accrued severance pay,
+the applicable annual interest rate of 12%, and the corresponding accrued period.
+
+6. Consolidation Report
+
+Currently, the system does not generate the severance pay and severance pay interest
+consolidation report required as part of the payroll closing process and client delivery.
+
+The report should allow the following information to be validated, at a minimum:
+
+https://youtrack.hrblizz.dev/tickets/HRBS-13692/Accruals-Severance-Pay-and-Severance-Interest-Calculation?backToIssues  2/4
+9/16/26, 8:19 AM  Accruals Severance Pay and Severance Interest Calculation : HRBS-13692
+
+Employee name and identification.
+Hire date.
+Salary.
+Average of salary-related concepts.
+Calculation base.
+Days worked.
+Accrued severance pay.
+Previous period severance pay balance.
+Current period severance pay provision.
+Severance pay payments or settlements.
+Consolidated severance pay balance.
+Accrued severance pay interest.
+Severance pay interest provision.
+Interest payments.
+Outstanding severance pay interest balance.
+Differences compared with the previous period.
+7. Functional Requirement
+
+The system should automate the severance pay and severance pay interest consolidation
+process by allowing it to:
+
+Calculate severance pay based on the employee's hire date and accrued days.
+Determine the appropriate salary basis in accordance with Colombian labor regulations.
+Consider the salary and the average of salary-related concepts, as applicable.
+Calculate severance pay interest at an annual rate of 12%, proportionally according to the
+accrued period.
+Automatically generate the severance pay provision.
+Associate the severance pay provision with concept 22110 - Provision Severance - Social
+Benefits Provision Accrual 1.
+Automatically generate the severance pay interest provision.
+Associate the severance pay interest provision with concept 22112 - Provision Interest Severance
+Pay - Social Benefits.
+Consider payments and amounts previously recognized.
+Automatically generate the consolidation report required for the payroll closing process and
+client delivery.
+8. Current Process and Supporting Documentation
+
+Currently, the severance pay and severance pay interest provisions are calculated externally by
+the payroll team and subsequently uploaded into the system through an Excel file.
+
+Additionally, the system does not generate the consolidation report required for the payroll
+closing process, so the report must be prepared externally for validation and delivery to the
+client.
+
+The severance pay and severance pay interest calculations are attached, along with the Excel
+consolidation report currently generated and delivered to the client. These files provide a
+reference for the current calculation methodology, calculation bases, provisions, and required
+report structure.
+
+Company Name
+1764 - Compañía Colombiana de Tabaco SAS
+
+                       HRBlizz Support Team
+
+                  Romano Fusana Commented 13 days ago
+
+https://youtrack.hrblizz.dev/tickets/HRBS-13692/Accruals-Severance-Pay-and-Severance-Interest-Calculation?backToIssues  3/4
+9/16/26, 8:19 AM            Accruals Severance Pay and Severance Interest Calculation : HRBS-13692
+
+                 Hi Mohit,
+
+As discussed in ELT, this is one of the tickets raised by PMI that needs to be addressed
+before the client can transition to Instaroll.
+
+The full list of PMI items requiring attention before the transition is available here: PMI
+Instaroll Transition Tracker
+
+     HRBlizz Support Team
+
+Mohit Jain Commented 13 days ago
+As per discussion with Manju, assigning to wallisson for gap analysis when during
+colombia research.
+
+https://youtrack.hrblizz.dev/tickets/HRBS-13692/Accruals-Severance-Pay-and-Severance-Interest-Calculation?backToIssues  4/4
+

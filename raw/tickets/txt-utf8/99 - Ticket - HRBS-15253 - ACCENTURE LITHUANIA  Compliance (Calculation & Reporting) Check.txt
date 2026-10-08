@@ -1,0 +1,233 @@
+9/28/26, 3:40 PM      ACCENTURE LITHUANIA | Compliance (Calculation & Reporting) Check : HRBS-15253
+
+Created by Kevin Gunawan about 10 hours ago                        HRBlizz Support Team
+Updated by Manju Shetija about 7 hours ago
+
+ACCENTURE LITHUANIA | Compliance (Calculation &
+Reporting) Check
+
+  Tier 1
+
+       Project        CCs                           Priority                Type
+
+      HRBlizz         No CCs                 M Medium               Q Question /
+      Support                                                             Inquiry⁠
+                                 Assignee           Support Group
+       State                                                       Resolution Time
+                               Wallisson     C Compliance            2d
+O Open⁠                        dos Santos          Support⁠
+                               Gomes                                        Spent time
+       SLA Violation                                Estimation
+                                 Country                            ??
+? Reason                                     ??
+      ----               L Lithuania                                        Legal Entity
+                                                    SLA status
+       Environment               Client                             L Phase
+                                             ? No sla status              Live/BAU⁠
+P Production             A Accenture
+
+       Boards
+
+      No visible
+      boards
+
+Dear Team
+
+As per now since we're having new client of Lithuania we wanted to ensure that calculation wise
+and all the reporting related to statutory and also taxing both monthly and yearly is being
+accommodated within the system accordingly.
+
+Please do let us know if anything is needed to ensure that everything in place
+
+Subject: Lithuania — confirmation of calculation and statutory reporting coverage
+
+Hi team,
+
+I have been assigned to the Lithuania engagement and I am building the configuration scope.
+Before I take anything to the client I need to establish what the system covers today for
+Lithuania, calculation-wise and reporting-wise.
+
+Below is the full list of what a Lithuanian payroll has to produce. Could you mark each line with
+one of:
+
+S = supported and configured
+C = supported but needs configuration
+M = manual workaround today
+N = not supported
+
+Where something is M or N, please name the owner and whether it is on the roadmap. I am not
+asking you to validate any numbers at this stage — only to confirm coverage.
+
+https://youtrack.hrblizz.dev/tickets/HRBS-15253/ACCENTURE-LITHUANIA-Compliance-Calculation-Reporting-Check?backToIssues  1/4
+9/28/26, 3:40 PM  ACCENTURE LITHUANIA | Compliance (Calculation & Reporting) Check : HRBS-15253
+
+===========================================
+=========
+PART 1 — CALCULATION
+
+A. BASES AND ELEMENT TREATMENT
+[ ] Separate GPM (taxable income) base and Sodra (contribution) base, independently derivable
+[ ] Element-level flags per wage type — taxable yes/no, contributory yes/no, set independently
+[ ] Benefits in kind — valuation and inclusion in both bases
+[ ] Allowances — including any treated as non-taxable, with the exemption basis held against the
+element
+[ ] Bonuses and one-time payments
+[ ] Retro and backdated payments — which period's parameter set is applied
+
+B. EMPLOYEE CONTRIBUTIONS (Sodra)
+[ ] Pension insurance
+[ ] Sickness insurance
+[ ] Maternity insurance
+[ ] Health insurance (PSD)
+[ ] Pillar II pension accumulation — driven by a participation flag on the employee master
+[ ] Combined employee rate correct with and without Pillar II
+
+C. EMPLOYER CONTRIBUTIONS (Sodra)
+[ ] Unemployment insurance
+[ ] Guarantee Fund
+[ ] Long-Term Employment Benefit Fund
+[ ] Accidents at work — rate configurable per legal entity by assigned Sodra risk group
+[ ] Contract-type driven rate switch — open-ended versus fixed-term
+
+D. INCOME TAX (GPM)
+[ ] Base rate withholding
+[ ] Higher bands — including the band structure change effective 1 January 2026
+[ ] Cumulative in-year tracking to drive band progression, or the agreed alternative mechanic
+[ ] Standard NPD, year-specific formula, tapering with income
+[ ] Fixed NPD for reduced capacity for work — non-tapering, both capacity brackets
+[ ] NPD waiver flag on the employee master
+[ ] NPD capped at taxable income so it can never exceed the base it reduces
+[ ] Non-resident treatment
+
+E. CEILINGS AND FLOORS
+[ ] Sodra annual ceiling — tracked cumulatively, pension/sickness/maternity stop, health
+continues uncapped
+[ ] Minimum contribution base (MMA floor) — contributions calculated on at least the minimum
+wage
+[ ] Floor exemption categories held per employee and applied automatically
+[ ] Floor behaviour for partial months — joiners, leavers, unpaid leave
+
+F. ABSENCE AND STATUTORY PAY
+[ ] Employer-funded first days of sick pay, then handover to Sodra
+[ ] Maternity, paternity and childcare leave handling
+[ ] Annual leave accrual and leave pay on the statutory average-earnings basis
+[ ] Labour Code premiums — overtime, night work, public holiday, rest-day
+[ ] Severance on termination
+[ ] Final settlement on termination
+
+https://youtrack.hrblizz.dev/tickets/HRBS-15253/ACCENTURE-LITHUANIA-Compliance-Calculation-Reporting-Check?backToIssues  2/4
+9/28/26, 3:40 PM  ACCENTURE LITHUANIA | Compliance (Calculation & Reporting) Check : HRBS-15253
+
+ProjGec. tCsRO/ SHSR-BClUizTzTSINupGport / Tickets /      A… Enter sea…             2 of 2
+
+HRB[S]-R15o2u5nd3ing convention — component level, and the register total equals the sum of the
+
+components
+
+[ ] Mid-month joiner and leaver proration
+
+[ ] One person holding more than one contract or appearing in more than one entity
+
+[ ] Concurrent parameter sets — prior year and current year held simultaneously for retro
+
+processing
+
+[ ] EU coordination cases and A1 certificate populations
+
+===========================================
+=========
+PART 2 — REPORTING, MONTHLY
+
+To SODRA — due by the 15th of the following month, with payment
+[ ] SAM, with the SAM3SD appendix (per-employee income and contributions)
+[ ] SAM3SDP appendix for exception populations
+[ ] Generated as a .ffdata file to Sodra's published data structure
+[ ] Submitted by upload to EDAS, or machine-to-machine via the EDAS data service
+
+To VMI — declaration due by the 15th of the following month
+[ ] GPM313 — monthly declaration of A-class payments and tax withheld, as totals
+[ ] Generated as a .ffdata file to the VMI structure, submitted via EDS
+[ ] Tax payment date derived from the actual pay date, not the declaration deadline (paid on or
+before the 15th → tax due by the 15th of the same month; paid after the 15th → due by the last
+day of that month)
+
+Other monthly outputs
+[ ] Payslip — confirm available language options
+[ ] Bank payment file in the format the client's bank accepts
+[ ] GL posting file, including the employer contribution liability
+[ ] Reconciliation report tying the register to SAM and to GPM313 before submission
+
+===========================================
+=========
+PART 3 — REPORTING, EVENT-DRIVEN
+
+[ ] 1-SD — start of insurance, due before the first working day
+[ ] 2-SD — end of insurance
+[ ] 9-SD — childcare leave granted or revoked
+[ ] 12-SD — non-insured periods, including unpaid leave
+[ ] 13-SD — copyright, sports and performer agreements
+[ ] NP-SD — benefit application support
+[ ] PT — correction of previously submitted insured-person data
+
+For each, please also confirm whether the output is system-generated or keyed manually, and
+whether it sits with payroll or with HR in our delivery model.
+
+===========================================
+=========
+PART 4 — REPORTING, ANNUAL
+
+[ ] GPM312 — annual declaration, due 15 February
+[ ] GPM312L appendix — per-recipient detail for residents
+
+https://youtrack.hrblizz.dev/tickets/HRBS-15253/ACCENTURE-LITHUANIA-Compliance-Calculation-Reporting-Check?backToIssues  3/4
+9/28/26, 3:40 PM  ACCENTURE LITHUANIA | Compliance (Calculation & Reporting) Check : HRBS-15253
+
+[ ] GPM312U appendix — per-recipient detail for non-residents
+[ ] Generated as .ffdata to the VMI structure, at full-year by full-headcount volume
+[ ] Annual leave provision and accrual roll-forward
+[ ] Year-end parameter changeover — new rates and thresholds available before the January run
+
+===========================================
+=========
+PART 5 — THE QUESTIONS BEHIND THE LIST
+
+ 1. Who maintains the .ffdata structures, and how do we pick up a form version change? These
+     are versioned, and a file built to a superseded version is rejected at upload.
+
+ 2. Is there a test or dry-run upload path so we can prove the files are accepted before go-live,
+     rather than discovering structural rejections in the first live cycle?
+
+ 3. How are corrections handled — an amended SAM for a prior month, and a corrected GPM313
+     where a GPM312 amount changes?
+
+ 4. Is there a signed-off Lithuania statutory parameter sheet, and who owns it? If one exists I
+     would like it as my configuration baseline.
+
+ 5. Has Mercans delivered Lithuania before? If there is an existing client we can reference, that
+     answers most of Parts 1 to 4 faster than anything I can ask.
+
+Happy to walk through this on a call if that is quicker than marking up the list.
+
+Thanks,
+Kevin
+
+Thanks & Regards
+
+Company Name
+REF-LE-04-359
+REF-04-359
+Accenture Lithuania
+Accenture
+
+LB Lavanya Balamurugan Commented about 8 hours ago
+        Hi Team,
+        Thank you for reaching out to Support team. We acknowledge the receipt of your ticket
+        and we are actively reviewing the details.
+        We will keep you posted with an update.
+
+        Kind regards,
+        Lavanya Balamurugan.
+        Product Support
+
+https://youtrack.hrblizz.dev/tickets/HRBS-15253/ACCENTURE-LITHUANIA-Compliance-Calculation-Reporting-Check?backToIssues  4/4
+

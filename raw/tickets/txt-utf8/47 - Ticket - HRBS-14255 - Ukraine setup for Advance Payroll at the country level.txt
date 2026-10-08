@@ -1,0 +1,50 @@
+9/8/26, 8:29 AM              Ukraine setup for Advance Payroll at the country level : HRBS-14255
+
+Projects / HRBlizz Support / Tickets / HRBS-14255        Assi… Enter search r…
+
+Created by Nataliia Hahan 1 day ago                                                                     HRBlizz Support Team
+Updated by Mohit Jain about 5 hours ago
+
+Ukraine setup for Advance Payroll at the country level
+
+  Tier 1
+
+       Project               CCs                          Priority                                               Type
+
+      HRBlizz                No CCs                M Medium                                              S Service
+      Support                                                                                                  Request⁠
+                                        Assignee          Support Group
+       State                                                                                            Resolution Time
+                                      Wallisson    C Compliance                                           2d
+O Open⁠                               dos Santos         Support⁠
+                                      Gomes                                                                      Spent time
+       SLA Violation                                      Estimation
+                                        Country                                                          ??
+? Reason                                           ??
+      ----                      U Ukraine                                                                        Legal Entity
+                                                          SLA status                                             Phase
+       Environment                      Client
+                                                   ? No sla status                                        I Implementati
+P Production                    G GSK                                                                          on⁠
+
+                 Boards
+
+                 No visible
+                 boards
+
+For Ukraine, we require the Advance Payroll setup at the country level. Kindly set this up at the
+country level.
+Thank you.
+
+Company Name
+Altium Ukraine, GSK Ukraine, SDL Ukraine
+
+                 Mohit Jain Commented about 5 hours ago
+                 No Requirements?
+
+                 Kind regards
+                 Mohit Jain
+                 Head of Compliance Product
+
+https://youtrack.hrblizz.dev/tickets/HRBS-14255/Ukraine-setup-for-Advance-Payroll-at-the-country-level                         1/1
+

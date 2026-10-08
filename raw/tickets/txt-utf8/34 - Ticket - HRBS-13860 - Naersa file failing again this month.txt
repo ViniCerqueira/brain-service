@@ -1,0 +1,99 @@
+8/27/26, 11:22 AM                         Naersa file failing again this month : HRBS-13860        6 of 1621
+
+  Projects / HRBlizz Support / Tickets /                  Enter search req…
+
+   HRBS-13860
+
+Created by PHILIPPA O REILLY about 1 hour ago                                                      PHILIPPA O REILLY +3
+Updated by Romano Fusana just now
+
+Naersa file failing again this month
+
+  Tier 1
+
+       Project        CCs                         Priority                                                  Type
+
+      HRBlizz               ZANDER KAHL…   M Medium                                                  I Incident⁠
+      Support               DECLAN O'DO…
+                                                  Support Group                                    Resolution Time
+       State                     Assignee                                                            5d
+                                           L L2
+P In                           Romano            Support⁠                                                   Spent time
+      Progress⁠                Fusana
+                                                  Estimation                                        ??
+       SLA Violation             Country
+                                           ??                                                               Legal Entity
+? Reason                 I Ireland
+      ----                                        SLA status                                        L Phase
+                                 Client                                                                   Live/BAU⁠
+       Environment                         ? No sla status
+                         O Omnicom
+P Production
+
+       Boards
+
+      No visible
+      boards
+
+Naersa submission failing again this month for all entities.
+The payroll submission failed for Clavis and OMG due to incorrect PRSI classes.
+Could you please amend the classes and submit the Naersa submissions for August today
+please.
+
+Company Name
+ALL
+
+Attachments 4 Hidden files 4
+
+Romano Fusana Commented about 1 hour ago
+Hi @PHILIPPA O REILLY,
+
+Good day! Thank you for contacting the Mercans Support Team. This is to acknowledge
+receipt of your ticket.
+
+We will proceed with our review and get back to you if we require any additional
+information or action from your end. You will also be updated on the progress of your
+ticket, especially if we need to involve our internal teams to complete your request or
+resolve the issue.
+
+Should you have any further concerns or clarifications, please don’t hesitate to reach out
+to us.
+
+https://youtrack.hrblizz.dev/tickets/HRBS-13860/Naersa-file-failing-again-this-month?backToIssues                         1/3
+8/27/26, 11:22 AM                  Naersa file failing again this month : HRBS-13860
+
+                 Kind regards,
+                 Romano Fusana
+                 Support Engineer
+
+   HRBlizz Support Team
+
+Romano Fusana Commented 43 minutes ago
+
+   REF-LE-01-699                   REF-01-699      Clavis Technologies Ltd
+
+   Process  Notification           Outbound        Status                                          Latest Step
+   Id       Uuid                   Config
+
+   8212     01a04329-              NAERSA          errored                                         API_Error_Details
+   8211     65de-73e0-             Contribution    errored                                         Submit_Report_ErrorBrak
+            b8f8-                  Submission
+            a1aadb2d2fb8           with
+                                   Reconciliation
+            01a04323-              Details
+            d335-7a3b-
+            b63b-                  Irish Tax
+            cd1780bd5218           Payroll
+                                   Submission
+
+                                                                                                               
+
+   01a04329-65de-73e0-b8f8-a1aadb2d2fb8
+
+https://youtrack.hrblizz.dev/tickets/HRBS-13860/Naersa-file-failing-again-this-month?backToIssues                           2/3
+8/27/26, 11:22 AM              Naersa file failing again this month : HRBS-13860
+
+                   Process ID
+
+https://youtrack.hrblizz.dev/tickets/HRBS-13860/Naersa-file-failing-again-this-month?backToIssues  3/3
+

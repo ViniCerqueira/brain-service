@@ -1,0 +1,408 @@
+8/19/26, 9:46 AM                          ES: Modelo 190 (Personal Income Tax IRPF) - SPEC : SR-83
+
+Created by Wallisson dos Santos Gomes 7 months ago           Visible to issue readers               3
+
+Updated by Lily Li 36 minutes ago
+
+ES: Modelo 190 (Personal Income Tax IRPF) - SPEC
+
+         Project                                 State                Priority          Assignee
+
+SR Statutory                              R In Review         M Major                  Wallisson
+       Reports                                                                         dos Santos
+                                                 Spent time  Due Date                  Gomes
+         Phase
+                                                2d 3h        31 Jan 2026                Country
+       Final Review
+ F Phase -                                       Research             Developer  E ES
+                                                 Analyst
+       Business                                               B Brenet                  Redesign of
+       Analyst                            W Wallisson               Õispuu
+                                                Gomes                            ? old country
+         Business                                                                      No
+
+ L Analyst
+       Lily Li
+
+Boards
+  Statutory Report…
+
+Spain Modelo 190 (Personal Income Tax IRPF) - SPEC
+
+Items mentioned here 1 Inward mentions 2
+
+Items mentioned here
+     M SR-342 ES: Employee Tax Certificate - SPEC
+
+Inward mentions
+     M CT-4406 Spain Regulation_Retribution Flexible
+     N CT-4433 ES: Spain Regulation Support
+
+Attachments 8 Hidden files 6
+
+https://youtrack.hrblizz.dev/issue/SR-83                                                               1/9
+8/19/26, 9:46 AM                              ES: Modelo 190 (Personal Income Tax IRPF) - SPEC : SR-83
+
+LL Lily Li Commented 5 months ago
+        @Wallisson dos Santos Gomes Pls check further queries highlighted in purple in column V
+        under the sheet "Modelo 190 Spec". Thanks
+
+LL Lily Li Commented 5 months ago
+        @Wallisson dos Santos Gomes Pls check new queries for these two fields. New queries
+        are not answered yet.
+
+            Incapacity In-Kind Value
+
+            Incapacity In-Kind Withholding
+
+                  Wallisson dos Santos Gomes  Commented 5 months ago
+                  @Lily Li queries reverted.
+
+                  Drew Õispuu Commented 3 months ago
+                  @Lily Li this report has been configured in acceptance and is ready for testing
+
+LL Lily Li Commented 3 months ago (edited)
+        @Drew Õispuu Thanks for your update!
+
+        As per research update, under the sheet "Income Type Clave and Subclave", the AEAT
+        Key and AEAT Subkey columns have been updated for pay elements: 65816 to 65849.
+
+                  Pay Element             Changes
+                                          Update AEAT key as L, AEAT subkey as 24
+                  65816
+                  65817                   AEAT key and AEAT subkey removed, so no need to consider
+                  65818                   them in this report.
+                  65819
+                                          Update AEAT key as L, AEAT subkey as 24
+                  65820 to
+                  65829
+                  65840 to
+                  65849
+
+                  65830 to
+                  65839
+
+                  The sheet "Income Type Clave and Subclave" has been updated in the report spec and
+                  the changes are highlighted in green. Pls help incorporate these changes into the
+                  configuration. Thank you!
+
+                  Drew Õispuu             Commented 2 months ago
+                  @Lily Li
+
+                  Pay elements 65816-65819 and 65830-65839: now reported under AEAT Key L / Subkey
+                  24 (in-kind exempt field) as per the updated "Income Type Clave and Subclave" sheet.
+
+                  Pay elements 65820-65829 and 65840-65849: fully excluded from the report.
+
+LL Lily Li Commented 29 days ago (edited)
+        @Wallisson dos Santos Gomes 1. The row 26 to 29 in the spec mentioned that clave A/L/G
+        are in scope, but in WTC, the below wage codes are with clave B. Is clave B in scope? OR,
+        we should remove the below 3 wage codes from M190 spec > sheet "Income Type Clave
+        and Subclave".
+
+https://youtrack.hrblizz.dev/issue/SR-83                                                                2/9
+8/19/26, 9:46 AM                              ES: Modelo 190 (Personal Income Tax IRPF) - SPEC : SR-83
+
+                  2. For below fields, if clave is G, output zeros, correct?
+
+                     In-Kind Annual Gross
+                     In-Kind Withholdings
+
+                  3. For the field "In-Kind + Ingreso a Cuenta - Clave G", keep it zero or blank?
+                  4. Row 71: is it required for mapping? Only one label there. No info in other columns.
+                  5. For this field "Incapacity Gross Amount", only need to get the sum of YTD of 79414 and
+                  79415 and 79416 for clave A? Pls confirm if there's other leave payout pay elements to be
+                  included here.
+                  6. As raised in the group chat, column V & W removed, and some fields column info is
+                  missing.
+
+                  Wallisson dos Santos Gomes  Commented 29 days ago
+                  @Lily Li —
+
+                  1. Clave B should be added to scope, not removed. Confirmed against the WTC (AEAT
+                     Key field) and primary sources (Ibermutua, Umivale Activa): risk during
+                     pregnancy/lactation and the SS-paid portion of parental leave are paid via "pago
+                     directo" by INSS/mutua, not pago delegado by the employer — that's exactly the
+                     trigger for Clave B under AEAT rules. The 3 wage types (79429, 79430, 79432) are
+                     correctly configured as Clave B in the WTC. Spec updated to include Clave B in scope.
+
+                  2. Confirmed: In-Kind fields don't zero out for Clave G by default — if a Clave G
+                     professional receives in-kind remuneration, it populates the same generic in-kind fields
+                     (rows 28/29), not a fixed zero.
+
+                  3. Same answer as 2 — depends on whether that specific professional received in-kind
+                     value; not a fixed rule.
+
+                  4. Row 71 is fully populated — resolved as part of the earlier column V/W fix.
+
+                  5. Confirmed: 79416 ("Sickness leave payment 16-20 days") was missing and has been
+                     added to both Incapacity Gross Amount and Incapacity Withholdings, alongside 79414
+                     and 79415.
+
+                  6. Already resolved — see the earlier fix on columns V/W and the section headers.
+
+                  ES-M190-001_Modelo190_Spec_v2.7
+
+LL Lily Li Commented 28 days ago
+        @Wallisson dos Santos Gomes In this ES-M190-001_Modelo190_Spec_v2.7, there's no
+        updates made by me yesterday. I made updates in Spain Modelo 190 (Personal Income
+        Tax IRPF) - SPEC in the task description. You should update in Spain Modelo 190 (Personal
+        Income Tax IRPF) - SPEC
+
+                  For below point 2 & 3, there's no BIK pay elements for clave G, so it should be mapped to
+                  zeros, correct? If not zeros, you should provide pay elements for BIK for clave G.
+
+https://youtrack.hrblizz.dev/issue/SR-83                                                                       3/9
+8/19/26, 9:46 AM                          ES: Modelo 190 (Personal Income Tax IRPF) - SPEC : SR-83
+
+                  If clave B in scope, which fields in the spec should be applicable to clave B? Pls highlight it
+                  in a different color.
+
+                  Also, when you make updates to Spain Modelo 190 (Personal Income Tax IRPF) - SPEC, do
+                  not remove my pink highlights because these are the changes the developer will refer to.
+
+https://youtrack.hrblizz.dev/issue/SR-83                                                                           4/9
+8/19/26, 9:46 AM                              ES: Modelo 190 (Personal Income Tax IRPF) - SPEC : SR-83
+
+                  Wallisson dos Santos Gomes  Commented 28 days ago
+                  @Lily Li
+
+                  File updated.
+
+                  Points 2 & 3 — BIK for Clave G: zeros is correct in practice, but map it as derived-zero, not
+                  hardcoded. In-kind IS legally valid for clave G — the AEAT defines it as "percepciones,
+                  dinerarias o en especie", and positions 108-147 carry no clave restriction. It's zero because
+                  we have no BIK pay elements for Clave G perceptores, not because clave G excludes in-
+                  kind. If it's hardcoded and a client ever pays a professional in kind, we'd under-report.
+
+                  Related: the two incapacity in-kind fields (positions 282-321) are Clave A only — "solo
+                  para percepciones correspondientes a la clave A". Not B, not G.
+
+                  Clave B fields: added column X, highlighted in purple, marking every field with its AEAT
+                  basis.
+
+                  Applies to B (subclaves 01/03/04/99): identification fields, Income Type Clave/Subclave
+                  (subclave mandatory for B), the four amount fields, the full personal/family block (Family
+                  Situation, Spouse NIF, Disability, Children, Ascendants, Reduced Mobility — all "solo claves
+                  A, B, C"), plus Irregular Income Reduction and Deductible Expenses.
+
+                  B.01 only: Incapacity Gross Amount and Incapacity Withholdings.
+
+                  Does NOT apply to B (marked red): Contract Type, Contract End Date, Geographic
+                  Mobility, and the two incapacity in-kind fields.
+
+LL Lily Li Commented 28 days ago
+        @Wallisson dos Santos Gomes Pls check column V, row 55 to 60, highlighted in red.
+
+        Also, the example column for row 55 to 60 is blank. Pls provide if required.
+
+                  Wallisson dos Santos Gomes  Commented 27 days ago
+                  @Lily Li queries reverted.
+
+LL Lily Li Commented 27 days ago
+        @Wallisson dos Santos Gomes Pls check column V, highlighted in red. row 57, 59, 60, 109
+
+LL Lily Li Commented 27 days ago
+        @Wallisson dos Santos Gomes As aligned, pls add new column in WTC to mark irregular
+        income.Thanks
+
+                  Wallisson dos Santos Gomes Commented 27 days ago
+                  added in the v4.2 of the WTC: Spain Wage Type Catalogue V4.2
+
+LL Lily Li Commented 26 days ago (edited)
+        @Drew Õispuu Pls update the following rows mapping, and changes highlighted in pink in
+        column U: some rows are newly added
+        row 25 to 29
+        row 55 to 58
+        row 60, 61
+        row 68 to 75
+        row 82
+
+https://youtrack.hrblizz.dev/issue/SR-83                                                                         5/9
+8/19/26, 9:46 AM                          ES: Modelo 190 (Personal Income Tax IRPF) - SPEC : SR-83
+
+                 row 107
+
+Drew Õispuu Commented 15 days ago
+@Lily Li Done and in Acceptance:
+
+Few items need clarification
+
+ 1. Rows 55-58: the position column still says TBC, and I can't place fields in a fixed-width
+     record without positions. The union dues pay element in row 58 also doesn't exist in
+     the WTC yet.
+
+ 2. Clave B: row 27 puts "YTD of 79429, 79430, 79432" under Annual Withholdings.
+     Those are payout elements, so I assume they belong under gross. What is the
+     withholding mapping, and which subclave (01/03/04/99) does each of the three
+     report under?
+
+ 3. Rows 27/61, incapacity withholding split: this only moves amounts between positions,
+     not the total, so I'll implement it together with points 1-2 and change the record layout
+     once.
+
+ 4. Row 107, Accrual Year: wage_type.accrual_period_year doesn't exist in the data
+     model. Same gap you raised on SR-342. The field stays 0000 until a source exists.
+
+LL Lily Li Commented 12 days ago
+        @Wallisson dos Santos Gomes Pls check below. Thanks
+
+          1. Rows 55-58, 107: the position column H still says TBC, which leads to that the
+             developer doesn't know how to fit them in positions. Pls specify the exact position for
+             each.
+
+          2. For row 107 Accrual Year (Ejercicio de Devengo): as its related original rows 59 & 60
+             have been removed in our last call, should this row be removed as well? If not, pls
+             clarify which wage type is being referred to in the below mapping logic. For example, if
+             basic salary retro happens in last year December, here should output last year 2025?
+
+                 IF wage_type.accrual_period_year != current_filing_year THEN
+                 wage_type.accrual_period_year ELSE OMIT element. Source is payroll/wage-type
+                 transaction metadata (which accrual year this specific arrears or reintegro line
+                 belongs to)
+
+                 Typically happens in retro scenarios. Output the year where the retro month belongs
+                 to.
+
+        3. For row 27 Annual Withholdings: for clave B, how to calculate its annual withholdings?
+        The below is current logic to calculate annual withholdings for clave A, L, G.
+
+            Clave A:
+            YTD of the following:
+            2552/58176*(58176-79414-79415-79416)
+            2592/(58177+58176)*(58176-79414-79415-79416)
+            2593/(58177+58176)*(58176-79414-79415-79416)
+
+            Clave L: Zeros
+            Clave G: 58960 YTD
+
+Wallisson dos Santos Gomes                Commented 9 days ago
+@Lily Li —
+
+https://youtrack.hrblizz.dev/issue/SR-83                                                               6/9
+8/19/26, 9:46 AM                          ES: Modelo 190 (Personal Income Tax IRPF) - SPEC : SR-83
+
+                  1. Positions: Row 57 = 171-183. Row 58 = 184-196. Row 107 = 148-151. Rows 55/56
+                     have no discrete position — not separate AEAT fields; any taxable excess is absorbed
+                     into Row 26 (82-94).
+
+                  2. Row 107 stays. Real, mandatory-when-applicable field, covers both atrasos and
+                     reintegros. Its row 59/60 references were stale (those slots are now Incapacity fields,
+                     not atrasos/reintegro) — Retro-year logic is correct as given.
+
+                  3. Row 27, Clave B = Zeros, not a formula. 79429/79430/79432 are all pago-directo by
+                     INSS/mutua — employer withholds nothing, so there's nothing to report, same as Clave
+                     L. Also: 79429/79430 should be Subclave 03, not 01 (AEAT FAQ places "riesgo
+                     durante el embarazo" there explicitly). 79432 isn't Clave B at all — it's exempt
+                     maternity/paternity, Clave L/27.
+
+LL Lily Li Commented 7 days ago
+        @Wallisson dos Santos Gomes
+
+                  1. Row 55/56 absorbed into row 26 (82-94), which clave? Row 26 is generated as per
+                     Clave.
+
+                  2. The WTC 79429, 79430, 79432 data are contradictory against the below statement.
+
+Projects / StaPtlustuoprydaRteepWorTtsC /if rIsesquueirsed/: SR-83    Enter search request
+
+                  https://docs.google.com/spreadsheets/d/1z0gdlMeZxqd8coy4lD6aDfsmya3bvckcpTG
+
+                  s2qbcZyU/edit?gid=1933417183#gid=1933417183
+
+                  Also: 79429/79430 should be Subclave 03, not 01 (AEAT FAQ places "riesgo durante
+                  el embarazo" there explicitly). 79432 isn't Clave B at all — it's exempt
+                  maternity/paternity, Clave L/27.
+
+LL Lily Li Commented 7 days ago (edited)
+        @Drew Õispuu
+
+        M190__2026.txt
+
+        Pls check below issues:
+
+          1. Declaration ID output is incorrect. Pls check field explanation column.
+          2. Pls clarify the highlighted below is mapped to which fields in the M190 report spec.
+
+             Thanks
+
+                  3. Also, as Wallisson confirmed, develop as below:
+
+                  Positions: Row 57 = 171-183. Row 58 = 184-196. Row 107 = 148-151.
+
+                  Row 55/56 absorbed into Row 26: Clave A.
+
+https://youtrack.hrblizz.dev/issue/SR-83                                                                      7/9
+8/19/26, 9:46 AM                                                   ES: Modelo 190 (Personal Income Tax IRPF) - SPEC : SR-83
+
+                  Row 107 stays. The mapping is to output the retro year. When a payment's accrual
+                  period falls in a prior tax year to the filing year, this field carries that prior year, which
+                  means if there's retro happening in prior tax year to the filing year, output the year the
+                  retro period falls in. Else, omit row 107.
+
+                     Row 27, Clave B = Zeros
+
+                  4. As per Wallisson's update, AEAT Key and Subkey for 79429, 79430, 79432 have been
+                     updated under the sheet "Income Type Clave and Subclave". Pls check if there's any
+                     impact to development. Thanks
+
+                  Wallisson dos Santos Gomes      Commented 6 days ago
+                  @Lily Li
+
+                  1. Row 55/56 → Row 26: Clave A. Rows 55 (Employer Pension/PPSE/Mutualidad
+                     Contribution) and 56 (Employer Dependency Insurance Contribution) are both scoped
+                     to Clave A only. Row 26 (Annual Gross Amount) computes differently per clave (A/L/G),
+                     so the excess from 55/56 lands specifically in the Clave A instance of Row 26 — it
+                     never reaches L or G, since those two source rows don't apply there.
+
+                  2. WTC updated to match what I stated on 08-10, confirmed against AEAT's Diseños
+                     Lógicos 190:
+
+                  79429 (Risk During Lactation) and 79430 (Risk During Pregnancy): Subclave 01 → 03.
+                  Subclave 01 is pensiones/haberes pasivos only; 03 is the residual Clave B bucket, which is
+                  where SS/mutua-paid risk benefits belong.
+                  79432 (Parental Leave Payout, Paid Weeks): Clave B → Clave L, Subclave 01 → 27. AEAT
+                  defines L.27 explicitly as "prestaciones públicas por maternidad o paternidad exentas del
+                  IRPF" — exactly this wage type.
+
+                  Changes highlighted in orange.
+
+                  Spain_Wage_Type_Catalogue_V4.4
+
+                  Kind regards,
+                  Wallisson dos Santos Gomes
+
+                  Drew Õispuu             Commented 5 days ago
+                  Hi Lily,
+
+                  1. Declaration ID - fixed, now 1902026000001. Sequential stays 000001 unless the
+                     entity field is maintained.
+
+                  2. The highlighted characters are two fields each: 19743 = Birth Year 1974 + Family
+                     Situation 3; 01 = Disability 0 + Contract Type 1. Both correct.
+
+                  3. Positions 57/58/107 were already correct.
+                     Row 27 Clave B = zeros done.
+                     Rows 55/56 need the Mercans wage type codes.
+
+https://youtrack.hrblizz.dev/issue/SR-83                                                                                     8/9
+8/19/26, 9:46 AM                          ES: Modelo 190 (Personal Income Tax IRPF) - SPEC : SR-83
+
+                  Row 107 Accrual Year: still blocked. wage_type.accrual_period_year does not exist in
+                  the data model, so there is no source for the retro year.
+
+                  4. 79429/79430 now produce Clave B/03, 79432 produces L/27.
+
+LL Lily Li Commented about 1 hour ago
+        @Drew Õispuu in report spec, I didn't find which field is mapped to birth year 1974. Could
+        you pls clarify? Also, disability code and contract type positions are not close to each
+        other, but here why are they next to each other?
+
+LL Lily Li Commented 36 minutes ago
+        @Wallisson dos Santos Gomes Could you pls double check the positions of the fields in
+        the report spec? As per Brenet, they do not match.
+
+        And, could you pls provide government specification for M190? Thanks
+
+https://youtrack.hrblizz.dev/issue/SR-83                                                                9/9
+

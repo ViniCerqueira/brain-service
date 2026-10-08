@@ -1,0 +1,141 @@
+8/20/26, 7:39 PM                                              UA: D6-001_SpecialSeniority : SR-163
+
+Created by Wallisson dos Santos Gomes 6 months ago            Visible to issue readers                                 3
+Updated by Lily Li about 9 hours ago
+
+UA: D6-001_SpecialSeniority
+
+         Project                                  State                Priority                            Assignee
+
+SR Statutory                               R In Review         M Major                                    Wallisson
+       Reports                                                                                            dos Santos
+                                                  Spent time  Due Date                                    Gomes
+         Phase
+                                                 ?            31 Mar 2026                                  Country
+       Final Review
+ F Phase -                                        Research                                          U UA
+                                                  Analyst
+       Business                                                      Developer                            Redesign of
+       Analyst                             W Wallisson
+                                                 Gomes        M Michael                             ? old country
+         Business                                                   Mukosi John                          No
+         Analyst
+
+ ? No business
+       analyst
+
+Boards
+  Statutory Report...
+
+UA-D6-001_SpecialSeniority_Spec
+Attachments 3 Hidden files 2
+
+  XML
+
+special seniorit
+y 4 kB
+
+LL Lily Li Commented 4 months ago (edited)
+        @Wallisson dos Santos Gomes I've converted excel format to Google Sheets:
+        https://docs.google.com/spreadsheets/d/1BR2slg8T9Ixx2kdhPRwCMegWi9QUDfPCt9yckJ
+        CzefA/edit?usp=sharing
+
+        Pls update in the task description.
+
+        Also, pls check queries in column V. Thanks
+
+                  Wallisson dos Santos Gomes  Commented 4 months ago
+                  @Lily Li queries reverted.
+
+LL Lily Li Commented 3 months ago
+        @Wallisson dos Santos Gomes Thanks for your updates! I've reviewed your comments and
+        there're still some queries to check with you. Pls check column V highlighted in purple.
+
+https://youtrack.hrblizz.dev/issue/SR-163                                                                                 1/3
+8/20/26, 7:39 PM                              UA: D6-001_SpecialSeniority : SR-163
+
+                  Also, pls remember to update the below link in the task description. Now all specs in the
+                  tasks description are in excel format. I've converted them into Google Sheets and
+                  complete product mapping.
+
+                  Wallisson dos Santos Gomes  Commented 3 months ago
+                  @Lily Li queries reverted.
+
+LL Lily Li Commented 3 months ago
+        @Wallisson dos Santos Gomes Pls create this field $legal_entity_hr.d6_duration_unit in UA
+        DD:
+        https://docs.google.com/spreadsheets/d/1jzBC2bZHgPirDPb4X4tSTr2TPWEH4kDUpz7yG
+        3sxtQE/edit?gid=1435287519#gid=1435287519
+
+                  Wallisson dos Santos Gomes  Commented 3 months ago
+                  @Lily Li this is done.
+
+LL Lily Li Commented 3 months ago
+        @Wallisson dos Santos Gomes D6 Duration Unit option mapper is not created in country
+        option mappers sheet.
+
+                  Wallisson dos Santos Gomes  Commented 2 months ago
+                  @Lily Li done.
+
+                  Michael Mukosi John Commented 29 days ago
+                  @Lily Li We need the following fields created from compliance:
+
+                   1. Ukrainian Citizen Flag - $hr.ukrainian_citizenship_flag::key
+                   2. Seniority Ground Code (8-char) - $hr.special_seniority_code
+                   3. Labour Event Period Start Date - $hr.labour_event_period_start_date
+                   4. Labour Event Period End Date - $hr.labour_event_period_end_date
+                   5. Duration Unit Selector - $legal_entity_hr.d6_duration_unit::key
+                   6. Attestation Order Number - $hr.attestation_order_number
+                   7. Attestation Order Date - $hr.attestation_order_date
+                   8. Season Indicator - $hr.season_type::key
+                   9. Chief Accountant RNOCPP - $legal_entity_hr.director_signatory_rnocpp
+
+LL Lily Li Commented 29 days ago
+        @Michael Mukosi John All these fields are already there in DD. Pls refer to the spec,
+        column U "BA Mapping".
+
+        https://docs.google.com/spreadsheets/d/1jzBC2bZHgPirDPb4X4tSTr2TPWEH4kDUpz7yG
+        3sxtQE/edit?gid=767263614#gid=767263614
+
+                  Michael Mukosi John Commented 28 days ago
+                  @Lily Li Pls setup the fields in the acceptance at the country level.
+
+LL Lily Li Commented 28 days ago
+        @Michael Mukosi John They've already been set up in acceptance.
+
+https://youtrack.hrblizz.dev/issue/SR-163                                                                    2/3
+8/20/26, 7:39 PM                           UA: D6-001_SpecialSeniority : SR-163
+
+                  Michael Mukosi John Commented 27 days ago
+                  We have configured this report in acceptance at the country level. The report code is ua-
+                  special-seniority.
+
+                  Attached is the XML template. special seniority.xml. Attached is a sample from our test in
+                  REF-02-370 Mercans Ukraine Special Seniority Report 2026-01-01 - 2026-01-31.xml
+
+                    XML
+
+                  special seniorit
+                  y 4 kB
+
+Projects / Statutory Reports / Issues / SR-163  Assi...                          Enter search req...
+     LL Lily Li Commented about 9 hours ago
+
+              @Wallisson dos Santos Gomes
+
+                  1. Here the trigger to generate this report is that if $hr.special_seniority_code is not null,
+                     correct?
+
+                  2. Document Type Flag is linked to HZ/HZN/HZU | C_DOC_STAN. As the mapping is
+                     $legal_entity_hr.document_type_flag_d6, how to populate to each tag within
+                     HZ/HZN/HZU | C_DOC_STAN. Example, if document type flag D6 = 011, 011 is
+                     populated into which tag?
+
+                  3. "HBOS" and "HBUH" does not exist in D6 Spec sheet. Pls check if other elements are
+                     missing.
+
+                  Pls make your changes in the same spec as shown in the task description. Do not create a
+                  separate document. And, highlight your changes in a different color. Thanks
+
+https://youtrack.hrblizz.dev/issue/SR-163                                                                         3/3
+

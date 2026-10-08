@@ -1,0 +1,270 @@
+9/16/26, 8:19 AM      Explanation of Income Tax Withholding Calculation : HRBS-13627
+
+Projects / HRBlizz Support / Tickets /         A… Enter sea…                                                    7 of 95
+
+HRBS-13627
+
+Created by Heidy Ballesteros Puyo 24 days ago                        HRBlizz Support Team
+Updated by Mohit Jain 13 days ago
+
+Explanation of Income Tax Withholding Calculation
+
+  Tier 1
+
+       Project        CCs                             Priority                Type
+
+      HRBlizz         No CCs                   M Medium               Q Question /
+      Support                                                               Inquiry⁠
+                                 Assignee             Support Group
+       State                                                         Resolution Time
+                               Wallisson       C Compliance            -20d
+O Open⁠                        dos Santos            Support⁠
+                               Gomes                                          Spent time
+       SLA Violation                                  Estimation
+                                 Country                              ??
+? Reason                                       ??
+      ----               C Colombia                                           Legal Entity
+                                                      SLA status
+       Environment               Client                               L Phase
+                                               ? No sla status              Live/BAU⁠
+P Production             P Philip Morris
+                               International
+       Boards
+
+      No visible
+      boards
+
+The system should automatically calculate income tax for all employees, as applicable, using
+either Method 1 or Method 2 with a fixed percentage, Concepts Used for Income Tax Withholding
+The following concepts are used for income tax withholding:
+• 2552 – Income Tax (Employee): Used for the general employee population.
+• 21330 – Personal Income Tax Withholding (Theoretical): Used for employees classified as Expat
+Home.
+For the monthly payroll process, the income tax withholding calculation is initially performed
+using the standard methodology for all employees. Once the calculation is completed, the values
+corresponding to employees under the Expat Home treatment are reviewed and adjusted in the
+system according to the applicable methodology.
+Additionally, the withholding tax amount is reclassified to the corresponding concept according
+to the employee's type or classification, ensuring that the value is recorded under the
+appropriate concept.
+The validation file is attached to provide further detail and facilitate understanding of each item.
+The file corresponds to a monthly Excel-based validator, with worksheets for the standard
+calculation (“Tax Report” and “Gross to Net PMI”), contingent withholding calculation
+(“Contingente”), special calculation for the service bonus (“ReteFuente PRIMA”), tax rate table
+(“Tax Table”), deduction inputs (“Tax Ded”), and the recalculation of the fixed semiannual
+withholding percentage (“Recaculo Retencio”).
+The analysis focuses on identifying the legal thresholds and limits automatically applied by the
+file, verifying that they correspond to the regulations applicable for the period (July 2026), and
+explaining step by step the calculation logic followed by each formula.
+
+https://youtrack.hrblizz.dev/tickets/HRBS-13627/Explanation-of-Income-Tax-Withholding-Calculation?backToIssues           1/5
+9/16/26, 8:19 AM  Explanation of Income Tax Withholding Calculation : HRBS-13627
+
+https://docs.google.com/spreadsheets/u/0/d/1iA8Fmv17UuXCKKmqIyYmyjc7ElzTLAGl/edit?
+usp=sheets_home&ths=true&rtpof=true
+Tax Value Unit (UVT) Used
+The file uses a UVT value of $52,374 in all threshold formulas (worksheets “Gross to Net PMI”
+and “Tax Table”).
+This value corresponds to the official UVT for tax year 2026, established by the Colombian Tax
+Authority (DIAN) through Resolution 000238 dated December 15, 2025, based on the 5.17%
+variation in the CPI for middle-income households between October 2024 and October 2025.
+Regulatory Framework
+• Article 383 of the Colombian Tax Code (E.T.): Marginal tax rate table for withholding tax on
+employment income.
+• Article 386 E.T.: Procedure 2 (fixed semiannual withholding percentage).
+• Article 387 E.T.: Deductions for housing loan interest, health/medical insurance, and
+dependents.
+• Article 387-1 E.T.: Treatment of meal allowance or subsidy.
+• Article 388 E.T.: 40% limitation applicable to deductions and exempt income in the taxable base
+calculation.
+• Article 206, numeral 10 E.T.: 25% exempt income applicable to employment payments.
+• Article 126-1 E.T.: 30% limitation applicable to voluntary contributions to AFC and voluntary
+pension funds.
+Regulatory Thresholds and Limits Identified in the File
+The following table summarizes the regulatory thresholds automatically applied by the file
+(worksheets “Gross to Net PMI”, rows 10–11, and “Tax Ded”), together with their equivalent
+amounts in Colombian pesos using the 2026 UVT ($52,374):
+Concept Limit Amount in COP Legal Basis
+Exempt meal allowance (only if salary ≤ 310 UVT) 41 UVT/month $2,147,334 Art. 387-1 E.T.
+Interest and monetary correction on housing loans / housing lease 100 UVT/month $5,237,400
+Art. 387 E.T.
+Health payments (prepaid medical plan / health insurance) 16 UVT/month $837,984 Art. 387 E.T.
+Dependent deduction (10% of gross income, subject to this limit) 32 UVT/month $1,675,968 Art.
+387 E.T.
+Voluntary contributions to AFC + Voluntary Pension Funds (VFP), individually and jointly 30% of
+employment income Variable Art. 126-1 E.T.
+25% exempt income (after deducting mandatory contributions, deductions and AFC/VFP) 790
+UVT/year ≈ 65.83 UVT/month $3,446,732/month Art. 206, No. 10 E.T.
+Overall limit for exempt income + deductions 40% of Base 1, absolute limit of 1,340 UVT/year ≈
+111.67 UVT/month $5,847,117/month (absolute limit) Art. 388 E.T.
+Important note: The 1,340 UVT limit is an annual limit, not a monthly limit. The file applies it by
+dividing it by 12 (approximately 111.67 UVT/month) as a proportional monthly equivalent. Section
+5.2 explains the special cases where this approximation may not be sufficient.
+The values shown in pesos in “Tax Ded” (employee deduction inputs) exactly match these
+thresholds when an employee reaches the applicable limit. For example, $1,675,968 = 32 UVT ×
+$52,374 (dependent deduction limit), and $837,984 = 16 UVT × $52,374 (prepaid medical plan
+limit), confirming that the input template already applies the applicable limit before the value is
+included in the validator.
+Monthly Tax Withholding Calculation – Procedure 1
+For each employee (worksheet “Tax Report”, populated from “Gross to Net PMI”), the standard
+calculation of the taxable base for withholding tax follows the steps below, in the same order as
+the columns in the file:
+Step Concept Formula / Rule Applied
+1 Total Income (Total ING) Basic/integral salary + other income + legal service bonus, when
+applicable + meal allowance.
+
+https://youtrack.hrblizz.dev/tickets/HRBS-13627/Explanation-of-Income-Tax-Withholding-Calculation?backToIssues  2/5
+9/16/26, 8:19 AM  Explanation of Income Tax Withholding Calculation : HRBS-13627
+
+2 Base 1 Total income − mandatory social security contributions (health, pension, solidarity fund
+and subsistence fund).
+3 Deductions – Art. 387 E.T. Housing loan interest, prepaid medical plan, dependents. Each is
+individually subject to its applicable UVT limit before being deducted.
+4 Base 2 Base 1 − (housing + prepaid medical plan + dependents).
+5 Voluntary contributions to AFC and Voluntary Pension Funds (VFP) Each contribution is limited
+to 30% of employment income; the combined AFC + VFP amount is also subject to the same 30%
+limit (Art. 126-1 E.T.).
+6 Base 3 Base 2 − limited AFC/VFP contributions.
+7 25% exempt income – Art. 206, No. 10 E.T. MIN(Base 3 × 25%; 65.8333 UVT/month).
+8 Base 4 Base 3 − 25% exempt income.
+9 Overall 40% limitation – Art. 388 E.T. Benefit limited to MIN(MIN(Base 1 × 40%; sum of
+deductions + exemptions); 111.67 UVT/month).
+10 Taxable Base (Withholding Tax Basis) Base 1 − benefit allowed under Step 9.
+11 Base in UVT Taxable base ÷ applicable UVT value ($52,374 for 2026).
+12 Income Tax Withholding – Art. 383 E.T. Withholding in UVT = (Taxable Base in UVT − lower
+limit of the applicable range) × marginal tax rate + fixed value for the range. The result is
+converted back to Colombian pesos by multiplying by the UVT.
+Detailed Explanation of the 40% Limitation – Article 388 E.T.
+This is one of the most sensitive controls because it combines two different limits, and the more
+restrictive limit must be applied:
+• Relative limit: The sum of deductions (housing, prepaid medical plan and dependents),
+AFC/VFP contributions, and the 25% exempt income cannot exceed 40% of Base 1 (income less
+mandatory social security contributions).
+• Absolute limit: Regardless of the result above, the total benefit cannot exceed 1,340 UVT per
+year, equivalent to approximately 111.67 UVT per month ($5,847,117 based on the 2026 UVT).
+• Rule applied: The file calculates MIN(40% of Base 1, actual sum of benefits) and then applies a
+second MIN against the absolute annual-limit monthly equivalent. The resulting benefit is
+deducted from Base 1 to determine the final taxable base.
+Special Case: Employees Who Have Already Reached the 1,340 UVT Annual Limit
+The 1,340 UVT limit under Article 388 E.T. is, by definition, an annual limit. No employee may
+receive deductions and exempt income exceeding 1,340 UVT in total during the 12 months of the
+tax year (approximately $70,181,160 for 2026).
+The validator does not apply this limit based on an accumulated annual amount. Instead, each
+month it uses cell $V$11 = (1,340 × UVT) ÷ 12 ≈ 111.67 UVT/month as a proportional monthly
+equivalent and applies it consistently from January through December.
+In general cases, this approach is mathematically consistent: if the 111.67 UVT monthly limit is
+strictly respected in each of the 12 months, the maximum annual amount is limited to 12 × 111.67
+UVT = 1,340 UVT.
+However, for an employee whose actual accumulated deductions and exempt income have
+already reached 1,340 UVT during the year, no additional benefit should be applied during the
+remaining months of the same tax year, even if the monthly formula appears to allow another
+deduction.
+Applying only the monthly limit without checking the actual annual accumulated amount may
+result in withholding below the applicable amount (under-withholding), generating a difference
+that could ultimately be payable by the employee when filing the annual income tax return or
+requiring an adjustment by the company in subsequent months.
+For these employees, a manual control is maintained for those who received this benefit through
+the payment of IC bonuses, as the client requested that the benefit be applied in full to reduce
+the withholding tax amount for the month.
+Procedure 2 – Fixed Semiannual Percentage – Article 386 E.T.
+The “Recaculo Retencio” worksheet calculates, for employees assigned to Procedure 2, a fixed
+
+https://youtrack.hrblizz.dev/tickets/HRBS-13627/Explanation-of-Income-Tax-Withholding-Calculation?backToIssues  3/5
+9/16/26, 8:19 AM  Explanation of Income Tax Withholding Calculation : HRBS-13627
+
+withholding percentage (column “% I Semestre 2026”). This percentage is determined by
+averaging the taxable base for the previous 12 months (or from the employee's hire date if the
+employee has been employed for less than one year) and applying the result to the Article 383
+E.T. tax table.
+This percentage is recalculated only in June and December of each year and is applied
+consistently to the taxable income of each month in the following semester, without repeating
+the full monthly tax calculation.
+In the validator, the “Tipo de procedimiento” field (Column B of “Gross to Net PMI”) determines
+which procedure applies to each employee:
+• 1 = Full monthly tax calculation
+• 2 = Direct application of the fixed semiannual percentage to the monthly taxable base
+Special Treatment of the Service Bonus – Procedure 1
+The “ReteFuente PRIMA” worksheet documents—and the validator applies—the DIAN criterion
+according to which the service bonus is not subject to the general tax withholding calculation.
+Mandatory social security contributions, Article 387 E.T. deductions, and the 40% limitation are
+not deducted from this payment.
+The only amount that may be deducted is the 25% exempt income under Article 206, numeral 10
+E.T., as this is exempt income rather than a deduction.
+The applicable marginal tax rate from the Article 383 E.T. table is then applied directly to the
+resulting net amount.
+For Procedure 2, the service bonus is added to the employee's taxable income for the month.
+Clarification Regarding Withholding Tax Configuration for Expatriate/Non-Resident Employees
+For employees identified by the client under this treatment, withholding tax is configured based
+on the total taxable earnings for the period, to which a 20% tax rate is applied.
+Under this configuration, tax benefits, deductions, and exempt income are not considered.
+Therefore, the calculation corresponds to applying the 20% rate directly to the total taxable
+earnings.
+The client is directly responsible for monitoring the employees' tax status and supporting
+documentation and for identifying which employees should be treated under this methodology.
+The Payroll team applies the configuration based on the information and instructions provided by
+the client.
+If the client determines that an employee should move to a different tax withholding calculation
+method, the request must be submitted in writing, together with the corresponding instructions.
+Once the written request is received, the employee's withholding tax calculation is updated and
+processed under Procedure 1, applying the applicable deductions, exempt income, and other tax-
+related items based on the employee's information and supporting documentation.
+Therefore, any change to the calculation methodology must be supported by written
+confirmation from the client and the corresponding documentation, based on which the payroll
+configuration will be updated.
+Contingent Withholding
+The “Contingente” worksheet replicates the same calculation structure used for Procedure 1, but
+applies it to a base that incorporates additional or non-recurring payments during the period,
+such as bonuses, adjustments, retroactive payments, etc.
+The purpose of this parallel calculation is to project the marginal impact that the additional
+income would have on the applicable withholding tax rate, in order to prevent under-withholding
+when the additional payment moves the employee into a higher tax bracket.
+The validator compares the “with contingency” result against the regular calculation and uses the
+positive difference as the additional withholding tax to be applied (column “CONTINGENT
+WITHHOLDING” in “Tax Report”).
+Article 383 E.T. Tax Rate Table – 2026
+From (UVT) To (UVT) Fixed Value (UVT) Marginal Rate Approx. Monthly Base in COP (2026 UVT)
+0 95 0 0% Up to $4,975,530
+
+https://youtrack.hrblizz.dev/tickets/HRBS-13627/Explanation-of-Income-Tax-Withholding-Calculation?backToIssues  4/5
+9/16/26, 8:19 AM                        Explanation of Income Tax Withholding Calculation : HRBS-13627
+
+95 150 0 19% $4,975,530 – $7,856,100
+150 360 10 28% $7,856,100 – $18,854,640
+360 640 69 33% $18,854,640 – $33,519,360
+640 945 162 35% $33,519,360 – $49,483,530
+945 2,300 268 37% $49,483,530 – $120,460,200
+2,300 and above 770 39% Above $120,460,200
+The amounts shown in Colombian pesos in the last column are approximate, calculated using the
+2026 UVT of $52,374, and are included only as a reference. The actual calculation performed by
+the file is always based on UVT and is converted into Colombian pesos only for the final
+withholding tax result.
+
+Company Name
+1764 - Compañía Colombiana de Tabaco SAS
+
+Attachments 1
+
+  XLSX
+
+07 Julio 2026 _ Ret
+ención en… 928 kB
+
+                  HRBlizz Support Team
+
+                  Romano Fusana  Commented 13 days ago
+                  Hi Mohit,
+
+                  As discussed in ELT, this is one of the tickets raised by PMI that needs to be addressed
+                  before the client can transition to Instaroll.
+
+                  The full list of PMI items requiring attention before the transition is available here: PMI
+                  Instaroll Transition Tracker
+
+                       HRBlizz Support Team
+
+                  Mohit Jain Commented 13 days ago
+                  As per discussion with Manju, assigning to wallisson for gap analysis when during
+                  colombia research.
+
+https://youtrack.hrblizz.dev/tickets/HRBS-13627/Explanation-of-Income-Tax-Withholding-Calculation?backToIssues  5/5
+

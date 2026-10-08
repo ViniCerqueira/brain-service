@@ -1,0 +1,60 @@
+9/8/26, 11:21 AM                                 Ukraine WTC catalog Altium client check : HRBS-14331
+
+Projects / HRBlizz Support / Tickets / HRBS-14331                       Assi... Enter search r...
+
+Created by Nataliia Hahan 3 minutes ago                                  HRBlizz Support Team
+Updated by Nataliia Hahan 1 minute ago
+
+Ukraine WTC catalog Altium client check
+
+       Project         CCs                                Priority                Type
+
+      HRBlizz          No CCs                      M Medium               S Service
+      Support                                                                   Request
+                                  Assignee                Support Group
+       State                                                             First Reply
+                          ? Unassigned             L L2                    19h
+N New                                                    Support
+                                                                                  Estimation
+Resolution Time              SLA Violation                Country
+  5d                                                                      ??
+                       ? Reason                    U Ukraine
+         Spent time         ----                                                  SLA status
+                                                          Client
+ ??                          Environment                                  ? No sla status
+                                                   ? No client
+         Legal Entity  ? No
+         Phase              environment
+
+ ? Please                    Boards
+       choose legal
+       entity phase         No visible
+                            boards
+
+Wallisson, please review the Altium Catalogue -- could you take a look at the points below? Link
+below.
+
+https://docs.google.com/spreadsheets/d/1FV2VgiNP0eqXoiowpYfyuFGca3osW752/edit?
+gid=700094827#gid=700094827
+
+ 1. Additional columns -- average earnings inclusion
+     We need additional columns indicating which wage type (WT) codes should be included in
+     the average earnings calculation, and which should not. Using these columns, we'll be able to
+     collect data on past periods for the last 12 months.
+
+ 2. Highlighted wage types
+     There's a question regarding the highlighted wage types in the link -- please take a look at
+     those and cross-check them against the master catalogue.
+
+Company Name
+Altium Ukraine
+GSK Ukraine
+SDL Ukraine
+
+                  Nataliia Hahan Commented 1 minute ago
+                  @Wallisson dos Santos Gomes Foe Your Action, please.
+
+                  @Vaishnavi Mane FYI
+
+https://youtrack.hrblizz.dev/tickets/HRBS-14331                                                        1/1
+

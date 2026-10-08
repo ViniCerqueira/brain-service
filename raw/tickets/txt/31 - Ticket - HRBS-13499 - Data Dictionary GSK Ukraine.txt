@@ -1,0 +1,60 @@
+8/24/26, 9:34 AM                                 Data Dictionary GSK Ukraine : HRBS-13499
+
+Projects / HRBlizz Support / Tickets / HRBS-13499             Assi... Enter search r...
+
+Created by Nataliia Hahan 5 days ago                                                HRBlizz Support Team
+Updated by Pradeep Duraisamy about 5 hours ago
+
+Data Dictionary GSK Ukraine
+
+  Tier 1
+
+         Project       CCs                                           Priority                       Type
+
+       HRBlizz         No CCs                                 M Medium                      S Service
+       Support                                                                                    Request
+                                  Assignee                           Support Group
+         State                                                                             First Reply
+                                Wallisson                     C Compliance                   -3d
+ O Open                         dos Santos                          Support
+                                Gomes                                                               Estimation
+Resolution Time                                                      Country
+  20h                             SLA Violation                                             ??
+                                                              U Ukraine
+         Spent time       ? Reason                                                                  SLA status
+                                ----                                 Client
+ ??                                                                                         ? No sla status
+                                  Environment                 G GSK
+         Legal Entity
+         Phase            P Production
+
+  I Implementati                  Boards
+       on
+                                No visible
+                                boards
+
+Dear Team,
+
+Kindly ask you to check the additional fields in Master data file GSK:
+
+ 1. Insurance Record Type (for Sick Leave) (Year, months, days)
+ 2. Grade 2
+ 3. City of Work
+ 4. Manager
+
+That is all fields - is specificly only for that clients, not in General for all Ukraine. But Insurance
+Record Type (for Sick Leave) (Year, months, days) - this is important for all Ukraine clients. And
+we have a separate ticket for it.
+
+https://docs.google.com/spreadsheets/d/1iVh-WU8xsinOjdemmvYLuLVakGZWS59f/edit?
+gid=410990721#gid=410990721
+
+Company Name
+GSK Ukraine REF-LE-04-222
+
+                  Nataliia Hahan Commented 4 days ago
+                  @Wallisson dos Santos Gomes
+                  Could you please give your advice of that?
+
+https://youtrack.hrblizz.dev/tickets/HRBS-13499                                                                 1/1
+

@@ -1,0 +1,66 @@
+9/29/26, 1:42 PM              UA: Form 1-PV Quarterly (Labour Statistics Report) - SPEC : SR-415
+
+Projects / Statutory Reports / Issues / SR-415            Assi…                                 Enter search req…
+
+Created by Wallisson dos Santos Gomes about 2 months ago                                                                   2
+Updated by Lily Li about 3 hours ago                                                            Visible to issue readers
+
+UA: Form 1-PV Quarterly (Labour Statistics Report) -
+SPEC
+
+         Project            State                        Priority                                      Assignee
+
+       Statutory     O Open                      M Major                                              Wallisson
+       Reports                                                                                        dos Santos
+                            Spent time          Due Date                                              Gomes
+         Phase
+                           ?                    30 Sep 2026                                            Country
+       Product
+       Mapping              Research                     Developer                              U UA
+ P Phase -                  Analyst
+       Business                                  ? No                                                  Redesign of
+       Analyst       W Wallisson                       developer
+                           Gomes                                                                ? old country
+         Business                                                                                     No
+
+ L Analyst
+       Lily Li
+
+Boards
+  Statutory Report…
+
+File: UA-1PV-002_QuarterlyLabourReport_Spec.
+
+Inward mentions 1
+     M HRBS-12548 Ukraine Statistic reports
+
+Attachments 2 Hidden files 2
+
+LL Lily Li Commented 6 days ago
+        @Wallisson dos Santos Gomes
+
+        Pls check column V of UA-1PV-002 Spec. Also, pls specify the file format, which is not
+        reflected under the report matrix sheet.
+
+                  Wallisson dos Santos Gomes  Commented 5 days ago
+                  @Lily Li
+
+                  Column V answered in column W.
+                  File format added to Report Matrix (row 16): XML, Derzhstat template S0301121, signed
+
+https://youtrack.hrblizz.dev/issue/SR-415/UA-Form-1-PV-Quarterly-Labour-Statistics-Report-SPEC                                1/2
+9/29/26, 1:42 PM  UA: Form 1-PV Quarterly (Labour Statistics Report) - SPEC : SR-415
+
+                  with KEP, submitted electronically only via Кабінет респондента (Law 2524-IX art. 10(4)).
+
+LL Lily Li Commented about 3 hours ago (edited)
+        @Wallisson dos Santos Gomes Pls check below issues:
+
+          1. You've changed 4DF codes for below pay elements in WTC, so they're updated under
+             Wage Fund Classification sheet as per your update. Pls confirm if column E and F
+             under Wage Fund Classification should be updated as well.
+
+                  2. Pls check column V, highlighted in red. Thanks
+
+https://youtrack.hrblizz.dev/issue/SR-415/UA-Form-1-PV-Quarterly-Labour-Statistics-Report-SPEC               2/2
+

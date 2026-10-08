@@ -1,0 +1,99 @@
+8/18/26, 12:52 PM                                Ukraine "Insurance Record" ( ) : HRBS-13389
+
+Projects / HRBlizz Support / Tickets / HRBS-13389  Assi... Enter search r...
+
+Created by Nataliia Hahan about 4 hours ago                              HRBlizz Support Team
+Updated by Archit Naik about 3 hours ago
+
+Ukraine "Insurance Record" ( )
+
+  Tier 3
+
+         Project       CCs                                Priority                Type
+
+       HRBlizz         No CCs                      M Medium               S Service
+       Support                                                                  Request
+                                  Assignee                Support Group
+         State                                                           First Reply
+                                Wallisson          C Compliance            15h
+ O Open                         dos Santos               Support
+                                Gomes                                             Estimation
+Resolution Time                                           Country
+  2d                              SLA Violation                           ??
+                                                   U Ukraine
+         Spent time       ? Reason                                                SLA status
+                                ----                      Client
+ ??                                                                       ? No sla status
+                                  Environment      A Altium
+         Legal Entity
+                          P Production
+ L Phase
+       Live/BAU                   Boards
+
+                                No visible
+                                boards
+
+Issue Description:
+
+The field "Insurance Record" ( ) is missing from the Ukraine Data Dictionary (DD).
+
+What this field is:
+Insurance Record is the employee's accumulated length of social insurance service (
+), as defined by Ukrainian labor legislation. It is a cumulative value carried over from the
+employee's full work history, not something that can be calculated from data within a single
+employer's system alone -- it must be entered/updated at the time of hire based on the
+employee's labor book / prior insurance record documentation.
+
+Why it's required:
+Insurance Record directly determines the sick pay percentage applied in temporary disability
+calculations under Ukrainian law:
+
+less than 5 years of insurance record  60% of average earnings
+5 to 8 years  80% of average earnings
+8+ years  100% of average earnings
+
+Without this field being correctly captured and stored, the system cannot apply the correct
+percentage, resulting in incorrect sick leave payment calculations.
+
+Current gap:
+This field currently exists only in our Master Data upload template, under the column "Insurance
+Record (for sick pay)". However, there is no corresponding field in the Data Dictionary. As a
+result:
+
+https://youtrack.hrblizz.dev/tickets/HRBS-13389                                                   1/2
+8/18/26, 12:52 PM                                Ukraine "Insurance Record" ( ) : HRBS-13389
+
+There is no formal, structured way to bring this value into the system during new employee
+onboarding.
+The field cannot be validated, mapped, or maintained consistently across clients.
+Any downstream sick pay calculation logic relying on this value has no reliable source field to
+reference.
+
+Request:
+
+Please add "Insurance Record" as a new field in the Ukraine Data Dictionary (V3.4), under the
+appropriate section (suggest: Country Fields / Employment Information, to be confirmed with DD
+structure).
+Please confirm the correct field type (numeric -- years/months/days, or date-based calculation)
+and whether it should be a static value entered at hire or one that the system should auto-
+accumulate/update over time.
+Please confirm whether this field should also be linked to WTC formula logic for sick pay
+calculation, or whether that mapping is handled separately.
+
+Impact if not addressed:
+
+New employees cannot have accurate sick pay percentages calculated from day one of
+employment.
+Manual workaround / data entry outside the system will be required, increasing risk of calculation
+errors and compliance issues under Ukrainian labor law.
+
+Company Name
+Altium
+
+Nataliia Hahan Commented about 4 hours ago
+Dear @Wallisson dos Santos Gomes please help with that.
+Thank you!
+Natalia
+
+https://youtrack.hrblizz.dev/tickets/HRBS-13389                                                     2/2
+

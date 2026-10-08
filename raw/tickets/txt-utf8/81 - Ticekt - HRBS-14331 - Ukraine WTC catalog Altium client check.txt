@@ -1,0 +1,799 @@
+9/23/26, 9:30 AM                                 Ukraine WTC catalog Altium client check : HRBS-14331
+
+Created by Nataliia Hahan 15 days ago                                                                  vmane +1
+Updated by Nataliia Hahan 1 day ago
+
+Ukraine WTC catalog Altium client check
+
+       Project                CCs                         Priority                Type
+
+      HRBlizz                       vmane          M Medium               S Service
+      Support                                                                   Request⁠
+                                         Assignee         Support Group
+       State                                                             Resolution Time
+                                       Wallisson   C Compliance                Paused
+R Resolved⁠                            dos Santos        Support⁠
+                                       Gomes                                      Spent time
+       SLA Violation                                      Estimation
+                                         Country                          ??
+? Reason                                           ??
+      ----                       U Ukraine                                        Legal Entity
+                                                          SLA status              Phase
+       Environment                       Client
+                                                   B Breached             ? Please
+? No                             ? No client                                    choose legal
+      environment                                                               entity phase
+
+                  Boards
+
+                  No visible
+                  boards
+
+Wallisson, please review the Altium Catalogue — could you take a look at the points below? Link
+below.
+
+https://docs.google.com/spreadsheets/d/1FV2VgiNP0eqXoiowpYfyuFGca3osW752/edit?
+gid=700094827#gid=700094827
+
+ 1. Additional columns — average earnings inclusion
+     We need additional columns indicating which wage type (WT) codes should be included in
+     the average earnings calculation, and which should not. Using these columns, we'll be able to
+     collect data on past periods for the last 12 months.
+
+ 2. Highlighted wage types
+     There's a question regarding the highlighted wage types in the link — please take a look at
+     those and cross-check them against the master catalogue.
+
+Company Name
+Altium Ukraine
+GSK Ukraine
+SDL Ukraine
+
+Attachments 8 Hidden files 8
+
+https://youtrack.hrblizz.dev/tickets/HRBS-14331                                                                  1/15
+9/23/26, 9:30 AM                                 Ukraine WTC catalog Altium client check : HRBS-14331
+
+                  Nataliia Hahan Commented 15 days ago
+                  @Wallisson dos Santos Gomes Foe Your Action, please.
+
+                  @Vaishnavi Mane FYI
+
+                  Wallisson dos Santos Gomes     Commented 14 days ago
+                  @Nataliia Hahan
+
+                  1. Average-earnings inclusion columns
+
+                  Already in the catalogue — columns J, K, L, populated for all 114 wage types:
+
+                  Vacation pay (J): 12-month base — Порядок №100, п. 2.
+                  Sick leave (K): 6-month base on ЄСВ-taxed income — Постанова №1266, п. 4.
+                  Business trips / donor leave (L): 2-month base — Порядок №100, п. 2.
+
+                  The 12-month history referenced maps to column J only. Sick leave (K) runs on a 6-month
+                  base, business trip/donor leave (L) on 2 months.
+
+                  2. Highlighted wage types — cross-check
+
+                  Checked against current statutory text and the master catalogue.
+
+                  Row 5, "Non-taxable individual anniversary gifts": corrected PIT/Military Tax from Yes/Yes
+                  to No/No — same formula and 4DF code 160 as Row 2 (пп. 165.1.39 ПКУ).
+                  Rows 93, 95, 97, 99, 101 (medical/life/family insurance, representation expenses):
+                  PIT=Yes/Military Tax=Yes confirmed correct — п. 16-1, підрозд. 10, розд. XX ПКУ.
+                  Row 17, "Payment Civil Contractors": PIT/Military Tax/USC = Yes/Yes/Yes doesn't match п.
+                  177.8 ПКУ, which exempts all three once the entrepreneur provides registration proof. Not
+                  yet resolved — no code finalized for this scenario.
+                  Remaining rows (2, 3, 4, 26, 90, 92, 94, 96, 98, 100, 102, 103, 111): confirmed correct.
+
+                  WTC_Altium_Ukraine_2026_2
+
+                  Kind regards,
+                  Wallisson dos Santos Gomes
+
+                  Nataliia Hahan Commented 14 days ago
+                  Dear @Wallisson dos Santos Gomes
+
+                       Payment Civil Contractors (for individual entrepreneurs) has code 157 ( if civil
+                       contractor can be self employer) please confirm and update Ukr WTC with correct
+                       code.
+
+                       Life insurance - this is the base for SSC - should be YES.
+
+                  Please provide us with the correct codes. @Vaishnavi Mane cant understand which code
+                  she can use here. Which from here the codes is grossed up, which no. (The clients in
+                  Ukraine use the separate columns with benefit and with grossed up amount of the
+                  coeficient taxes):
+
+                  Additional benefit 1
+                  Additional benefit
+                  Medical insurance (PIT)
+                  Medical insurance (PIT only, no military tax)
+                  Representation expenses (subject to PIT)
+                  Representation expenses (PIT only, no military tax)
+                  Life insurance
+                  Life insurance (no base for military tax of gross up part)
+
+https://youtrack.hrblizz.dev/tickets/HRBS-14331                                                               2/15
+9/23/26, 9:30 AM                                 Ukraine WTC catalog Altium client check : HRBS-14331
+
+                  Representation expenses (financial reporting)
+                  Representation expenses (financial, no military tax)
+                  Family insurance
+                  Family insurance without Military tax
+                  Taxation of English language courses
+                  Taxation of English courses (PIT) without Military tax
+
+                  https://docs.google.com/spreadsheets/d/1FV2VgiNP0eqXoiowpYfyuFGca3osW752/edit?
+                  gid=700094827#gid=700094827
+
+                  Best Regards,
+                  Natalia
+
+                  Nataliia Hahan Commented 14 days ago
+                  @Wallisson dos Santos Gomes
+                  Please update and confirm that the days which was worked in public holidays and
+                  weekends have to to payd with duble salary - these days should be included to the future
+                  average salary for vacations as work days additionaly. For example - in a month we have
+                  20 work days, if EE worked + 3 public holidays in that moth - in average should be
+                  included 23 works day for calculation of the Quartary and Yearly bonus proration.
+
+                  Thank you.
+
+                  Wallisson dos Santos Gomes     Commented 14 days ago
+                  @Nataliia Hahan
+
+                  1. Average-earnings inclusion columns
+
+                  Columns W, X, Y added, populated across all 114 wage types (102 with a direct master-
+                  catalogue match):
+
+                  Vacation: 12-month base — Порядок №100, п. 2.
+                  Sick leave: 6-month base, mirrors each code's ЄСВ/USC status — Постанова №1266, п. 4.
+                  Business trip/donor leave: 2-month base, same eligibility as vacation — Порядок №100, п.
+                  2.
+
+                  2. Highlighted wage types — cross-check
+
+                  Life insurance: USC corrected to Yes — Постанова №1170, п. 2, розд. II exempts only
+                  medical and pension insurance from ЄСВ, not life.
+                  Payment Civil Contractors: 4DF code 157 confirmed, configured on 62942,
+                  PIT/Military/USC = No/No/No — п. 177.8 ПКУ.
+                  Grossed-up vs. benefit codes: all 14 items now have a code, flagged in the spreadsheet
+                  (Mercans Code column highlighted). One open point: the two English-course codes are
+                  separate entries here, each with its own base/grossed-up pair — not one code split in two
+                  like the rest.
+                  Remaining rows previously reviewed: confirmed correct.
+
+                  3. Public holiday/weekend work in day counts
+
+                  Two different rules, not one:
+
+                  Bonus proration (quarterly/annual): confirmed correct — a holiday or weekend worked
+                  adds a day to the actually-worked-days count. Your example (20 + 3 = 23) is right —
+                  Порядок №100, п. 3.
+                  Vacation pay average: not the same rule. That calculation runs on calendar days, with
+
+https://youtrack.hrblizz.dev/tickets/HRBS-14331                                                              3/15
+9/23/26, 9:30 AM                                 Ukraine WTC catalog Altium client check : HRBS-14331
+
+                  public holidays already excluded — it doesn't add a day per holiday worked. The double
+                  pay itself is still counted in earnings either way.
+
+                  Ukraine_Wage_Type_Catalogue_Mercans_V3_8
+
+                  Kind regards,
+                  Wallisson dos Santos Gomes
+
+                  Nataliia Hahan Commented 13 days ago
+                  hi @Wallisson dos Santos Gomes I mean, for th ecalculation Average salary we use work
+                  days for th ecalculation of the proportional Quartary bonus and yearly bonus - there
+                  should be used 23 work days, not 20.
+
+                  Please check it. Thank you!
+
+                  Nataliia Hahan Commented 13 days ago
+                  @Wallisson dos Santos Gomes
+                  Also, please add to the WTC client catalog - Altium - the missed WT in the first columh.
+
+                  Thank you!
+
+                  Nataliia Hahan Commented 13 days ago
+                  Dear @Wallisson dos Santos Gomes, please give us one more code for 65808 Life
+                  Insurance (BIK) with 126 code and Social Cecurity Yes, as we have different codes for
+                  every benefit. So we need two codes with 126 and SSC Yes
+
+                  Thanks
+
+                  Wallisson dos Santos Gomes     Commented 13 days ago
+                  Hi @Nataliia Hahan
+
+                  1. Confirmed — public holidays and weekends worked both count toward the worked-
+                     days total for quarterly/annual bonus proration, as full days regardless of hours
+                     worked. Порядок №100 п.3; Мінекономіки letter 28.06.2024 №4702-05/46462-09:
+                     pay for such work is included in average-earnings, so the day is included too — same
+                     rule for both day types under Art. 107 KZpP. Your example — 20 scheduled + 3
+                     holidays worked = 23 — is correct.
+
+                  2. Outside Compliance's scope — we maintain the Mercans master WTC only, not client-
+                     side catalogs. Please forward this to the team lead.
+
+                  3. No second code is needed. 65808 already carries 4DF code 126 and USC/ESV = Yes
+                     on the benefit's actual value — this is the only ESV base that exists for this benefit.
+                     ESV does not use the Art.164.5 natural coefficient; that coefficient applies to the PIT
+                     base only. The PIT/Military split (65808 base + 65894 grossed-up) exists because
+                     those two taxes use different bases — ESV has only one, so there's nothing further to
+                     code.
+
+                  Kind regards,
+                  Wallisson dos Santos Gomes
+
+                  Nataliia Hahan Commented 12 days ago
+                  Dear @Wallisson dos Santos Gomes
+                  Also we still do not have the free codes for the benefits:
+
+https://youtrack.hrblizz.dev/tickets/HRBS-14331                                                               4/15
+9/23/26, 9:30 AM                                 Ukraine WTC catalog Altium client check : HRBS-14331
+
+                     1 - Representation expenses (financial reporting) Предст витр (фін.зв.)
+                     2 - Representation expenses (financial, no military tax) Предст витр (фін.з
+                     3 - Taxation of English language courses Оподаткування курсів англійської м
+                     4 - Taxation of English courses (PIT) without Military tax Оподаткування ку
+
+                   Diff detected
+
+                  Please update it in the file:
+
+                  https://docs.google.com/spreadsheets/d/1FV2VgiNP0eqXoiowpYfyuFGca3osW752/edit?
+                  gid=700094827#gid=700094827
+
+                  Nataliia Hahan Commented 12 days ago
+                  dear @Wallisson dos Santos Gomes @Lily Li
+
+                  Also here some notes re one WT code 21142:
+
+                  79401 Vacation compensation
+                  Compensation for unused vacation days — recalculate a fresh average salary as of
+                  termination (per Resolution No. 100, para. 2, sub-para. 3), based on the last 12 months
+                  worked.
+
+                  21142 Deduction for vacation used in advance
+                  Deduction for advance/unearned vacation days — **use the previous average salary
+                  already applied when that vacation was originally paid; do not recalculate. **Also note: not
+                  applicable in cases under Art. 127 of the Labor Code (redundancy, health, conscription,
+                  retirement, death, etc.).
+
+                  Best Regards,
+                  Natalia
+
+                  Wallisson dos Santos Gomes     Commented 12 days ago
+                  @Nataliia Hahan
+
+                  Free codes (Representation expenses / English courses):
+
+                  Representation expenses (65806, 65807): PIT=Yes, confirmed — no coefficient applies,
+                  cash/accountable-advance mechanism (Art. 170.9 ПКУ). PIT and Military Tax both on the
+                  raw value.
+                  English courses (65720, 65803): PIT=Yes, confirmed — coefficient applies, non-monetary
+                  benefit (Art. 164.5 ПКУ).
+
+                  Master WTC updated (attached), changes highlighted green.
+
+                  79401: Confirmed — recalculate a fresh average, based on the last 12 months, at
+                  termination. Citation correction: Poryadok No. 100, п. 2, абзац другий (second
+                  paragraph), not "sub-para. 3."
+
+                  21142: Confirmed — use the average salary already applied originally; don't recalculate.
+                  Exclusion list: combine Art. 127 Labor Code with Art. 22 Law "On Vacations" No. 504/96-
+                  ВР — not identical lists. Separately: in our master catalogue, 21142 is already a different
+                  wage type, so the code for this deduction shouldn't be 21142.
+
+                  Ukraine_Wage_Type_Catalogue_Mercans
+
+                  Kind regards,
+                  Wallisson dos Santos Gomes
+
+                  Nataliia Hahan Commented 9 days ago
+
+https://youtrack.hrblizz.dev/tickets/HRBS-14331                                                                 5/15
+9/23/26, 9:30 AM                                 Ukraine WTC catalog Altium client check : HRBS-14331
+
+                  Thnak youDear @Mohit Jain
+                  Could you please fined a correct numbers code for the 3 WTs in the client Altium catalog
+
+                  1 Life insurance (no base for military tax of gross up part)
+
+                  2 Representation expenses (financial reporting)
+
+                  3 Representation expenses (financial, no military tax)
+
+                                                                                                       Kotlin detected
+
+                  https://docs.google.com/spreadsheets/d/1FV2VgiNP0eqXoiowpYfyuFGca3osW752/edit?
+                  gid=700094827#gid=700094827
+
+        Thank you!
+
+LL Lily Li Commented 7 days ago
+        @Nataliia Hahan I noticed that Wallisson added these pay elements:
+
+                  Could you pls check if you can use these three?
+                  For 65894, the code is incorrect. Pls explain the meaning of "Life insurance (no base for
+                  military tax of gross up part)". After this, I will assign the correct code.
+
+                  Kind regards,
+                  Lily Li
+
+                  Nataliia Hahan Commented 7 days ago
+                  Hi @Lily Li , Hi @Wallisson dos Santos Gomes
+                  Yes, I have updated the WT Altium Ukraine catalog.
+                  Please find here:
+                  https://docs.google.com/spreadsheets/d/1FV2VgiNP0eqXoiowpYfyuFGca3osW752/edit?
+                  gid=700094827#gid=700094827
+                  There I have one question re deduction of Overpayment vacation days - there we have to
+                  provide the days with minus and use WT for unused days vacation or we have to add
+                  additional code Unit - separate for overused vacation numbers of day wothout minus?
+                  Also there is he different used formula for average.
+                  This is the code:
+
+LL Lily Li Commented 6 days ago
+
+https://youtrack.hrblizz.dev/tickets/HRBS-14331                                                                         6/15
+9/23/26, 9:30 AM                                 Ukraine WTC catalog Altium client check : HRBS-14331
+
+                  @Wallisson dos Santos Gomes What's difference between highlighted? Pls clarify in detail
+                  why it should be added and where it is used. We cannot add them only as per business
+                  requirements. Why the formula for 65894 is 802536457?
+
+                  Pls note: code assignment is within BA range, not RA. If you need to add pay elements to
+                  published WTC, pls add the columns other than pay element code. I will assign the correct
+                  code to it after confirmation. Currently, 65894 is incorrect.
+
+                  Kind regards,
+                  Lily Li
+
+                  Nataliia Hahan Commented 6 days ago
+                  Dear @Wallisson dos Santos Gomes @Lily Li @Mohit Jain
+                  Please note that Ukr Guide should be little bit corrected 8.2:
+
+                  Correction to the "Average Salary Calculation for Leave" section:
+
+                  Remove the statement that sick leave and maternity leave (pregnancy and childbirth)
+                  months are excluded from the vacation pay calculation period. This is incorrect — both the
+                  days and the amounts of sick leave and maternity leave are included in the vacation pay
+                  calculation, with no exceptions (Resolution No. 100, para. 3, sub-para. 4). The exclusion
+                  list given in the document under "Sick Leave Pay" (sick leave, maternity leave, childcare
+                  leave, unpaid leave, war-suspension of the employment contract, military service) applies
+                  to the calculation of sick leave pay itself (Resolution No. 1266), not to vacation pay —
+                  these are two separate exclusion lists, and the document mistakenly applied the sick-
+                  leave-pay list to the vacation-pay calculation.
+
+                  Correct exclusion list for vacation pay specifically:
+
+                       childcare leave up to age 3
+                       unpaid leave
+                       suspension of the employment contract due to war
+                       military service, where average earnings were not retained
+                       months with missing payroll data due to combat operations
+
+                  Sick leave and maternity leave (both the days and the amounts) remain in the vacation pay
+                  calculation and are not excluded.
+
+                  best regards,
+                  Natalia
+
+                  Nataliia Hahan Commented 6 days ago
+                  Dear @Wallisson dos Santos Gomes @Lily Li @Mohit Jain
+                  Please add it to th eGuid too
+
+                  Sick leave (лікарняний) calculation rules — Ukraine
+
+                   1. Calculation period
+                       Last 12 calendar months before the month of illness. Use earnings on which USC
+                       (ЄСВ) was paid.
+
+                   2. Denominator
+                       Not calendar days of the month — days the employee was actually insured (working,
+
+https://youtrack.hrblizz.dev/tickets/HRBS-14331                                                               7/15
+9/23/26, 9:30 AM                                 Ukraine WTC catalog Altium client check : HRBS-14331
+
+                  with USC paid). Public holidays are ALWAYS excluded here (this is a general rule, not
+                  just during martial law).
+
+                  3. What's removed from the calculation period
+                     Only periods with no substitute earnings at all:
+
+                  prior sick leave
+                  maternity leave (pregnancy/childbirth)
+                  childcare leave up to age 3
+                  unpaid leave
+                  suspension of the employment contract due to war
+                  military service, where average earnings were not retained
+
+                  (Unlike vacation pay — here sick leave and maternity leave themselves are removed,
+                  otherwise you'd be calculating "sick pay from sick pay.")
+
+                  4. Short work history
+
+                  1–12 months of service → only fully worked months
+                  less than a month → actual calendar days
+                  fell ill on the very first working day → contractual rate / 30.44
+
+                  5. Payout percentage — depends on total insurance record (stazh)
+
+                  under 3 years → 50%
+                  3–5 years → 60%
+                  5–8 years → 70%
+                  over 8 years → 100%
+
+                  Exception: combat veterans and certain other privileged categories → always 100%, stazh
+                  doesn't matter.
+
+                  Maternity benefit (pregnancy/childbirth) — always 100%, stazh has no effect on the
+                  percentage at all.
+
+                  6. Stazh under 6 months in the last 12
+                     The stazh percentage tiers don't apply here at all. Instead, the amount is simply
+                     capped: no more than minimum wage / 30.44 per day.
+
+                  7. Who pays
+
+                  ordinary illness — days 1–5 employer, from day 6 onward the Pension Fund (funds the
+                  employer via a заява-розрахунок claim; the employer itself makes the actual payment to
+                  the employee)
+                  maternity leave — Pension Fund from day 1
+                  caring for a sick child or family member — Pension Fund from day 1 (the employer doesn't
+                  pay anything, not even the first days)
+
+                  8. Bonuses in the sick pay calculation — simpler than for vacation pay
+                     Monthly bonus — only counted if accrued for a month that falls within the calculation
+                     period. Quarterly/annual bonuses — included in the month they're accrued, with no
+                     spreading across months (unlike vacation pay).
+
+                  9. Taxation
+                     Ordinary sick leave: 18% PDFO + 5% military levy + 22% USC (8.41% for disability) —
+                     on the full amount, both the employer-paid days and the Pension-Fund-funded days.
+                     Maternity benefit (декретні): exempt from PDFO and military levy entirely (Art. 165.1.1
+                     of the Tax Code — it's a state social insurance payment, not wage income). USC (22%
+                     / 8.41%) still applies — that part isn't exempt, only PDFO and the levy are.
+
+https://youtrack.hrblizz.dev/tickets/HRBS-14331                                                               8/15
+9/23/26, 9:30 AM                                 Ukraine WTC catalog Altium client check : HRBS-14331
+
+                  Nataliia Hahan Commented 5 days ago
+                  Dear @Lily Li Kindly ask you to create the formula for the - 62209 Monthly bonus
+                  (compensation) - 18%+5% - from the benefits/0.77
+
+                  https://docs.google.com/spreadsheets/d/1FV2VgiNP0eqXoiowpYfyuFGca3osW752/edit?
+                  gid=755390292#gid=755390292
+
+                  Thank you
+
+                  Nataliia Hahan Commented 5 days ago
+                  .... proportional do the tax for the tax benefits.
+
+                  Nataliia Hahan Commented 5 days ago
+                  Dear @Wallisson dos Santos Gomes
+                  Please check the logick of the 65817 Additional benefit (monetary) - it means that the EE
+                  will get the money of the benefit and will no need to use the coefficient. Thank you!
+
+                  Nataliia Hahan Commented 5 days ago
+                  Dear @Wallisson dos Santos Gomes
+
+                  Could you please advise on the Benefit WTs which we use in Ukraine GTN reports. In
+                  Ukraine we do not have a special rules for GTN report. There just should be indicated all
+                  Earnengs and Deductions, and all net payments. In this case we show all benefits input
+                  and grossed up part in separate columns, also, we show the PIT tax with the different
+                  codes 101, 102, 128, 126 ets - in the deduction part. Its very help to check the report and
+                  payroll calculation.
+
+                  https://docs.google.com/spreadsheets/d/1n0wndpzatXgD_96W_gYGwydVKGOKNsVt/edit?
+                  gid=1424764972#gid=1424764972
+
+                  Could you please advise on that "grey" WT codes in Altium WTC.
+                  https://docs.google.com/spreadsheets/d/1FV2VgiNP0eqXoiowpYfyuFGca3osW752/edit?
+                  gid=700094827#gid=700094827
+
+                  Thank you!
+
+                  Wallisson dos Santos Gomes     Commented 2 days ago
+                  @Lily Li
+
+                  On 65894: the row does not exist in the master WTC. A full-file check confirms no row in
+                  the 65880-65900 range and no row carrying that name — the changelog entry claiming it
+                  was created is wrong and has been withdrawn in this version. That is also why the formula
+                  reads as it does; there is no row behind it.
+
+                  It should not be created. The catalogue has no PIT=Yes/Military=No row anywhere, and
+                  the four existing "(notional)" codes (65508, 65509, 65609, 65659) all carry PIT=Yes and
+                  Military=Yes. The statutory split is about the base each tax runs on, not which taxes apply:
+                  PIT base = benefit value × 1.219512 (Art. 164.5 ПКУ); Military Levy and USC = the raw
+                  value (п. 16-1 підрозд. 10 розд. XX ПКУ does not carry Art. 164.5 over). The flag columns
+                  record incidence, not base, so this is not expressible as a flag pattern.
+
+                  Flagging one thing that needs a decision: this file carries two contradictory designs for the
+                  same mechanism — the 2026-08-11 conclusion (engine-level rule, no WTC row) and the
+                  "BIK Gross Up" sheet (single aggregate "PE 58134", never built; the 5813x series stops at
+                  58133). Needs Compliance/BA/Dev agreement before either is implemented. Nothing
+                  created here.
+
+https://youtrack.hrblizz.dev/tickets/HRBS-14331                                                                  9/15
+9/23/26, 9:30 AM                                 Ukraine WTC catalog Altium client check : HRBS-14331
+
+                  Understood on code assignment being BA scope — the one row added below is specified
+                  with the code cell blank for you.
+
+                  @Nataliia Hahan
+
+                  1. Deduction for vacation used in advance. Added to the master WTC as a spec row,
+                     Mercans Code left blank for Lily to assign. Category = Deduction, PIT/Military/USC =
+                     No/No/No. KZpP Art. 127 para 2 + Law 504/96-ВР Art. 22. Uses the average already
+                     applied when the vacation was originally paid — no recalculation (79401 is the one
+                     that recalculates at termination, Poryadok No. 100 п. 2 абзац другий). Not applicable
+                     in the Art. 127 / Art. 22 exemption cases — the two lists are not identical, apply both.
+                     On the minus-days question: a dedicated code is the right route, not negative days on
+                     the vacation payout WT. Master code 21142 is "Unpaid leave deduction", an unrelated
+                     wage type.
+
+                  2. 65817 Additional benefit (monetary). Your reading is correct — no coefficient. Art.
+                     164.5 ПКУ applies the natural coefficient only to income in non-monetary form; a
+                     benefit paid in money is taxed on the amount paid. In the master catalogue 65817 is
+                     still an unnamed "Benefit Earning" placeholder; not renamed off a single client file, as
+                     the same action on 65811/65812 had to be reverted.
+
+                  3. Guide 8.2 — confirmed, you were right. Section 8.2 was excluding "any month spent
+                     entirely on paid leave for one of the reasons listed under Sick Leave Pay below",
+                     applying the Poryadok No. 1266 п. 3 list to a Poryadok No. 100 calculation. Corrected:
+                     the exclusion list now covers only childcare leave up to age 3, unpaid leave, war-
+                     suspension of the contract, military service without retained average, and months with
+                     missing payroll data. Sick leave and maternity leave stay in the vacation-pay
+                     calculation, days and amounts (Poryadok No. 100, п. 3, абзац 4).
+
+                  4. Sick leave rules — added to the Guide. Payer split (employer days 1-5; Pension Fund
+                     from day 6 via zayava-rozrakhunok, employer disburses; Pension Fund from day 1 for
+                     child/family care and for maternity); tenure bands with the 100%-regardless
+                     exceptions; bonus treatment in the sick-pay average; and taxation — ordinary sick
+                     leave 18% + 5% + 22% (8.41% with disability) on the full amount, maternity exempt
+                     from PDFO (пп. 165.1.1 ПКУ) and therefore from the military levy, USC still applies,
+                     reported in 4DF under income code 128. Also corrected while doing this: the Guide
+                     referred to the Social Insurance Fund, merged into the Pension Fund of Ukraine on 1
+                     January 2023.
+
+                  5. GTN report. Correct that Ukraine has no statutory GTN layout, so the column structure
+                     is a reporting decision. What is fixed is the base: PIT on the grossed-up value, Military
+                     Levy and USC on the raw value. Showing benefit input and grossed-up part in
+                     separate columns matches that split. 4ДФ columns 3а/3 report the grossed-up
+                     amount.
+
+                  6. Grey WT codes. That is the client-side catalogue — we maintain the Mercans master
+                     WTC only. List the Mercans codes you need checked and I will cross-check them
+                     against the master.
+
+                  Separately: the 62209 formula asks for benefits/0.77. The divisor should be 0.82 — the
+                  coefficient applies to the PIT base only and the Military Levy runs on the non-grossed-up
+                  value.
+
+                  Updated CCG (V1.5) and master WTC (V3.9), both in draft pending review.
+
+                  Kind regards,
+                  Wallisson dos Santos Gomes
+
+https://youtrack.hrblizz.dev/tickets/HRBS-14331                                                                 10/15
+9/23/26, 9:30 AM                                 Ukraine WTC catalog Altium client check : HRBS-14331
+
+LL Lily Li Commented 2 days ago
+        @Wallisson dos Santos Gomes Because 65894 has been removed after aligning with
+        Nataliia. If in the future, new pay elements should be added to WTC, pls align with the
+        team internally and you can add those pay elements, but without the codes. I will assign
+        the codes to those pay elements.
+
+                  Kind regards,
+                  Lily Li
+
+LL Lily Li Commented 2 days ago
+        Finalized WTC:
+        https://docs.google.com/spreadsheets/d/1rhjGwFMMZjEIo_mgg9gCGX8WZ56CRGmWwJN
+        Rqb7ZwgU/edit?gid=535500486#gid=535500486
+
+                  Kind regards,
+                  Lily Li
+
+                  Nataliia Hahan Commented 1 day ago
+                  Hi @Wallisson dos Santos Gomes
+                  I see in The Ukr WTC one mistake:
+
+                  The code 128 - is only for the maternity sick leave for 126 +14 days - that is all.
+
+                  Other maternity vacation leaves, Additional maternity leaves or benefits - can`t be 128
+                  code.
+
+                  101 - if is vacation - 126 - if is benefit
+
+                  65700 Maternity allowance (benefit) 1
+                  65701 Arrears - Maternity allowance (benefit) 1
+                  65702 Adjustment - Maternity allowance (benefit) 1
+                  65710 Maternity allowance (benefit) 2
+                  65711 Arrears - Maternity allowance (benefit) 2
+                  65712 Adjustment - Maternity allowance (benefit) 2
+
+                  Please check these codes.
+
+                  Thnak you!
+
+                  Best Regards,
+                  Natalia
+
+                  Nataliia Hahan Commented 1 day ago
+                  Dear @Wallisson dos Santos Gomes
+
+                  Please check these 2 codes - they - not should be the base for SSC
+
+                  62180 Severance Pay
+                  62181 Redundancy compensation
+
+https://youtrack.hrblizz.dev/tickets/HRBS-14331                                                            11/15
+9/23/26, 9:30 AM                                 Ukraine WTC catalog Altium client check : HRBS-14331
+
+                 Best Regards,
+                 Natalia
+
+Nataliia Hahan Commented 1 day ago
+Dear @Wallisson dos Santos Gomes , @Lily Li
+
+Codes concerned: 62570 (Per Diem Allowance), 65570 / 65571 / 65572 (Per diem benefit
+— domestic), 65580 / 65581 / 65582 (Per diem benefit — foreign), and 62965 (Unreturned
+accountable excess). All of these are substantively the same type of payment and
+currently carry identical settings: 4DF income code 118, PIT = Yes, Military Levy = Yes,
+ESV = No.
+
+What these wage types are under Ukrainian law. Per diem ("добові") is a reimbursement of
+the employee's subsistence costs during a business trip, not remuneration for work. It is
+not part of the payroll fund (п. 3.15 of the Instruction on Labour Statistics, approved by
+State Statistics Service Order No. 5 of 13.01.2004). Consequently it is outside the ESV
+base and is excluded from every average-earnings calculation — vacation pay, sick leave
+and the two-month base for business trips and donor days. Salary for the days of the
+business trip is a separate wage type.
+
+Taxation depends on the amount, so PIT and Military Levy cannot be set to a flat Yes.
+Three scenarios apply under пп. 170.9.1 of the Tax Code of Ukraine:
+
+Within the statutory cap — no PIT, no Military Levy, no ESV. For 2026 the cap is UAH
+864.70 per calendar day for domestic trips (0.1 of the minimum wage established as at 1
+January of the reporting year: 8,647 × 0.1) and EUR 80 per calendar day for foreign trips,
+converted at the official NBU rate set for each such day.
+Above the cap — the excess only is included in the employee's taxable income and is
+subject to PIT and Military Levy, with the gross-up coefficient of 1.219512 applied to the
+PIT base. ESV is still not charged, as this remains an employer expense rather than salary.
+Business trip not evidenced by documents — the full per diem amount becomes taxable,
+not just the excess.
+
+What we ask to review. For all the codes listed above, the income code 118 and ESV = No
+are correct and should stay. The PIT and Military Levy flags need to be aligned with the
+intended use of each code. The cleanest configuration is to split the amount into two
+wage types: one for per diem within the statutory cap (income code 118, no PIT, no
+Military Levy, no ESV) and one for the excess over the cap (income code 118, PIT and
+Military Levy with the 1.219512 gross-up, no ESV). If instead a single code is kept with the
+cap applied inside the formula, the formula must hold both the daily cap (domestic and
+foreign) and the gross-up coefficient — the existing rate and unit codes 63711, 63712,
+75100 and 75101 appear to be intended for exactly that, so please confirm how they
+interact with 62570.
+
+Code 62965 (Unreturned accountable excess) follows the same gross-up logic but on a
+different legal ground: it covers accountable funds not returned within the statutory
+deadline, which are taxable in full under пп. 170.9.1. Its PIT and Military Levy flags are
+therefore correct as Yes; only the gross-up treatment needs confirming.
+
+Note also that 62803 (Accountable amount advance) and the intermediary codes 58100 /
+58101 carry PIT = No and Military Levy = No, which is inconsistent with the settings of the
+codes above. Please confirm which of these codes is meant to be the taxable one, so that
+the same payment is not taxed twice.
+
+Best Regards,
+Natalia
+
+https://youtrack.hrblizz.dev/tickets/HRBS-14331                                                        12/15
+9/23/26, 9:30 AM                                          Ukraine WTC catalog Altium client check : HRBS-14331
+
+                 Nataliia Hahan  Commented 1 day ago
+
+Nataliia Hahan Commented 1 day ago
+Dear @Wallisson dos Santos Gomes
+Subject: Ukraine — Stock Options and Grants wage types: income qualification and ESV
+treatment to be confirmed
+
+Codes concerned: 62890, 62891, 62892, 62893, 62894, 62895, 62896, 62897, 62898,
+62899 and the duplicate block 62990, 62991, 62992, 62993, 62994, 62995, 62996,
+62997, 62998, 62999 — all named "Stock Options and Grants". All twenty codes currently
+carry the same settings: 4DF income code 101 (salary), PIT = Yes, Military Levy = Yes, ESV
+= No, and No in all three average-earnings columns.
+
+The current combination is not valid under Ukrainian law. Income code 101 means the
+payment is qualified as salary, and salary is by definition subject to ESV. A wage type
+cannot be reported as salary and be exempt from ESV at the same time. The correct
+setting depends entirely on one question: is the Ukrainian legal entity the source of this
+income?
+
+Scenario A — the Ukrainian entity grants the shares, or the group programme is recharged
+to it and it recognises the award as income of its own employee. Only in this case may
+these wage types be used in Ukrainian payroll. The award is then a payment within the
+employment relationship: under п. 2.3.3 of the Instruction on Labour Statistics (State
+Statistics Committee Order No. 5 of 13.01.2004) other incentive and compensatory
+payments form part of the payroll fund, and shares granted as a form of bonus or
+corporate reward are a payroll-fund component. Consequently:
+
+the income is qualified as salary and reported in Annex 4DF under income code 101;
+as the income is in non-monetary form, the PIT base is grossed up under п. 164.5 of the
+Tax Code, coefficient 1.219512;
+Military Levy is charged at 5% (on the nominal amount, without the gross-up);
+ESV is charged under part 1 of Article 7 of Law No. 2464-VI, because this is a payment
+within the employment relationship. The monthly maximum ESV base applies — UAH
+172,940 in 2026 (20 × the minimum wage of UAH 8,647), counted together with the
+employee's other payroll income of the month;
+the average-earnings columns must be revisited: the sick-leave column becomes Yes (the
+base for sickness benefit is all ESV-liable income), while the vacation and business-trip
+columns depend on whether the award is systematic or one-off — a one-off award is
+excluded by sub-paras (b) and (i) of п. 4 of Resolution No. 100.
+
+Scenario B — the shares are granted directly by the foreign parent company. If the
+Ukrainian entity did not transfer the shares, did not bear or reimburse their cost and is not
+acting as part of the group reward programme, it is not the source of the income and
+therefore not a tax agent (п. 171.1 of the Tax Code). The award is then foreign income of
+the individual under пп. 163.1.3, self-declared in the annual tax return under пп. 168.2.1 and
+Article 179: the employee personally pays PIT at 18% and Military Levy at 5%, and the
+gross-up coefficient does not apply, as it is applied only by a tax agent. In this scenario no
+ESV arises, nothing is withheld by the employer, and the payment must not be processed
+through these wage types at all — it does not appear in payroll or in the 4DF annex.
+
+https://youtrack.hrblizz.dev/tickets/HRBS-14331                                                                 13/15
+9/23/26, 9:30 AM                                 Ukraine WTC catalog Altium client check : HRBS-14331
+
+                  A third possibility is that the shares are provided not as a reward for work but as a benefit
+                  outside the payroll fund. In that case the income code must be changed from 101 to 126
+                  (additional benefit), PIT and Military Levy apply with the gross-up, ESV is not charged, and
+                  No in all three average-earnings columns is correct.
+
+                  What we need from the client / global team:
+
+                  Confirm whether the cost of the awards is recharged to the Ukrainian entity and whether
+                  the Ukrainian entity recognises the award as income of its employees.
+                  If yes (Scenario A) — set ESV = Yes for all twenty codes, keep income code 101, configure
+                  the 1.219512 gross-up for the PIT base, apply the maximum ESV base, and update the
+                  average-earnings flags accordingly.
+                  If no (Scenario B) — deactivate these codes for Ukraine, or keep them as information-only
+                  with no tax calculation, and confirm that employees are instructed to declare the income
+                  themselves.
+                  Confirm whether both blocks (62890–62899 and 62990–62999) are genuinely needed, as
+                  they currently duplicate each other with identical settings.
+
+                  Best Regards,
+                  Natalia
+
+                  Nataliia Hahan Commented 1 day ago
+                  Dear @Wallisson dos Santos Gomes
+
+                  Here should be code 102? please update WT
+
+                  Thank you!
+
+                  Best Regards,
+                  Natalia
+
+                  Nataliia Hahan Commented 1 day ago
+                  @Wallisson dos Santos Gomes
+                  Here is No all taxes, maybe its Mean that this is maternity vacation for the care of the
+                  children till 3 or 6 Years?
+                  But If it benefit, there should be the taxes and codes as for benefits.
+
+                  Thank you!
+
+Projects / HRBlizz Support / Tickets / HRBS-14331              Assi… Enter search r…
+
+https://youtrack.hrblizz.dev/tickets/HRBS-14331                                                                  14/15
+9/23/26, 9:30 AM                                 Ukraine WTC catalog Altium client check : HRBS-14331
+
+                  Best Regards,
+                  Natalia
+
+https://youtrack.hrblizz.dev/tickets/HRBS-14331                                                        15/15
+

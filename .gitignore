@@ -1,0 +1,16 @@
+# Segredos
+.env
+.env.*
+.claude/settings.local.json
+
+# Originais pesados (texto já em raw/tickets/txt-utf8/)
+*.pdf
+*.zip
+
+# Obsidian (estado local)
+.obsidian/workspace*.json
+
+# Sistema
+Thumbs.db
+desktop.ini
+.DS_Store

@@ -1,0 +1,57 @@
+9/2/26, 10:44 AM    Is occupancy tax & Region tax regulatory in Congo : HRBS-14055
+
+Projects / HRBlizz Support / Tickets /               A... Enter sea...                                        2 of 3
+
+HRBS-14055
+
+Created by Daniel Kelvin Balogun about 17 hours ago                 HRBlizz Support Team
+Updated by Pradeep Duraisamy about 8 hours ago
+
+Is occupancy tax & Region tax regulatory in Congo
+
+  Tier 1
+
+         Project    CCs                              Priority                                                          Type
+
+       HRBlizz      No CCs                    M Medium                                                         S Service
+       Support                                                                                                       Request
+                               Assignee              Support Group
+         State                                                                                                First Reply
+                             Wallisson        C Compliance                                                      -44m
+ O Open                      dos Santos             Support
+                             Gomes                                                                                     Estimation
+Resolution Time                                      Country
+  4d                           SLA Violation                                                                   ??
+                                                    Congo
+                       ? Reason               C (Congo-                                                                SLA status
+                             ----
+                                                    Brazzaville)                                               ? No sla status
+      Spent time           Environment
+                                                     Client
+??                  P Production
+                                              B Baker
+                                                    Hughes
+
+      Legal Entity  Boards
+      Phase
+                    No visible
+I Implementati      boards
+     on
+
+Is occupancy tax & Region tax regulatory in Congo
+It is in client g2n
+WTC:
+https://docs.google.com/spreadsheets/d/1WZ-vb4wulZgVKsoHJB32h-
+Y4VEVSer6gl0bLFyzFwcA/edit?gid=263639368#gid=263639368
+Company Name
+BH Congo
+
+Attachments 1
+
+  XLSX
+
+Congo Payregister
+Jan'26 3 MB
+
+https://youtrack.hrblizz.dev/tickets/HRBS-14055/Is-occupancy-tax-Region-tax-regulatory-in-Congo?backToIssues                       1/1
+

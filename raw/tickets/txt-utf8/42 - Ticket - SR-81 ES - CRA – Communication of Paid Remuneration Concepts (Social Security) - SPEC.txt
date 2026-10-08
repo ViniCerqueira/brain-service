@@ -1,0 +1,322 @@
+9/4/26, 9:21 AM      ES: CRA – Communication of Paid Remuneration Concepts (Social Security) - SPEC : SR-81
+
+Created by Wallisson dos Santos Gomes 8 months ago    Visible to issue readers                                    3
+Updated by Drew Õispuu 11 minutes ago
+
+ES: CRA – Communication of Paid Remuneration
+Concepts (Social Security) - SPEC
+
+         Project            State                Priority          Assignee
+
+SR Statutory         R In Review         M Major                  Wallisson
+       Reports                                                    dos Santos
+                            Spent time  Due Date                  Gomes
+         Phase
+                           1d 2h 17m    31 Jan 2026                Country
+       Final Review
+ F Phase -                  Research             Developer  E ES
+                            Analyst
+       Business                          B Brenet                  Redesign of
+       Analyst       W Wallisson               Õispuu
+                           Gomes                            ? old country
+         Business                                                 No
+
+ L Analyst
+       Lily Li
+
+Boards
+  Statutory Report…
+
+Spain CRA – Communication of Paid Remuneration Concepts (Social Security) - SPEC
+
+Inward mentions 2
+     M CT-4406 Spain Regulation_Retribution Flexible
+     N CT-4433 ES: Spain Regulation Support
+
+Attachments 13 Hidden files 11
+
+LL Lily Li Commented 6 months ago (edited)
+        @Wallisson dos Santos Gomes Pls check further queries highlighted in purple for row 2 to
+        10, and from row 81 to the end, the remaining queries are not answered yet, under the
+        sheet "Pay Elements with CRA Code". Thanks
+
+                 Also, Authorized User ID in the report spec is mapped to RED Authorization Code
+                 $legal_entity_hr.red_authorization_code or TGSS SILTRA Authorized User ID? If they have
+
+https://youtrack.hrblizz.dev/issue/SR-81/ES-CRA-Communication-of-Paid-Remuneration-Concepts-Social-Security-SPEC     1/8
+9/4/26, 9:21 AM  ES: CRA – Communication of Paid Remuneration Concepts (Social Security) - SPEC : SR-81
+
+                 same internal code
+
+                 Wallisson dos Santos Gomes  Commented 6 months ago
+                 @Lily Li queries reverted.
+
+LL Lily Li Commented 6 months ago
+        @Wallisson dos Santos Gomes Pls check further queries highlighted in purple under the
+        sheets "Pay Elements with CRA Code", "Field Options. Thanks
+
+                 Wallisson dos Santos Gomes  Commented 6 months ago
+                 @Lily Li reverted.
+
+LL Lily Li Commented 6 months ago (edited)
+        @Wallisson dos Santos Gomes Thanks for your confirmation, so I will delete rows for
+        58100, 58105, 58111, 58129 from the sheet "Pay Elements with CRA Code" because no
+        indicator marked for them.
+
+        The queries for settlement type under the sheet "Field Options" are not resolved yet. Pls
+        check
+
+                 Wallisson dos Santos Gomes  Commented 6 months ago
+                 @Lily Li reverted.
+
+LL Lily Li Commented 6 months ago (edited)
+        @Wallisson dos Santos Gomes 1. As per team confirmation, we have to create a legal
+        entity HR field "TGSS CRA Action Type" which maps to the last field in the report spec, but
+        pls confirm the options for this field in DD and check if you need to add other info there for
+        this field:
+
+        The key and Value are mandatory fields, so cannot be blank.
+
+                 2. I filled default value for the below fields in DD. Pls confirm:
+                 TGSS CRA Settlement Type: 00
+                 TGSS CRA Action Type: A
+                 https://docs.google.com/spreadsheets/d/1dahKn_9zrPDPk_ecdADCYaKS73ylEKiqwF831ZF
+                 NTNw/edit?gid=762394868#gid=762394868
+
+                 Wallisson dos Santos Gomes Commented 5 months ago
+
+https://youtrack.hrblizz.dev/issue/SR-81/ES-CRA-Communication-of-Paid-Remuneration-Concepts-Social-Security-SPEC  2/8
+9/4/26, 9:21 AM            ES: CRA – Communication of Paid Remuneration Concepts (Social Security) - SPEC : SR-81
+
+                 @Lily Li
+
+1. TGSS CRA Action Type — confirmed and completed
+The options in DD are correct. Verified directly from CRA Spec Field Options tab:
+
+Note: "blank" in the spec is just the default behaviour (treated as Alta by TGSS) — not a
+user-selectable option. It does not need to be in the DD mapper.
+
+Missing fields in the DD entry (label, description, option mapper reference) have been
+completed in DD.
+Default value A — confirmed correct. All standard monthly submissions use A.
+
+2. TGSS CRA Settlement Type default = 00 — confirmed correct.
+Standard monthly payroll always uses 00. No change needed.
+
+LL Lily Li Commented 5 months ago (edited)
+        @Wallisson dos Santos Gomes Settlement Month = current period. Settlement Year = year
+        where current period belongs. Based on the field explanation, these two fields refer to the
+        period in which remuneration was actually paid to employees, so does it mean that in the
+        CRA report, only report the record for the current period? Pls confirm my understanding
+        here. If that's true, the following mapping table should not be added to CRA spec since
+        they're prorated for past months, not only current period. 58197 will only be added to base
+        code 701 in Fichero de bases report.
+
+Pay Element                       CRA Code                                                                        I/E
+58197 Prorated Severance Taxable
+58198 Prorated Severance Exempt   0054                                                                            I
+
+                                  0054                                                                            E
+
+Wallisson dos Santos Gomes  Commented 5 months ago
+@Lily Li
+
+Your reading of Settlement Month/Year is correct — CRA reports remuneration in the
+period it was actually paid.
+For 58197/58198 specifically: the severance payment itself is made in the termination
+month. It is not a retroactive payment — it did not occur in prior months. The BASES L03
+proration is a contribution base attribution mechanism that tells TGSS to spread the SS
+base across prior months, but the actual payment event happened once, in the
+termination month.
+Therefore:
+
+CRA: report 58197 (0054/I) and 58198 (0054/E) in the termination month only — one
+record each for the full amounts. No proration in CRA.
+BASES: use L03 to distribute base code 701 across the prior 12 months.
+
+https://youtrack.hrblizz.dev/issue/SR-81/ES-CRA-Communication-of-Paid-Remuneration-Concepts-Social-Security-SPEC       3/8
+9/4/26, 9:21 AM         ES: CRA – Communication of Paid Remuneration Concepts (Social Security) - SPEC : SR-81
+
+                 The mapping table in the CRA spec is correct and should stay. The two reports handle
+                 different concerns independently.
+                 To directly confirm your conclusion: 58197 goes into BASES base code 701 via L03
+                 proration AND into CRA as 0054/I in the termination month. Both are required.
+
+LL Lily Li Commented 5 months ago (edited)
+        @Wallisson dos Santos Gomes Thanks for your update! Let me refresh our memory on
+        how severance relevant pay elements are used in CRA and Fichero de bases. Pls confirm
+        my understanding for CRA.
+
+                 58184  Severance Final Exempt Amount - Objective Dismissal
+                 58186  Severance Final Exempt Amount - Unfair Dismissal
+                 58188  Severance Final Taxable Excess
+                 58197  Prorated Severance Taxable
+                 58198  Prorated Severance Exempt
+
+                 In CRA, the following are severance exempt amount and severance taxable amount as
+                 confirmed. As you can see, all of them are with indicator E, which means in the termination
+                 month, there will be only one record in CRA with indicator E. All three are not subject to
+                 social security base.
+
+                 As for your comment: "CRA: report 58197 (0054/I) and 58198 (0054/E) in the termination
+                 month only — one record each for the full amounts. No proration in CRA." it should be
+                 58184, 58186, 58188 that are used in termination month in CRA, not 58197, 58198.
+
+                 In Fichero de bases, it's clear to use settlement type L03 to distribute base code 701
+                 across the prior 12 months, where 58197 will be added to social security base and
+                 compared against monthly cap to arrive at the difference amount reported in L03.
+
+                 Wallisson dos Santos Gomes Commented 5 months ago
+                 @Wallisson dos Santos Gomes You are right — I need to correct my previous comment.
+                 In the termination month, the CRA records are:
+
+                 58184 (0054/E) — Severance Final Exempt Amount - Objective Dismissal
+                 58186 (0054/E) — Severance Final Exempt Amount - Unfair Dismissal
+                 58188 (0054/E) — Severance Final Taxable Excess
+
+                 All three use indicator E because none are subject to SS contributions — confirmed.
+                 58197 and 58198 do NOT appear in CRA. They are BASES-only wage types created
+                 specifically to handle the L03 proration mechanic in Fichero de Bases. There is no
+                 payment event associated with them — they are calculation constructs for distributing the
+                 SS base across prior months.
+                 Corrected summary:
+
+https://youtrack.hrblizz.dev/issue/SR-81/ES-CRA-Communication-of-Paid-Remuneration-Concepts-Social-Security-SPEC  4/8
+9/4/26, 9:21 AM               ES: CRA – Communication of Paid Remuneration Concepts (Social Security) - SPEC : SR-81
+
+                 Report                Wage Types     Purpose
+
+                 CRA (termination      58184, 58186,  Report the actual severance payment
+                 month)                58188          — all 0054/E
+
+                 BASES (L03, prior 12  58197          Distribute taxable excess SS base
+                 months)                              (code 701) across prior months
+
+                 BASES (L03, prior 12  58198          Exempt portion — not reported in
+                 months)                              BASES (excluded from SS base)
+
+                 Drew Õispuu  Commented 3 months ago (edited)
+                 @Lily Li
+
+                 CRA report rebuilt against spec ES-CRA-001 v2.2 (fixed-width 70-char .CRA ,
+                 SILTRA/RED) and verified on dev entity through 5 test runs.
+
+                 Confirmed working:
+
+                 ETI / DDE / TRB / CRE structure (all lines exactly 70 chars)
+                 Full 548-WT to CRA code mapping incl. v2.2 updates
+                 I/E indicators
+                 Euro-cent amounts
+                 Multi-employee and multi-concept output
+
+                 Final test file (2 employees, 4 concepts incl. one excluded 0042 E record) is clean - no
+                 blank lines or padding artifacts.
+
+                 Sample output:
+                 ETICRA28123456 20260610173047
+                 DDE011128281234567202602000000000000000
+                 TRB000000000123
+                 CRE0001I000300000A
+                 CRE0002I000001000A
+                 CRE0022I000010000A
+                 TRB000000000123
+                 CRE0042E000035150A
+
+                 **Ready for compliance testing.
+
+                 Report name: Spain CRA - Conceptos Retributivos Abonados**
+
+LL Lily Li Commented about 2 months ago (edited)
+        @Wallisson dos Santos Gomes
+
+          1. The Indicator for CRA code 0001 is always I, not E, correct? Thank you!
+
+https://youtrack.hrblizz.dev/issue/SR-81/ES-CRA-Communication-of-Paid-Remuneration-Concepts-Social-Security-SPEC      5/8
+9/4/26, 9:21 AM  ES: CRA – Communication of Paid Remuneration Concepts (Social Security) - SPEC : SR-81
+
+                 2. To double confirm, the mapping logic of Remuneration Amount is to take the pay
+                 element amount per concept code for the reporting period
+
+                 Group by: concept code + I/E indicator?
+
+                 Wallisson dos Santos Gomes  Commented about 1 month ago
+                  1. Yes
+                  2. Yes
+
+LL Lily Li Commented about 1 month ago
+        @Drew Õispuu Pls check version control sheet V2.3
+
+        Pls confirm for the field Remuneration Amount, whether you've Group by: concept code +
+        I/E indicator.
+
+        All changes are highlighted in pink.
+
+                 Drew Õispuu Commented about 1 month ago
+                 @Lily Li Changes made
+
+                 The grouping key is concept code + I/E indicator:
+
+                    CONCAT('CRE_'; <concept code>; '_'; <I/E indicator>)
+
+                 This matters in practice, not just formally: ten CRA codes contain a mix of I and E pay
+                 elements (0033, 0042, 0043, 0044, 0045, 0046, 0050, 0054, 0055, 0062). Without the
+                 indicator in the key those would collapse into one record and part of the amount would
+                 carry the wrong indicator.
+
+https://youtrack.hrblizz.dev/issue/SR-81/ES-CRA-Communication-of-Paid-Remuneration-Concepts-Social-Security-SPEC  6/8
+9/4/26, 9:21 AM  ES: CRA – Communication of Paid Remuneration Concepts (Social Security) - SPEC : SR-81
+
+LL Lily Li Commented 28 days ago
+        CRA__202602.CRA
+
+        @Drew Õispuu 1. This the the value maintained in system, but it's not reflected in the
+        generated CRA file. In the file, it's zeros.
+
+                 2. Per the spec's corrected position mapping:
+                      Positions 19–22 (Settlement Year) should be 2026
+                      Positions 23–24 (Settlement Month) should be 02
+
+                 But now it's swapped in the generated CRA file.
+
+        Drew Õispuu Commented 19 days ago
+        @Lily Li comments have been fixed, please test again
+
+LL Lily Li Commented 17 days ago
+        Acceptance testing has passed. Sample file generated.
+        CRA_248617761_202601.CRA
+
+LL Lily Li Commented about 8 hours ago
+        @Drew Õispuu Pls check below queries:
+          1. External Reference is always blank in the generated file?
+          2. Remuneration Amount takes amount from salary card or payroll result? I tested one
+             terminated ee, and it shows salary card 6000, rather than payroll result 4000, because
+             he's terminated in middle of the month.
+
+LL Lily Li Commented about 8 hours ago (edited)
+        @Wallisson dos Santos Gomes Could you pls double check the position and field length of
+        ETI record in the spec?
+        A3 sample: tc260704.cra
+        System generated: CRA_248617761_202601.CRA
+        External Reference is blank in system generated file, which should be checked by Brenet.
+        Apart from this, pls check others in ETI.
+
+https://youtrack.hrblizz.dev/issue/SR-81/ES-CRA-Communication-of-Paid-Remuneration-Concepts-Social-Security-SPEC  7/8
+9/4/26, 9:21 AM               ES: CRA – Communication of Paid Remuneration Concepts (Social Security) - SPEC : SR-81
+
+                 Drew Õispuu  Commented 11 minutes ago
+                 @Lily Li
+
+                 1. External Reference is blank by design: spec row 9 has no mapping (optional internal
+                 tracking id, "Check field explanation"). If you want it populated, I suggest
+                 $payroll.reference_code (e.g. REF-111-259), which matches the spec description of an
+                 internal payroll run identifier. Let me know and I will add it.
+
+                 2. Remuneration Amount is taken from payroll results, not the salary card. For the
+                 terminated employee (ESP04, Spain Reports Testing, Feb 2026) the payroll posted 62100
+                 Basic salary = 4,000.00 (prorated) and 79450 Vacation cashout leave payout = 2,000.00.
+                 Both wage types are mapped to CRA code 0001 in the spec sheet "Pay Elements with CRA
+                 Code", so they are summed into one CRE 0001 record of 6,000.00. The match with the
+                 salary card value is a coincidence.
+
+https://youtrack.hrblizz.dev/issue/SR-81/ES-CRA-Communication-of-Paid-Remuneration-Concepts-Social-Security-SPEC      8/8
+

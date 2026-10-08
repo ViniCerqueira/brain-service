@@ -1,0 +1,54 @@
+8/13/26, 11:46 AM     Plaese review this report matrix for Congo : HRBS-12110
+
+Projects / HRBlizz Support / ... / HRBS-12110                                               Assig... Enter search req...
+
+Created by Daniel Kelvin Balogun 23 days ago                                                HRBlizz Support Team
+Updated by Pradeep Duraisamy 23 days ago
+
+Plaese review this report matrix for Congo
+
+  Tier 1
+
+       Project        CCs                                    Priority                                Type
+
+      HRBlizz         No CCs                          M Medium                               S Service
+      Support                                                                                      Request
+                                 Assignee                    Support Group
+       State                                                                                Resolution Time
+                               Wallisson              C Compliance                            -20d
+O Open                         dos Santos                   Support
+                               Gomes                                                                 Spent time
+       SLA Violation                                         Estimation
+                                 Country                                                     ??
+? Reason                                              ??
+      ----                     Congo
+                         C (Congo-                          SLA status                            Legal Entity
+       Environment                                                                                Phase
+                               Brazzaville)           ? No sla status
+P Production                                                                                I Implementati
+                                 Client                                                          on
+       Boards
+                         B Baker
+      No visible               Hughes
+      boards
+
+Plaese review this report matrix for Congo
+To tell me if it is good to go to client for review.
+Company Name
+Baker Hughes Congo
+
+Attachments 1
+
+  XLSX
+
+Reporting Matrix -
+Congo 417 kB
+
+Pradeep Duraisamy Commented 23 days ago
+@Wallisson dos Santos Gomes Can you please review and take it forward.
+
+Kind regards,
+Pradeep D
+
+https://youtrack.hrblizz.dev/tickets/HRBS-12110/Plaese-review-this-report-matrix-for-Congo                                1/1
+

@@ -1,0 +1,75 @@
+9/25/26, 3:12 PM                            Ukraine Data Dictionary check : HRBS-15216
+
+Created by Nataliia Hahan about 3 hours ago                                                             HRBlizz Support Team
+Updated by Nataliia Hahan about 3 hours ago
+
+Ukraine Data Dictionary check
+
+Projects / HRBlizz Support / Tickets / HRBS-15216                                              Assi...  Enter search r...
+
+                  Project  CCs                                                    Priority                        Type
+
+                  HRBlizz  No CCs                                              M  Medium                  S Service
+                                                                                                                Request
+                  Support
+
+       State                     Assignee                                             Support Group     First Reply
+                                                                                                          2d
+N New                      ? Unassigned                                        L L2
+                                                                                     Support
+
+Resolution Time                  SLA Violation                                        Country                 Estimation
+  5d
+                           ? Reason                                            U Ukraine                ??
+                                ----
+
+      Spent time                 Environment                                         Client                   SLA status
+
+??                         ? No                                                ? No client              ? No sla status
+                                environment
+
+      Legal Entity              Boards
+      Phase
+                                No visible
+? Please                        boards
+     choose legal
+     entity phase
+
+Dear Wallisson,
+
+Could you please check the DD file with the mandatory fields:
+
+Contract Start Date* - it should not be mandatory.
+1C Personnel Number* - we can delete it; we decided that we will not use it (but we will see
+in the future).
+Oblast (Region)* - it should not be mandatory.
+Street and Building Number* - it should not be mandatory.
+Postal Code* - it should not be mandatory.
+ Rate Effective Date - please rename it to SSC Rate Effective Date.
+Here we also need to include the rate - 22% or 8.41%; please add the field "SSC Rate".
+Supporting Document Reference (D5)* - it should not be mandatory.
+TSB Eligibility* - please clarify what it is, and I guess it should not be mandatory.
+ESV Category Code (  ) - please clarify what we need to indicate here.
+
+Also, in the DD file, I see that some fields are not translated into the local language. Could you
+please add the translations?
+
+Thank you!
+
+Best Regards,
+Natalia
+
+Company Name
+
+https://youtrack.hrblizz.dev/tickets/HRBS-15216/Ukraine-Data-Dictionary-check                                                 1/2
+9/25/26, 3:12 PM                  Ukraine Data Dictionary check : HRBS-15216
+
+        Altium
+
+                  Nataliia Hahan  Commented about 3 hours ago
+                  JFYI:
+
+                  @Wallisson dos Santos Gomes @Mohamed Nabil @Vaishnavi Mane
+
+https://youtrack.hrblizz.dev/tickets/HRBS-15216/Ukraine-Data-Dictionary-check  2/2
+

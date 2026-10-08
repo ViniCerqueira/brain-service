@@ -1,0 +1,51 @@
+9/28/26, 8:48 AM                              CL-PRV-001-Previred-PlanillaMensual-Spec : SR-232
+
+Projects / Statutory Reports / Issues / SR-232      As... Enter searc...                         2 of 7
+
+Created by Wallisson dos Santos Gomes 5 months ago                                  Visible to issue readers  2
+Updated by Ruchi Gupta about 2 hours ago
+
+CL-PRV-001-Previred-PlanillaMensual-Spec
+
+         Project              State                      Priority                          Assignee
+
+       Statutory       O Open                    M Major                                  Wallisson
+       Reports                                                                            dos Santos
+                              Spent time        Due Date                                  Gomes
+         Phase
+                             ?                  31 Jul 2026                                Country
+       Product
+       Mapping                Research                   Developer                  C CL
+ P Phase -                    Analyst
+       Business                                  ? No                                      Redesign of
+       Analyst         W Wallisson                     developer
+                             Gomes                                                  ? old country
+         Business                                                                         No
+
+ R Analyst
+       Ruchi Gupta
+
+Boards
+  Statutory Report...
+
+CL-PRV-001-Previred-PlanillaMensual-Spec
+
+RG Ruchi Gupta Commented 13 days ago
+        @Wallisson dos Santos Gomes : the above link is not opening.
+
+RG Ruchi Gupta Commented 13 days ago
+        @Wallisson dos Santos Gomes @Manju Shetija : below link is shared in chat. Please
+        update the task description.
+
+        https://docs.google.com/spreadsheets/d/1Ku6VO0ZW78LrCNYSaOMXIjC1RIVCiLjSg-
+        TnhUAlvHc/edit?usp=sharing
+
+                  Wallisson dos Santos Gomes  Commented 13 days ago
+                  @Ruchi Gupta link updated.
+
+RG Ruchi Gupta Commented about 2 hours ago
+        @Wallisson dos Santos Gomes : please add a column in WTC to reflect applicable report
+        code.
+
+https://youtrack.hrblizz.dev/issue/SR-232/CL-PRV-001-Previred-PlanillaMensual-Spec                               1/1
+

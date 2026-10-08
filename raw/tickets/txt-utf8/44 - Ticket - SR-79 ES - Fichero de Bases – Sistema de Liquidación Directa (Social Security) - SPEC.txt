@@ -1,0 +1,576 @@
+9/4/26, 9:23 AM      ES: Fichero de Bases – Sistema de Liquidación Directa (Social Security) - SPEC : SR-79
+
+Created by Wallisson dos Santos Gomes 8 months ago  Visible to issue readers                                      5
+Updated by Lily Li just now
+
+ES: Fichero de Bases – Sistema de Liquidación Directa
+(Social Security) - SPEC
+
+         Project            State                  Priority          Assignee
+
+SR Statutory         R In Review           M Major                  Wallisson
+       Reports                                                      dos Santos
+                            Spent time    Due Date                  Gomes
+         Phase
+                           4h             31 Jan 2026                Country
+       Final Review
+ F Phase -                  Research               Developer  E ES
+                            Analyst
+       Business                            B Brenet                  Redesign of
+       Analyst       W Wallisson                 Õispuu
+                           Gomes                              ? old country
+         Business                                                   No
+
+ L Analyst
+       Lily Li
+
+Boards
+  Statutory Report…
+
+Spain Fichero de Bases – Sistema de Liquidación Directa (Social Security) - SPEC
+
+Items mentioned here 1 Inward mentions 2
+
+Items mentioned here
+          CT-A-485 SPAIN - Regulation Specifications
+
+Inward mentions
+     M HRBS-12113 SPAIN_Regulation_BONIFICACION FORMACION CONTINUA
+     M HRBS-13757 Spain Regulation_Statutory report issues and testing feedback
+
+Attachments 15 Hidden files 13
+
+LL Lily Li Commented 6 months ago (edited)
+
+https://youtrack.hrblizz.dev/issue/SR-79/ES-Fichero-de-Bases-Sistema-de-Liquidacion-Directa-Social-Security-SPEC     1/12
+9/4/26, 9:23 AM  ES: Fichero de Bases – Sistema de Liquidación Directa (Social Security) - SPEC : SR-79
+
+                 @Wallisson dos Santos Gomes The FicheroBases report spec uses the same option
+                 mapper for base codes and settlement type as in AFI. Pls check if the same changes need
+                 to be made. FicheroBases report mapping is done, apart from base code and base
+                 amount. Pls check queries under the sheet "Fichero de Bases (SSC) Spec". Thanks
+
+                 Also, Authorized User ID in the report spec is mapped to
+                 $legal_entity_hr.red_authorization_code or TGSS SILTRA Authorized User ID?
+
+LL Lily Li Commented 6 months ago
+        @Wallisson dos Santos Gomes Pls check queries highlighted in purple in column V under
+        the sheet "Fichero de Bases (SSC) Spec". Thanks
+
+                 Wallisson dos Santos Gomes  Commented 6 months ago
+                 @Lily Li queries reverted.
+
+LL Lily Li Commented 6 months ago
+        @Wallisson dos Santos Gomes Pls check queries highlighted in purple under the sheets
+        "Fichero de Bases (SSC) Spec", "Field Options". Thanks
+
+                 Wallisson dos Santos Gomes  Commented 6 months ago
+                 @Lily Li reverted.
+
+LL Lily Li Commented 6 months ago
+        @Wallisson dos Santos Gomes Pls check further queries highlighted in purple under the
+        sheets "Fichero de Bases (SSC) Spec" and "Field Options". Thanks!
+
+LL Lily Li Commented 5 months ago (edited)
+        @Wallisson dos Santos Gomes Thanks for your update! Only two comments this time. You
+        can either directly reply in the task or in the report spec.
+
+          1. Pls confirm the highlighted part:
+
+                 2. The trigger to populate base codes:
+
+                 Also, the misalignment in the report spec should be corrected by RA, not BA. The
+                 misalignment of fields and headers also is there in M190 report spec as well > first two
+                 fields:
+                 https://docs.google.com/spreadsheets/d/130xaSe7OXISabAdDaTlmoHM6gzOH9PQ7f8nx2
+                 ZX5W-Q/edit?gid=6106389#gid=6106389
+
+                 Wallisson dos Santos Gomes  Commented 5 months ago
+                 @Lily Li ,
+
+https://youtrack.hrblizz.dev/issue/SR-79/ES-Fichero-de-Bases-Sistema-de-Liquidacion-Directa-Social-Security-SPEC  2/12
+9/4/26, 9:23 AM  ES: Fichero de Bases – Sistema de Liquidación Directa (Social Security) - SPEC : SR-79
+
+                 1. Prorated severance taxable excess — which base codes exactly?
+
+                 Confirmed — severance taxable excess (58197 Prorated Severance Taxable) goes into
+                 base code 701 only (Unemployment base - General). It is NOT subject to Common
+                 Contingencies (code 500) or AT/EP (code 601). Severance is excluded from CC and AT/EP
+                 regardless of whether it is taxable for IRPF.
+                 The complete mapping for both new pay elements in BASES and CRA:
+
+                 Pay Element                 CRA   I/E          BASES Base Code
+                                             Code
+                 58197 Prorated Severance    0054  I            701
+                 Taxable
+                 58198 Prorated Severance    0054  E            Not reported (excluded from
+                 Exempt
+                                                                SS base)
+
+                 2. Trigger to populate base codes in Fichero de Bases
+
+                 Confirmed — the condition is correct: if the calculated value for a base code > 0, output
+                 that base code record. If the worker has no earnings mapped to a given code for that
+                 period, the code is simply omitted. No zero-value records should be submitted.
+
+                 Illya Virchenko Commented 5 months ago (edited)
+                 @Wallisson dos Santos Gomes @Lily Li Please add to the Spec one critical requirement:
+                 The filename and referenciaExterna must be unique and not repeat in any other Legal
+                 Entity. This is absolutely critical to track the submission status
+
+LL Lily Li Commented 5 months ago
+        @Illya Virchenko It has been added to the report spec.
+
+LL Lily Li Commented about 2 months ago (edited)
+        @Wallisson dos Santos Gomes Pls check queries below:
+
+          1. Column V "AFI Field(s) Referenced" has been added for reference. Pls check if it's
+             correct info in that column. If same field is shown in both AFI and Fichero de bases,
+             they should use the same mapping logic, correct?
+
+          2. Check New queries in column X, highlighted in light red.
+          3. Under row 36 "═══ SETTLEMENT-LEVEL DATA SECTION (DATOS LIQUIDACIÓN) —
+
+             OPTIONAL ═══",
+
+             row 40 "═══ MONTH-LEVEL DATA SECTION (DATOS MES) — OPTIONAL ═══"
+
+             row 50 "═══ CONTRIBUTION BASE DATA (DATO DEL TRAMO) ═══"
+
+             There're no fields shown under these sections.
+          4. In FicheroBases spec, which field is this "AFI IndicadorObligatoriedad (B/P)" used in?
+
+             Pls specify the field and explain how the mapping logic is.
+
+                 Wallisson dos Santos Gomes  Commented about 2 months ago
+                 @Lily Li
+
+                 1. Column U (not V) — content confirmed correct. Same field in both files = same
+                    mapping logic, confirmed.
+
+                 2. Light-red queries:
+                    RowStatus7, 20Already answered — no change needed30, 38, 44Bases logic
+
+https://youtrack.hrblizz.dev/issue/SR-79/ES-Fichero-de-Bases-Sistema-de-Liquidacion-Directa-Social-Security-SPEC  3/12
+9/4/26, 9:23 AM                                    ES: Fichero de Bases – Sistema de Liquidación Directa (Social Security) - SPEC : SR-79
+
+                    confirmed correct against TGSS schema; can't diff vs. AFI's W12/28/40 without that
+                    file open — send it if you want that checked too53Was actually wrong — see #5
+
+                 3. Empty sections (rows 36/40/50) — fields aren't missing, they're at rows 7-9, 10-12,
+                    19-21 (built before the section headers existed). Added pointer notes instead of
+                    moving rows, to avoid breaking the other "same as row X" refs in the sheet. Say the
+                    word if you want a full physical reorg instead.
+
+                 4. IndicadorObligatoriedad (B/P) — AFI-only field, doesn't exist in Bases. Tells HRB
+                    whether a Codigo is mandatory (B) or optional (P) to submit. Documented on row 9/U.
+
+                 5. Extra fixes found (not from your queries): Control Date (53-54) was wrong — it's the
+                    salary payment date, mandatory for L03 only, not a "late filing" flag; L02 never uses it.
+                    Also fixed 5 Year-field formulas (31/33/39/46/49) and 1 Month formula (48) that
+                    pointed to the wrong source field.
+                    v2.1 — orange = corrected, green = new answer.
+
+LL Lily Li Commented about 2 months ago
+        @Wallisson dos Santos Gomes
+
+        Point 3: reorg the misorganised sections and fields in the spec file. It's confusing for the
+        developer
+
+        Point 4: In row 9, BA mapping is omit the element. How Row 9 box highlighted in orange is
+        impacting Settlement Date Amount? Pls specify the indicator B/P impacts which fields
+        exactly.
+
+                 Thanks
+
+                 Wallisson dos Santos Gomes Commented about 2 months ago
+                 @Lily Li Point 3 (reorg): done — not just pointer notes this time, the fields physically
+                 moved. Settlement Data Type/Code/Amount now sit right under the Settlement-Level Data
+                 header, Month Data Type/Code/Amount under the Month-Level header, Tramo Alta dates
+                 and Contribution Base Data Type/Code/Amount under their headers too — matching the
+                 official schema order exactly. Around 40 internal "same as row X" references across the
+                 sheet were updated to match, including 2 that were already pointing to the wrong field
+                 even before this round — fixed properly, not just renumbered.
+
+                 Point 4 (B/P indicator): it doesn't act on the Amount field alone — it's a per-Codigo gate on
+                 the whole record. Settlement Data Type, Code, and Amount form ONE record for a given
+                 Codigo. B means all three go out together; P means all three can be omitted together (or
+                 included if applicable). You can't have Type+Code without Amount, or vice versa — they're
+                 gated as a unit, not independently.
+
+LL Lily Li Commented about 1 month ago
+        @Wallisson dos Santos Gomes In column V, multiple fields only mention L00, L02, L03, but
+        as per your DD options for TGSS settlement types, there're other types as well. V19 is
+        mapping to $legal_entity_hr.tgss_bases_settlement_type::key. So, could you pls check if
+
+https://youtrack.hrblizz.dev/issue/SR-79/ES-Fichero-de-Bases-Sistema-de-Liquidacion-Directa-Social-Security-SPEC                           4/12
+9/4/26, 9:23 AM       ES: Fichero de Bases – Sistema de Liquidación Directa (Social Security) - SPEC : SR-79
+
+                 other settlement types should be in scope for fields where L00 is mentioned in column V?
+                 If in scope, what's detailed mapping logic there? Pls write your comments in column X.
+
+                 L00  Regular monthly settlement (default)
+
+                 C02  L02 for non-concerted salaries
+
+                 L02  Error correction settlement
+
+                 L03  Regularization settlement
+
+                 C03  L03 for non-concerted salaries
+
+                 L13  Supplementary — untaken paid vacation
+
+                 L90  Supplementary — base increases (out of period)
+
+                 C90  L90 for non-concerted salaries
+
+                 L91  Supplementary — new workers/tramos (out of period)
+
+                 C91  L91 for non-concerted salaries
+
+                 L92  Supplementary — salary processing ex-officio by TGSS
+
+                 L93  Supplementary — untaken vacation ex-officio by TGSS
+
+                 V03  Retroactive salary for untaken vacation periods
+
+                 V90  Base increases for untaken vacation periods
+
+                 Wallisson dos Santos Gomes Commented about 1 month ago
+                 @Lily Li @Lily Li — Done, updated in column X (and Y) for the flagged rows, plus row 19
+                 (Settlement Type) and the Field Options code table (now the full 14 codes — appended at
+                 row 133 rather than inserted, to avoid disturbing the embedded logo).
+
+                 Yes, in scope. CURRENT period logic stays L00/L02 only. RETRO period logic (same
+                 MesLiquidativo mechanism as L03) now also covers L13, L90, L91, L92, L93, V03, V90 —
+                 confirmed via the official TGSS Manual de Usuario, which explicitly labels
+                 L90/L91/L92/L93 "Fuera de plazo." C02/C03/C90/C91 are colegios concertados variants,
+                 out of scope for our clients.
+
+                 Rectification Indicator (row 6) is also consistent now across V/W/Y — omit for all 14 types,
+                 unrelated to Tipo.
+
+                 Drew Õispuu Commented about 1 month ago
+                 @Lily Li The Fichero de Bases (SLD) report is configured in Acceptance and generating
+                 correctly. Please test when convenient.
+
+                 Three points to confirm:
+
+                 1. Codes 500 and 509 overlap. The spec says 500 covers "non-IT and IT ... where
+                 NOT(part-time)" and 509 covers "where 58235 > 0". Read literally, a full-time employee on
+                 IT payment delegation qualifies for both and the same 58151 base is reported twice. I
+                 made 500 non-IT so the codes are mutually exclusive - please confirm.
+
+                 2. ReferenciaExterna . The suggested 'BAS' + MMyyyy is 9 characters (limit is 8) and is
+                 not unique across legal entities, which conflicts with Illia's requirement. I used the last 4
+                 digits of the CCC número plus MMyy - exactly 8, unique per entity and period.
+
+                 3. Retro types are not yet possible. L03, L13, L90-L93, V03 and V90 need the retro period
+                 being corrected, and no HR field holds it, so the report always uses the current period.
+
+https://youtrack.hrblizz.dev/issue/SR-79/ES-Fichero-de-Bases-Sistema-de-Liquidacion-Directa-Social-Security-SPEC  5/12
+9/4/26, 9:23 AM  ES: Fichero de Bases – Sistema de Liquidación Directa (Social Security) - SPEC : SR-79
+
+                 L00 and L02 are correct and testable now - the retro types need a new legal entity field
+                 first.
+
+LL Lily Li Commented 28 days ago (edited)
+        @Wallisson dos Santos Gomes 1. For point 1 raised by Drew, a full-time employee on IT can
+        be qualified for both 500 and 509. Is this correct? Or, 500 should only be applicable to
+        non-IT? Pls confirm. Thanks
+
+                 2. ReferenciaExterna: Pattern: 'BAS' + DATE_FORMAT($period.begin_date; 'MMyyyy').
+                 Does the developer must follow this pattern? But this pattern is 9 digits, not the required 8
+                 digits or less. Or, ReferenciaExterna can be any combination as long as it's
+                 unique?
+
+LL Lily Li Commented 28 days ago (edited)
+        @Drew Õispuu Point 1 & 2 being checked by Wallisson.
+
+        Point 3: Those retro settlement types are stored in
+        $legal_entity_hr.tgss_bases_settlement_type::key
+
+        BASES_000000000_202602.xml
+
+        Issue found: I maintained 464646464 in
+        $legal_entity_hr.social_security_contribution_account_code_ccc, but it's shown as zeros.
+
+                 Wallisson dos Santos Gomes  Commented 25 days ago
+                 @Lily Li @Drew Õispuu —
+
+                 1. Codes 500/509 — corrected using the real WTC wage types.
+
+                 509's old formula used a generic flag (58235) that fires on ANY leave type, including
+                 ordinary pago-delegado sick leave — that's why it was overlapping with 500. Replaced it
+                 with the specific wage types, each confirmed by its own WTC explanation text:
+
+                 79006/79007 (maternity/paternity), 79029/79030 (risk during lactation/pregnancy), 79032
+                 (parental leave) — always pago directo, no delegado variant exists for these.
+                 79417–79424 (abortion, disabling menstruation, termination of pregnancy) — WTC
+                 explanation literally states "INSS pago directo" for each one (Art.26bis/26ter ET, RD-ley
+                 1/2023).
+                 Left out of 509, staying under 500: 79415/79416 (ordinary sick leave, day 16+) — WTC
+                 tags these explicitly as pago delegado.
+
+                 500's formula is unchanged except for one addition: it now excludes the 509 list above, so
+                 the same base isn't reported twice.
+
+                 New code added: C-563 (Pago Delegado IT, common-contingency origin) was missing
+                 entirely, despite being mandatory alongside C-500 in every pago delegado case. Mapped
+                 to 79415/79416.
+
+                 Still open, not guessed: C-663 (work-accident equivalent of 563) and wage type 79012
+                 (Accident Leave) — no payout-level wage type found yet confirming delegado vs. directo
+                 for accident-origin sick leave. Flagged in the spec, not resolved.
+
+https://youtrack.hrblizz.dev/issue/SR-79/ES-Fichero-de-Bases-Sistema-de-Liquidacion-Directa-Social-Security-SPEC  6/12
+9/4/26, 9:23 AM                                    ES: Fichero de Bases – Sistema de Liquidación Directa (Social Security) - SPEC : SR-79
+
+                 2. ReferenciaExterna — confirmed, use Drew's version. Field is already documented as 1–
+                    8 characters. The old 'BAS' + MMyyyy suggestion is 9 characters, which already
+                    breaks that limit — it was never valid. Drew's approach (last 4 digits of the CCC +
+                    MMyy) is the one to keep.
+
+                 3. CCC showing as zeros — confirmed bug in the XML. Opened
+                    BASES_000000000_202602.xml directly: the Ccc/Numero node shows 000000000.
+                    The value 464646464 isn't reaching the XML — broken mapping, needs a dev-side
+                    look, not a spec change.
+
+                 Updated spec (v2.3) attached in this thread.
+
+LL Lily Li Commented 23 days ago
+        @Wallisson dos Santos Gomes Pls confirm below mapping logic updated:
+
+        509 = SUM(58151) WHERE sum of below > 0:
+
+               79406, 79407, 79429, 79430, 79432, 79417, 79418, 79419, 79420, 79421, 79422,
+        79423, 79424
+
+                 500 = SUM(58151) WHERE NOT part-time AND sum of below = 0:
+
+                       79406, 79407, 79429, 79430, 79432, 79417, 79418, 79419, 79420, 79421, 79422,
+                 79423, 79424
+
+                 563 = SUM(58151) WHERE sum of wage type > 0: 79415, 79416
+                 563 is not in the report spec. Pls add it and highlight your changes in a different color.
+
+                 Wallisson dos Santos Gomes  Commented 22 days ago
+                 @Lily Li
+
+                 1. 500/509 — corrected. Cross-checked against the real Spain WTC V4.4. Final trigger
+                    set for 509 (excluded from 500): 79418, 79419, 79420, 79421, 79423, 79424,
+                    79429, 79430, 79432.
+
+                 Removed from the previous logic:
+
+                 79006/79007/79029/79030/79032 — WTC "Unit" (day-count) codes, no monetary/SS
+                 classification. Replaced with the real Payout codes: 79429 (Risk During Lactation), 79430
+                 (Risk During Pregnancy), 79432 (Parental Leave).
+                 79417 (Abortion Leave day-1) — WTC confirms this is employer-paid, same treatment as
+                 79422 (already correctly excluded), not INSS pago directo.
+                 79406/79407 (Maternity/Paternity Payout) — not part of either formula. WTC confirms
+                 BCCC=Yes, so they take normal default treatment under 500, not the employer-only 509
+                 base.
+
+                 2. 563 — added. Cross-reference wired into row 49 (Contribution Base Code), pointing
+                    to the Field Options Pago Delegado section. Formula unchanged: SUM(79415,
+                    79416).
+
+                 ES-BASES-001_FicheroBases_Spec_v2.4
+
+LL Lily Li Commented 22 days ago (edited)
+        @Drew Õispuu
+
+        Point 1: Pls check logic updates under the sheet "Field Options": 500, 509, 563.
+
+https://youtrack.hrblizz.dev/issue/SR-79/ES-Fichero-de-Bases-Sistema-de-Liquidacion-Directa-Social-Security-SPEC                           7/12
+9/4/26, 9:23 AM               ES: Fichero de Bases – Sistema de Liquidación Directa (Social Security) - SPEC : SR-79
+
+                 Point 2: ReferenciaExterna: Your version is correct. I used the last 4 digits of the
+                 CCC número plus MMyy - exactly 8, unique per entity and period.
+
+                 Point 3: Those retro settlement types are stored in
+                 $legal_entity_hr.tgss_bases_settlement_type::key
+
+                 BASES_000000000_202602.xml
+
+                 Issue found: I maintained 464646464 in
+                 $legal_entity_hr.social_security_contribution_account_code_ccc, but it's shown as zeros.
+
+                 Drew Õispuu  Commented 21 days ago
+                 @Lily Li
+
+                 1. CC zeros: fixed. The report was reading the period masterdata snapshot, which was
+                    empty when you added the value. Now confirmed as 248617761.
+
+                 2. 500 / 509 / 563: updated to Wallisson's v2.4 code list.
+
+                 3.ReferenciaExterna: kept as agreed (CCC last 4 + MMyy).
+
+                 4. Retro types: Tipo now works from the field you pointed to. MesLiquidativo still needs a
+                 new legal entity field for the month being corrected, so only L00 and L02 are testable for
+                 now.
+
+LL Lily Li Commented 17 days ago
+        Acceptance testing for L00 passed. Sample file generated:
+
+        BASES_248617761_202601.xml
+
+LL Lily Li Commented 15 days ago
+        @Drew Õispuu I tested retro scenario with TGSS settlement type as L03 and those rows
+        not showing retro difference:
+
+        Entity ID: REF-04-297, Spain Reports Testing
+
+        PY ID: 109820
+
+          1. PeriodoDesde/PeriodoHasta use the current period, not retro period
+
+        2. FechaControl is missing entirely (mandatory for L03): I updated mapping for Control
+        Date - Month, Control Date - Year as below highlighted in yellow:
+
+https://youtrack.hrblizz.dev/issue/SR-79/ES-Fichero-de-Bases-Sistema-de-Liquidacion-Directa-Social-Security-SPEC      8/12
+9/4/26, 9:23 AM  ES: Fichero de Bases – Sistema de Liquidación Directa (Social Security) - SPEC : SR-79
+
+        3. MesLiquidativo uses the current month, not retro month
+
+        4. Tramo dates use the wrong period and wrong day-count. use current period, not retro
+        period.
+
+        5. Contribution Base Amount should show retro difference of base amount, not current
+        period amount.
+
+LL Lily Li Commented 14 days ago
+        @Wallisson dos Santos Gomes Pls confirm Drew's query. After you've responded, pls
+        assign back to Drew, not me. Thanks
+
+        TGSS expects one Liquidacion per corrected period. If an employee has retro for two
+        different past months, should that produce two Liquidacion blocks in one file, or two
+        separate files? The current template renders a single Liquidacion
+
+https://youtrack.hrblizz.dev/issue/SR-79/ES-Fichero-de-Bases-Sistema-de-Liquidacion-Directa-Social-Security-SPEC  9/12
+9/4/26, 9:23 AM                 ES: Fichero de Bases – Sistema de Liquidación Directa (Social Security) - SPEC : SR-79
+
+                 Wallisson dos Santos Gomes  Commented 12 days ago
+                 Hi @Lily Li
+
+                 Neither — one Liquidacion should have multiple blocks,
+                 one per corrected month, not multiple Liquidacion blocks or files.
+
+                 Confirmed against TGSS's official manual: error R9532 blocks repeating
+                 the same month inside one Liquidacion, and R9622/R9693 explicitly treat
+                 "liquidaciones que abarquen más de un mes" as a normal case — meaning one
+                 Liquidacion is designed to span several months.
+
+                 @Drew Õispuu — loop at the LiquidacionMes level, not Liquidacion.
+
+                 Kind regards,
+
+LL Lily Li Commented 2 days ago
+        @Wallisson dos Santos Gomes Gulnaaz shared A3 sample below:
+
+        L03: CYNMAYL3.xml
+
+        L00 + L13: 2277797064.xml
+
+        L00: CYMARL00.xml
+
+        Also, Codigoes Fichero de bases (1).xlsx, which explains each data type C, H, I. C for
+        monthly group, H for part-time, I for daily group. Pls double check from your end. If this
+        part should be updated in the spec, highlight your changes in a different color.
+
+        I compared the spec against these files and here're Claude comments: Pls double check
+        from your end and update the spec if required.
+
+        There are the settlement types in scope? L00, L02, L03, L13, L90, L91, C02, C03, C90,
+        C91, L92, L93, V03, V90
+
+        Also, pls clarify how each settlement type interacts with base codes. For example, if
+        settlement type is L00, only specific base codes are applicable? And so on.
+
+        1. SolicitudRecepcionRNT — remove the "always mandatory, hardcode S" instruction
+        Spec says: "Mandatory: Y... HARDCODE as S for all standard submissions." But it's absent
+        entirely from both confirmed-correct L00 samples ( CYMARL00 ) and the L03 sample
+        ( CYNMAYL3 ). Update: change Mandatory from Y to N/omit, and remove the "always
+        hardcode S" rule — real production files simply don't include this element.
+
+        2. Base Codes 497, 498, 499 — add missing definitions
+        These three codes appear repeatedly in both CYMARL00 (11 separate workers) and
+         CYNMAYL3 (the L03 sample), but they exist in neither the spec's Field Options sheet nor
+        the official TGSS Codigos_Fichero_de_bases reference document. This is the most
+        significant gap — three codes used in every real file we have, with zero documentation
+        anywhere. These need to be sourced from TGSS directly and added.
+
+        3. Indicator Code 51 ( TipoDato=I ) — add missing definition
+        Confirmed via the official Codigos_Fichero_de_bases reference (row 9): Code 51 = "M"
+        for monthly modality, only reported for daily contribution groups (08–11). The spec
+        currently documents only codes 52 and 54 for TipoDato=I — code 51 is entirely missing
+        despite being the most common Indicator code in actual usage (appears in CYMARL00 for
+        4 different workers, and throughout the TGSS response sample).
+
+        4. Base Code 603 — add explicit pairing rules from the official reference
+        The spec documents 603 generically as "AT/EP base for part-time," but the official
+
+https://youtrack.hrblizz.dev/issue/SR-79/ES-Fichero-de-Bases-Sistema-de-Liquidacion-Directa-Social-Security-SPEC        10/12
+9/4/26, 9:23 AM             ES: Fichero de Bases – Sistema de Liquidación Directa (Social Security) - SPEC : SR-79
+
+                 reference reveals 603 has much broader, more specific pairing logic that should be
+                 captured:
+
+                 500+601 = normal discharge status
+                 500+603 = IT with company-paid benefit (not part-time — this replaces 601 with 603
+                 specifically for IT situations, regardless of full/part-time status)
+                 500+603+563 = IT common-contingency origin with delegated payment
+                 500+603+663 = IT accident origin with delegated payment
+                 509+603 = IT direct payment / no entitlement / full maternity-paternity / full ERE / risk
+                 during pregnancy or lactation
+
+                 This directly confirms and expands the spec's own flagged "concentrated part-time" open
+
+                 Show more
+
+                 Wallisson dos Santos Gomes  Commented 1 day ago
+                 Hi @Lily Li,
+
+                 10 in scope: L00, L02, L03, L13, L90, L91, L92, L93, V03, V90. C02/C03/C90/C91 out.
+
+                 Tipo/Código: independent.
+
+                 C/H/I: Concepto/Horas/Indicador.
+
+                 1. Fixed — hardcode removed.
+                 2. Added — 497/498/499, solidarity surcharge tramos 1/2/3, first tramo only.
+                 3. Added — indicator 51.
+                 4. 603 relabeled + full pairing table. Worker 431000531749 confirms.
+                 5. Confirmed — full trigger set validated against WTC.
+                 6. Confirmed, no change.
+                 7. 501→58554, 502→58558 fixed (were swapped). Rest confirmed valid.
+
+LL Lily Li Commented just now (edited)
+        @Wallisson dos Santos Gomes Pls check below queries:
+
+          1. Base code 563 is mapped to 58151 where SUM(79415;79416) > 0 OR
+             SUM(79415;79416)? You mention this combination: 500+603+563. As 500 has
+             been mapped to 58151, if 563 is also mapped to 58151, is base code 563 mapping
+             correct?
+
+          2. What does base 663 map to? You mention "Not mapped -- no confirmed payout-level
+             wage type found for AT-origin (accident) sick leave pago delegado amount in WTC
+             V4.3.", but I think it should be mapped. Pls confirm
+
+          3. Confirm E35, E37 under the sheet "Field Options". 601 excludes part-time?
+
+          4. Confirm if the condition for base code 500 and 509 should include 79415, 79416,
+             79417.
+
+          5. For Data Type, it has three options: C, H, I. Under Field Options sheet, there're only
+             base codes for C. Do you need to add base codes for H and I under Field Options
+             sheet? If yes, pls also provide mapping logic for each code below. Or if some codes not
+             applicable in scope, pls also specify.
+
+https://youtrack.hrblizz.dev/issue/SR-79/ES-Fichero-de-Bases-Sistema-de-Liquidacion-Directa-Social-Security-SPEC    11/12
+9/4/26, 9:23 AM  ES: Fichero de Bases – Sistema de Liquidación Directa (Social Security) - SPEC : SR-79
+
+https://youtrack.hrblizz.dev/issue/SR-79/ES-Fichero-de-Bases-Sistema-de-Liquidacion-Directa-Social-Security-SPEC  12/12
+

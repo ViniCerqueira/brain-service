@@ -1,0 +1,73 @@
+9/2/26, 8:29 AM  TUS Understated for Multiple Employees -- Root Cause is Missing Car Allowance Gross-Up from client g2n : HRBS-14054
+
+Projects / HRBlizz Support / Tickets / HRBS-14054     Assi... Enter search r...
+
+Created by Daniel Kelvin Balogun about 15 hours ago                      HRBlizz Support Team
+Updated by Mohit Jain about 7 hours ago
+
+TUS Understated for Multiple Employees -- Root Cause
+is Missing Car Allowance Gross-Up from client g2n
+
+         Project    CCs                                   Priority                Type
+
+       HRBlizz      No CCs                         M Medium               S Service
+       Support                                                                  Request
+                               Assignee                   Support Group
+         State                                                           First Reply
+                             Wallisson             C Compliance            1h
+ O Open                      dos Santos                  Support
+                             Gomes                                                Estimation
+Resolution Time                                           Country
+  4d                           SLA Violation                              ??
+                                                         Congo
+                       ? Reason                    C (Congo-                      SLA status
+                             ----
+                                                         Brazzaville)     ? No sla status
+      Spent time          Environment
+                                                          Client
+??                  ? No
+                         environment               ? No client
+      Legal Entity
+      Phase               Boards
+
+? Please                 No visible
+     choose legal        boards
+     entity phase
+
+TUS is coming in lower than expected for a set of employees receiving a car allowance. TUS is
+7.5% of Taxable Total, so it's only ever as accurate as the gross feeding into it -- for these
+employees, the car allowance itself is the problem, not TUS.
+
+Several employees are guaranteed a fixed net car allowance (500,000, 625,000, or 750,000
+depending on grade), and HRB correctly grosses that figure up so the employee still nets the
+guaranteed amount after tax. CLIENT tracks most of these correctly, just under a separate
+"Gross up" column rather than folding it into the Car Allowance line itself -- that's fine, just a
+different structure, not an error. But for two employees, Yannick Kagi-banzouzi and Cyrille
+Massamba, that Gross up column is empty entirely, and the car allowance sits at the flat 500,000
+with no markup applied anywhere. That's the real gap, and it flows straight through into an
+understated Taxable Total and TUS for those two.
+
+Separate from this, two other employees have an unrelated productivity rate issue already
+flagged previously, and three more show a "SS Employee Arrears" deduction that only appears
+for them and nowhere else in the population -- that one looks like a CLIENT-side data entry
+situation specific to those three individuals rather than a system issue, so we're not raising it
+here.
+
+Ask:Should gross up be added to Unique tax for Congo
+
+Company Name
+
+https://youtrack.hrblizz.dev/tickets/HRBS-14054                                                                                       1/2
+9/2/26, 8:29 AM   TUS Understated for Multiple Employees -- Root Cause is Missing Car Allowance Gross-Up from client g2n : HRBS-14054
+
+        BH Congo
+
+Attachments 1
+
+  XLSX
+
+TUS_Discrepancies
+_6Employe... 19 kB
+
+https://youtrack.hrblizz.dev/tickets/HRBS-14054                                                                                        2/2
+

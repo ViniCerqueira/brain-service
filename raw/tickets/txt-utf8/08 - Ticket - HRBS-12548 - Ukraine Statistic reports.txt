@@ -1,0 +1,94 @@
+8/7/26, 9:17 PM                            Ukraine Statistic reports : HRBS-12548                677 of 12725
+
+  Projects / HRBlizz Support / Tickets /         Enter search req…
+
+   HRBS-12548
+
+Created by Nataliia Hahan 8 days ago                                                             HRBlizz Support Team
+Updated by Lily Li 5 days ago
+
+Ukraine Statistic reports
+
+  Tier 3
+
+       Project        CCs                                                         Priority                Type
+
+      HRBlizz         No CCs                                               M Medium               S Service
+      Support                                                                                           Request⁠
+                                 Assignee                                         Support Group
+       State                                                                                     Resolution Time
+                               Wallisson                                   C Compliance                Paused
+S SLA                          dos Santos                                        Support⁠
+      Exempt⁠                  Gomes                                                                      Spent time
+                                                                                  Estimation
+       SLA Violation             Country                                                          ??
+                                                                           ??
+? Reason                 U Ukraine                                                                        Legal Entity
+      ----                                                                        SLA status
+                                 Client                                                           L Phase
+       Environment                                                         ? No sla status              Live/BAU⁠
+                         A Altium
+P Production
+
+       Boards
+
+      No visible
+      boards
+
+Hi @Lily,
+Could you please check the statutory statistic reports for Ukraine — specifically the 1-PV
+(monthly) and 1-PV (quarterly) reports? I noticed they are not currently included in the reports
+scope.
+Could you also create the internal reports that we use in Ukraine, so we can cross-check them
+against the statistic reports?
+Templates for the 1-PV reports and the internal reports are attached.
+Thank you!
+Company Name
+Altium Ukraine
+
+Attachments 7
+
+PDF                   PDF                                                  PDF                      XLS
+
+Application sick Lea  Confirmation of pay                                                        Свод_Альтіум_06_2
+ve_7894… 100 kB       ments of… 60 kB                                                            026 90 kB
+
+XLS                   PDF                                                  PDF
+
+https://youtrack.hrblizz.dev/tickets/HRBS-12548/Ukraine-Statistic-reports                                               1/2
+8/7/26, 9:17 PM                                  Ukraine Statistic reports : HRBS-12548
+
+           Свод_Альтіум_2 кв  S0301016 1, № 1-П                            S0301121 1, № 1-ПВ
+           _2026 99 kB        В (місячн… 105 kB                            (кварта… 158 kB
+
+Nataliia Hahan                Commented 8 days ago
+Dear @Lily Li
+
+We have one more report for the Pension Fund, related to sick leave. We need to add the
+same report in HRBlizz as well.
+
+Tab. 2 is particularly important, as it contains the same information that needs to be
+reflected in HRBlizz.
+
+Template attached.
+
+Thank you!
+
+   PDF                           PDF                                          PDF
+
+Application sick Lea          Confirmation of pay                          Application sick Lea
+ve_7894… 100 kB               ments of… 60 kB                              ve_7894… 100 kB
+
+LL Lily Li Commented 7 days ago
+        @Wallisson dos Santos Gomes Could you pls check the requirements raised in the task
+        description and below comments? Thanks
+
+        Kind regards,
+        Lily Li
+
+        Nataliia Hahan Commented 5 days ago
+        Dear @Lily Li , Also we need to crete the additional internal report of average salary for
+        sick leaves and vacations and for bussiness trips. The temlate of that reports attached.
+
+https://youtrack.hrblizz.dev/tickets/HRBS-12548/Ukraine-Statistic-reports                           2/2
+

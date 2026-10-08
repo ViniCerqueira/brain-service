@@ -1,0 +1,39 @@
+# China
+
+> Hub do país. Índice: [[00-INDEX]] · Skill: não há
+
+## Situação
+| Etapa | Status | Data | Observação |
+|---|---|---|---|
+| [[research-pipeline]] | 🔄 | ~2026-08-10 | CT-4457 (CN_China_Compliance Artifacts for development) é o pai; só o Payslip Generator aparece nas fontes. Resto [INCERTO]. |
+| [[design]] | ⏳ | | [INCERTO] sem registro |
+| Produção (outro time) | — | | |
+| [[suporte]] | 🔄 | ~2026-08-10 | SR-316 aberto, sem resposta nossa no snapshot |
+
+## Artefatos entregues
+| Artefato | Versão | Data | Arquivo/local | Observação |
+|---|---|---|---|---|
+| Payslip Generator CN | v1.0 (Google Sheets) | ~2026-07-10 | SR-316 | A converter para o formato padrão Compliance; Due 2026-08-31; estado após 2026-08-10 [INCERTO] |
+
+## Valores-chave (com vigência)
+| Item | Valor | A partir de | Até | Fonte |
+|---|---|---|---|---|
+| _(nenhum valor estatutário nas fontes)_ | | | | |
+
+## Decisões
+- _(nenhuma decisão registrada nas fontes)_
+
+## Suporte (tickets)
+| Data | Ticket | Assunto | Resolução | Mudou artefato? |
+|---|---|---|---|---|
+| ~2026-08-10 | SR-316 | CN_Payslip: Lily Li (~2026-08-04) pediu converter o payslip CN para o formato Compliance; Enaakshi Vats (Research Analyst) pediu ajuda ao Wallisson | Sem resposta registrada; Open, fase Specification; subtarefa de CT-4457 | Pendente |
+
+## Pendências
+- [ ] Converter o Payslip Generator CN v1.0 para o formato Compliance — Wallisson/Enaakshi Vats — (SR-316)
+- [ ] Confirmar estado do SR-316 após 2026-08-10 (Due 2026-08-31) — Wallisson — (SR-316) [INCERTO]
+
+## Correções ligadas
+- _(nenhuma)_
+
+## Fontes
+- raw/tickets/extracao/2026-10-02-tickets-OUT.md

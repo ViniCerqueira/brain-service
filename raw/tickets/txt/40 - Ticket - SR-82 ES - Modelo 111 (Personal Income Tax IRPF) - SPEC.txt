@@ -1,0 +1,284 @@
+9/3/26, 11:01 AM                                        ES: Modelo 111 (Personal Income Tax IRPF) - SPEC : SR-82
+
+Projects / Statutory Reports / Issues / SR-82                     Enter search request
+
+Created by Wallisson dos Santos Gomes 8 months ago                Visible to issue readers                                3
+Updated by Lily Li about 4 hours ago
+
+ES: Modelo 111 (Personal Income Tax IRPF) - SPEC
+
+         Project                                 State                     Priority          Assignee
+
+SR Statutory                              R In Review              M Major                  Wallisson
+       Reports                                                                              dos Santos
+                                                 Spent time       Due Date                  Gomes
+         Phase
+                                                1d 5h 17m         31 Jan 2026                Country
+       Final Review
+ F Phase -                                       Research                  Developer  E ES
+                                                 Analyst
+       Business                                                    ? No                      Redesign of
+       Analyst                            W Wallisson                    developer
+                                                Gomes                                 ? old country
+         Business                                                                           No
+
+ L Analyst
+       Lily Li
+
+Boards
+  Statutory Report...
+
+Spain Modelo 111 (Personal Income Tax IRPF) - SPEC
+Attachments 11 Hidden files 9
+
+                                             TXT
+                                          111 (4) 1 kB
+
+                  Drew Õispuu             Commented 3 months ago
+                  @Lily Li
+
+                  Developer Testing -- Complete 
+
+                  Report: es-modelo-111
+
+                  Scope tested
+
+                  Self-testing has been completed on this report configuration. Generated output
+                  files were validated field-by-field against the specification.
+
+                  Results                                                                                         Result
+                     Area
+                     File structure / record layout                                                                Pass
+
+https://youtrack.hrblizz.dev/issue/SR-82                                                                                     1/6
+9/3/26, 11:01 AM                                                     ES: Modelo 111 (Personal Income Tax IRPF) - SPEC : SR-82
+
+                  Area                                                                                                         Result
+                  Field positions & lengths
+                  Field mappings (wage types, HR fields)                                                                        Pass
+                  Calculations (totals, withholdings, cents conversion)                                                         Pass
+                  Encoding / line endings / delimiter                                                                           Pass
+                                                                                                                                Pass
+
+                  Conclusion
+
+                  The report structure and logic are validated and stable. From the development
+                  side this is ready to proceed to compliance testing.
+
+LL Lily Li Commented about 2 months ago (edited)
+        @Drew Õispuu Pls update the following rows. Thanks!
+        Updated row 3, 24, 27, 29, 30, 31 highlighted in pink
+        3: add quarterly filing
+        24, 27 to replace 57176 with 58176
+        29, 30, 31 added by Wallisson to cover clave G.
+
+                  Drew Õispuu Commented about 1 month ago
+                  @Lily Li Reviewed and updated es-modelo-111 for all the rows
+
+LL Lily Li Commented about 1 month ago
+        @Drew Õispuu Could you pls confirm which filers for PP you've developed in system?
+        Monthly filers or quarterly filers
+
+LL Lily Li Commented 27 days ago
+        @Drew Õispuu Could you pls confirm below query?
+
+        By default, if generating M111 in Feb, the report should include cumulative Jan + Feb,
+        correct?
+
+        But as monthly filers also required, how to generate monthly filers in system for M111?
+
+        Thanks
+
+LL Lily Li Commented 22 days ago
+        @Drew Õispuu The below query is critical. Pls respond asap today. Thanks.
+
+                  Drew Õispuu             Commented 20 days ago
+                  @Lily Li
+
+                  Same question on both tickets, so one answer.
+
+                  First, a correction to the premise. Cumulative Jan + Feb is not a valid AEAT period for
+                  either filer type:
+
+                  a monthly filer files February covering February only
+
+                  a quarterly filer files 1T covering Jan + Feb + Mar, after March closes
+                  The spec says the same: quarterly = 1T-4T, monthly = 01-12, chosen by
+
+https://youtrack.hrblizz.dev/issue/SR-82                                                                                               2/6
+9/3/26, 11:01 AM                                                      ES: Modelo 111 (Personal Income Tax IRPF) - SPEC : SR-82
+
+                     company.filer_type.
+                     What is implemented today:
+                     the period LABEL is correct. If modelo111_periodo / modelo216_periodo is
+                     empty, the quarter is derived from the payroll month; if filled, that value
+                     is used.
+                     the DATA WINDOW is fixed at 2 periods, which matches neither a month (1)
+                     nor a quarter (3).
+
+                     So a February run currently produces a file labelled 1T containing Jan + Feb.
+                     The label is right, the contents are not.
+
+                     I suggest two variants per model, "Monthly" (1 period) and "Quarterly" (3 periods), the
+                     same way the ES Gross to Net report has two variants.
+
+LL Lily Li Commented 17 days ago (edited)
+        @Drew Õispuu As aligned, there should option for monthly and option for quarterly. Pls
+        check if you need to configure two reports (one for monthly, the other for quarterly) in
+        system. Currently there's only one report configuration: es-modelo-111
+
+        If user selects Monthly, generate monthly reports. If user selects quarterly, generate
+        cumulative reports for each quarter
+
+        I will add the field "$legal_entity_hr.company_filer_type". Pls use this code in your
+        configuration.
+
+                  Drew Õispuu             Commented 15 days ago
+                  @Lily Li
+
+                  Done and tested in acceptance. Short answer: no, you don't need two report
+                  configurations, and it turned out we don't need the new field either.
+
+                  Two custom reports, one configuration
+
+                  We already use this pattern for ES Gross to Net: two custom report entries pointing at the
+                  same reportCode . I did the same for M111:
+
+                  Custom report           Dataset                     Periods
+                                          Period (period masterdata)  1 (the payroll's own
+                  es-modelo-111-                                      period)
+                  monthly                 Previous N periods (period
+                                          masterdata)                 3
+                  es-modelo-111-
+                  quarterly
+
+                  Both use the existing es-modelo-111 configuration. Columns, formulas and field logic
+                  stay in one place.
+
+                  The field turned out not to be needed
+
+                  $report.label returns the custom report label, not the shared configuration name. I
+                  verified this on Gross to Net, where the same configuration writes "Gross To Net Spain
+                  (Payroll)" in one file and "Gross To Net Spain (Period)" in the other.
+
+                  So the shared configuration can tell which variant is running, and the period code switches
+                  itself:
+
+                  1 IF(CONTAINS_STRING($report.label; 'Monthly');
+
+                  2  DATE_FORMAT($period.begin_date; 'MM'); -> 03
+
+                  3
+
+https://youtrack.hrblizz.dev/issue/SR-82                                                                                        3/6
+9/3/26, 11:01 AM                          ES: Modelo 111 (Personal Income Tax IRPF) - SPEC : SR-82
+
+                  <quarter derivation>)                          -> 1T
+
+                                                                                                    PHP detected
+
+                  Verified output from the March 2026 payroll in Spain Compliance QC Entity:
+
+                  Filename                Monthly                Quarterly
+                  Opening tag             B65685703_2026_03.111  B65685703_2026_1T.111
+                  Period field            \<T11102026030000\>    \<T111020261T0000\>
+                  Closing tag             03                     1T
+                                          \</T11102026030000\>   \</T111020261T0000\>
+
+                  The amounts differ too, so the data window is genuinely different, not just the label.
+
+                  One usage rule
+
+                  The quarterly window is a lookback from the payroll you generate from, not "the calendar
+                  quarter". So the quarterly report must be generated from the last month of the quarter:
+
+                      generated from March  Jan + Feb + Mar 
+                      generated from February  Dec + Jan + Feb  (crosses the quarter and the year).
+
+LL Lily Li Commented 14 days ago (edited)
+        Original filing: Monthly filers acceptance testing has passed.
+
+        B65685703_2026_02.111
+
+LL Lily Li Commented 14 days ago
+        @Drew Õispuu Quarterly filer working, but Company NIF is blank.
+
+        B65685703_2026_1T.111
+
+                  Drew Õispuu             Commented 14 days ago
+                  Updated
+
+LL Lily Li Commented 13 days ago
+        Original filing: Quarterly filers acceptance testing has passed.
+
+        B65685703_2026_1T.111
+
+LL Lily Li Commented 1 day ago (edited)
+        @Wallisson dos Santos Gomes This is the error when M111 generated from system is
+        upload to the portal:
+
+                  This is the sample file from A3 system shared by Gulnaaz: 111 (4).TXT
+
+                  I did an initial comparison between A3 sample and system-generated files below, and it
+                  looks like company legal name length is different. Pls check this and if other fields' length
+                  is correct. Thanks
+
+                  Also, pls confirm how the below field impacts M111 generation? It only impacts M111, or
+                  impacts M111, M190, M216, and M296?
+
+https://youtrack.hrblizz.dev/issue/SR-82                                                                          4/6
+9/3/26, 11:01 AM                              ES: Modelo 111 (Personal Income Tax IRPF) - SPEC : SR-82
+
+                                             TXT
+                                          111 (4) 1 kB
+
+                  Wallisson dos Santos Gomes   Commented about 23 hours ago
+                  Hi @Lily Li
+
+                  Root cause: Company Legal Name (12-51, 40 chars) was actually two AEAT fields merged
+                  into one -- Denominación o Apellidos (23-82, 60 chars) + Nombre (83-102, 20 chars) = 80
+                  chars. Missing 40 characters shifted every position after it, including 6 recipient-count
+                  fields (98 chars) and IBAN (2434 chars).
+
+                  Full field table rebuilt against AEAT's official technical design (dr111e16v18.xls) --
+                  confirmed against both the A3 sample and HRB's own output, byte-for-byte.
+
+                  Amendment Type: for M111, two fields, Declaración Complementaria (538, "X"/blank) and
+                  Número de Justificante de la Declaración Anterior (539-551, 13 digits) -- populated only
+                  for Supplementary/Substitute. Checked M190 and M216 too -- both already correctly
+                  document their own version (M190: Complementary Flag 121 + Substitutive Flag 122 +
+                  Prior Declaration ID 123-135; M216: Complementary Declaration 432 + Prior Justificante
+                  Number 433-445), no fix needed there.
+
+                  Spec v4 updated.
+
+LL Lily Li Commented about 5 hours ago (edited)
+        @Wallisson dos Santos Gomes Thanks for updates. Pls check further queries below:
+
+                  1. The following fields under column B to S are blank:
+
+                  Tax Year
+
+                  [05] In-Kind Value
+
+                  [11] In-Kind Value to Professionals
+
+                  [17] In-Kind Prize Value
+
+                  [23] Forestry In-Kind Value
+
+https://youtrack.hrblizz.dev/issue/SR-82                                                                     5/6
+9/3/26, 11:01 AM                                                   ES: Modelo 111 (Personal Income Tax IRPF) - SPEC : SR-82
+
+                  [26] Payments to Non-Resident Entities
+
+                  [29] Previous Declaration Result (Complementaria Only)
+
+                     Reserved for Colegio Concertado Administration
+                  2. Pls add the new field "$legal_entity_hr.previous_m111_justificante_number" to DD.
+                  3. As our system only supports original filing and substitute filing, I will remove the
+
+                     highlighted options from DD:
+
+https://youtrack.hrblizz.dev/issue/SR-82                                                                                     6/6
+

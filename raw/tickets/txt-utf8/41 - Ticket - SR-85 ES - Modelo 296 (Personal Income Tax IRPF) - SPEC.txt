@@ -1,0 +1,359 @@
+9/4/26, 9:13 AM                           ES: Modelo 296 (Personal Income Tax IRPF) - SPEC : SR-85
+
+Created by Wallisson dos Santos Gomes 8 months ago           Visible to issue readers                3
+Updated by Lily Li about 5 hours ago
+
+ES: Modelo 296 (Personal Income Tax IRPF) - SPEC
+
+         Project                                 State                Priority          Assignee
+
+       Statutory                          R In Review         M Major                  Wallisson
+       Reports                                                                         dos Santos
+                                                 Spent time  Due Date                  Gomes
+         Phase
+                                                3h 30m       31 Jan 2026                Country
+       Final Review
+ F Phase -                                       Research             Developer  E ES
+                                                 Analyst
+       Business                                               B Brenet                  Redesign of
+       Analyst                            W Wallisson               Õispuu
+                                                Gomes                            ? old country
+         Business                                                                      No
+
+ L Analyst
+       Lily Li
+
+Boards
+  Statutory Report…
+
+Spain Modelo 296 (Personal Income Tax IRPF) - SPEC
+
+Inward mentions 2
+     M CT-4406 Spain Regulation_Retribution Flexible
+     N CT-4433 ES: Spain Regulation Support
+
+Attachments 18 Hidden files 14
+
+LL Lily Li Commented 6 months ago
+        @Wallisson dos Santos Gomes Pls check further queries highlighted in purple in column U
+        under "M296 Spec". Thanks
+
+LL Lily Li Commented 6 months ago
+        @Wallisson dos Santos Gomes Pls check queries highlighted in purple in column U under
+        "M296 Spec". Thanks. Some are new, and some are not answered yet.
+
+https://youtrack.hrblizz.dev/issue/SR-85                                                                1/8
+9/4/26, 9:13 AM                               ES: Modelo 296 (Personal Income Tax IRPF) - SPEC : SR-85
+
+                 Wallisson dos Santos Gomes   Commented 6 months ago
+                 @Lily Li queries reverted.
+
+LL Lily Li Commented 4 months ago
+
+                 @Wallisson dos Santos Gomes Pls confirm the version control 2.1 change in the above link
+Projects / Statutory Reports / Issues / SR-85  Assig… Enter search req…
+                 to the report spec. Thanks.
+
+                 Wallisson dos Santos Gomes Commented 4 months ago (edited)
+                 @Lily Li Hi! I've reviewed the v2.1 change and I need to flag an issue.
+
+                 The removal of 65815 from the "Income Nature and Income Key" sheet is incorrect. After
+                 checking the Spain WTC v3.3, code 65815 (Benefit Earning) does have a 296 mapping:
+
+                      AEAT 296 Key: 20
+                      AEAT 296 Subkey: 01
+                      AEAT 216 Scope: Subject to withholding (216)
+
+                 Since 65815 is subject to withholding under Form 216, it must also be included in the
+                 Modelo 296 (which is the annual summary of 216 retentions). Could you please revert this
+                 change and add 65815 back to the sheet with Key 20 and Subkey 01?
+
+                 Thanks!
+
+LL Lily Li Commented 4 months ago (edited)
+        @Wallisson dos Santos Gomes I copied the column info from the wage type you added
+        and assigned a pay element code 65815 to it: as you can see, there's no 296 key info for
+        flexible remuneration.
+
+                 Here's the link to the WTC version you were working on:
+                 https://docs.google.com/spreadsheets/d/13lSyVT-MwZc28o-a13OcDyH-
+                 mOWlXh33TG7K5SLKb0Y/edit?gid=1375930511#gid=1375930511
+
+                 Important!!
+
+                 If you need to make changes to some column info of 65815, make changes in this
+                 document with latest version:
+                 https://docs.google.com/spreadsheets/d/1fYMYl1r1z_H2FnaLMY6-
+                 2A6h4ikwunKElE7tOC5zVFY/edit?gid=1375930511#gid=1375930511
+
+                 Wallisson dos Santos Gomes Commented 3 months ago
+                 @Lily Li I was working off the April 30 reference copy where 65815 was still a taxable
+                 Benefit Earning. In the current V3.5 (V3.4 change dated May 7), code 65815 has been
+                 reassigned to Flexible Remuneration - Non-Taxable SS Subject, so it correctly has no 296
+                 mapping and should not be in the Income Nature and Income Key sheet.
+
+                 Drew Õispuu Commented 3 months ago
+                 @Lily Li this report has been configured in acceptance and can be tested
+
+LL Lily Li Commented about 2 months ago (edited)
+        @Drew Õispuu Update row 41: replace 57176 with 58176
+        Sheet "Income Nature and Income Key": removed 62149, 6298%,
+
+https://youtrack.hrblizz.dev/issue/SR-85                                                                   2/8
+9/4/26, 9:13 AM                           ES: Modelo 296 (Personal Income Tax IRPF) - SPEC : SR-85
+
+                 79417
+                 79418
+                 79419
+                 79420
+                 79421
+                 79422
+                 79423
+                 79424
+                 79429
+                 79430
+                 79432
+
+Sheet "Income Nature and Income Key" impacts the following fields:
+
+        Drew Õispuu Commented about 1 month ago
+        @Lily Li Reviewed V2.3 - neither change affects the config: the row 41 (58176→57176)
+        edit applies to the proportional Tax Withheld formula, but we compute Tax Withheld as a
+        direct sum of 2582, and the "Income Nature and Income Key" removals don't apply
+        (population is by non-resident status, keys come from HR master data).
+
+        The full spec check did find one real gap, now fixed: Tax Residence Country (T2-040) was
+        left blank - it's mandatory and critical for IRNR, so I mapped it to the employee's residence
+        country (ISO2). Updated in Acceptance.
+
+        A few conditional fields are still blank and need a decision on HR mapping if the client
+        requires them: Recipient Address (T2-031, required unless Perceptor Mediador), Birth
+        Date/Birth Place (T2-038/039, for natural persons), and Recipient NIF in Residence
+        Country (T2-037). The securities/loan-only fields (T2-025 to T2-030) are correctly left
+        blank for standard payroll.
+
+LL Lily Li Commented about 1 month ago
+        @Drew Õispuu
+
+          1. Withholding Percentage: non-resident ee 58205 =3, but the output is 2400. It should
+             be 1900.
+
+2. Repercuted Tax Payments: could you pls confirm if it's spaces or zeros in your
+   development? In report spec, BA mapping is zeros.
+
+3. Birth Date: ee has birth date 03-01-1993, but not shown in generated file.
+
+https://youtrack.hrblizz.dev/issue/SR-85                                                               3/8
+9/4/26, 9:13 AM                                                       ES: Modelo 296 (Personal Income Tax IRPF) - SPEC : SR-85
+
+                 4. I have query regarding: tax withheld cannot equal 2582 directly. Pls check below.
+                    Similar logic to Withholding Base Amount, to separate cash and kind.
+
+                 5. The conditional fields you mentioned are required in the spec as provided by Wallisson.
+
+                 Drew Õispuu              Commented about 1 month ago (edited)
+                 @Lily Li
+
+                 Four of your five points are done and in Acceptance:
+
+                 On the Tax Withheld query: you are right that 2582 cannot go in directly. The spec formula
+                 splits it proportionally between cash (58176) and kind (58177), which means a recipient
+                 with both needs two Type 2 records, one D and one E, each with its own base and its
+                 share of 2582. That is a structural change to the report, not a formula edit. Before I rebuild
+                 it, please confirm: one D record with the cash base and cash share, plus one E record only
+                 when in-kind exists, and the Type 1 totals summing both?
+
+                 Please retest the four fixed points meanwhile.
+
+LL Lily Li Commented 29 days ago
+        @Drew Õispuu Yes, your understanding is correct.
+
+        @Wallisson dos Santos Gomes As this change is a structural change, I think it's better to
+        get your confirmation of below. Thanks for your support!
+
+        Each Type 2 record is either cash (D) or in-kind (E)... If an employee receives both cash
+        and in-kind... you generate TWO separate Type 2 records." This implies the condition
+        should run both ways:
+
+             Cash income exists → generate D record
+             In-kind income exists → generate E record
+
+        Type 1 totals Type 2 records.
+
+        An employee who receives only in-kind compensation with zero cash salary (e.g., a non-
+        cash-only benefits arrangement) should get only an E record.
+
+        An employee who receives only cash compensation with zero in-kind should get only a D
+        record.
+
+                 Wallisson dos Santos Gomes Commented 29 days ago
+                 @Lily Li your understanding is correct.
+
+LL Lily Li Commented 23 days ago
+        @Drew Õispuu Pls check below comment and make changes accordingly.
+
+                 Drew Õispuu Commented 21 days ago
+
+https://youtrack.hrblizz.dev/issue/SR-85                                                                                        4/8
+9/4/26, 9:13 AM                            ES: Modelo 296 (Personal Income Tax IRPF) - SPEC : SR-85
+
+                 @Lily Li i have resolved Wallisson comments and file can be tested
+
+                 Two things I still need:
+
+                 - A test employee with BOTH cash and in-kind income. All current test cases
+
+                 are cash only, so the two-record case is not yet proven.
+
+                 - The spec conditions the base on "flag 58218 = 1", but the population filter
+
+                 uses $hr.tax_residency_status. Should these always agree?
+
+LL Lily Li Updated 18 days ago
+        Comment was deleted. Restore or Delete permanently
+
+LL Lily Li Commented 17 days ago (edited)
+        @Drew Õispuu Scenario: ESG03 and ESG04 are both non-residents. Jan payroll was run
+        for both, and Feb payroll was run for ESG03. In Jan, both only have cash income. In Feb,
+        ESG03 has BIK income of 1000.
+
+        File generated: M296__2026.txt
+
+        Pls check below issues:
+
+                  1. 00000004 should not appear because for ESG04, only cash income.
+                  2. 2 on the first row means Total Recipients Count. As per Wallisson's confirmation in the
+
+                      spec, this refers to total count of Type 2 records. Here it should be 3, if 00000004 not
+                      counted.
+
+                 The spec conditions the base on "flag 58218 = 1", but the population filter
+                 uses $hr.tax_residency_status. Should these always agree?
+                 YES
+
+                 Drew Õispuu Commented 16 days ago
+                 @Lily Li changes are done, please test
+
+LL Lily Li Commented 15 days ago
+        Acceptance testing passed.
+
+        M296__2026.txt
+
+LL Lily Li Commented about 5 hours ago
+        @Wallisson dos Santos Gomes
+
+                 System generated: M296__2026 (1).txt
+
+                 A3 sample: 296 (2).TXT
+
+https://youtrack.hrblizz.dev/issue/SR-85                                                                        5/8
+9/4/26, 9:13 AM                                ES: Modelo 296 (Personal Income Tax IRPF) - SPEC : SR-85
+
+                 Error when uploading to tax portal:
+
+                 1. I've updated the mapping of below fields to zeros as shown in the column "A3
+                    Reference". Pls confirm if below list covered all required changes to change space to
+                    zeros. Are there other fields required to map to zeros?
+
+                 2. For this field "Record ID / Sequential Number", what's correct format? A3 format and
+                    system generated format is different. Pls confirm.
+
+                 M296 Field-by-Field Comparison — System Generated vs. A3 Reference
+
+                 Field (per               Position    System     A3 Reference                            Issue
+                 spec)                                Generated
+
+                 Recipient                134         (blank)    0                                       AEAT
+                                                                                                         rejection
+                 Mediator Flag                                                                           E020180 —
+                                                                                                         blank space
+                                                                                                         invalid for
+                                                                                                         numeric field;
+                                                                                                         must default
+                                                                                                         to 0
+
+                 Issuer Code              135         (blank)    0                                       AEAT
+                                                                                                         rejection
+                 Type                                                                                    E020190 —
+                                                                                                         blank space
+                                                                                                         invalid for
+                                                                                                         numeric field;
+                                                                                                         must default
+                                                                                                         to 0
+
+                 Declarant                148         (blank)    0                                       AEAT
+                                                                                                         rejection
+                 Payment Type                                                                            E020210 —
+                                                                                                         blank space
+https://youtrack.hrblizz.dev/issue/SR-85                                                                 invalid for
+                                                                                                         numeric field;
+
+                                                                                                                                                 6/8
+9/4/26, 9:13 AM                                 ES: Modelo 296 (Personal Income Tax IRPF) - SPEC : SR-85
+
+                 Field (per               Position  System      A3 Reference                              Issue
+                 spec)                              Generated
+                                                                                                          must default
+                                                                                                          to 0
+
+                 Accrual Tax              171–174   (blank, 4   0000                                      AEAT
+                 Year                               spaces)                                               rejection
+                                                                                                          E020250 —
+                                                                                                          must be
+                                                                                                          zero-filled,
+                                                                                                          not blank
+
+                 Loan Start Date          175–182   (blank, 8   00000000                                  AEAT
+                                                    spaces)                                               rejection
+                                                                                                          E020260 —
+                                                                                                          must be
+                                                                                                          zero-filled,
+                                                                                                          not blank
+
+                 Loan Maturity            183–190   (blank, 8   00000000                                  AEAT
+                 Date                               spaces)                                               rejection
+                                                                                                          E020270 —
+                 Lender                                                                                   must be
+                 Remuneration                                                                             zero-filled,
+                                                                                                          not blank
+                 Compensations
+                                          191–202   (blank, 12  000000000000                              AEAT
+                                                    spaces)                                               rejection
+                                                                                                          E020280 —
+                                                                                                          must be
+                                                                                                          zero-filled,
+                                                                                                          not blank
+
+                                          203–      (blank, 12  000000000000                              AEAT
+                                          214       spaces)                                               rejection
+                                                                                                          E020290 —
+                                                                                                          must be
+                                                                                                          zero-filled,
+                                                                                                          not blank
+
+                 Guarantees               215–      (blank, 12  000000000000                              AEAT
+                                          226       spaces)                                               rejection
+                                                                                                          E020300 —
+                                                                                                          must be
+                                                                                                          zero-filled,
+                                                                                                          not blank
+
+                 Record ID /              77–84     00000001    1 + trailing                              Format
+                 Sequential                         (zero-      spaces (left-                             mismatch —
+                 Number                             padded,     justified)                                no AEAT error
+                                                    right-                                                observed for
+                                                    justified)                                            this specific
+                                                                                                          one yet, but
+                                                                                                          structurally
+                                                                                                          wrong vs.
+
+https://youtrack.hrblizz.dev/issue/SR-85                                                                                 7/8
+9/4/26, 9:13 AM                           ES: Modelo 296 (Personal Income Tax IRPF) - SPEC : SR-85
+
+                 Field (per               Position  System     A3 Reference                         Issue
+                 spec)                              Generated
+                                                                                                    confirmed
+                                                                                                    reference
+
+https://youtrack.hrblizz.dev/issue/SR-85                                                                       8/8
+

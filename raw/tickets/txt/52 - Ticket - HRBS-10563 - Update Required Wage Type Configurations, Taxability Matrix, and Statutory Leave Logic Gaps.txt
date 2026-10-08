@@ -1,0 +1,710 @@
+9/8/26, 5:51 PM              Update Required: Wage Type Configurations, Taxability Matrix, and Statutory Leave Logic Gaps : HRBS-10563
+
+Created by Gulnaaz Parveen 3 months ago                                 HRBlizz Support Team
+Updated by Gulnaaz Parveen about 2 hours ago
+
+Update Required: Wage Type Configurations, Taxability
+Matrix, and Statutory Leave Logic Gaps
+
+       Project               CCs                         Priority                Type
+
+      HRBlizz                No CCs               M Medium               S Service
+      Support                                                                  Request
+                                        Assignee         Support Group
+       State                                                            Resolution Time
+                                      Lily Li     C Compliance            1d
+O Open                                                  Support
+                                                                                 Spent time
+      SLA Violation                 Country              Estimation
+                                                                         ??
+? Reason                     S Spain              ??
+     ----                                                                        Legal Entity
+                                    Client               SLA status              Phase
+      Environment
+                             ? No client          B Breached             ? Please
+? No                                                                           choose legal
+     environment                                                               entity phase
+
+                 Boards
+
+                 No visible
+                 boards
+
+Hi Lily,
+
+Below are the actions from todays discussion, which needs to be actioned asap as this impacts
+on Spain Regulations:
+
+Wage Code & Taxability Matrix Updates
+
+ 1. Series 6296 (Generic Allowances): Update the taxability matrix for series 62960-62969.
+     These elements must be configured as taxable but non-subject to Social Security.
+
+ 2. Series 6298 (Net Adjustments & Non-Taxable Severance): Configure as non-taxable and non-
+     subject to Social Security.
+
+ 3. Ensure client-provided severance amounts override system-calculated values. Both the
+     below wage codes which is uploaded by client as a user input should take priority over
+     system calculated severance amounts.
+
+Severance Taxable ion subject to SS 62180
+Severance Non Taxable 62983
+
+ 4. Leave Logic & Absence Management Configurations
+
+Missing Statutory Leaves: Add missing statutory leave types (including abortion, disabling
+menstruation, and termination of pregnancy) to the regulation mapping. These must follow the
+established sick leave base calculation logic (utilizing the previous month's BCC/BCCP base).
+
+https://youtrack.hrblizz.dev/tickets/HRBS-10563/Update-Required-Wage-Type-Configurations-Taxability-Matrix-and-Statutory-Leave-Logic-Gaps... 1/13
+9/8/26, 5:51 PM  Update Required: Wage Type Configurations, Taxability Matrix, and Statutory Leave Logic Gaps : HRBS-10563
+
+Attached Leave document for your reference. Kindly check on all these statutory Spanish Leaves
+by law.
+
+5. Work Accident Payout Logic: Configure the day 1 versus day 2 payout logic for work
+   accidents. (Currently, day 1 is reported without payout if the employee worked, with actual
+   payout beginning on day 2. Please clarify the difference and usage of 79411 Accident leave
+   payment day 1 and 79412 Accident leave payment from day 2).
+
+6. 15th month extra Payment which is paid out in March following year has accrual period of
+   Jan to Dec Salary form previous year however sometimes the CBA can say a different accrual
+   period. Kindly check how this can be managed within HRB Regulations.
+
+Company Name
+All Spain
+
+Inward mentions 1
+N CT-4433 ES: Spain Regulation Support
+
+Attachments 7 Hidden files 2
+
+  XLSX                  XLSX                  XLSX
+
+Gross To Net Spain    Gross To Net Spain    Gross To Net Spain
+(Payroll) 2... 12 kB  (Payroll) 2... 12 kB  (Payroll) 2... 12 kB
+
+  XLSX
+
+Leave Wage Codes
+and Payou... 10 kB
+
+        LL Lily Li Commented 3 months ago
+                 Checking the requirements
+
+                 Kind regards,
+                 Lily Li
+
+        LL Lily Li Commented 3 months ago
+                 @Wallisson dos Santos Gomes
+                 If you need to make changes to DD/WTC, do it in WTC V3.9 and DD V3.7 because these
+                 versions are not finalized yet and status is In Progress.
+                 Pls check comments below:
+                 Point 1 & 2: I've updated taxability matrix columns for 62960 to 62989 in WTC, and the
+                 changes are highlighted in purple. Pls check column T to AC if any change is required.
+                 Highlight your changes in a different color.
+                 Also, 62920 name has been updated to Pay in Lieu of Notice as per implementation team
+                 requirement. Pls check column T to AC if any change is required. Highlight your changes
+                 in a different color.
+
+https://youtrack.hrblizz.dev/tickets/HRBS-10563/Update-Required-Wage-Type-Configurations-Taxability-Matrix-and-Statutory-Leave-Logic-Gaps... 2/13
+9/8/26, 5:51 PM  Update Required: Wage Type Configurations, Taxability Matrix, and Statutory Leave Logic Gaps : HRBS-10563
+
+                 Point 3: This will be applied in regulation steps.
+
+                 Point 4: Pls check the query and clarify the requirements as described in the task
+                 description. Missing Statutory Leaves: Add missing statutory leave types (including
+                 abortion, disabling menstruation, and termination of pregnancy) to WTC. Highlight your
+                 changes in a different color.
+
+                 Point 5 & 6: Pls check the query and clarify the requirements as described in the task
+                 description. If the change is required in DD or WTC, Highlight your changes in a different
+                 color.
+
+                 Point 7: Pls confirm under which condition, the sick leave base calculation logic is applied
+                 in the month for different types of leave? If there're different types of leave happening in
+                 the same month, how to know whether sick leave base logic applies? For example, sick
+                 leave and maternity leave happen in the same month
+
+                 Kind regards,
+                 Lily Li
+
+                 Wallisson dos Santos Gomes Commented 3 months ago
+                 @Lily Li -- checked all points against current Spanish legislation. Changes done in WTC
+                 (now V3.9, my changes highlighted in orange to distinguish from your purple). Point-by-
+                 point below.
+                 Point 1 -- Series 6296 (62960-62969), taxable / non-SS. Confirmed correct. Your purple
+                 flags (N=Yes, BCCC/BCCP=No) are right. Note the legal caveat for the implementation
+                 team: under Art. 147 LGSS the default is that all remuneration cotiza; "taxable but non-SS"
+                 only holds where the underlying concept is one of the Art. 147.2 exclusions
+                 (locomoción/dietas within IRPF limits, study expenses, etc.). The series flag is fine as a
+                 container, but only genuinely non-SS concepts should be mapped to it. Columns T-AC: no
+                 change needed -- taxable cash keeps AEAT clave A.
+                 Point 2 -- Series 6298 (62980-62989), non-taxable / non-SS. Your N/O/P/Q flags
+                 confirmed correct. I corrected the AEAT/190 reporting metadata, which was still showing
+                 clave A "subject to withholding" (inconsistent with non-taxable):
+
+                 | Code | Corrected reporting |
+
+                 | 62983 Non-Taxable Severance | clave L / subkey L05 (indemnización por despido
+                 exenta, Art. 7.e LIR), Exempt_InfoOnly, out of 111/216 |
+
+                 | 62980-62982, 62984-62989 Net Adjustment | clave L / L01, Exempt_InfoOnly, out of
+                 111/216 |
+
+                 This mirrors the existing exempt precedent in the WTC (62873).
+                 Point 3 -- client severance override (62180, 62983). Noted -- you confirmed this is
+                 handled in regulation steps. No WTC change.
+                 Point 4 -- missing statutory leaves. Added 3 leave-unit WTs mirroring 79008 Sick Leave
+                 Unit:
+
+                 | 79022 | Termination of Pregnancy Leave Unit |
+
+                 | 79024 | Disabling Menstruation Leave Unit |
+
+                 | 79028 | Abortion Leave Unit |
+
+                 The payout earning codes for these already exist (79420-79428 etc.) but are named
+                 generically "Other Leave Payout" -- if you want them renamed to the specific leave type,
+                 let me know and I'll update, but I didn't rename unilaterally since the WTC naming is yours.
+                 Legal basis (Ley Orgánica 1/2023, modifying arts. 169.1.a) and 173 LGSS): the three new IT
+
+https://youtrack.hrblizz.dev/tickets/HRBS-10563/Update-Required-Wage-Type-Configurations-Taxability-Matrix-and-Statutory-Leave-Logic-Gaps... 3/13
+9/8/26, 5:51 PM  Update Required: Wage Type Configurations, Taxability Matrix, and Statutory Leave Logic Gaps : HRBS-10563
+
+                 situations are common-contingency, paid at 60% of base reguladora days 1-20 and 75%
+                 from day 21. Day-1 mechanics differ -- see point 5.
+                 Point 5 -- work accident day 1 vs day 2 (79411 / 79412). Clarified:
+
+                 | 79411 Accident leave payment day 1 | The accident day itself -- full salary (100%), paid
+                 by the employer, NOT a subsidy. Art. 173.1 LGSS: "a cargo del empresario el salario íntegro
+                 correspondiente al día de la baja." |
+
+                 | 79412 Accident leave payment from day 2 | 75% of base reguladora from the day after
+                 the baja, delegated payment (mutua/INSS). Base reguladora = prior month's BCCP ÷ days
+                 in month (30 for monthly salary). |
+
+                 So the day-1/day-2 split in the ticket is correct: day 1 = normal salary (worker usually
+                 worked part of that day), IT subsidy starts day 2 at 75%.
+                 Important distinction for the three new leaves in point 4: only abortion (interrupción del
+                 embarazo) and termination of pregnancy / week-39 follow this same "employer pays full
+                 salary day 1, subsidy from day 2" pattern. Disabling menstruation is different -- subsidy is
+                 paid by Seg. Social from day 1 (no employer day-1 salary obligation). This affects how the
+                 Show more
+
+                 Gulnaaz Parveen Commented 3 months ago
+                 @Lily Li Please share the latest Data Dictionary and Wage Type Catalogue with all these
+                 changes.
+
+LL Lily Li Commented 3 months ago
+        @Gulnaaz Parveen Wallisson just provided the feedback not long ago. I need to do the
+        complete analysis, and update regulation design and reports mapping affected. And
+        include the development as well. This is a major change to Spain regulations. Will let you
+        know once done from our end.
+
+                 Kind regards,
+                 Lily Li
+
+                 Gulnaaz Parveen Commented 3 months ago
+                 @Lily Li Request you to share the ETA for the same so I can update the status accordingly.
+
+LL Lily Li Commented 3 months ago
+        @Gulnaaz Parveen Pls check with Mohit on this.
+
+                 Kind regards,
+                 Lily Li
+
+        LL Lily Li Commented 3 months ago
+                 @Wallisson dos Santos Gomes
+
+                 Point 2: CRA Code of 62983 should be 54?
+
+                 Point 4: As per Gulnaaz, except unpaid leave in the attachment "Leave Wage Codes and
+                 payout codes mapping", other leave types are in scope of regulations. Pls double check.
+                 Currently, the following leave types are not in WTC. If these are compliance requirements,
+                 they should be reflected in WTC with correct names. Highlight your changes in a different
+                 color.
+
+                      ERE with partial unemployment Leave
+                      ERE with total unemployment Leave
+
+https://youtrack.hrblizz.dev/tickets/HRBS-10563/Update-Required-Wage-Type-Configurations-Taxability-Matrix-and-Statutory-Leave-Logic-Gaps... 4/13
+9/8/26, 5:51 PM                 Update Required: Wage Type Configurations, Taxability Matrix, and Statutory Leave Logic Gaps : HRBS-10563
+
+                 Partial maternity Leave
+                 Partial paternity Leave
+                 Parential Leave
+                 Partial Parential Leave
+                 Risk during pregnancy Leave
+                 Risk during lactancy Leave
+                 Abortion Leave
+                 Disabling menstruation Leave
+                 Termination of pregnancy First Day
+                 Termination of pregnancy
+
+                 For sick leave payouts pay elements, I've left a comment:
+                 https://docs.google.com/document/d/1sz1i7u852mQPyMBfv6RLT05oSqkUsn70/edit
+
+                 Point 7: For point 7, as this is very complicated, pls provide detailed logic and concrete
+                 examples in detail.
+
+                 1. What is this base? "Birth/care leaves (maternity, paternity, parental)  100% of base
+                    reguladora, also on prior-month base." How this base impact social security
+                    contributions calculation? In regulations, only BCCC and BCCP base impact social
+                    security contributions.
+
+                 2. I have questions regarding "The base is per-day and per-contingency". As per my
+                    research, per-day and per-contingency is applied on leave payout, not BCCC/BCCP
+                    base. Pls check this document in detail:
+                    https://docs.google.com/document/d/1K2qjHCXt6yLJTfIXkicD9r9vhuKS2M4X/edit
+
+                 Kind regards,
+                 Lily Li
+
+LL Lily Li Commented 3 months ago
+        @Gulnaaz Parveen For point 6, if extra pay is paid in next March, for example, system
+        cannot evaluate it when calculating annual gross income since it's in next year. So, we
+        added accrual month following each field:
+
+            Extra Pay Month 1 (Accrual Month)
+
+            Extra Pay Month 2 (Accrual Month)
+
+            Extra Pay Month 3 (Accrual Month)
+
+        For example, if extra pay 3 is paid in next March, user can input December in Extra Pay
+        Month 3 (Accrual Month).
+
+                 Kind regards,
+                 Lily Li
+
+                 Wallisson dos Santos Gomes Commented 3 months ago
+                 @Lily Li -- addressed per point. WTC updated (V3.9, my changes in orange).
+                 Point 2 -- CRA Code of 62983: yes, 0054, indicator E.
+                 These are two different systems, so both values stand together (no conflict):
+
+                 | TGSS / SILTRA (CRA) | 0054 -- Indemnizaciones por despido o cese, indicator E |
+
+                 | AEAT / 190 (IRPF) | clave L, subclave L05 -- exenta art. 7.e LIRPF |
+                 Same position already approved in ES-CRA-001 for the other exempt-severance codes
+
+https://youtrack.hrblizz.dev/tickets/HRBS-10563/Update-Required-Wage-Type-Configurations-Taxability-Matrix-and-Statutory-Leave-Logic-Gaps... 5/13
+9/8/26, 5:51 PM  Update Required: Wage Type Configurations, Taxability Matrix, and Statutory Leave Logic Gaps : HRBS-10563
+
+                 (58184, 58186) and 62180. Severance is outside the SS base regardless of IRPF treatment
+                  indicator E for the exempt amount; any taxable excess stays E for SS but carries the
+                 taxable clave on the 190 side. WTC: 62983 CRA = 0054, I/E = E.
+                 Point 4 -- missing leave types: added to WTC.
+                 Added, mirroring 79008 Sick Leave Unit (EN + ES names):
+
+                 Leave Units -- Risk During Pregnancy, Risk During Lactation, Parental Leave.
+
+                 Leave Payouts (slots 79416 / 79417 / 79418) -- Risk During Pregnancy Payout, Risk During
+                 Lactation Payout, Parental Leave Payout (Paid Weeks).
+                 All three payouts: BCCC/BCCP = No (INSS/mutua subsidy, outside the SS base), AEAT
+                 clave B.01 (pago directo). Mercans/CRA codes left blank for dev.
+
+                 Risk during pregnancy/lactation: 100% BR, paid by INSS/mutua from day 1, suspends
+                 contract (Art. 186-187 LGSS).
+                 Parental leave: 2 of 8 weeks paid at 100% by SS (RDL 9/2025, births from 02-Aug-2024);
+                 the other 6 weeks are unpaid suspension (no payout WT).
+
+                 Not added, with reason:
+
+                 Partial maternity / partial paternity / partial parental -- part-time variants of the existing
+                 birth/care codes, handled by the working-day-% coefficient, not separate WTs.
+                 ERE partial / ERE total unemployment -- contract suspension/reduction (ERTE), not IT
+                 leave. SEPE pays the unemployment portion; handle as a suspension/status code, not a
+                 WTC leave entry.
+
+                 Point 7 -- base logic. Q1 agreed; Q2 I have to correct, with the BOE text.
+                 Q1 -- "Maternity/paternity  100% base reguladora", impact on SS contributions. Agreed
+                 that only BCCC/BCCP feed SS -- and that's the point: "100% base reguladora" is the
+                 payout the employee receives, not a contribution-base input. It does not enter the
+                 contribution calc. SS contributions during nacimiento/cuidado run on BCCC, sourced from
+                 the month before the prior month (M-2) per Orden PJC/297/2026. So maternity adds no
+                 third base; "100% BR" belongs only to the payout side.
+                 Q2 -- "Per-day and per-contingency applies to payout, not BCCC/BCCP base." This needs
+                 correcting: the BOE applies the per-day mechanic to the cotización base itself, not only
+                 the payout.
+                 Orden PJC/297/2026, cotización base during IT / riesgo / nacimiento:
+
+                 | base diaria de cotización = base del mes anterior ÷ 30 |
+
+                 | base de cotización durante la situación = base diaria × días en la situación |
+                 For a split month, the cotización days for the leave portion = 30 - días trabajados. So the
+                 monthly base is a per-day blend: worked days on the current base, leave days on the
+                 prior-month daily base -- per-day and per-contingency (común  BCCC prior month;
+                 profesional  BCCP prior month; nacimiento  BCCC M-2).
+                 On the BCCC/BCCP Base Logic document: its body (Sections 1-4 and 6) actually states
+                 the base is applied per contingency, per segment -- which matches the BOE. The only line
+                 that says otherwise is the Section 5 table ("SS Contributions -- full monthly base always,
+                 No leave days"). That line is incorrect -- it's only true when the leave spans the whole
+                 month; for a partial month it's the per-day blend above. It contradicts both the rest of that
+                 same document and the cotización order, so please don't rely on Section 5; the BOE text is
+                 the authority.
+                 Net for the system: per-day, per-contingency on both sides -- payout (BR × 60/75/100%)
+                 and cotización base (daily base × leave days). Each contingency uses its own prior-month
+                 base (M-2 for nacimiento). Only BCCC/BCCP feed SS; "100% BR" is payout-only.
+                 Sources: BOE-A-2026-7296 (Orden PJC/297/2026); Art. 144, 186-187 LGSS; Modelo 190
+                 clave L/L05 + B.01; ES-CRA-001 Table 84.
+
+https://youtrack.hrblizz.dev/tickets/HRBS-10563/Update-Required-Wage-Type-Configurations-Taxability-Matrix-and-Statutory-Leave-Logic-Gaps... 6/13
+9/8/26, 5:51 PM  Update Required: Wage Type Configurations, Taxability Matrix, and Statutory Leave Logic Gaps : HRBS-10563
+
+                 Kind regards,
+                 Wallisson dos Santos Gomes
+
+LL Lily Li Commented 3 months ago
+        @Wallisson dos Santos Gomes
+
+        Point 4: The following leave payout pay elements do not exist in WTC. Could you pls
+        double confirm if all required leave units and leave payouts are available in WTC? Also, pls
+        check those leave payout pay elements should be created as same as in the screenshot.
+        For example, there're three abortion leave payouts.
+
+             Abortion Leave
+             Disabling menstruation Leave
+             Termination of pregnancy First Day
+             Termination of pregnancy
+
+                 Point 7: Bases on what you've confirmed below,
+                 Common-contingency leaves (sick, disabling menstruation, abortion, termination of
+                 pregnancy, risk during pregnancy/lactancy)  prior-month BCCC.
+                 Professional-contingency leaves (work accident, occupational disease)  prior-month
+                 BCCP.
+                 Birth/care leaves (maternity, paternity, parental)  BCCC base (M - 2).
+                 Pls confirm below queries:
+
+                   1. Daily contribution base: Prior month's base ÷ 30. Here no matter monthly group, daily
+                      group, or part-time, always divide by 30?
+
+                   2. Leave days = 30 minus days worked. This works when there're only one type of leave
+                      in the month. What if there's more than one type of leave in the month? How to
+                      calculate leave days?
+
+                   3. For days worked, apply normal BCCC/BCCP base based on current month's income?
+                   4. If the maternity leave or sick leave is 30 days in the month, only BCCC base is
+
+                      applicable in the month? No BCCP base?
+                   5. If the entire month is work accident leave, only BCCP base is applicable? No BCCC
+
+                      base?
+                   6. Pls provide concrete examples for the above scenarios mentioned.
+
+                 Kind regards,
+                 Lily Li
+
+https://youtrack.hrblizz.dev/tickets/HRBS-10563/Update-Required-Wage-Type-Configurations-Taxability-Matrix-and-Statutory-Leave-Logic-Gaps... 7/13
+9/8/26, 5:51 PM  Update Required: Wage Type Configurations, Taxability Matrix, and Statutory Leave Logic Gaps : HRBS-10563
+
+LL Lily Li Commented 3 months ago
+        @Wallisson dos Santos Gomes For point 7, one more point to add:
+
+        BCCC/BCCP base for the current month = SUM of Worked days segment base and Leave
+        days segment base? As per BCCC/BCCP base for the current month, the contributions are
+        calculated.
+
+        Pls provide concrete examples for this.
+
+                 Kind regards,
+                 Lily Li
+
+                 Wallisson dos Santos Gomes Commented 3 months ago
+                 @Lily Li -- answers to all six sub-questions plus the follow-up:
+                 Q1. Daily base = prior month ÷ 30. Always, regardless of monthly/daily group/part-time?
+
+                 No -- only for monthly-group employees. For monthly-group workers: prior month's BCCC
+                 ÷ 30. For daily-group workers: prior month's BCCC ÷ actual calendar days of that month
+                 (28/30/31). Part-time has a different BR calculation entirely (sum of last 3 months ÷
+                 calendar days in the period, per RDL 11/2024). So ÷30 is not universal -- it depends on the
+                 cotización group.
+                 Q2. Leave days = 30 - days worked. What if multiple leave types in the same month?
+
+                 The formula stays the same for the base calculation: total days in period - worked days =
+                 leave days (for monthly group, period = 30). But when there are multiple leave types, the
+                 contribution base for each leave segment is calculated separately using the BR of that
+                 leave type (BCCC for common-contingency leave, BCCP for professional-contingency
+                 leave, BCCC M-2 for birth/care). You segment the month: worked days use current-month
+                 actual earnings; each leave block uses its own prior-month base. The total BCCC/BCCP for
+                 the month is then the sum of all segments (see follow-up below).
+                 Q3. For worked days, apply current month's actual BCCC/BCCP base?
+
+                 Yes -- worked-day segment base = actual earnings for those days in the current month,
+                 subject to normal floor/ceiling.
+                 Q4. If maternity/sick leave covers all 30 days -- only BCCC, no BCCP?
+
+                 Yes. If the entire month is common-contingency leave (sick leave, maternity, disabling
+                 menstruation, etc.), the contribution base for the month is 100% BCCC-sourced (prior
+                 month's BCCC ÷ 30 × 30 days = prior month's BCCC). No BCCP base applies because
+                 there are zero professional-contingency days.
+                 Q5. If entire month is work accident leave -- only BCCP, no BCCC?
+
+                 Yes. Professional-contingency leave uses prior month's BCCP as the daily base. If all 30
+                 days are AT/EP, the month's contribution base is 100% BCCP-sourced. No BCCC base for
+                 those days.
+                 Q6. Concrete examples:
+                 Example A -- Full month sick leave (monthly group, May 2026):
+
+                 | Segment | Days | Daily base | Contribution base |
+
+                 | Sick leave (CC) | 30 | Prior-Apr BCCC ÷ 30 | Prior-Apr BCCC |
+
+                 | Worked | 0 | -- | 0 |
+
+                 | Total BCCC for May | | | = prior-Apr BCCC |
+
+                 | Total BCCP for May | | | = 0 |
+                 Example B -- Full month work accident (AT, May 2026):
+
+https://youtrack.hrblizz.dev/tickets/HRBS-10563/Update-Required-Wage-Type-Configurations-Taxability-Matrix-and-Statutory-Leave-Logic-Gaps... 8/13
+9/8/26, 5:51 PM  Update Required: Wage Type Configurations, Taxability Matrix, and Statutory Leave Logic Gaps : HRBS-10563
+
+                 | Segment | Days | Daily base | Contribution base |
+
+                 | AT leave (CP) | 30 | Prior-Apr BCCP ÷ 30 | Prior-Apr BCCP |
+
+                 | Worked | 0 | -- | 0 |
+
+                 | Total BCCC for May | | | = 0 |
+
+                 | Total BCCP for May | | | = prior-Apr BCCP |
+                 Example C -- Mixed month: worked 10 days + 10 days sick (CC) + 10 days AT (CP), May
+                 2026 (monthly group):
+
+                 | Segment | Days | Base |
+
+                 | Worked | 10 | 10/30 × current-May earnings |
+
+                 | Sick leave (CC) | 10 | 10/30 × prior-Apr BCCC |
+
+                 | AT leave (CP) | 10 | 10/30 × prior-Apr BCCP |
+
+                 | Total BCCC for May | | (10/30 × May earnings) + (10/30 × Apr BCCC) |
+
+                 | Total BCCP for May | | 10/30 × Apr BCCP |
+                 Follow-up: BCCC/BCCP for the month = sum of worked-days segment + leave-days
+                 segment(s)?
+
+                 Correct. The payroll is structured as two segments: worked days and leave days, and
+                 when there are multiple leave types, each has its own segment. The monthly BCCC =
+                 worked-day base + all CC-leave segments. The monthly BCCP = all CP-leave segments.
+                 Contributions are then applied to those totals at the applicable rates.
+
+        Kind regards,
+        Wallisson dos Santos Gomes
+
+LL Lily Li Commented 3 months ago
+        @Wallisson dos Santos Gomes
+        Further query 1: if only one type of leave in the month, Leave days = 30 minus days
+        worked?
+        If there's more than one type of leave in the month, how to calculate leave days?
+        For example: for monthly group, if worked days in May = 15, sick leave days = 10, AT leave
+        days = 6. the total days not equal 30. How to arrive at 30?
+        Further query 2: the following leave has only one corresponding leave payout as shown in
+        WTC, correct? In Gulnaaz's attachment, more than one payout.
+             Abortion Leave
+             Disabling menstruation Leave
+             Termination of pregnancy
+
+        Kind regards,
+        Lily Li
+
+LL Lily Li Commented 3 months ago
+        @Wallisson dos Santos Gomes Further query 3: The monthly BCCC = worked-day base +
+        all CC-leave segments. The monthly BCCP = all CP-leave segments.
+
+        To double confirm, worked-day base is only included in monthly BCCC, correct? In BCCP,
+        no worked-day base.
+
+https://youtrack.hrblizz.dev/tickets/HRBS-10563/Update-Required-Wage-Type-Configurations-Taxability-Matrix-and-Statutory-Leave-Logic-Gaps... 9/13
+9/8/26, 5:51 PM  Update Required: Wage Type Configurations, Taxability Matrix, and Statutory Leave Logic Gaps : HRBS-10563
+
+                 The social security base floor/ceiling for monthly group, daily group, and part-time is
+                 applicable to monthly BCCC/monthly BCCP OR "worked-day base" only?
+
+                 Kind regards,
+                 Lily Li
+
+LL Lily Li Commented 3 months ago
+        @Wallisson dos Santos Gomes Pls also check previous two comments.
+
+        Further query 4: What's the trigger to calculate CC-leave segments and CP-leave
+        segments? If any of the following leave days in the month > 0, trigger the calculation of
+        worked-days base and leave segments in that month?
+
+             Common-contingency leaves (sick, disabling menstruation, abortion, termination of
+             pregnancy, risk during pregnancy/lactancy)  prior-month BCCC.
+             Professional-contingency leaves (work accident, occupational disease)  prior-month
+             BCCP.
+             Birth/care leaves (maternity, paternity, parental)  BCCC base (M - 2).
+
+                 Kind regards,
+                 Lily Li
+
+LL Lily Li Commented 3 months ago
+        @Wallisson dos Santos Gomes For further query 3, in current regulations, for monthly
+        group, social security base floor/ceiling has been prorated based on actual worked days.
+        As per my understanding, the social security base floor/ceiling is applicable to "worked-
+        day base" only. Pls confirm
+
+                 Kind regards,
+                 Lily Li
+
+                 Gulnaaz Parveen Commented 3 months ago
+                 @Lily Li What is the final update on this?
+
+LL Lily Li Commented 3 months ago
+        @Gulnaaz Parveen The ticket is currently assigned to Wallisson. Let him confirm those
+        queries first.
+
+                 Kind regards,
+                 Lily Li
+
+                 Wallisson dos Santos Gomes Commented 3 months ago
+                 @Lily Li -- answers to all open queries below. One correction to my own earlier base-logic
+                 examples (Q4/Q5, Examples A-C) up front, with the BOE text, because it affects the AT/EP
+                 side and I'd rather fix it before development.
+                 Correction -- both contingency bases continue during any leave
+                 My earlier examples zeroed BCCP during common-contingency leave (and BCCC during
+                 professional leave). That's not correct. Orden PJC/297/2026 Art. 6:
+                 | Art. 6.1 | "La obligación de cotizar permanece durante las situaciones de incapacidad
+                 temporal, riesgo... nacimiento" -- all contingencies |
+
+                 | Art. 6.3 | prior-month-base rule applies "a efectos de las contingencias de accidentes de
+                 trabajo y enfermedades profesionales, durante las situaciones de incapacidad temporal..."
+
+https://youtrack.hrblizz.dev/tickets/HRBS-10563/Update-Required-Wage-Type-Configurations-Taxability-Matrix-and-Statutory-Leave-Logic-Gap... 10/13
+9/8/26, 5:51 PM     Update Required: Wage Type Configurations, Taxability Matrix, and Statutory Leave Logic Gaps : HRBS-10563
+
+                 |
+
+| Art. 6.5 | "En la cotización por accidentes de trabajo y enfermedades profesionales,
+durante los períodos de baja por incapacidad temporal... continuará siendo de aplicación
+el tipo de cotización correspondiente a la actividad económica" |
+So during a common sick leave, AT/EP (BCCP) still runs on the prior-month BCCP; during
+an AT leave, common (BCCC) still runs on the prior-month BCCC. Neither base is ever zero
+while the worker is de alta.
+Corrected examples (monthly group, May 2026, prior month = April):
+Example A -- full month common sick leave:
+
+| BCCC for May | prior-Apr BCCC (30/30) |
+
+| BCCP for May | prior-Apr BCCP (30/30) -- not 0 |
+Example B -- full month work accident:
+
+| BCCC for May | prior-Apr BCCC (30/30) -- not 0 |
+
+| BCCP for May | prior-Apr BCCP (30/30) |
+Example C -- worked 10 + sick 10 (CC) + AT 10 (CP):
+
+| BCCC for May | 10/30 May earnings + 10/30 Apr BCCC + 10/30 Apr BCCC = 10/30 May
+earnings + 20/30 Apr BCCC |
+
+| BCCP for May | 10/30 May earnings + 10/30 Apr BCCP + 10/30 Apr BCCP = 10/30 May
+earnings + 20/30 Apr BCCP |
+So Q4 ("all-month sick  only BCCC, no BCCP") and Q5 ("all-month AT  only BCCP, no
+BCCC") are both No -- both bases are maintained at the prior-month level. Contingency
+type drives the payout and which prior-month base is referenced, not whether a base
+exists.
+Further Query 3 -- worked-day base, and floor/ceiling
+Worked-day base is not in BCCC only. Worked-day earnings are the cotización base for
+both common and professional contingencies, so they feed both:
+
+| Monthly BCCC | worked-day earnings + all leave days × (prior-month BCCC ÷ 30) |
+
+| Monthly BCCP | worked-day earnings + all leave days × (prior-month BCCP ÷ 30) |
+Floor/ceiling applies to the monthly BCCC and the monthly BCCP (both), not to the
+worked-day base only:
+
+For a worker de alta the entire month (working part, on leave part), the full monthly base
+
+mínima (by group) and tope máximo (5,101.20/month, 2026) apply. They are not scaled
+
+down by worked days. Proration by days is the alta/baja rule (worker in alta only part of
+
+the month) -- it does not apply to the worked-vs-leave split inside a full month of alta.
+
+Where the month is segmented, the bound is enforced as a daily cap/floor (monthly ÷ 30
+
+  170 04/d          ili f 2026)  d         k d dl    lik A 6 4 l
+Show more
+
+LL Lily Li Commented 3 months ago
+        @Wallisson dos Santos Gomes I've added those new leave out pay elements as confirmed
+        by you, pls confirm columns from N to AA:
+
+https://youtrack.hrblizz.dev/tickets/HRBS-10563/Update-Required-Wage-Type-Configurations-Taxability-Matrix-and-Statutory-Leave-Logic-Gap... 11/13
+9/8/26, 5:51 PM  Update Required: Wage Type Configurations, Taxability Matrix, and Statutory Leave Logic Gaps : HRBS-10563
+
+                 Kind regards,
+                 Lily Li
+
+        LL Lily Li Commented 3 months ago
+                 @Wallisson dos Santos Gomes Also, pls check whether the pay element names are ok.
+
+                 Kind regards,
+                 Lily Li
+
+                 Wallisson dos Santos Gomes Commented 3 months ago
+                 @Lily Li -- checked columns N to AA on the new payouts (79417-79424). The taxability
+                 side and the names are fine; the AEAT/190 block needed aligning. Changes done in WTC
+                 V3.9, highlighted in orange.
+                 Columns N-S (taxability + SS): confirmed correct, no change. N=Yes, O=No, P=No, Q=No,
+                 R=No, S=No on all eight -- consistent with the sick (79414/79415/79416) and accident
+                 (79411/79412) payouts. BCCC/BCCP=No is right: the contribution base during these
+                 leaves is carried by the leave unit / regulation, not the payout line.
+                 Columns T-AA (AEAT/190 reporting): corrected. The eight were set as AEAT Key B / pago
+                 directo / "Not in 111". For an active employee these leaves are pago delegado -- the
+                 employer advances the subsidy and reports it in Modelo 111/190 under clave A; clave B /
+                 pago directo is only the exception when INSS pays directly. I aligned them to the same
+                 pattern the sick and accident payouts already use:
+                 | Column | Was | Now |
+
+                 | AEAT Key (U) | B | A |
+
+                 | AEAT Subkey (V) | 01 | (blank) |
+
+                 | Amount Type (W) | Not in 111 (direct INSS/mutua) | Work_Cash_Gross |
+
+                 | 111 Bucket (X) | Not in 111 (direct INSS/mutua) | Work-Cash (111 01-03) |
+                 216 Scope (Y): set to N/A for the six subsidy lines (60% / 75%), and to "Subject to
+                 withholding (216)" for the two day-1 salary lines (79417 Abortion day-1, 79422 ToP First
+                 Day) -- mirroring accident day-1 (79411), since those two are employer salary for the day
+                 of baja, not a subsidy.
+                 79422 (ToP First Day) also carried stray AEAT 296 fields (296 Key=20, Subkey=01); 296 is
+                 the non-resident / IRNR summary, not applicable here, so I cleared them.
+                 Names: OK. One tidy-up -- 79419 renamed "Abortion Leave 75% day 21 Payout" 
+                 "Abortion Leave 75% day 21+ Payout" to match the other 75% lines. The structure matches
+                 the legal bands per Art. 173 LGSS: abortion = day-1 salary + 60% days 2-20 + 75% day
+                 21+; disabling menstruation = 60% days 1-20 + 75% day 21+ (no employer day-1);
+
+https://youtrack.hrblizz.dev/tickets/HRBS-10563/Update-Required-Wage-Type-Configurations-Taxability-Matrix-and-Statutory-Leave-Logic-Gap... 12/13
+9/8/26, 5:51 PM  Update Required: Wage Type Configurations, Taxability Matrix, and Statutory Leave Logic Gaps : HRBS-10563
+
+                 termination of pregnancy = First Day + 60% days 2-20 + 75% day 21+.
+                 All changes are in WTC V3.9 in orange
+
+                 Kind regards,
+                 Wallisson dos Santos Gomes
+
+                 Gulnaaz Parveen Commented about 3 hours ago
+                 @Lily Li @Wallisson dos Santos Gomes As discussed, we have identified the Sick Leave
+                 logic still not fully working. Entity REF-03-069, PROD, EE1537 Juan Carlos Gómez
+                 Sánchez, Sick Leave continued from April to May 2026. Ideally system should take the SS
+                 Base for sickness days from March where employee has fully worked, however it is not
+                 working correctly.
+
+                 Kindly look into this.
+
+                 Gulnaaz Parveen Commented about 2 hours ago
+                 @Lily Li @Wallisson dos Santos Gomes Also, attached Gross to Net files from March 2026,
+                 April 2026 and May 2026 and correct Payslip from A3 payroll system
+
+                   XLSX                  XLSX                  XLSX
+
+                 Gross To Net Spain    Gross To Net Spain    Gross To Net Spain
+                 (Payroll) 2... 12 kB  (Payroll) 2... 12 kB  (Payroll) 2... 12 kB
+
+https://youtrack.hrblizz.dev/tickets/HRBS-10563/Update-Required-Wage-Type-Configurations-Taxability-Matrix-and-Statutory-Leave-Logic-Gap... 13/13
+

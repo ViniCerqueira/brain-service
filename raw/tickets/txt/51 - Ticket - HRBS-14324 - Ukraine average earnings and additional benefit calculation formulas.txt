@@ -1,0 +1,105 @@
+9/8/26, 9:28 PM        Ukraine average earnings and additional benefit calculation formulas : HRBS-14324
+
+Projects / HRBlizz Support / ... / HRBS-14324    Enter search request
+
+Created by Nataliia Hahan about 11 hours ago                           HRBlizz Support Team
+Updated by Vaishnavi Mane about 9 hours ago
+
+Ukraine average earnings and additional benefit
+calculation formulas
+
+         Project       CCs                              Priority                Type
+
+       HRBlizz         No CCs                    M Medium               S Service
+       Support                                                                Request
+                                  Assignee              Support Group
+         State                                                         First Reply
+                                Wallisson        C Compliance            8h
+ O Open                         dos Santos             Support
+                                Gomes                                           Estimation
+Resolution Time                                         Country
+  5d                              SLA Violation                         ??
+                                                 U Ukraine
+         Spent time       ? Reason                                              SLA status
+                                ----                    Client
+ ??                                                                     ? No sla status
+                                  Environment    ? No client
+         Legal Entity
+         Phase            ? No
+                                environment
+ ? Please
+       choose legal               Boards
+       entity phase
+                                No visible
+                                boards
+
+Hi Team!
+
+Compliance team needs to prepare and document calculation formulas for the following payment
+types, with references to specific legal acts, so the HRBlizz configuration team can build correct
+logic into the system.
+
+ 1. Average earnings calculation
+
+Payment Legal basis Note
+
+1.1 Vacation pay Order 100 (12-month calculation period)
+1.2 Sick leave / maternity pay Order 1266 (calculated over actually-worked calendar months,
+ESV-taxed base) Different exclusion logic than Order 100 -- must not be mixed with vacation
+logic
+1.3 Donor leave days Order 100 Confirm calculation period (2 months, like business trips, or 12
+months, like vacation)
+1.4 Business trip Order 100, Art. 121 of the Labor Code (2-month calculation period) Note:
+previous business trips paid at average earnings are excluded from the calculation period of a
+new trip; if paid as a regular workday, they are included
+1.5 Indexation Order 1078 This is NOT an average earnings calculation -- it's a separate CPI-
+based adjustment mechanism with a different base
+1.6 Downtime pay, not employee's fault (2/3) Art. 113 of the Labor Code Note: this is NOT
+
+https://youtrack.hrblizz.dev/tickets/HRBS-14324                                                           1/2
+9/8/26, 9:28 PM  Ukraine average earnings and additional benefit calculation formulas : HRBS-14324
+
+calculated based on average earnings -- the base is the employee's tariff rate/salary, not
+average earnings under Order 100. Please confirm whether the current system logic
+distinguishes this correctly
+2. Employee gifts
+Tax-exempt formula: non-taxable portion = 25% of the minimum wage (as of January 1 of the
+reporting year), per subparagraph 165.1.39 of the Tax Code
+The portion above this threshold is taxed as an additional benefit -- with gross-up (see section
+3)
+3. Additional benefit -- gross-up and coefficients
+
+Both calculation variants are needed (the company needs to decide which to apply as the
+standard):
+
+Variant 1 (tax authority position): the natural coefficient applies only to the PIT base; military levy
+() is calculated on the actual value, without a coefficient.
+K(PIT) = 100 / (100 - PIT rate)
+Variant 2 (extended): a single coefficient accounts for both PIT and military levy.
+K = 100 / (100 - (PIT rate + military levy rate))
+
+Coefficients must be built as a formula (not a hardcoded number) so they recalculate
+automatically if rates change (including the separate Diia City PIT rate of 5%).
+
+4. Holiday and non-working day pay
+   Double rate -- Art. 107 of the Labor Code
+   Compliance team needs to confirm the exact calculation base for different pay categories
+   (hourly tariff rate, piece rate, monthly salary -- and specifically how the "hourly rate" is
+   derived from a salary: divided by the scheduled norm of hours or the monthly norm)
+
+Company Name
+
+Altium Ukraine
+GSK Ukraine
+SDL Ukraine
+
+                 Nataliia Hahan Commented about 11 hours ago
+                 @Wallisson dos Santos Gomes
+                 @Lily Li
+                 Hi both -- could you please review the ticket below and prepare the requested formulas?
+                 Let me know if anything needs clarification from my side.
+
+                 @Vaishnavi Mane FYI
+
+https://youtrack.hrblizz.dev/tickets/HRBS-14324                                                           2/2
+

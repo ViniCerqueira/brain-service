@@ -1,0 +1,55 @@
+9/22/26, 12:23 PM    ES: AFI Outbound (Mensaje de Afiliación) - SPEC : SR-432
+
+Created by Wallisson dos Santos Gomes 8 days ago                                      Visible to issue readers  2
+Updated by Lily Li about 8 hours ago
+
+ES: AFI Outbound (Mensaje de Afiliación) - SPEC
+
+         Project            State                Priority                                    Assignee
+
+SR Statutory         O Open              M Major                                            Wallisson
+       Reports                                                                              dos Santos
+                            Spent time  Due Date                                            Gomes
+         Phase
+                           ?            29 Jan 2027                                          Country
+       Developmen
+ D t Phase -                Research             Developer                            E ES
+                            Analyst
+       Developer                         B Brenet                                            Redesign of
+                     W Wallisson               Õispuu
+         Business          Gomes                                                      ? old country
+                                                                                            No
+ L Analyst
+       Lily Li
+
+Boards
+  Statutory Report…
+
+Spain AFI - Outbound (Mensaje de Afiliación) - SPEC
+Attachments 2 Hidden files 2
+
+LL Lily Li Commented 2 days ago (edited)
+        @Wallisson dos Santos Gomes Almost all fields in Column A in the sheet "AFI Spec" are in
+        Spanish, not English. Pls update into English field names. Thanks
+
+https://youtrack.hrblizz.dev/issue/SR-432/ES-AFI-Outbound-Mensaje-de-Afiliacion-SPEC                               1/4
+9/22/26, 12:23 PM  ES: AFI Outbound (Mensaje de Afiliación) - SPEC : SR-432
+
+Also, Field Explanation column is in Spanish. Update into English.
+
+Projects / Statutory Reports / Issues / SR-432  As… Enter sear…                       1 of 7
+
+https://youtrack.hrblizz.dev/issue/SR-432/ES-AFI-Outbound-Mensaje-de-Afiliacion-SPEC          2/4
+9/22/26, 12:23 PM           ES: AFI Outbound (Mensaje de Afiliación) - SPEC : SR-432
+
+Wallisson dos Santos Gomes  Commented 1 day ago
+@Lily Li fixed.
+
+https://youtrack.hrblizz.dev/issue/SR-432/ES-AFI-Outbound-Mensaje-de-Afiliacion-SPEC  3/4
+9/22/26, 12:23 PM  ES: AFI Outbound (Mensaje de Afiliación) - SPEC : SR-432
+
+LL Lily Li Commented about 8 hours ago (edited)
+        @Wallisson dos Santos Gomes Pls check queries in column V of AFI Spec.
+
+https://youtrack.hrblizz.dev/issue/SR-432/ES-AFI-Outbound-Mensaje-de-Afiliacion-SPEC  4/4
+

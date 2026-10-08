@@ -1,0 +1,76 @@
+8/31/26, 1:34 PM                      We do not have CaMU on compliance WTC in CONGO : HRBS-13841
+
+Created by Daniel Kelvin Balogun 4 days ago                                                     HRBlizz Support Team
+Updated by Daniel Kelvin Balogun about 4 hours ago
+
+We do not have CaMU on compliance WTC in CONGO
+
+  Tier 1
+
+                  Project     CCs                    Priority Assi…                             Enter sTeyaperch r…
+Projects / HRBlizz Support / Tickets / HRBS-13841 M                                               S Service
+                  HRBlizz     No CCs                 Medium                                             Request⁠
+
+                  Support                                                                        Resolution Time
+                                                                                                       Paused
+       State                       Assignee              Support Group
+                                                                                                          Spent time
+P Pending on                       Wallisson      C Compliance
+      reporter⁠                    dos Santos           Support⁠                                  ??
+                                   Gomes
+                                                                                                          Legal Entity
+      SLA Violation                  Country            Estimation                                        Phase
+
+? Reason                            Congo         ??                                               I Implementati
+     ----                     C (Congo-                                                                 on⁠
+
+                                    Brazzaville)
+
+       Environment                   Client             SLA status
+
+P Production                  B Baker             ? No sla status
+                                    Hughes
+
+                  Boards
+
+                  No visible
+                  boards
+
+We do not have CaMU on compliance WTC in CONGO.
+
+The client WTC shows CAMU Health Insurance (Employee) - "CAMU (Caisse Autonome Mutuelle
+de l'Assurance Maladie) health insurance employee contribution.
+Shown as '100% Percentage' on payslip — applied as % of an earnings base.
+Observed effective rate: ~0.5% of regular earnings (excl. extraordinary bonuses).
+CONFIRMED approximate formula — exact statutory base requires BH/CAMU confirmation.
+GATSE Nov-25: ~0.46–0.47% of regular earnings.
+Varies slightly month to month — suggests base excludes certain one-time items."
+
+Kindly confirm is this the same as the CG Health Insurance EE on complince WTC?
+
+WTC: https://docs.google.com/spreadsheets/d/1WZ-vb4wulZgVKsoHJB32h-
+Y4VEVSer6gl0bLFyzFwcA/edit?gid=263639368#gid=263639368
+
+Company Name
+Congo BH
+
+                  Wallisson dos Santos Gomes Commented 4 days ago
+                  Confirmed — this is CAMU solidarité (0.5% on the salary fraction above 500,000 XAF), not
+                  CAMU employee 2.27%. Direct from the CAMU Congo authority (camu-congo.fr): these
+                  are two separate funding streams — the 4.55%/2.27% employer/employee contribution
+
+https://youtrack.hrblizz.dev/tickets/HRBS-13841/We-do-not-have-CaMU-on-compliance-WTC-in-CONGO                          1/2
+8/31/26, 1:34 PM  We do not have CaMU on compliance WTC in CONGO : HRBS-13841
+
+                  (6.82% combined) and, separately, a 0.5% "contribution de solidarité nationale" on the
+                  salary fraction exceeding 500,000 XAF. The client's formula matches the latter exactly.
+
+                  Kind regards,
+                  Wallisson dos Santos Gomes
+
+                  Daniel Kelvin Balogun Commented about 4 hours ago
+                  @Wallisson dos Santos Gomes can you confirm if the 4.55%/2.27% employer/employee
+                  this is statutory, client does not have it on their g2n but its on hrb g2n
+
+https://youtrack.hrblizz.dev/tickets/HRBS-13841/We-do-not-have-CaMU-on-compliance-WTC-in-CONGO             2/2
+

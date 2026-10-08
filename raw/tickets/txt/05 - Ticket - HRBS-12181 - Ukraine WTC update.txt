@@ -1,0 +1,229 @@
+8/5/26, 8:57 PM                                  Ukraine WTC update : HRBS-12181
+
+Projects / HRBlizz Support / Tickets / HRBS-12181  Enter search request
+
+Created by Nataliia Hahan 15 days ago                                             vmane +1
+Updated by Lily Li about 12 hours ago
+
+Ukraine WTC update
+
+  Tier 3
+
+       Project        CCs                                 Priority                         Type
+
+      HRBlizz           VM vmane                   M Medium                        S Service
+      Support                                                                            Request
+                                 Assignee                 Support Group
+       State                                                                      Resolution Time
+                               Wallisson           C Compliance                         Paused
+S SLA                          dos Santos                Support
+      Exempt                   Gomes                                                       Spent time
+                                                          Estimation
+       SLA Violation             Country                                           ??
+                                                   ??
+? Reason                 U Ukraine                                                         Legal Entity
+      ----                                                SLA status
+                                 Client                                            L Phase
+       Environment                                 ? No sla status                       Live/BAU
+                         A Altium
+P Production
+
+       Boards
+
+      No visible
+      boards
+
+Dear Lily,
+
+I would like to update some WT catalog for Ukraine.
+We need a new wage code series where PIT tax is applicable, but Military Tax and USC tax are
+not applicable, for BIK wage types.
+In the current version, we do not have a wage code series that meets this requirement. Could you
+please check this requirement and let us know the appropriate approach?
+
+65816 Additional benefit 1 with coefficient
+65805 Medical insurance (PIT only, no military tax)
+65806 Representation expenses (PIT only, no military tax)
+65810 Life insurance (no military tax)
+65808 Representation expenses (financial, no military tax)
+65812 Family insurance without Military tax
+65720 Taxation of English courses (PIT) without Military tax
+62224 One-time payment (PIT) without Military tax
+
+Also, some non-monetary benefits should be grossed up using the coefficient 1.219512
+applicable for 2026 is that WT: 65816 Additional benefit 1 with coefficient
+
+Company Name
+REF-04-254 Altium Ukraine
+
+Inward mentions 1
+
+https://youtrack.hrblizz.dev/tickets/HRBS-12181                                                          1/4
+8/5/26, 8:57 PM                                  Ukraine WTC update : HRBS-12181
+
+M HRBS-11702 Ukraine_Wage Type Catalogue set up as per Ukraine Payroll...
+
+                 Vaishnavi Mane  Commented 14 days ago
+                 @Lily Li
+
+                 For the below-mentioned wage type, the client requirement is that this wage type should
+                 be subject to tax, but should not be subject to Military Tax and USC Tax. Kindly provide a
+                 wage series for this in Compliance (WTC), as we do not currently have a wage series for
+                 this specification.
+
+                 Also, Natalia mentioned above that some non-monetary benefits should be grossed up
+                 using the coefficient 1.219512. Do we have this kind of BIK (Benefit-in-Kind) series, where
+                 the gross-up is applied with the coefficient amount? This should be taxable, but not
+                 subject to Military Tax and USC Tax.
+
+                 Please check and provide us with the series.
+
+                 Additional benefit 1 with coefficient
+                 Medical insurance (PIT only, no military tax)
+                 Representation expenses (PIT only, no military tax)
+                 Life insurance (no military tax)
+                 Representation expenses (financial, no military tax)
+                 Family insurance without Military tax
+                 Taxation of English courses (PIT) without Military tax
+                 One-time payment (PIT) without Military tax
+
+                 Kind regards,
+                 Vaishnavi Mane
+
+                 Vaishnavi Mane  Commented 14 days ago
+                 @Lily Li
+
+                 For this requirement I need to understand the system behavior, like the non-taxable
+                 amount -- the system will exclude it from the taxable wage type, right? We do not need
+                 to give a separate code, am I correct here? And for the taxable wage code, 4 series
+                 126 -- so for the taxable benefit I can use the 126 4 series.
+
+                 The non-taxable part goes under code "160" and is treated as personified income of a
+                 specific individual (tied to a named person's tax ID).
+
+                 The taxable excess (the amount above the 25% threshold) is not reported under "160."
+                 Instead it is taxed as an additional benefit ( ) and reported under a
+                 different income code, typically "126."
+
+                 So the "series" you're referring to isn't a range of codes -- "160" is a single distinct income
+                 code in the 4 classification, and it pairs with code "126" when a gift exceeds the limit
+                 and part becomes taxable.
+
+                 Kind regards,
+                 Vaishnavi Mane
+
+                 Vaishnavi Mane Commented 14 days ago
+                 @Lily Li @Nataliia Hahan
+
+https://youtrack.hrblizz.dev/tickets/HRBS-12181                                                                   2/4
+8/5/26, 8:57 PM                                  Ukraine WTC update : HRBS-12181
+
+                 In column B, I assigned the new codes. However, if you check the pink-colored rows, I
+                 couldn't find the corresponding codes in the regulation WTC. Please schedule a call and
+                 provide the correct codes for us to map.
+
+                 1)Is the **4DF Income 160 I Think amount a non-taxable amount? Is it automatically
+                 deducted from the taxable wage type? Please confirm if my understanding is correct.
+
+                 Also, what is the taxable income series for this? Which **4DF series code** should we use
+                 in this case?
+
+                 2)I couldn't find the wage code for **4DF Income 169** in the compliance WTC. Could you
+                 please confirm whether it exists?
+
+                 3)I couldn't find the wage code for **4DF Income 124** in the compliance WTC. Could you
+                 please confirm whether it exists?
+
+                 4)I couldn't find the wage code for **4DF Income 157** in the compliance WTC. Could you
+                 please confirm whether it exists?
+
+                 5)For **4DF Income 126**, only the **BIK series** is available, and that series is not
+                 subject to USC tax. Kindly double-check with the client whether this WTC is correct or
+                 not.
+
+                 6)Mobilization (without pay) wage code not found in compliance wtc
+
+                 7)I couldn't find the wage code for **4DF Income 103 in the compliance WTC. Could you
+                 please confirm whether it exists?
+
+                 8)I couldn't find the wage code for **4DF Income 109 in the compliance WTC. Could you
+                 please confirm whether it exists?
+
+                 https://docs.google.com/spreadsheets/d/1vWK4NTkhCadB2IspGGaP1wZshuHF7hhD/edit?
+                 pli=1&gid=595779310#gid=595779310
+
+                 Kind regards,
+                 Vaishnavi Mane
+
+LL Lily Li Commented 13 days ago
+        @Wallisson dos Santos Gomes Pls check requirement raised by Nataliia. Thanks
+
+                 Kind regards,
+                 Lily Li
+
+LL Lily Li Commented 12 days ago
+        @Wallisson dos Santos Gomes Pls check benefit PE requirements raised by Nataliia in the
+        task description and Vaishnavi's comment below. Thanks
+
+                 Kind regards,
+                 Lily Li
+
+                 Wallisson dos Santos Gomes      Commented 2 days ago
+                 @Lily Li
+
+                 Don't build the "PIT only, no Military Tax" series, it has no legal basis for these benefits.
+                 Confirmed in law (Military Tax follows PIT base, no exception covers these items) and
+
+https://youtrack.hrblizz.dev/tickets/HRBS-12181                                                                 3/4
+8/5/26, 8:57 PM                                  Ukraine WTC update : HRBS-12181
+
+                 confirmed zero such combination exists anywhere in the current 1281-row WTC.
+
+                 Existing codes for medical/life insurance and gifts (62610-619, 65630, 58113, 65801,
+                 65804) are already correct as PIT=Yes/Military=Yes/USC=No, no changes needed there.
+
+                 Missing 4DF codes: 103/109/157 aren't employee payroll codes
+                 (royalties/dividends/contractor pay). 124 excludes employer-paid contributions, use 125
+                 instead. 169 is a narrow charity-aid code, confirm with client before using it.
+
+                 Mobilization: was missing, added as code 79417, no pay/tax config needed.
+
+                 Also: Lily's code numbers don't match the ticket's original numbers (e.g. 65816), worth
+                 reconciling.
+
+                 Updated WTC (v3.5) attached.
+
+                 Kind regards,
+                 Wallisson dos Santos Gomes
+
+                 Nataliia Hahan Commented 1 day ago
+                 @Lily Li just to clarify: for non-monetary additional benefits we apply the coefficient
+                 1.219512, but only for base of calculation of PIT -- this coefficient should not be used for
+                 Military Tax. So no need to create a separate WT code without Military Tax, it will be part
+                 of the formula for non-monetary benefits.
+
+                 @Vaishnavi Mane please confirm if you can create that formula for the additional
+                 benefits?
+
+                 Nataliia Hahan Commented about 12 hours ago
+                 @Wallisson dos Santos Gomes All benefits in Ukraine should be grossed up amount. The
+                 Gross Up aomount should be added to PIT base but not military tax base.
+
+                 Examle:
+                 If the amount of benefit is 2000.00
+                 Grossed up will be 360.00
+                 And base for 18% PIT - will be 2360 = 439.03
+                 But Base for Military 5% - will be 2000 = 100
+
+LL Lily Li Commented about 12 hours ago
+        @Wallisson dos Santos Gomes Pls check Nataliia's requirements on BIK gross up below.
+        Thanks
+
+        Also, for Updated WTC (v3.5) attached., the file name is still V3.4 and no version control
+        for 3.5. Pls add version control properly and highlight your changes in a different color.
+
+                 Kind regards,
+                 Lily Li
+
+https://youtrack.hrblizz.dev/tickets/HRBS-12181                                                                4/4
+

@@ -1,0 +1,96 @@
+9/14/26, 10:48 AM                                             ES: Regulation Handover Checklist : CT-4321
+
+Projects / Compliance / Issues / CT-4321                      Enter search request
+
+Created by Wallisson dos Santos Gomes 8 months ago            Visible to issue readers                     3
+
+Updated by Wallisson dos Santos Gomes 3 months ago
+
+ES: Regulation Handover Checklist
+
+       Project                                       Type              Status                Priority
+
+      Compliance                             R Research        R Ready for           N Normal
+                                                   task              Design
+       Country                                                                      Start date
+                                                     Epic              Assignee
+E ES⁠                                                                               12 Jan 2026
+                                             R Regulation            Lily Li
+       Designer                                    Build                            Due Date
+       Assignee                                                        QA Assignee
+                                            Design due date                         31 Dec 2025
+      Lily Li                                                        Mohit Jain,
+                                            31 Dec 2025              Ruchi Gupta    Estimation
+       TW Assignee
+                                                     Sprints  Original estimation   1m
+? No tw
+      assignee                               S Sprint 42      1m
+
+       Spent time                                    Release  Boards
+                                                     Version    Complian… Spri…
+      ?
+                                             ? No release
+                                                   version
+
+Spain Payroll Configuration Guide 2026
+Spain - Wage Type Catalogue
+Spain - Data Dictionary
+Spain Modelo 296 (Personal Income Tax IRPF) - SPEC
+Spain Modelo 216 (Personal Income Tax IRPF) - SPEC
+Spain Modelo 190 (Personal Income Tax IRPF) - SPEC
+Spain Modelo 111 (Personal Income Tax IRPF) - SPEC
+Spain Fichero de Bases – Sistema de Liquidación Directa (Social Security) - SPEC
+Spain AFI – Affiliation Message (Social Security) - SPEC
+Spain CRA – Communication of Paid Remuneration Concepts (Social Security) - SPEC
+Acceptance criteria
+
+     Have we taken all necessary inputs from ICE for preparation of Regulation Guide?
+     Have we taken all necessary inputs from Advisory (wherever required) for preparation of
+     Regulation Guide?
+     Have we verified the inputs against our own research?
+     Have we verified the inputs and simulations using third party software?
+Above list is confirmed.
+
+https://youtrack.hrblizz.dev/issue/CT-4321                                                                    1/2
+9/14/26, 10:48 AM                           ES: Regulation Handover Checklist : CT-4321
+
+        Attachments 1 Hidden file 1
+
+        Manju Shetija Commented 6 months ago
+        @Lily Li @Mohit Jain Enclosed is the specification for Spain payslip for development.
+        https://docs.google.com/spreadsheets/d/18DUPdlbCJpYjyvZO3VFrVKYwGdZmjNqwL2C9
+        7j_J2YM/edit?gid=167977867#gid=167977867
+
+LL Lily Li Commented 5 months ago (edited)
+        @Manju Shetija @Wallisson dos Santos Gomes Do I only need to do the mapping under
+        the sheet "ES - Statutory Research" of Spain payslip spec?
+        https://docs.google.com/spreadsheets/d/18DUPdlbCJpYjyvZO3VFrVKYwGdZmjNqwL2C9
+        7j_J2YM/edit?gid=167977867#gid=167977867
+
+        Those master data fields are not shown under this sheet. How to do the mapping for
+        them? Pls recheck. Thanks
+
+        Wallisson dos Santos Gomes Commented 5 months ago
+        @Lily Li The ES - Statutory Research sheet is for pay elements only — earnings,
+        deductions, contribution bases, and employer contributions. That is what needs BA
+        mapping (the wage type → payslip section mapping).
+
+        The master data fields (company name, NIF, CCC, employee name, NAF, Grupo de
+        Cotización, contract type, IRPF rate, etc.) are displayed in the España (EN) payslip layout
+        sheet — the actual nómina. Those fields do not need mapping in the Statutory Research
+        tab because they are not pay elements. They are already defined and mapped in the Data
+        Dictionary (DD) — the fields are the same DD fields we've been working on throughout this
+        project (e.g. $legal_entity_hr.tax_id_number_nif, $hr.social_security_affiliation_number,
+        $hr.contribution_group, $legal_entity_hr.social_security_contribution_account_code, etc.).
+        So to summarise what you need to do:
+
+             ES - Statutory Research tab → map pay elements (wage types → payslip section,
+             BCCC/BCCP/IRPF flags)
+             España (EN) tab → the header fields are reference only; their source mappings come
+             from the DD, no separate mapping needed in this sheet
+
+LL Lily Li Updated 5 months ago
+        Comment was deleted.
+
+https://youtrack.hrblizz.dev/issue/CT-4321                                                           2/2
+

@@ -1,0 +1,58 @@
+9/16/26, 9:11 PM       : Confirmation Required -- Applicability of ITS (Income Tax) for Baker Hughes Ivory Coast Payroll : HRBS-14714
+
+Projects / HRBlizz Support / Tickets /                 A... Enter sea...  1 of 6
+
+HRBS-14714
+
+Created by Sivaranjani Subbarayula about 14 hours ago                  HRBlizz Support Team
+Updated by Mohit Jain about 10 hours ago
+
+: Confirmation Required -- Applicability of ITS (Income
+Tax) for Baker Hughes Ivory Coast Payroll
+
+  Tier 1
+
+         Project       CCs                              Priority                Type
+
+       HRBlizz         No CCs                    M Medium               S Service
+       Support                                                                Request
+                                  Assignee              Support Group
+         State                                                         First Reply
+                                Wallisson        C Compliance            6h
+ O Open                         dos Santos             Support
+                                Gomes                                           Estimation
+Resolution Time                                         Country
+  4d                              SLA Violation                         ??
+                                                 C Côte d'Ivoire
+         Spent time       ? Reason                                              SLA status
+                                ----                    Client
+ ??                                                                     ? No sla status
+                                  Environment    B Baker
+         Legal Entity                                  Hughes
+                          P Production
+ L Phase
+       Live/BAU                   Boards
+
+                                No visible
+                                boards
+
+Hi Team ,
+
+Requesting compliance confirmation on whether ITS (Import sur les Treatments et Salaries) is
+applicable and should be withheld for Ivory Coast employees under the current statutory
+framework.
+Can Compliance confirm the correct current ITS bands/rates and RICF treatment to apply for this
+WTC, so we can validate our WTC config against the confirmed position
+
+Company Name
+Ivory coast
+
+Attachments 1
+
+  XLSX
+
+BH Ivory Coast Payr
+egister Ja... 24 kB
+
+https://youtrack.hrblizz.dev/tickets/HRBS-14714/Confirmation-Required-Applicability-of-ITS-Income-Tax-for-Baker-Hughes-Ivory-Coast-Payroll?ba... 1/1
+

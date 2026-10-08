@@ -1,0 +1,143 @@
+8/20/26, 7:30 PM                                              UA: D5-001_LabourRelations : SR-162
+
+Created by Wallisson dos Santos Gomes 6 months ago            Visible to issue readers                                3
+Updated by Lily Li about 9 hours ago
+
+UA: D5-001_LabourRelations
+
+         Project                                  State                Priority                           Assignee
+
+SR Statutory                               R In Review         M Major                                   Wallisson
+       Reports                                                                                           dos Santos
+                                                  Spent time  Due Date                                   Gomes
+         Phase
+                                                 ?            31 Mar 2026                                 Country
+       Final Review
+ F Phase -                                        Research                                         U UA
+                                                  Analyst
+       Business                                                      Developer                           Redesign of
+       Analyst                             W Wallisson
+                                                 Gomes        M Michael                            ? old country
+         Business                                                   Mukosi John                         No
+         Analyst
+
+ ? No business
+       analyst
+
+Boards
+  Statutory Report…
+
+UA-D5-001_LabourRelations_Spec
+Attachments 3 Hidden files 3
+
+LL Lily Li Commented 4 months ago (edited)
+        @Wallisson dos Santos Gomes I've converted the excel format to Google Sheets:
+        https://docs.google.com/spreadsheets/d/1X9XLlIZHtE0BYQBBeGTCt37rIlOTiNewlua-
+        GMbWPMU/edit?usp=sharing
+
+        Pls update in the task description.
+
+        Also, pls check queries in column V. Thanks
+
+                  Wallisson dos Santos Gomes  Commented 4 months ago
+                  @Lily Li queries reverted.
+
+LL Lily Li Commented 3 months ago
+        One query pending. Others resolved
+
+LL Lily Li Commented 3 months ago
+        @Wallisson dos Santos Gomes Pls check one query highlighted in purple in column V:
+        https://docs.google.com/spreadsheets/d/1X9XLlIZHtE0BYQBBeGTCt37rIlOTiNewlua-
+        GMbWPMU/edit?usp=sharing
+
+        Also, pls remember to update the link in the task description.
+
+https://youtrack.hrblizz.dev/issue/SR-162                                                                                1/3
+8/20/26, 7:30 PM                                      UA: D5-001_LabourRelations : SR-162
+
+                 Wallisson dos Santos Gomes  Commented 3 months ago
+                 @Lily Li query reverted.
+
+LL Lily Li Commented 3 months ago
+        Done
+
+        Michael Mukosi John Commented about 1 month ago
+        @Lily Li These fields mentioned in the spec need to be created from compliance.
+
+          1. Employer Tax Number - $legal_entity_hr.company_tax_identification_number
+          2. Ukrainian Citizen Flag - $hr.ukrainian_citizenship_flag::key
+          3. Simultaneous CPC + Labour Contract Flag -
+
+             $hr.simultaneous_cpc_labour_contract_flag::key
+          4. Person Category Code - $hr.labour_registry_person_category::key
+          5. Event Start Date - $hr.labour_event_period_start_date
+          6. Event End Date - $hr.labour_event_period_end_date
+          7. labour Registry Person Category - $hr.labour_registry_person_category::key
+          8. Simultaneous Main Worker + Concurrent Employee Flag -
+
+             $hr.simultaneous_main_concurrent_employee_flag::key
+          9. Transfer / Appointment / Redeployment Flag -
+
+             $hr.transfer_appointment_redeployment_flag::key
+        10. Profession Name (DK 003:2010) - $hr.profession_name_per_dk_003_2010
+        11. Profession Code (DK 003:2010) - $hr.profession_kp_code_per_dk_003_2010
+        12. Position Name (Labour Book Entry) - $hr.labour_book_position_name
+        13. Supporting Document Reference - $hr.supporting_document_reference
+        14. Dismissal / Termination Legal Ground - $hr.dismissal_termination_legal_basis
+        15. New Workplace Creation Date - $hr.new_workplace_creation_date
+        16. Director / Manager RNOCPP - $legal_entity_hr.director_signatory_rnocpp
+        17. Chief Accountant RNOCPP - $legal_entity_hr.chief_accountant_rnocpp
+        18. Seniority Ground Code (8-char) - $hr.special_seniority_code
+        19. Duration Unit Selector - $legal_entity_hr.d6_duration_unit::key
+        20. Attestation Order Number - $hr.attestation_order_number
+        21. Attestation Order Date - $hr.attestation_order_date
+        22. Season Indicator - $hr.season_type::key
+        23. Document Type Flag - $legal_entity_hr.document_type_flag_d5
+
+        Michael Mukosi John Commented about 1 month ago
+        @Lily Li Some fields have been created from support ticket but many still remain. kindly
+        review.
+
+LL Lily Li Commented 29 days ago
+        @Michael Mukosi John All these fields are already there in DD. Pls refer to column U, BA
+        Mapping.
+
+        https://docs.google.com/spreadsheets/d/1jzBC2bZHgPirDPb4X4tSTr2TPWEH4kDUpz7yG
+        3sxtQE/edit?gid=767263614#gid=767263614
+
+https://youtrack.hrblizz.dev/issue/SR-162                                                         2/3
+8/20/26, 7:30 PM                           UA: D5-001_LabourRelations : SR-162
+
+                  Michael Mukosi John Commented 28 days ago
+                  @Lily Li Pls setup the fields in the acceptance at the country level.
+
+LL Lily Li Commented 28 days ago
+        @Michael Mukosi John They have already been set up in system:
+
+                  Michael Mukosi John      Commented 28 days ago
+                  seen thanks.
+
+                  Michael Mukosi John Commented 28 days ago
+                  We have configured this report at the country level in the acceptance environment.
+                  The report code is ua-labour-relations-register.
+                  Attached is a the XML template unified labour relations register.xml
+                  Attached is a sample from our test in the acceptance entity REF-02-370 Mercans Ukraine.
+                  Labour Relations Register Report 2026-01-01 - 2026-01-31.xml
+
+     LL Lily Li Commented about 9 hours ago
+              @Wallisson dos Santos Gomes
+
+                1. Here the trigger to generate the report is that if $hr.labour_event_period_start_date
+
+Projects / StafatulltsowryitRheinptohretsre/poIsrstiunegsp/erSioRd-,1c6o2rrect? Pls confirmAssi… Enter search req…
+
+                2. Document Type Flag is linked to HZ/HZN/HZU | C_DOC_STAN. As the mapping is
+                   $legal_entity_hr.document_type_flag_d5, how to populate to each tag within
+                   HZ/HZN/HZU | C_DOC_STAN. Example, if document type flag D5 = 011, 011 is
+                   populated into which tag?
+
+                3. "HBOS" and "HBUH" does not exist in D5 Spec sheet. Pls check if other elements are
+                   missing.
+
+https://youtrack.hrblizz.dev/issue/SR-162                                                                           3/3
+

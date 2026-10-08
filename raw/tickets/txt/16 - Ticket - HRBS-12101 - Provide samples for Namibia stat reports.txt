@@ -1,0 +1,50 @@
+8/12/26, 4:52 PM                                 Provide samples for Namibia stat reports : HRBS-12101
+
+Projects / HRBlizz Support / Tickets / HRBS-12101            Enter search request
+
+Created by Daniel Kelvin Balogun 22 days ago                                       HRBlizz Support Team
+Updated by Manju Shetija 17 days ago
+
+Provide samples for Namibia stat reports
+
+  Tier 1
+
+         Project     CCs                                            Priority                Type
+
+       HRBlizz       No CCs                                  M Medium               S Service
+       Support                                                                            Request
+                                Assignee                            Support Group
+         State                                                                     First Reply
+                              Wallisson                      C Compliance            -22d
+ O Open                       dos Santos                           Support
+                              Gomes                                                         Estimation
+Resolution Time                                                     Country
+  -19d                          SLA Violation                                       ??
+                                                             N Namibia
+         Spent time     ? Reason                                                            SLA status
+                              ----                                  Client
+ ??                                                                                 ? No sla status
+                                Environment                  B Baker
+                                                                   Hughes
+                        P Production
+
+      Legal Entity                               Boards
+      Phase
+                                                 No visible
+I Implementati                                   boards
+     on
+
+Provide samples for Namibia stat reports
+https://drive.google.com/drive/folders/1CQzXaloC0QW-Su443DYNl3bBNoiLl-MG
+https://drive.google.com/drive/folders/108mtO0umaRgE8IqPZmVyopRUQ7xoXCTT
+Non of them has samples , only spec files.
+Reports list:
+SSC - Form ten
+Paye 5 certificate
+ETX
+Please this is urgent.
+Company Name
+Baker Hughes
+
+https://youtrack.hrblizz.dev/tickets/HRBS-12101                                                          1/1
+

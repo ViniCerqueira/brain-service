@@ -1,0 +1,55 @@
+8/8/26, 12:11 PM                                 Spain Regulation_AFI Report confirmation : HRBS-12839
+
+Projects / HRBlizz Support / Tickets / HRBS-12839  Enter search request
+
+Created by Gulnaaz Parveen 2 days ago                                    HRBlizz Support Team
+Updated by Afrin Fathima 1 day ago
+
+Spain Regulation_AFI Report confirmation
+
+  Tier 3
+
+         Project       CCs                                Priority                Type
+
+       HRBlizz         No CCs                      M Medium               S Service
+       Support                                                                  Request⁠
+                                  Assignee                Support Group
+         State                                                           First Reply
+                                Wallisson          C Compliance            -1d
+ O Open⁠                        dos Santos               Support⁠
+                                Gomes                                             Estimation
+Resolution Time                                           Country
+  3d                              SLA Violation                           ??
+                                                   S Spain
+         Spent time       ? Reason                                                SLA status
+                                ----                      Client
+ ??                                                                       ? No sla status
+                                  Environment      M Mercans
+         Legal Entity
+                          P Production
+ L Phase
+       Live/BAU⁠                  Boards
+
+                                No visible
+                                boards
+
+Hi Wallisson,
+
+For Spain, we have one AFI report which has the Pension contribution which is submitted to
+social security via SILTRA. As per the list of reports I can see "ES: AFI – Affiliation Message
+(Social Security) - SPEC" is part of development. I am attaching one sample of AFI file from KGS
+client for Pension contribution submissions, can you check and confirm if it is the same report
+which is in your like?
+
+Company Name
+Spain all clients
+
+Attachments 1
+
+   AFI
+
+A26G0002
+(1) 24 kB
+
+https://youtrack.hrblizz.dev/tickets/HRBS-12839                                                         1/1
+

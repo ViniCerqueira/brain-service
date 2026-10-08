@@ -1,0 +1,172 @@
+9/28/26, 12:50 PM                                                UA: 4DF-001_PersonalTax : SR-161
+
+Projects / Statutory Reports / Issues / SR-161                   As… Enter searc…                  4 of 6
+
+Created by Wallisson dos Santos Gomes 7 months ago               Visible to issue readers                             3
+Updated by Lily Li about 4 hours ago
+
+UA: 4DF-001_PersonalTax
+
+         Project            State                                         Priority                        Assignee
+
+SR Statutory         R In Review                                  M Major                                Wallisson
+       Reports                                                                                           dos Santos
+                            Spent time                           Due Date                                Gomes
+         Phase
+                           ?                                     31 Mar 2026                              Country
+       Final Review
+ F Phase -                  Research                                                               U UA
+                            Analyst
+       Business                                                         Developer                        Redesign of
+       Analyst       W Wallisson
+                           Gomes                                 M Michael                         ? old country
+         Business                                                      Mukosi John                      No
+
+ L Analyst
+       Lily Li
+
+Boards
+  Statutory Report…
+
+UA-4DF-001_PersonalTax_Spec
+
+Items mentioned here 1 Inward mentions 1
+
+Items mentioned here
+     M SR-163 UA: D6-001_SpecialSeniority
+
+Inward mentions
+     M SR-160 UA: D1-001_UnifiedSocialContribution
+
+Attachments 7 Hidden files 7
+
+LL Lily Li Commented 5 months ago
+        @Wallisson dos Santos Gomes The link attached in the description is in excel format. I've
+        converted it to Google Sheets:
+        https://docs.google.com/spreadsheets/d/1v0x76PRGoeWvi6f7EuXS0bLatBnbPtNWjWQjFx
+        tJ5Po/edit?usp=sharing
+
+        Pls update this link in the task description and check queries in column V.
+
+        Also, pls update the links for other Ukraine reports to Google Sheets. Thanks
+
+https://youtrack.hrblizz.dev/issue/SR-161/UA-4DF-001PersonalTax                                                          1/4
+9/28/26, 12:50 PM                                                UA: 4DF-001_PersonalTax : SR-161
+
+Wallisson dos Santos Gomes Commented 5 months ago
+@Lily Li queries reverted and DD updated.
+
+LL Lily Li Commented 4 months ago
+        All queries resolved
+
+LL Lily Li Commented 4 months ago
+        @Wallisson dos Santos Gomes
+        https://docs.google.com/spreadsheets/d/1v0x76PRGoeWvi6f7EuXS0bLatBnbPtNWjWQjFx
+        tJ5Po/edit?usp=sharing
+        Pls update this link in the task description. Thanks
+
+LL Lily Li Commented 4 months ago
+        Done
+
+Michael Mukosi John Commented 3 months ago
+We have configured this report at the country level in the acceptance entity.
+
+The report code is ua-personal-tax.
+
+Attached is the xml template. personal tax.xml. Also attached is a sample from our test in
+the acceptance entity REF-02-370 Mercans Ukraine. Personal Tax Report 2026-01-01 -
+2026-01-31.xml
+
+LL Lily Li Commented about 1 month ago
+        @Wallisson dos Santos Gomes
+
+          1. Document Type Flag is linked to HZ/HZN/HZU | C_DOC_STAN. As the mapping is
+             $legal_entity_hr.document_type_flag_4df, how to populate to each tag within
+             HZ/HZN/HZU | C_DOC_STAN. Example, if document type flag 4DF = 011, 011 is
+             populated into which tag? How to do mapping for each tag, HZ, HZN, HZU,
+             C_DOC_STAN?
+
+          2. "HBOS" and "HBUH" does not exist in 4DF Spec sheet. Pls check if other elements
+             are missing.
+
+Wallisson dos Santos Gomes  Commented about 1 month ago
+Hi @Lily Li
+
+Same header pattern as SR-163 (D6) — confirmed, both are annexes of the
+same J05 form.
+
+                   1. Mapping: 011 -> HZ=1/C_DOC_STAN=1, 012 -> HZN=1/C_DOC_STAN=2,
+                      013 -> HZU=1/C_DOC_STAN=3 (other two flags stay 0).
+
+                   2. Confirmed: only HBOS (director's name) and HBUH (accountant's name)
+                      were missing — added to the spec, same pairing as HKBOS/HKBUH. Checked
+                      all 54 tags; nothing else missing.
+
+Spec updated.
+
+Kind regards,
+
+https://youtrack.hrblizz.dev/issue/SR-161/UA-4DF-001PersonalTax                                    2/4
+9/28/26, 12:50 PM                                                UA: 4DF-001_PersonalTax : SR-161
+
+LL Lily Li Commented 4 days ago
+        @Michael Mukosi John Pls apply below changes:
+
+          1. BA mapping for row 4 Document Type Flag updated
+          2. New fields for row 60, 61
+
+Michael Mukosi John Commented 3 days ago
+@Lily Li Mentioned points have been addressed. Attached is the updated template.
+personal tax.xml
+
+LL Lily Li Commented about 6 hours ago
+        @Michael Mukosi John Pls check below issues:
+
+        Personal Tax Report 2026-01-01 - 2026-01-31.xml
+
+        Entity: REF-04-125, Ukraine QC Entity
+
+          1. Pls note that U4 mapping has been updated to
+             $legal_entity_hr.document_type_flag_4df in report configuration. Previously, it's
+             $legal_entity_hr.document_type_flag_d1.
+
+          2. Update U21, U22 mapping from 58120 to 58582. But I didn't fine where 58552 and
+             58582 is used in report configuration.
+
+          3. Gross Income sheet > below PE income codes updated:
+
+                   4. Income Code 101 sheet > below PE income codes updated:
+                   5. Income Code 102 sheet > below PE income codes updated:
+
+                   6. Pls double check U17 to U23 mapping. I tested one ee with income code 101 and
+                      126, but in the generated file, only 101. No 126.
+
+                   Income code cannot be defaulted to 101.
+
+                   7. Issue               Desc
+                           T1RXXXXG06D =  still has dashes, needs 05012026. Pls check the spec.
+                           05-01-2026
+
+                   R02G03I                Still empty — should be 1 as per the spec mapping?
+
+https://youtrack.hrblizz.dev/issue/SR-161/UA-4DF-001PersonalTax                                      3/4
+9/28/26, 12:50 PM                                     UA: 4DF-001_PersonalTax : SR-161
+
+                   Issue           Desc
+                   ---
+                   T1RXXXXG09 = 0  ---
+
+                   21,600.00       should be omitted entirely. Pls check U27 updated
+                                   mapping.
+
+                                   Comma-formatted decimals ( 21,600.00 etc.) across
+                                   T1RXXXXG03A/G03/G04A/G04/G5A/G5 and the R01G*
+                                   footer totals
+                                   As per the spec, for all amount fields, there's no thousand
+                                   separator.
+
+LL Lily Li Commented about 4 hours ago
+        @Wallisson dos Santos Gomes Pls provide true XML sample file. Current one is schema.
+
+https://youtrack.hrblizz.dev/issue/SR-161/UA-4DF-001PersonalTax                                 4/4
+

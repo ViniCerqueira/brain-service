@@ -1,0 +1,117 @@
+9/11/26, 1:46 PM              Ukraine setup for Advance Payroll at the country level : HRBS-14255
+
+Projects / HRBlizz Support / Tickets / HRBS-14255  Assi... Enter search r...
+
+Created by Nataliia Hahan 4 days ago                                                                    HRBlizz Support Team
+Updated by Nataliia Hahan about 8 hours ago
+
+Ukraine setup for Advance Payroll at the country level
+
+  Tier 1
+
+       Project                CCs                         Priority                                               Type
+
+      HRBlizz                 No CCs               M Medium                                              S Service
+      Support                                                                                                  Request
+                                LL Assignee               Support Group
+       State                                                                                            Resolution Time
+                                       Lily Li     C Compliance                                               Paused
+P Pending on                                             Support
+      reporter                           Country                                                                 Spent time
+                                                          Estimation
+       SLA Violation             U Ukraine                                                               ??
+                                                   ??
+? Reason                                 Client                                                                  Legal Entity
+      ----                                                SLA status                                             Phase
+                                 G GSK
+       Environment                                 ? No sla status                                        I Implementati
+                                                                                                               on
+P Production
+
+                  Boards
+
+                  No visible
+                  boards
+
+For Ukraine, we require the Advance Payroll setup at the country level. Kindly set this up at the
+country level.
+Thank you.
+
+Company Name
+Altium Ukraine, GSK Ukraine, SDL Ukraine
+
+                  Mohit Jain Commented 3 days ago
+                  No Requirements?
+
+                  Kind regards
+                  Mohit Jain
+                  Head of Compliance Product
+
+                  Wallisson dos Santos Gomes Commented 3 days ago
+                  @Mohit Jain -- requirements documented in the Ukraine CCG: calculation floor in Module
+                  4, §4.2 (advance = days worked × bare oklad, excluding bonuses -- Law 108/95-VR Art.
+                  24); single-fixed-date rule in Module 1, §1.2 and Module 13 ("Typical Monthly Payroll
+                  Calendar") -- Labour Code Art. 115 for the timing trigger.
+                  Ukraine_Country_Configuration_Guide_FY2026_V1_3
+
+https://youtrack.hrblizz.dev/tickets/HRBS-14255/Ukraine-setup-for-Advance-Payroll-at-the-country-level                         1/2
+9/11/26, 1:46 PM                 Ukraine setup for Advance Payroll at the country level : HRBS-14255
+
+                  Kind regards,
+                  Wallisson dos Santos Gomes
+
+                  Mohit Jain Commented about 9 hours ago
+                  These requirements are not enough. Someone need to share with us what exactly we
+                  need to develop on advance payroll..
+
+                  Kind regards
+                  Mohit Jain
+                  Head of Compliance Product
+
+LL Lily Li Commented about 9 hours ago
+        @Nataliia Hahan Pls provide detailed requirements of advance payroll and real scenarios
+        used in it for our further analysis. Thanks!
+
+                  Kind regards,
+                  Lily Li
+
+                  Nataliia Hahan Commented about 8 hours ago
+                  @Lily Li @Mohit Jain @Wallisson dos Santos Gomes
+
+                  In Ukraine, we have two payroll payments per month: advance and balance (final
+                  payment).
+
+                  "Advance" isn't quite the right name for it -- it's not really an advance in the sense of pre-
+                  paying something. It's the payment for the first half of the month, for the days actually
+                  worked in that period. In that sense, advance and balance are conceptually the same thing
+                  -- both are wage payments for actually worked time. The difference is just when they're
+                  calculated: the balance is the end-of-month calculation, done after we can prepare the full
+                  monthly reports. For the advance, we don't need to prepare any reports.
+
+                  Every earning type can, in principle, be used in either the first or the second half of the
+                  month. Some employers simplify this by paying a flat amount each month as the advance
+                  -- for example, 53% of the gross salary -- and do the full detailed calculation of all
+                  earnings in the second part.
+
+                  Sick leave and vacation pay can't wait until the end of the month to be paid -- by law they
+                  must be calculated with all taxes applied and paid together with either the first or the
+                  second part of the month, depending on when they fall.
+
+                  In HRBlizz, this is reflected as two payroll runs:
+
+                  1st payroll run -- calculates and pays the advance.
+                  2nd payroll run -- includes all amounts already used/paid in the first part, plus an
+                  additional column showing the net advance amount that was already paid mid-month (so
+                  it isn't paid twice).
+
+                  We also need to show the opening balance and closing balance for each month -- i.e.,
+                  what hasn't yet been paid to employees. Controlling this balance every month is very
+                  important.
+
+                  Please let me know how I can help you here.
+
+                  Best Regards,
+                  Natalia
+
+https://youtrack.hrblizz.dev/tickets/HRBS-14255/Ukraine-setup-for-Advance-Payroll-at-the-country-level            2/2
+

@@ -1,0 +1,46 @@
+8/10/26, 6:14 PM                                              CN_Payslip : SR-316      Enter search requ…
+
+  Projects / Statutory Reports / Issues / SR-316                                 Star
+
+Created by Enaakshi Vats about 1 month ago                    Visible to issue readers                     3
+Updated by Enaakshi Vats about 16 hours ago
+
+CN_Payslip
+
+         Project                                  State                Priority               Assignee
+
+SR Statutory                               O Open              N Normal                      Wallisson
+       Reports                                                                               dos Santos
+                                                  Spent time  Due Date                       Gomes
+         Phase
+                                                 ?            31 Aug 2026                     Country
+       Specification
+ S Phase -                                        Research             Developer       C CN⁠
+                                                  Analyst
+       Research                                                ? No                           Redesign of
+       Analyst                             E Enaakshi                developer
+                                                 Vats                                  ? old country
+         Business                                                                            No
+         Analyst
+
+ ? No business
+       analyst
+
+Boards
+  Statutory Report…
+
+China CN Payslip generator v1.0:
+https://docs.google.com/spreadsheets/d/1jnwef9fq_03ML6BLVYCiw7u36jm4H8fugqIT4tY2R6o/e
+dit?usp=drive_link
+
+Subtask of 1
+     N CT-4457 CN_China_Compliance Artifacts for development
+
+LL Lily Li Commented 6 days ago
+        @Enaakshi Vats Pls convert CN payslip to the Compliance format. Thanks
+
+        Enaakshi Vats Commented about 16 hours ago
+        Hi @Wallisson dos Santos Gomes kindly assist with China payslip
+
+https://youtrack.hrblizz.dev/issue/SR-316                                                                     1/1
+

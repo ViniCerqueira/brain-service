@@ -1,0 +1,71 @@
+8/11/26, 2:32 PM                                 Payslips - Congo & Gabon : HRBS-12472
+
+Projects / HRBlizz Support / Tickets / HRBS-12472  Enter search request
+
+Created by Daniel Kelvin Balogun 13 days ago                             HRBlizz Support Team
+Updated by Manju Shetija 1 day ago
+
+Payslips - Congo & Gabon
+
+  Tier 1
+
+       Project        CCs                                 Priority                               Type
+
+      HRBlizz         No CCs                       M Medium                              S Service
+      Support                                                                                  Request
+                                 Assignee                 Support Group
+       State                                                                            Resolution Time
+                               Wallisson           C Compliance                               Paused
+S SLA                          dos Santos                Support
+      Exempt                   Gomes                                                             Spent time
+                                                          Estimation
+       SLA Violation             Country                                                 ??
+                                                   ??
+? Reason                       Congo
+      ----               C (Congo-                       SLA status                           Legal Entity
+                                                                                              Phase
+       Environment             Brazzaville)        ? No sla status
+                                                                                        I Implementati
+P Production                     Client                                                      on
+
+       Boards            B Baker
+                               Hughes
+      No visible
+      boards
+
+Client sent this:
+We received an internal confirmation from our Tax advisor, that the missed fields below, should
+also be included on Payslip for Congo and Gabon, as per country recommendation.
+Can you please recheck your statutory team, and confirm if they can add the below fields?
+
+   Marital status,
+   Number of kids
+   Number of parts (shares).
+
+Company Name
+Baker Hughes
+
+                  Pradeep Duraisamy Commented 13 days ago
+                  @Manju Shetija Can you please check and confirm whether the above details are
+                  mandatory to update in the country payslip.
+
+                  Kind regards,
+                  Pradeep D
+
+https://youtrack.hrblizz.dev/tickets/HRBS-12472                                                              1/2
+8/11/26, 2:32 PM                                 Payslips - Congo & Gabon : HRBS-12472
+
+                  Daniel Kelvin Balogun Commented 12 days ago
+                  @Manju Shetija Please can we get response on this
+
+                  Manju Shetija Commented 1 day ago
+                  @Daniel Kelvin Balogun for Gabon we will displat Marital status and No. of parts but no.
+                  of kids is not mentioned and is not required. Could you please explain why is this required
+
+                  @Wallisson dos Santos Gomes assigning this ticket to you for confirmation for Congo
+
+                  Kind regards,
+                  Manju Shetija
+
+https://youtrack.hrblizz.dev/tickets/HRBS-12472                                                                2/2
+

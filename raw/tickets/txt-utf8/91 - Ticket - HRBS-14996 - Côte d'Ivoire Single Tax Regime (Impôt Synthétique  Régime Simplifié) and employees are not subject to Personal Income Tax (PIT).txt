@@ -1,0 +1,214 @@
+9/28/26, 9:02 AM  Côte d'Ivoire :Single Tax Regime (Impôt Synthétique / Régime Simplifié) and employees are not subject to Personal Income Ta…
+
+Created by Sivaranjani Subbarayula 6 days ago                            HRBlizz Support Team
+Updated by Sivaranjani Subbarayula 3 minutes ago
+
+Côte d'Ivoire :Single Tax Regime (Impôt Synthétique /
+Régime Simplifié) and employees are not subject to
+Personal Income Tax (PIT)
+
+       Project                CCs                         Priority                Type
+
+      HRBlizz                 No CCs               M Medium               S Service
+      Support                                                                   Request⁠
+                                         Assignee         Support Group
+       State                                                             Resolution Time
+                                       Wallisson   C Compliance                Paused
+P Pending on                           dos Santos        Support⁠
+      reporter⁠                        Gomes                                      Spent time
+                                                          Estimation
+       SLA Violation                     Country                          ??
+                                                   ??
+? Reason                         C Côte d'Ivoire                                  Legal Entity
+      ----                                                SLA status              Phase
+                                         Client
+       Environment                                 ? No sla status        ? Please
+                                 ? No client                                    choose legal
+? No                                                                            entity phase
+      environment
+
+                  Boards
+
+                  No visible
+                  boards
+
+Hi Team,
+
+Our system is currently calculating ITS for the Ivory Coast employee population. However, this
+population is classified under the (Single Tax Regime), under which employees are not subject to
+standard PIT withholding through payroll — remuneration is either exempt from payroll PIT
+withholding or covered under a separate, consolidated tax arrangement outside normal ITS
+deduction.
+
+Requesting compliance confirmation on:
+1.The correct system configuration/flag logic to distinguish STR-covered employees from
+standard-regime employees going forward.
+
+Attaching the System GTN and Client payregister.
+
+Company Name
+REF-LE-03-105
+Production
+
+Attachments 9 Hidden files 4
+
+PDF                           PDF                  PDF                   ZIP
+
+https://youtrack.hrblizz.dev/tickets/HRBS-14996                                                   1/4
+9/28/26, 9:02 AM  Côte d'Ivoire :Single Tax Regime (Impôt Synthétique / Régime Simplifié) and employees are not subject to Personal Income Ta…
+
+4 - tax declaration              2023.11.24-Resoluti  Réponse demande              4225 - Baker Hugh
+of existenc… 3 MB                on to upd… 86 kB     de remb… 965 kB              es EHO Ltd… 3 kB
+
+  XLSX
+
+Jan and Feb simulat
+ion 21 kB
+
+                  Sivaranjani Subbarayula Commented 6 days ago
+                  @Pradeep Duraisamy please assign this to @Wallisson dos Santos Gomes
+
+                  Sivaranjani Subbarayula Commented 6 days ago
+                  @Wallisson dos Santos Gomes adding one more check point here For CNAMGS,FNH there
+                  is ceiling of 70000 in our Mercans system ,however in client pay register there ceiling is
+                  75000 for both the component mentioned .
+
+                  Govind Thakur Commented 6 days ago
+                  Client Jan Reports: BH Ivory Coast Payregister Jan26-Final.xlsx
+
+                  BH Ivory Coast Payregister Feb26-Final.xlsx
+
+                  Kind regards,
+                  Govind Thakur
+
+                  Wallisson dos Santos Gomes Commented 6 days ago
+                  @Sivaranjani Subbarayula @Govind Thakur
+
+                  1. No STR flag should be configured. ITS remains due.
+
+                  The impôt des microentreprises (and the régime de l'entreprenant) is "libératoire des
+                  autres impôts et taxes, à l'exclusion de l'impôt sur les traitements, salaires, pensions et
+                  rentes viagères (ITS) ... aussi bien à la charge des salariés que de l'employeur" — DGI, Le
+                  Système Fiscal Ivoirien. It replaces the entity's own patente, BIC/BNC and TVA. It has
+                  never covered the ITS withheld on wages.
+
+                  It is also inapplicable on the facts: the regime caps at 200 000 000 XOF of annual
+                  turnover, and the January payregister alone shows 18 employees and 46 100 070 XOF of
+                  earnings in one month.
+
+                  If the client maintains the position, please ask for the specific instrument — a convention
+                  d'établissement, an agrément, or a DGI ruling. A regime name is not an exemption.
+
+                  2. Ceiling: 70 000 is correct.
+
+                  Prestations familiales (5 %), maternité (0,75 %) and AT/MP (2–5 %) cap at 70 000
+                  XOF/month. 75 000 is the SMIG — the assiette floor, not the ceiling. Pension caps at 3 375
+                  000 (45 × SMIG). Source: CLEISS CI contribution sheet, updated 1 January 2025.
+
+                  The client file is itself inconsistent: 17 employees computed on 75 000, one (Boris-Alban
+                  Seka) on 70 000. Also note the columns labelled "CNAMGS" and "FNH" are Gabonese
+                  bodies that do not exist in Côte d'Ivoire — the amounts are AT/MP at 3 % and PF+AM at
+                  5,75 %.
+
+                  3. Defects found in the GTN while reviewing (REF-P201-861, January) — these need
+                  separate tickets.
+
+https://youtrack.hrblizz.dev/tickets/HRBS-14996                                                                2/4
+9/28/26, 9:02 AM  Côte d'Ivoire :Single Tax Regime (Impôt Synthétique / Régime Simplifié) and employees are not subject to Personal Income Ta…
+
+                  CNPS pension is booked then reversed. 2517 (+122 262) is cancelled by 2556 (−122 262);
+
+                  2537 (+149 432) by 2566 (−149 432). Total Deductions and Total Employer Contributions
+
+                  exclude it, so no CNPS pension is being charged on either side. The client register charges
+
+                  120 372,25 / 147 121,64.
+
+                  Employee 260699 CNPS is wrong (gross 5 693 282,96, above the pension ceiling): system
+
+                  returns EE 2 363, ER 2 888, PF 1 875, AM 281, AT/MP 1 125; correct is 212 625 / 259 875 /
+
+Projects  /3H5R0B0liz/ z52S5up/p2o1r0t 0/. Tickets / HRBS-14996        Assi… Enter search r…
+
+                  Wage type labels: 2531 says 5,75 % but pays PF 5 %; 2538 says Work Accident 0,75 % but
+
+                  pays Maternité; 2560 pays the actual AT/MP; 2569 is labelled "EIS", which does not exist in
+
+                  CI — the 1,2 % it pays is the CN employeur. No CE line exists, so expatriates (9,2 %) would
+
+                  be under-charged.
+
+                  Base differences vs the client: the client excludes 30 000 transport from the ITS and
+
+                  CNPS bases (Abidjan statutory prime de transport, arrêté 30/01/2020) and excludes the
+
+                  housing allowance from the ITS base. The engine applies neither. The transport exemption
+
+                  should be parameterised by location; the housing exclusion needs the client's basis, as a
+
+                  cash housing indemnity is normally taxable.
+
+                  ITS arithmetic itself is correct: 1 940 670,66 through the post-2024 brackets = 417 760,96,
+                  less RICF 11 000 (2 parts) = 406 760,96.
+
+                  Kind regards,
+                  Wallisson dos Santos Gomes
+
+                  Sivaranjani Subbarayula Commented 5 days ago
+                  @Wallisson dos Santos Gomes this is what we got from client on ITS confirmation.
+
+                  Wallisson dos Santos Gomes     Commented 5 days ago
+                  @Sivaranjani Subbarayula
+
+                  Need from the client: (1) quarterly "Déclaration du Prestataire de service" (Impôt BIC
+                  Pétrole/Gaz, e-impots.gouv.ci) and (2) proof of "nationalité étrangère" (Annexe fiscale
+                  2019 art. 26) — confirms whether the entity qualifies for the prestataires de services
+                  pétroliers regime, not impôt synthétique (which excludes ITS by law regardless). Once
+                  confirmed, we set the flag logic requested in the ticket.
+
+                  Kind regards,
+                  Wallisson dos Santos Gomes
+
+                  Sivaranjani Subbarayula Commented 3 days ago
+                  @Wallisson dos Santos Gomes attaching the requested documents from baker Hughes.
+                  Please do check this and enable the flag as tax for Ivory coast entity as requested.
+
+                     PDF                            PDF                  PDF
+
+                  4 - tax declaration            2023.11.24-Resoluti  Réponse demande
+                  of existenc… 3 MB              on to upd… 86 kB     de remb… 965 kB
+
+https://youtrack.hrblizz.dev/tickets/HRBS-14996                                                                3/4
+9/28/26, 9:02 AM  Côte d'Ivoire :Single Tax Regime (Impôt Synthétique / Régime Simplifié) and employees are not subject to Personal Income Ta…
+
+                  Govind Thakur Commented 3 days ago
+                  Hello @Wallisson dos Santos Gomes : One of the document is still pending at client side
+                  while they have provided the 2nd document which Siva has attached above. may you
+                  please check this.
+
+                  Kind regards,
+                  Govind Thakur
+
+                  Wallisson dos Santos Gomes Commented 3 days ago
+                  @Govind Thakur @Sivaranjani Subbarayula
+
+                  Foreign nationality: confirmed. The entity is the Ivorian branch of a foreign company
+                  (D1020: succursale, head office Bermuda; board resolution of 24 November 2023: Baker
+                  Hughes EHO FZE, Jebel Ali Free Zone, UAE).
+                  Regime: confirmed for 2025. DGI letter n° 0984/MFB/DGI/DGE of 19 August 2025 accepts
+                  the IFPGAZ declared and paid by Baker Hughes EHO Ltd (NCC 0211442C) under the
+                  régime des prestataires de services pétroliers.
+                  Flag confirmation will follow with the 2026 IFPGAZ return.
+
+                  Kind regards,
+                  Wallisson dos Santos Gomes
+
+                  Sivaranjani Subbarayula Commented 3 minutes ago
+                  @Wallisson dos Santos Gomes please provide the details version of above statement in
+                  English, Also we dont need the AI answer .However the above reports from client is given
+                  for tax free purposes also is it necessary to get these reports for each year .please check
+                  the reports and update as client is very firme on the tax free process. However client has
+                  escalated the same to Marko for this issue .
+
+https://youtrack.hrblizz.dev/tickets/HRBS-14996                                                                4/4
+

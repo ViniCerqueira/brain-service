@@ -1,0 +1,58 @@
+8/27/26, 11:05 AM                                We do not have CaMU on compliance WTC in CONGO : HRBS-13841
+
+Projects / HRBlizz Support / Tickets / HRBS-13841            Assi… Enter search r…
+
+Created by Daniel Kelvin Balogun about 5 hours ago                                 HRBlizz Support Team
+Updated by Pradeep Duraisamy about 4 hours ago
+
+We do not have CaMU on compliance WTC in CONGO
+
+  Tier 1
+
+         Project    CCs                                             Priority                Type
+
+       HRBlizz      No CCs                                   M Medium               S Service
+       Support                                                                            Request⁠
+                               Assignee                             Support Group
+         State                                                                     First Reply
+                             Wallisson                       C Compliance            2h
+ O Open⁠                     dos Santos                            Support⁠
+                             Gomes                                                          Estimation
+Resolution Time                                                     Country
+  4d                           SLA Violation                                        ??
+                                                                   Congo
+                       ? Reason                              C (Congo-                      SLA status
+                             ----
+                                                                   Brazzaville)     ? No sla status
+      Spent time           Environment
+                                                                    Client
+??                  P Production
+                                                             B Baker
+                                                                   Hughes
+
+      Legal Entity                               Boards
+      Phase
+                                                 No visible
+I Implementati                                   boards
+     on⁠
+
+We do not have CaMU on compliance WTC in CONGO.
+
+The client WTC shows CAMU Health Insurance (Employee) - "CAMU (Caisse Autonome Mutuelle
+de l'Assurance Maladie) health insurance employee contribution.
+Shown as '100% Percentage' on payslip — applied as % of an earnings base.
+Observed effective rate: ~0.5% of regular earnings (excl. extraordinary bonuses).
+CONFIRMED approximate formula — exact statutory base requires BH/CAMU confirmation.
+GATSE Nov-25: ~0.46–0.47% of regular earnings.
+Varies slightly month to month — suggests base excludes certain one-time items."
+
+Kindly confirm is this the same as the CG Health Insurance EE on complince WTC?
+
+WTC: https://docs.google.com/spreadsheets/d/1WZ-vb4wulZgVKsoHJB32h-
+Y4VEVSer6gl0bLFyzFwcA/edit?gid=263639368#gid=263639368
+
+Company Name
+Congo BH
+
+https://youtrack.hrblizz.dev/tickets/HRBS-13841                                                               1/1
+

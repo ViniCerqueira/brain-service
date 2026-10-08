@@ -1,0 +1,126 @@
+8/7/26, 9:15 PM                                                ES: FINIQ-001_Finiquito_Spec : SR-365
+
+Projects / Statutory Reports / Issues / SR-365                 Assi…                                  Enter search req…
+
+Created by Wallisson dos Santos Gomes 19 days ago              Visible to issue readers                                   3
+Updated by Lily Li about 11 hours ago
+
+ES: FINIQ-001_Finiquito_Spec
+
+         Project                                  State                 Priority                             Assignee
+
+SR Statutory                               R In Review          M Major                                     Wallisson
+       Reports                                                                                              dos Santos
+                                                  Spent time   Due Date                                     Gomes
+         Phase
+                                                 ?             31 Aug 2026                                   Country
+       Final Review
+ F Phase -                                        Research              Developer                     E ES
+                                                  Analyst
+       Business                                                 B Brenet                                     Redesign of
+       Analyst                             W Wallisson                Õispuu
+                                                 Gomes                                                ? old country
+         Business                                                                                           No
+
+ L Analyst
+       Lily Li
+
+Boards
+  Statutory Report…
+
+ES-FINIQ-001_Finiquito_Spec
+
+Inward mentions 1
+     M HRBS-11970 Spain Regulation_Missing Finiquito Letter in Internal System
+
+Attachments 3 Hidden file 1
+
+   PDF                                        PDF
+
+Final Finiquito IZAS                       Akyuz, Didem Finiq
+KUN (1) 130 kB                             uito (1) (1) 62 kB
+
+LL Lily Li Commented 17 days ago
+        @Wallisson dos Santos Gomes Pls check queries in column W.
+
+                 Wallisson dos Santos Gomes  Commented 17 days ago
+                 @Lily Li queries reverted
+
+                 Please refer to the new version of DD 3.9
+
+                 Spain Data Dictionary V3.9
+
+https://youtrack.hrblizz.dev/issue/SR-365                                                                                    1/3
+8/7/26, 9:15 PM                                  ES: FINIQ-001_Finiquito_Spec : SR-365
+
+LL Lily Li Commented 17 days ago
+        @Wallisson dos Santos Gomes Pls check queries highlighted in red in column W. Thanks
+
+                 Wallisson dos Santos Gomes      Commented 16 days ago
+                 @Lily Li new queries reverted.
+
+                 Drew Õispuu Commented 7 days ago
+                 @Lily Li The Finiquito report has been configured in Acceptance and is generating
+                 correctly. Please test when convenient.
+
+                 Population filter. One document per employee whose termination date falls inside the
+                 reported period:
+
+                    1 AND(
+
+                    2 NOT(IS_NULL( IF(IS_NULL($hr.sepe_last_day_worked); $employee.last_workin
+
+                    3 IS_BETWEEN( IF(IS_NULL($hr.sepe_last_day_worked); $employee.last_working
+
+                    4                      $period.begin_date; $period.end_date )
+
+                    5)
+
+                                                                                       PHP detected   
+
+                 The termination date is taken from $hr.sepe_last_day_worked , falling back to
+                 $employee.last_working_date when that field is empty. This is the same source SEPE
+                 CERTIFICA uses, so the two reports always agree on who left and when. Employees who
+                 did not terminate in the period produce no document.
+
+LL Lily Li Commented 4 days ago
+        The acceptance testing is done, only one point to check with Wallisson. For terminated ee,
+        zero tax floor applies?
+
+LL Lily Li Commented 3 days ago
+        @Wallisson dos Santos Gomes The ee is terminated in Feb, and in Feb payroll, IRPF tax
+        rate is 0 because the annual gross income amount is lower than zero tax floor. My
+        question is: what's the scope of this zero tax floor? In CCG, it states it's compared against
+        annual gross income, but for terminated ee, there's no future projected income, so annual
+        gross income amount is low. In such scenario, it will lead to tax rate as 0 in most cases for
+        terminated ee.
+
+        Pls confirm. Thanks
+
+        Wallisson dos Santos Gomes Commented 3 days ago
+        @Lily Li this is the expected behaviour, not a defect. Cese of the relationship (any reason,
+        incl. baja voluntaria) is itself a regularización trigger under Art. 87.2.3º RIRPF; at the
+        finiquito, the annual figure the zero-floor compares against gets recalculated to the real
+        year-to-date total, not the original full-year projection. When that recalculated base minus
+        the mínimo personal is zero or negative, the rate is zero (Art. 86.1/87.3) — the earlier in the
+        year the cese falls, the more likely that is. No retroactive fix to earlier payslips needed (Art.
+        87.3 blocks restitution), and it's not blocked by the Art. 86.2 2% floor (that only applies to
+        contracts originally agreed as duración inferior al año, not to an indefinite contract ending
+        early).
+
+https://youtrack.hrblizz.dev/issue/SR-365                                                                  2/3
+8/7/26, 9:15 PM                            ES: FINIQ-001_Finiquito_Spec : SR-365
+
+LL Lily Li Commented 1 day ago (edited)
+        Passed acceptance testing. Require Gulnaaz to confirm in her entities.
+
+        Finiquito_ES__202602.pdf
+
+LL Lily Li Commented about 11 hours ago
+        @Wallisson dos Santos Gomes Just to confirm because this point is not mentioned in the
+        spec.
+
+        Finiquito is for resident only or for both resident and non-resident?
+
+https://youtrack.hrblizz.dev/issue/SR-365                                                       3/3
+

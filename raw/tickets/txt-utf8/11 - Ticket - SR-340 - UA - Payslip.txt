@@ -1,0 +1,58 @@
+8/10/26, 2:44 PM                                              UA: Payslip : SR-340      Enter search req…
+
+  Projects / Statutory Reports / Issues / SR-340                                 Assi…
+
+Created by Wallisson dos Santos Gomes about 1 month ago                                                           3
+Updated by Lily Li about 4 hours ago                                                    Visible to issue readers
+
+UA: Payslip                                                                                       Assignee
+
+        Project                                   State              Priority                    Wallisson
+                                                                                                 dos Santos
+SR Statutory                               P In Progress      N Normal                           Gomes
+      Reports
+                                                                                                  Country
+         Phase                                    Spent time  Due Date
+                                                                                          U UA
+       Developmen                                ?            31 Aug 2026
+ D t Phase -                                                                                      Redesign of
+                                                  Research             Developer
+       Developer                                  Analyst                                  ? old country
+                                                               M Michael                         No
+         Business                          W Wallisson               Mukosi John
+                                                 Gomes
+ L Analyst
+       Lily Li
+
+Boards
+  Statutory Report…
+
+UA: Ukraine Payslip
+Attachments 2 Hidden files 2
+
+LL Lily Li Commented 17 days ago
+        @Wallisson dos Santos Gomes Pls check one query below. Thanks
+
+Wallisson dos Santos Gomes                 Commented 5 days ago (edited)
+@Lily Li queries reverted.
+
+Michael Mukosi John Commented about 9 hours ago
+@Lily Li Pls provide the HRB Mapping for ESV Payer Number for Employer details and
+division in banking details.
+
+LL Lily Li Commented about 5 hours ago
+        @Michael Mukosi John There's no ESV Payer Number for Employer details and division in
+        banking details required in the payslip spec under the sheet "Payslip Spec 1".
+
+Michael Mukosi John Commented about 5 hours ago
+@Lily Li But details are required in the given template Ukraine (EN) and Ukraine (UK)
+
+https://youtrack.hrblizz.dev/issue/SR-340                                                                            1/2
+8/10/26, 2:44 PM                           UA: Payslip : SR-340
+
+LL Lily Li Commented about 4 hours ago
+        @Wallisson dos Santos Gomes Pls check below query raised by Michael: the template
+        fields are inconsistent with spec fields.
+
+https://youtrack.hrblizz.dev/issue/SR-340                                                  2/2
+

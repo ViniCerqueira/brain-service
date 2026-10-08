@@ -1,0 +1,44 @@
+9/24/26, 6:11 PM       UA: Form 1-PV Monthly (Labour Statistics Report) - SPEC : SR-414
+
+Projects / Statutory Reports / Issues / SR-414            Assi...                             Enter search req...
+
+Created by Wallisson dos Santos Gomes about 2 months ago                                                                 2
+Updated by Lily Li 1 day ago                                                                  Visible to issue readers
+
+UA: Form 1-PV Monthly (Labour Statistics Report) -
+SPEC
+
+         Project              State                      Priority                                    Assignee
+
+       Statutory       O Open                    M Major                                            Wallisson
+       Reports                                                                                      dos Santos
+                              Spent time        Due Date                                            Gomes
+         Phase
+                             ?                  30 Sep 2026                                          Country
+       Product
+       Mapping                Research                   Developer                            U UA
+ P Phase -                    Analyst
+       Business                                  ? No                                                Redesign of
+       Analyst         W Wallisson                     developer
+                             Gomes                                                            ? old country
+         Business                                                                                   No
+
+ L Analyst
+       Lily Li
+
+Boards
+  Statutory Report...
+
+File: UA-1PV-001_MonthlyLabourReport_Spec.
+
+Inward mentions 1
+     M HRBS-12548 Ukraine Statistic reports
+
+LL Lily Li Commented 1 day ago (edited)
+        @Wallisson dos Santos Gomes Pls check column V of UA-1PV-001 Spec. Also, pls specify
+        the file format, which is not reflected under the report matrix sheet.
+
+        Thanks
+
+https://youtrack.hrblizz.dev/issue/SR-414/UA-Form-1-PV-Monthly-Labour-Statistics-Report-SPEC                                1/1
+

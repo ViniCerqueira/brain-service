@@ -1,0 +1,225 @@
+8/12/26, 4:32 PM                                 Ukraine data Dictionary and master data file for EEs : HRBS-12368
+
+Projects / HRBlizz Support / Tickets / HRBS-12368  Enter search request
+
+Created by Nataliia Hahan 16 days ago                                    HRBlizz Support Team
+Updated by Lily Li about 12 hours ago
+
+Ukraine data Dictionary and master data file for EEs
+
+  Tier 3
+
+       Project        CCs                                 Priority                Type
+
+      HRBlizz         No CCs                       M Medium               S Service
+      Support                                                                   Request⁠
+                                 Assignee                 Support Group
+       State                                                             Resolution Time
+                               Wallisson           C Compliance                Paused
+S SLA                          dos Santos                Support⁠
+      Exempt⁠                  Gomes                                              Spent time
+                                                          Estimation
+       SLA Violation             Country                                  ??
+                                                   ??
+? Reason                 U Ukraine                                                Legal Entity
+      ----                                                SLA status
+                                 Client                                   L Phase
+       Environment                                 ? No sla status              Live/BAU⁠
+                         A Altium
+P Production
+
+       Boards
+
+      No visible
+      boards
+
+Dear Lily,
+
+I have reviewed the Master Data file and the Data Dictionary, and I identified several fields that
+need to be updated. Some field names should be changed, and a few additional fields need to be
+added.
+
+Please find below the link to the Master Data template:
+
+https://docs.google.com/spreadsheets/d/1JS70d0loMFtqxw0nndXqEJ5AJT4b6igU/edit?
+gid=1812777417#gid=1812777417
+
+The fields highlighted in orange are the ones that we need to review and update, if necessary.
+
+Please let me know if you have any questions.
+
+Kind regards,
+Natalia
+
+     1C Personnel Number (add new Field Табельний номер)
+     pleaes add to the DD with the Formatted Full Name - Ukrainian Name
+     Passport: Issued By
+     Passport: Issue Date
+     Street and Building Number - separate street and building number
+     Region no need to use th eoption mapper Ukrainian oblasts
+     Job Title / Position (ENG) Add
+
+https://youtrack.hrblizz.dev/tickets/HRBS-12368                                                                     1/4
+8/12/26, 4:32 PM                                 Ukraine data Dictionary and master data file for EEs : HRBS-12368
+
+Job Title / Position (UKR) Add
+
+Employment Contract Type - Безстроковий трудовий договір (Indefinite-Term Contract) —
+код 1 - lets chenge option mapper short name ( Постійний, Строковий, ЦПХ)
+
+Hire Date
+
+Cost Centre (Department) UKR 1C
+
+Cost Centre (Department) ENG
+
+Part-Time Indicator/ full time -- Add to the option Mapper
+
+Monthly Salary (UAH) Gross official
+
+Monthly Salary (USD) gross
+
+Effective Date of Current Salary
+
+Weekly Working Hours
+
+Daily Working Hours
+
+SSC (ЄСВ) Rate
+
+ЄСВ Rate Effective Date
+
+Contribution Group (1C)
+
+Disability Group
+
+Disability Certificate (series, issue date)
+
+Employment Status
+
+Contract Category
+
+FTE (Rate)
+
+Work Schedule
+
+Insurance Record (for sick pay)
+
+Bank 1 Account Holder
+
+Інвалідність III групи (Disability Group III) — код 2 - chenge for the short name
+
+Company Name
+Altium Ukraine
+
+                  Abarna Khaliq Commented 14 days ago
+                  @Nataliia Hahan
+
+                  Kindly give me access to the sheet so i can review that whether these missing fields
+                  should come from country level or we can add it
+
+                  Kind regards,
+                  Abarna Khaliq
+                  Senior Specialist-Configurations
+
+                  Nataliia Hahan Commented 14 days ago
+                  @Abarna Khaliq the access is done
+
+                  Abarna Khaliq Commented 13 days ago
+                  @Nataliia Hahan
+
+                  and provide the DD too . as in the given link i cannot see any highlighted column .
+
+                  Kind regards,
+                  Abarna Khaliq
+
+https://youtrack.hrblizz.dev/tickets/HRBS-12368                                                                     2/4
+8/12/26, 4:32 PM                                 Ukraine data Dictionary and master data file for EEs : HRBS-12368
+
+                  Senior Specialist-Configurations
+
+                  Nataliia Hahan Commented 13 days ago
+                  @Abarna Khaliq here is the data Dictionary link:
+
+                  https://docs.google.com/spreadsheets/d/1jzBC2bZHgPirDPb4X4tSTr2TPWEH4kDUpz7yG
+                  3sxtQE/edit?gid=767263614#gid=767263614
+
+                  Nataliia Hahan Commented 6 days ago
+                  Dear @Abarna Khaliq please let me know of what step the Ukraine Data dictionary file?
+                  Thank you.
+
+                  Best Regards,
+                  Natalia hahan
+
+                  Nataliia Hahan Commented about 12 hours ago
+                  @Lily Li
+                  Description:
+                  While validating the Ukraine Employee Master Data file against Data Dictionary V3.4, we
+                  identified 15 fields that are actively used in Ukraine payroll/HR operations but are currently
+                  missing from the Country Fields (Ukraine) sheet. Please add them as formal fields. For 6 of
+                  them we also need a decision/clarification on configuration before the field definition can
+                  be finalized — see notes below.
+
+                  Fields to add (no open question — just needs to be added as-is):
+
+                   1. 1C Personnel Number / Табельний номер 1С
+
+                   2. Name (Ukrainian) / ПіБ укр
+
+                   3. Passport: Issued By / Паспорт: ким виданий
+
+                   4. Passport: Issue Date / Паспорт: дата видачі
+
+                   5. Monthly Salary (UAH) Gross official / Місячна заробітна плата, грн
+
+                   6. єСВ Rate Effective Date / Дата, з якої застосовується ставка єСВ — critical field,
+                       needed to split ESV base 22%/8.41% when disability status starts mid-month
+
+                   7. Disability Certificate (series, issue date) / Посвідчення про інвалідність
+
+                   8. Bank 1 Account Holder / Власник рахунку 1
+
+                  Fields that need a decision before adding:
+                  5. Residential Address: Suburb / Адреса: мікрорайон / район — should NOT be an option
+                  mapper, text format only [Universal Field]
+                  7. Division (1C Department) / Відділ (підрозділ організації, 1С) — depends on which GL
+                  code will be used for accounting
+                  8. Cost Centre (Department) / центр витрат — needed client-side for the GTN report
+                  10. Monthly Salary (USD) gross / Місячна заробітна плата, USD — includes UAH salary,
+                  indexation, and vacation pay for that month only (not prior/future), paid as a monthly
+                  bonus; this WT should use a bonus-type formula
+                  11. Effective Date of Current Salary / Дата набуття чинності поточної зарплати для
+                  індексації — date of the last salary increase per position/employee; used as the base date
+                  for salary indexation calculation
+                  14. Insurance Record (for sick pay) / Страховий стаж (для лікарняних) — should be
+                  calculated automatically in HRBlizz, but must also be captured on the EE card for new
+                  hires, for correct sick leave calculation
+
+                  Requested action: add all 15 fields to Data Dictionary V3.4 → Country Fields → Ukraine,
+                  with correct Field Type, Entity, and Mandatory settings, and resolve the open
+
+https://youtrack.hrblizz.dev/tickets/HRBS-12368                                                                     3/4
+8/12/26, 4:32 PM                                 Ukraine data Dictionary and master data file for EEs : HRBS-12368
+
+                  configuration points above before finalizing.
+
+                  best regards,
+                  Natalia
+
+                  Nataliia Hahan  Commented about 12 hours ago
+                  @Lily Li
+
+                  Here is the master data of EE what we use in Ukraine
+
+                  https://docs.google.com/spreadsheets/d/13M6jviQ5byHpFMe39xoo-IAm5Q90vnnc/edit?
+                  gid=1727957463#gid=1727957463
+
+LL Lily Li Commented about 12 hours ago
+        @Wallisson dos Santos Gomes Could you pls check below requirements raised by Nataliia
+        on missing fields in data dictionary? Thanks
+
+                  Kind regards,
+                  Lily Li
+
+https://youtrack.hrblizz.dev/tickets/HRBS-12368                                                                     4/4
+

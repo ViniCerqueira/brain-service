@@ -1,0 +1,87 @@
+9/28/26, 10:14 AM      ES: AFI Outbound (Mensaje de Afiliación) - SPEC : SR-432
+
+Created by Wallisson dos Santos Gomes 14 days ago                                        Visible to issue readers  2
+Updated by Lily Li about 4 hours ago
+
+ES: AFI Outbound (Mensaje de Afiliación) - SPEC
+
+         Project              State                Priority                                     Assignee
+
+SR Statutory           O Open              M Major                                             Wallisson
+       Reports                                                                                 dos Santos
+                              Spent time  Due Date                                             Gomes
+         Phase
+                             ?            29 Jan 2027                                           Country
+       Product
+       Mapping                Research             Developer                             E ES
+ P Phase -                    Analyst
+       Business                            B Brenet                                             Redesign of
+       Analyst         W Wallisson               Õispuu
+                             Gomes                                                       ? old country
+         Business                                                                              No
+
+ L Analyst
+       Lily Li
+
+Boards
+  Statutory Report...
+
+Spain AFI - Outbound (Mensaje de Afiliación) - SPEC
+Attachments 2 Hidden files 2
+
+LL Lily Li Commented 8 days ago (edited)
+        @Wallisson dos Santos Gomes Almost all fields in Column A in the sheet "AFI Spec" are in
+        Spanish, not English. Pls update into English field names. Thanks
+
+https://youtrack.h/rblizz.dev/issue/SR-432/ES-A/FI-Outbound/-Mensaje-de-Afiliacion-SPEC                               1/3
+9/28/26, 10:14 AM           ES: AFI Outbound (Mensaje de Afiliación) - SPEC : SR-432
+
+Projects /ASlstoa,tuFtioelrdy ERxepploarntastio/ nIscsouluems n/ isSiRn-S4p3a2nish. UpdAa...te intoEnEtnegrlisseha. r...  8 of 10
+
+Show more
+
+Wallisson dos Santos Gomes  Commented 8 days ago
+@Lily Li fixed.
+
+LL Lily Li Commented 6 days ago (edited)
+        @Wallisson dos Santos Gomes Pls check queries in column V of AFI Spec.
+
+Wallisson dos Santos Gomes  Commented 6 days ago
+@Lily Li Done
+
+LL Lily Li Commented 5 days ago
+        @Wallisson dos Santos Gomes Pls check queries in column V in red.
+
+        Thanks
+
+Wallisson dos Santos Gomes Commented 5 days ago
+@Lily Li Done! All queries in column V are answered in column W (updated answers in
+green). The DD is updated too (Version Control 4.6), with the new fields and option
+mappers. Both files attached.
+
+https://youtrack.hrblizz.dev/issue/SR-432/ES-AFI-Outbound-Mensaje-de-Afiliacion-SPEC                                               2/3
+9/28/26, 10:14 AM           ES: AFI Outbound (Mensaje de Afiliación) - SPEC : SR-432
+
+Heads-up: some earlier answers changed, and they're listed in the spec's Version Control
+1.2. The main one is rows 173-174: DAM.2150-2170 only applies to Special System 32, so it
+isn't the part-time coefficient we discussed in the meeting.
+
+LL Lily Li Commented 3 days ago
+        @Wallisson dos Santos Gomes As Gulnaaz requested, pls validate your AFI outbound spec
+        against A3 sample.
+
+        Thanks
+
+Wallisson dos Santos Gomes  Commented 3 days ago
+@Lily Li
+
+Validated against A3 sample (A26S0003.AFI). Pension entity field (pos. 40-44): confirmed,
+43/43 records. Reserved field (2420): position fixed, 18-21/len4  18-23/len6 (TGSS
+manual typo). Updated spec.
+
+LL Lily Li Commented about 4 hours ago
+        @Wallisson dos Santos Gomes Now in DD, there're 77 new fields in total. These 77 new
+        fields are for sure to be created?
+
+https://youtrack.hrblizz.dev/issue/SR-432/ES-AFI-Outbound-Mensaje-de-Afiliacion-SPEC           3/3
+

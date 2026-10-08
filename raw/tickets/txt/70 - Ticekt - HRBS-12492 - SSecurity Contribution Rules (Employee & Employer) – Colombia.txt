@@ -1,0 +1,244 @@
+9/16/26, 8:18 AM      SSecurity Contribution Rules (Employee & Employer) - Colombia : HRBS-12492
+
+Projects / HRBlizz Support / Tickets /        A... Enter sea...                                                       6 of 95
+
+HRBS-12492
+
+Created by Cintia Torres about 2 months ago                         HRBlizz Support Team
+Updated by Mohit Jain 13 days ago
+
+SSecurity Contribution Rules (Employee & Employer) -
+Colombia
+
+  Tier 1 Instaroll
+
+       Project        CCs                            Priority                Type
+
+      HRBlizz         No CCs                  M Medium                I Incident
+      Support
+                                 Assignee            Support Group  Resolution Time
+       State                                                              Paused
+                               Wallisson      C Compliance
+P Pending on                   dos Santos           Support                  Spent time
+      reporter                 Gomes
+                                                     Estimation      ??
+       SLA Violation             Country
+                                              ??                             Legal Entity
+? Reason                 C Colombia
+      ----                                           SLA status      L Phase
+                                 Client                                    Live/BAU
+       Environment                            ? No sla status
+                         P Philip Morris
+P Production                   International
+
+       Boards
+
+      No visible
+      boards
+
+Hi team,
+
+We need the system to correctly calculate Social Security contributions (Health, Pension, ARL,
+and Payroll Taxes) for Colombia, based on the legal rules explained below.
+
+Entity ID:REF-LE-00-505
+
+ 1. Contribution Base (IBC)
+
+Contributions are calculated on the IBC (Ingreso Base de Cotización) -- the employee's salary
+plus any payments that legally count as salary. The minimum IBC is 1 SMLMV and the maximum is
+25 SMLMV.
+
+ 2. The 40% Rule (Law 1393 of 2010)
+
+Non-salary payments (extralegal bonuses, allowances, etc.) cannot exceed 40% of the
+employee's total compensation. If they exceed 40%, the excess amount must be added back into
+the IBC, and contributions must be calculated on that higher value.
+
+ 3. Contribution Rates
+
+Health is 12.5% in total, split between employee (4%) and employer (8.5%). The employer's 8.5%
+is exempted when the employee earns up to 10 SMLMV.
+
+Pension is 16% in total, split between employee (4%) and employer (12%).
+
+https://youtrack.hrblizz.dev/tickets/HRBS-12492/SSecurity-Contribution-Rules-Employee-Employer-Colombia?backToIssues           1/4
+9/16/26, 8:18 AM             SSecurity Contribution Rules (Employee & Employer) - Colombia : HRBS-12492
+
+ARL is paid only by the employer, and the percentage depends on the risk class assigned to the
+job.
+
+The Solidarity Pension Fund only applies when the IBC is 4 or more SMLMV, and it is paid only by
+the employee. The percentage increases gradually depending on how many SMLMV the IBC
+represents.
+
+4. Payroll Taxes (Parafiscales) -- Employer only
+
+These are calculated on salary only (not on non-salary payments), and include Family
+Compensation Fund (Caja) 4%, ICBF 3%, and SENA 2%. The employer is exempt from ICBF,
+SENA, and Health when the employee earns up to 10 SMLMV.
+
+5. Social Security During Vacations -- Special IBC Rule
+
+When an employee is on vacation, the employer must continue contributing normally to Health,
+Pension, and ARL. However, the IBC used must be the salary earned in the month immediately
+BEFORE the vacation started -- not the vacation payment itself. This applies to both enjoyed
+vacations and advance-paid vacations.
+
+Legal basis: Art. 3, Decree 1072 of 2015, and PILA guidelines.
+
+Reference tables and calculation examples:
+
+I am attaching a Word document with the full contribution rate tables (Health, Pension, ARL by
+risk class, Solidarity Fund brackets) and step-by-step worked examples for both ordinary and
+integral salary employees, so the technical team can validate the formulas against real numbers.
+
+Request:
+
+Please review and confirm the system can be parametrized to apply:
+
+The 40% non-salary cap rule (Law 1393), adding any excess to the IBC.
+Correct contribution rates and exemptions based on IBC level (above/below 10 SMLMV).
+The special vacation IBC rule (using the prior month's salary instead of the vacation payment).
+
+Please let us know if a call is needed to walk through the attached examples together.
+
+Thank you,
+
+Company Name
+Compañía Colombiana de Tabaco SAS
+
+Attachments 3 Hidden file 1
+
+  XLSX                  DO...
+
+Validador Segurida    Social_Security_Cal
+d Social j... 236 kB  culations_... 18 kB
+
+                  Romano Fusana Commented about 2 months ago
+                  Hi @Cintia Torres,
+
+                  Good day! Thank you for contacting the Mercans Support Team. This is to acknowledge
+                  receipt of your ticket.
+
+                  We will proceed with our review and get back to you if we require any additional
+                  information or action from your end. You will also be updated on the progress of your
+                  ticket, especially if we need to involve our internal teams to complete your request or
+                  resolve the issue.
+
+https://youtrack.hrblizz.dev/tickets/HRBS-12492/SSecurity-Contribution-Rules-Employee-Employer-Colombia?backToIssues  2/4
+9/16/26, 8:18 AM                         SSecurity Contribution Rules (Employee & Employer) - Colombia : HRBS-12492
+
+                  Should you have any further concerns or clarifications, please don't hesitate to reach out
+                  to us.
+
+                  Kind regards,
+                  Romano Fusana
+                  Support Engineer
+
+                  HRBlizz Support Team
+
+                  Romano Fusana     Commented about 1 month ago
+                  Hi Cintia,
+
+                  1. Could you provide 2-3 concrete cases where the system's calculation did not match the
+                  expected result? For each, ideally: employee, pay period, the system's calculated value per
+                  concept, and the expected value. We would suggest covering at least:
+
+                  One ordinary salary employee earning up to 10 SMMLV (to validate the employer
+                  exemption from Health, SENA, and ICBF)
+                  One integral salary employee (to validate the 70% IBC rule and Solidarity Fund
+                  bracket)
+                  One employee with vacation taken in the period (to validate the prior-month IBC rule)
+
+                  2. Vacation case validation
+
+                  We note from your payroll data that there are employees with vacation days in recent
+                  periods (for example, a case with 4 days of leave where contributions appear to have been
+                  calculated on the full month's gross earnings rather than the prior-month salary base). If
+                  you confirm, we would like to use such a case as one of the validation examples for the
+                  vacation IBC rule.
+
+                  3. Scope of the 40% rule
+
+                  For the non-salary cap validation, which payment concepts does the entity currently
+                  classify as non-salary (e.g., extralegal bonuses, allowances)? A list of the relevant item
+                  codes would let us verify the classification before testing the cap logic.
+
+                  We will be attentive.
+
+                  Cintia Torres Commented about 1 month ago
+                  Hi Romano, sorry for the delay, sure, I wil share with you soon.
+
+                  Regards!
+
+                       HRBlizz Support Team
+
+                  Romano Fusana Commented about 1 month ago
+                  Hi @Cintia Torres,
+
+                  Good day! Hope this finds you well.
+
+                  This serves as a gentle follow-up on this ticket. Kindly review our previous communication
+                  and let us know if you have any clarifications or require further assistance from the
+                  Support Team. Your feedback will greatly help us move forward with this case.
+
+                  We'll be attentive to your response.
+
+                  Heidy Ballesteros Puyo       Commented about 1 month ago
+                  Good morning, Romano.
+
+https://youtrack.hrblizz.dev/tickets/HRBS-12492/SSecurity-Contribution-Rules-Employee-Employer-Colombia?backToIssues  3/4
+9/16/26, 8:18 AM                          SSecurity Contribution Rules (Employee & Employer) - Colombia : HRBS-12492
+
+                  I am attaching the Social Security Validator for the month of July, where you will find all
+                  the relevant cases, including ordinary and integral salaries, the Law 1393 calculation,
+                  salary and non-salary concepts, formulas, and other information required to understand
+                  and validate the calculations.
+
+                  Please let me know if you need any additional information or clarificatioValidador
+                  Seguridad Social julio Monthly.xlsxn.
+
+                  Thank you.
+
+                  Kind regards,
+                  Heidy Ballesteros Puyo
+                  Support Engineer
+
+                  Cintia Torres Commented 29 days ago
+                  Hi team, could check on this ticket?
+
+                  Regards!
+
+                  Heidy Ballesteros Puyo  Commented 27 days ago
+                  Good morning, Romano.
+
+                  I am attaching the Social Security Validator for examples.
+
+                  Validador Seguridad Social julio Monthly - copia.xlsx
+
+                  Kind regards,
+                  Heidy Ballesteros Puyo
+                  Support Engineer
+
+                    XLSX
+
+                  Validador Segurida
+                  d Social j... 236 kB
+
+                  Heidy Ballesteros Puyo Commented 27 days ago
+                  https://docs.google.com/spreadsheets/u/0/d/16ZEJJVCC7zSMCtTAUo49ZpqwfItTuSTw/e
+                  dit?usp=sheets_home&ths=true&rtpof=true
+
+                  Kind regards,
+                  Heidy Ballesteros Puyo
+                  Support Engineer
+
+                       HRBlizz Support Team
+
+                  Mohit Jain Commented 13 days ago
+                  As per discussion with Manju, assigning to wallisson for gap analysis when during
+                  colombia research.
+
+https://youtrack.hrblizz.dev/tickets/HRBS-12492/SSecurity-Contribution-Rules-Employee-Employer-Colombia?backToIssues  4/4
+

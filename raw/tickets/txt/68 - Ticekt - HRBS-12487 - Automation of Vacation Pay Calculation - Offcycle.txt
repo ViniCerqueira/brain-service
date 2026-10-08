@@ -1,0 +1,218 @@
+9/16/26, 8:17 AM      Automation of Vacation Pay Calculation - Offcycle : HRBS-12487
+
+Projects / HRBlizz Support / Tickets /        A... Enter sea...                                               4 of 95
+
+HRBS-12487
+
+Created by Jose Quiroga about 2 months ago                          HRBlizz Support Team
+Updated by Mohit Jain 13 days ago
+
+Automation of Vacation Pay Calculation - Offcycle
+
+  Tier 1 New Development Item
+
+       Project        CCs                            Priority                                                          Type
+
+      HRBlizz         No CCs                  M Medium                                                          I Incident
+      Support
+                                 Assignee            Support Group                                            Resolution Time
+       State                                                                                                        Paused
+                               Wallisson      C Compliance
+P Pending on                   dos Santos           Support                                                            Spent time
+      reporter                 Gomes
+                                                     Estimation                                                ??
+       SLA Violation             Country
+                                              ??                                                                       Legal Entity
+? Reason                 C Colombia
+      ----                                           SLA status                                                L Phase
+                                 Client                                                                              Live/BAU
+       Environment                            ? No sla status
+                         P Philip Morris
+P Production                   International
+
+       Boards
+
+      No visible
+      boards
+
+Hi team,
+With the new change to Instaroll, some steps that were previously done manually when
+calculating the vacation bonus now need to be automated.
+When the vacation bonus exceeds 95 UVT, social security and withholding taxes must be
+deducted from the bonus amount. Since the system doesn't do this, we used to calculate it
+ourselves and, in step 3, adjust the bonus amount if necessary.
+Currently, vacation days are recorded under account code 63123, and the account code used to
+calculate the bonus amount is 62837, which is the one that appears in G2N.
+Could you please help us with that?
+
+Company Name
+
+1764 - Compañía Colombiana de Tabaco SAS
+
+                  Romano Fusana Commented about 2 months ago
+                  Hi @Jose Quiroga,
+
+                  Good day! Thank you for contacting the Mercans Support Team. This is to acknowledge
+                  receipt of your ticket.
+
+                  We will proceed with our review and get back to you if we require any additional
+                  information or action from your end. You will also be updated on the progress of your
+                  ticket, especially if we need to involve our internal teams to complete your request or
+                  resolve the issue.
+
+https://youtrack.hrblizz.dev/tickets/HRBS-12487/Automation-of-Vacation-Pay-Calculation-Offcycle?backToIssues                         1/4
+9/16/26, 8:17 AM                       Automation of Vacation Pay Calculation - Offcycle : HRBS-12487
+
+                  Should you have any further concerns or clarifications, please don't hesitate to reach out
+                  to us.
+
+                  Kind regards,
+                  Romano Fusana
+                  Support Engineer
+
+                       HRBlizz Support Team
+
+                  Romano Fusana Commented about 1 month ago
+                  Hi @Jose Quiroga,
+
+                  To make sure we configure the calculation exactly as the business expects, please provide
+                  a sample simulation for one employee, showing the full calculation step by step, Ideally it
+                  would include:
+
+                   1. Employee context: monthly salary, and the pay period in which the vacation bonus is
+                       paid.
+
+                   2. Input values: number of vacation days recorded under account 63123, and the
+                       vacation bonus amount calculated under account 62837 before any adjustment.
+
+                   3. The 95 UVT threshold applied: the UVT value used and the threshold amount in COP,
+                       so we confirm the same reference value.
+
+                   4. Expected deductions once the bonus exceeds 95 UVT: which social security
+                       concepts apply (pension, health -- and the percentages/bases used) and how the
+                       withholding tax is calculated (which table or rate is applied to the excess).
+
+                   5. Expected result in G2N: whether the deduction should reduce the bonus under 62837
+                       directly, or appear as separate deduction lines, and the final net amounts you expect
+                       to see.
+
+                  A real example from a recent payroll (with actual figures, anonymized if needed) would be
+                  perfect, as it lets us validate the automated calculation against the manual result you used
+                  to produce in step 3.
+
+                  Once we have this, we will review the current setup of 62837 and confirm the approach
+                  for automating the threshold check and deductions.
+
+                  We will be attentive.
+
+                  Jose Quiroga Commented about 1 month ago
+
+                  Sample simulation -- 95 UVT threshold on vacation
+                  bonus (WT 63123 / 62837)
+
+                  Attached: 95UVT_Automation_Spec.xlsx -- four tabs ( Parameters , Art383 , Example ,
+                  Validation ). Every figure is a live formula driven only by Total Días and Base Salary, so
+                  you can change an input and watch the whole chain recalculate. Nothing is hardcoded
+                  except the statutory constants, which are isolated on the Parameters tab.
+
+                  The example below is a real record from the offcycle run of week 31 / 2026 (vacation
+                  window 01-07 Aug 2026, WT 63123 load period 01-31 Aug 2026). Names are anonymised
+                  to initials; Employee IDs are kept so you can locate the records in HRBlizz. The figures are
+                  the ones the manual process actually produced and the client accepted.
+
+                  1. Employee context
+
+https://youtrack.hrblizz.dev/tickets/HRBS-12487/Automation-of-Vacation-Pay-Calculation-Offcycle?backToIssues    2/4
+9/16/26, 8:17 AM                        Automation of Vacation Pay Calculation - Offcycle : HRBS-12487
+
+                  Field                                       Value
+                  -----------------------------------------   -------------------------------
+                  Employee ID (PERN)                          50537137
+                  Name                                        P. C. (anonymised)
+                  Pay Group                                   CO - Monthly
+                  Personnel Area CO                           Ordinario
+                  Monthly base salary                         10,665,000 COP
+                  Payroll period in which the bonus is paid   2026-08-01  2026-08-31
+                  Retention procedure                         Procedure 1 (progressive table)
+
+                                                                                                           Plain text
+
+                  Two scope rules that constrain the automation:
+
+                       Salario Integral is always excluded from this offcycle. Only Personnel Area CO =
+                       Ordinario .
+                       The retention procedure is already in the system -- option 6 of the employee card. For
+                       Procedure 2 employees the fixed percentage is stored on WT 52552. The automation
+                       should read both from there rather than expecting an input file.
+
+                  2. Input values
+
+                  Field                                       Value
+                  ------------------------------------------  --------------
+                  Total Días (input loaded on WT 63123)       13
+                  Gross bonus under 62837, before adjustment  12,940,200 COP
+
+                                                                                                              Plain text
+
+                  Total Días = Days Taken + Cash Out Amount -- both components must be summed.
+                  Using Days Taken alone is a known error source in the manual process.
+
+                  Bonus formula (this is what HRBlizz already produces today, and it is correct):
+
+                     Gross bonus = ROUND( Total Días × 2.8 × (Monthly base salary / 30), 0 )
+                                         = ROUND( 13 × 2.8 × (10,665,000 / 30), 0 )
+                                         = 12,940,200
+
+                  Show more
+
+                  Jose Quiroga   Commented 29 days ago
+                  Hi team,
+                  Any updated?
+
+SA Sohail Ahmad Commented 27 days ago
+        Dear @Romano Fusana
+
+        As we discussed in the call, this we will need compliance support to make it automate for
+        the social security and tax calculations on these Bonus payments.
+
+                  thanks
+
+                  Kind regards,
+                  Sohail Ahmad
+
+                  HRBlizz Support Team
+
+https://youtrack.hrblizz.dev/tickets/HRBS-12487/Automation-of-Vacation-Pay-Calculation-Offcycle?backToIssues              3/4
+9/16/26, 8:17 AM                        Automation of Vacation Pay Calculation - Offcycle : HRBS-12487
+
+                  Romano Fusana Commented 26 days ago
+                  1764 - Compañía Colombiana de Tabaco SAS
+                  REF-LE-00-505
+                  Production
+
+                  Mohit Jain Commented 22 days ago
+                  As per discussion on call, Colombia requires a redesign or atleast a major gap fixing work.
+
+                  Kind regards
+                  Mohit Jain
+                  Head of Compliance Product
+
+                  HRBlizz Support Team
+
+                  Romano Fusana  Commented 13 days ago
+                  Hi Mohit,
+
+                  As discussed in ELT, this is one of the tickets raised by PMI that needs to be addressed
+                  before the client can transition to Instaroll.
+
+                  The full list of PMI items requiring attention before the transition is available here: PMI
+                  Instaroll Transition Tracker
+
+                       HRBlizz Support Team
+
+                  Mohit Jain Commented 13 days ago
+                  As per discussion with Manju, assigning to wallisson for gap analysis when during
+                  colombia research.
+
+https://youtrack.hrblizz.dev/tickets/HRBS-12487/Automation-of-Vacation-Pay-Calculation-Offcycle?backToIssues   4/4
+

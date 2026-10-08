@@ -1,0 +1,647 @@
+8/14/26, 9:43 AM                                CI: Specifications | Knowledge Base
+
+Projects / Compliance / Knowledge Base / CT-A-620
+
+Created by Mohit Jain 9 days ago                                        Visible to article readers
+Updated by Mohit Jain 7 days ago
+
+CI: Specifications
+
+Flags and HR Fields:
+58238: CNPS Eligibility (Boolean)
+58202: CNPS Work Injury Eligibility (Boolean)
+58295: $actual_prorata_days
+58203: Exemption from DGI General and National Contribution
+($hr.exemption_from_dgi_general_and_national_contribution)
+
+58215: Worker Type (0: Local Worker, 1: Foreign Worker)
+58216: Intern/ Apprentice (1: Intern - first 12 months, 2: Apprentice)
+
+$hr.number_of_dependent_child_not_disabled
+$hr.number_of_dependent_child_disabled
+
+58205: Family Situation Factor
+MIN(
+ADD(
+
+   1;
+   IF(
+
+     OR(
+      CONTAINS($person.marital_status;'Married');
+      AND(
+        CONTAINS($person.marital_status;'Widowed');
+        GREATER(ADD($hr.number_of_dependent_child_not_disabled;$hr.number_of_dependent_chil
+
+d_disabled);0)
+      )
+
+     );
+     1;
+     0
+   );
+   MULTIPLY($hr.number_of_dependent_child_not_disabled;0.5);
+   MULTIPLY($hr.number_of_dependent_child_disabled;1);
+
+https://youtrack.hrblizz.dev/articles/CT-A-620                                                      1/11
+8/14/26, 9:43 AM                                             CI: Specifications | Knowledge Base
+
+    IF(
+
+       AND(
+
+        CONTAINS($person.marital_status;'Not married, Divorced');
+
+      GREATER(ADD($hr.number_of_dependent_child_not_disabled;$hr.number_of_dependent_child_
+disabled);0)
+
+       );
+
+       0.5;
+
+       0
+
+    )
+
+);
+
+5
+
+)
+
+    Ord           Reg   Regul Tax                     Tax    Tax   Deb Cre                        Taxa   Regula
+
+    inal          ulat  ation                   Gro   Rule atio    it   dit                       bility tion Ba
+
+                  ion I Name up                       Gro    n Ty                                 Matr   nds
+
+                  D                                   up     pe                                   ix
+
+    11            938   CI Gr                   inco simp flat     581  999                           C  Employ
+
+                  401   oss B                   me_   le_ta        00   99                        I: Gro ee Rat
+
+                  1     ase                     tax   x_po                                        ss C   e: 100.
+
+                                                      st_fo                                       I: Gro 00
+
+                                                      rmul                                        ss     Formul
+
+                                                      a                                                  a: ROU
+
+                                                                                                         ND($b
+
+                                                                                                         and_a
+
+                                                                                                         mount
+
+                                                                                                         _raw)
+
+    21            938   CI Gr                   inco simp flat     580 999                            C  Employ
+
+                  402   oss T                   me_   le_ta        08   99                        I: Tax ee Rat
+
+                  1     axabl                   tax   x_po                                        able   e: 100.
+
+                        e Bas                         st_fo                                       Gros   00
+
+                        e                             rmul                                        s CI:  Formul
+
+                                                      a                                           Taxa   a: ROU
+
+                                                                                                  ble G ND($b
+
+                                                                                                  ross   and_a
+
+                                                                                                         mount
+
+                                                                                                         _raw)
+
+    31            938   CI CN                   soci  simp   flat  585 999 5800 Regula
+
+                  403   PS Pe al_s                    le_ta        17   99                        8      tion Ba
+
+                  1     nsion                   ecur x                                                   nd Ass
+
+                        Base                    ity                                                      ertion:
+
+                                                                                                         LTE($5
+
+                                                                                                         8216;1)
+
+                                                                                                         Employ
+
+                                                                                                         ee Rat
+
+                                                                                                         e: 100.
+
+https://youtrack.hrblizz.dev/articles/CT-A-620                                                                    2/11
+8/14/26, 9:43 AM                                             CI: Specifications | Knowledge Base
+
+Ord               Reg   Regul                   Tax   Tax    Tax   Deb Cre                        Taxa    Regula
+                                                      Rule                                        bility  tion Ba
+inal              ulat  ation                   Gro   Gro    atio  it   dit                       Matr    nds
+                                                      up                                          ix
+                  ion I Name up                              n Ty                                         00
+                                                                                                          Floor A
+                  D                                          pe                                           mount:
+                                                                                                          90000
+                                                                                                          0.00
+                                                                                                          Ceiling
+                                                                                                          Amoun
+                                                                                                          t: 4050
+                                                                                                          0000.0
+                                                                                                          0
+
+                                                                                                          Regula
+                                                                                                          tion Ba
+                                                                                                          nd Ass
+                                                                                                          ertion:
+                                                                                                          EQUAL
+                                                                                                          S($582
+                                                                                                          16;2)
+                                                                                                          Employ
+                                                                                                          ee Rat
+                                                                                                          e: 100.
+                                                                                                          00
+                                                                                                          Floor A
+                                                                                                          mount:
+                                                                                                          45000
+                                                                                                          0.00
+                                                                                                          Ceiling
+                                                                                                          Amoun
+                                                                                                          t: 4500
+                                                                                                          00.00
+
+41                938   CI CN                   soci  simp   flat  261  251                       5851    Regula
+
+                  404   PS Pe al_s                    le_ta        0    7                         7       tion As
+
+                  1     nsion                   ecur x_            603 253                                sertio
+
+                        Contr                   ity   $$_          7    7                                 n: AND
+
+                        ibutio                        post                                                (EQUA
+
+                        n                             _for                                                LS($58
+
+                                                      mula                                                238;1);
+
+                                                                                                          GREAT
+
+                                                                                                          ER($58
+
+                                                                                                          295;0))
+
+https://youtrack.hrblizz.dev/articles/CT-A-620                                                            Employ
+                                                                                                          ee Rat
+                                                                                                          e: 6.30
+                                                                                                          Formul
+                                                                                                          a: ROU
+                                                                                                          ND($b
+
+                                                                                                                                         3/11
+8/14/26, 9:43 AM                                             CI: Specifications | Knowledge Base
+
+Ord               Reg   Regul                   Tax   Tax    Tax   Deb Cre                        Taxa    Regula
+                                                      Rule                                        bility  tion Ba
+inal              ulat  ation                   Gro   Gro    atio  it   dit                       Matr    nds
+                                                      up                                          ix
+                  ion I Name up                              n Ty                                         and_a
+                                                                                                          mount
+                  D                                          pe                                           _raw)
+
+                                                                                                          Employ
+                                                                                                          er Rat
+                                                                                                          e: 7.70
+                                                                                                          Formul
+                                                                                                          a: ROU
+                                                                                                          ND($b
+                                                                                                          and_a
+                                                                                                          mount
+                                                                                                          _raw)
+
+51                938   CI CN                   soci  simp   flat  261  255                       5800 Regula
+
+                  405   PS U                    al_s  le_ta        0    4                         8       tion As
+
+                  1     nivers ecur x_$$                           606 256                                sertio
+
+                        al He                   ity                4    4                                 n:
+
+                        alth C                                                                            EQUAL
+
+                        over                                                                              S($582
+
+                        Contr                                                                             38;1)
+
+                        ibutio
+
+                        n                                                                                 Employ
+
+                                                                                                          ee Rat
+
+                                                                                                          e: 100
+
+                                                                                                          Floor:
+
+                                                                                                          6000.0
+
+                                                                                                          0
+
+                                                                                                          Ceilin
+
+                                                                                                          g: 600
+
+                                                                                                          0.00
+
+61                938   CI CN                   soci  simp   flat  585 999                                Employ
+                                                                                                          er Rat
+                  406   PS (F                   al_s  le_ta        11   99                                e: 100
+                                                                                                          Floor:
+                  1     amily                   ecur x                                                    6000.0
+                                                                                                          0
+                        Benef ity                                                                         Ceilin
+                                                                                                          g: 600
+                        its, M                                                                            0.00
+
+                        aterni                                                                            Regula
+                                                                                                          tion Ba
+                        ty, Inj                                                                           nd Ass
+                                                                                                          ertion:
+https://youtrack.hrblizz.dev/articles/CT-A-620                                                            LTE($5
+                                                                                                          8216;1)
+                                                                                                          Employ
+
+                                                                                                                                         4/11
+8/14/26, 9:43 AM                                             CI: Specifications | Knowledge Base
+
+Ord               Reg   Regul                   Tax   Tax    Tax   Deb Cre                        Taxa    Regula
+                                                      Rule                                        bility  tion Ba
+inal              ulat  ation                   Gro   Gro    atio  it   dit                       Matr    nds
+                                                      up                                          ix
+                  ion I Name up                              n Ty                                         ee Rat
+                                                                                                          e: 100.
+                  D                                          pe                                           00
+                                                                                                          Floor A
+                        ury) B                                                                            mount:
+                        ase                                                                               84000
+                                                                                                          0.00
+                                                                                                          Ceiling
+                                                                                                          Amoun
+                                                                                                          t: 8400
+                                                                                                          00.00
+
+                                                                                                          Regula
+                                                                                                          tion Ba
+                                                                                                          nd Ass
+                                                                                                          ertion:
+                                                                                                          EQUAL
+                                                                                                          S($582
+                                                                                                          16;2)
+                                                                                                          Employ
+                                                                                                          ee Rat
+                                                                                                          e: 100.
+                                                                                                          00
+                                                                                                          Floor A
+                                                                                                          mount:
+                                                                                                          45000
+                                                                                                          0.00
+                                                                                                          Ceiling
+                                                                                                          Amoun
+                                                                                                          t: 4500
+                                                                                                          00.00
+
+71                938   CI CN                   soci  simp   flat  603  253                       5851    Regula
+
+                  407   PS (F                   al_s  le_ta        1    1                         1       tion As
+
+                  1     amily                   ecur x_po          602 231                                sertio
+
+                        Benef ity                     st_fo        6    6                                 n:
+
+                        its, M                        rmul         604 256                                GREAT
+
+                        aterni                        a            0    0                                 ER($58
+
+                        ty, Inj                                                                           295;0)
+
+                        ury)
+
+                        Contr                                                                             Regula
+
+                        ibutio                                                                            tion Ba
+
+                        n                                                                                 nd Ass
+
+                                                                                                          ertion:
+
+                                                                                                          EQUAL
+
+                                                                                                          S($582
+
+                                                                                                          38;1)
+
+                                                                                                          Employ
+
+https://youtrack.hrblizz.dev/articles/CT-A-620                                                                     5/11
+8/14/26, 9:43 AM                                             CI: Specifications | Knowledge Base
+
+Ord               Reg   Regul                   Tax   Tax    Tax   Deb Cre                        Taxa    Regula
+                                                      Rule                                        bility  tion Ba
+inal              ulat  ation                   Gro   Gro    atio  it   dit                       Matr    nds
+                                                      up                                          ix
+                  ion I Name up                              n Ty                                         er Rat
+                                                                                                          e: 5.00
+                  D                                          pe                                           Formul
+                                                                                                          a: ROU
+                                                                                                          ND($b
+                                                                                                          and_a
+                                                                                                          mount
+                                                                                                          _raw)
+
+                                                                                                          Regula
+                                                                                                          tion Ba
+                                                                                                          nd Ass
+                                                                                                          ertion:
+                                                                                                          EQUAL
+                                                                                                          S($582
+                                                                                                          38;1)
+                                                                                                          Employ
+                                                                                                          er Rat
+                                                                                                          e: 0.75
+                                                                                                          Formul
+                                                                                                          a: ROU
+                                                                                                          ND($b
+                                                                                                          and_a
+                                                                                                          mount
+                                                                                                          _raw)
+
+                                                                                                          Regula
+                                                                                                          tion Ba
+                                                                                                          nd Ass
+                                                                                                          ertion:
+                                                                                                          EQUAL
+                                                                                                          S($582
+                                                                                                          02;1)
+                                                                                                          Employ
+                                                                                                          er Rate
+                                                                                                          Accou
+                                                                                                          nt: 525
+                                                                                                          60
+                                                                                                          Formul
+                                                                                                          a: ROU
+                                                                                                          ND($b
+                                                                                                          and_a
+                                                                                                          mount
+                                                                                                          _raw)
+
+81                938   CI DG                   soci  simp   flat  581  999 5811                          Regula
+
+                  408   I Cap                   al_s  le_ta        10   99                        2       tion As
+
+                  1     ping f                                                                            sertio
+
+https://youtrack.hrblizz.dev/articles/CT-A-620                                                                     6/11
+8/14/26, 9:43 AM                                             CI: Specifications | Knowledge Base
+
+Ord               Reg    Regul                  Tax   Tax    Tax   Deb Cre                        Taxa    Regula
+                         ation                  Gro   Rule                                        bility  tion Ba
+inal              ulat   Name                   up    Gro    atio  it   dit                       Matr    nds
+                                                      up                                          ix
+                  ion I  or Int                 ecur         n Ty                                         n: EQU
+                         erns -                 ity   x_yt                                                ALS
+                  D      YTM                          m      pe                                           ($5821
+                                                soci                                                      6;1)
+91                938    CI DG                  al_s  simp flat    581  999                       5811    Employ
+                         I Bala                 ecur  le_ta                                               ee Rat
+                  409    nce C                  ity   x            11   99                        0       e: 100
+                         appin
+                  1      g for I                                                                          Regula
+                         ntern                                                                            tion As
+                         s                                                                                sertio
+                                                                                                          n: EQU
+                                                                                                          ALS
+                                                                                                          ($5821
+                                                                                                          6;1)
+                                                                                                          Employ
+                                                                                                          ee Rat
+                                                                                                          e: 100
+                                                                                                          Floor A
+                                                                                                          mount:
+                                                                                                          18000
+                                                                                                          00.00
+                                                                                                          Ceiling
+                                                                                                          Amoun
+                                                                                                          t: 1800
+                                                                                                          000.00
+
+                                                                                                          Formul
+                                                                                                          a: SUB
+                                                                                                          TRACT
+                                                                                                          ($band
+                                                                                                          _amou
+                                                                                                          nt_ra
+                                                                                                          w;$581
+                                                                                                          10)
+
+101               938    CI DG                  soci  simp   flat  581  999                       5800 Regula
+
+                  410    I Bas                  al_s  le_ta        20   99                        8       tion Ba
+
+                  1      e                      ecur x             581  999                               nd Ass
+
+                                                ity                12   99                                ertion:
+
+                                                                   581  999                               EQUAL
+
+                                                                   20   99                                S($582
+
+                                                                                                          16;1)
+
+                                                                                                          Employ
+
+                                                                                                          ee Rat
+
+                                                                                                          e: 100
+
+                                                                                                          Formul
+
+                                                                                                          a: MAX
+
+                                                                                                          (SUBT
+
+https://youtrack.hrblizz.dev/articles/CT-A-620                                                                     7/11
+8/14/26, 9:43 AM                                             CI: Specifications | Knowledge Base
+
+Ord               Reg   Regul                   Tax   Tax    Tax   Deb Cre                        Taxa    Regula
+                                                      Rule                                        bility  tion Ba
+inal              ulat  ation                   Gro   Gro    atio  it   dit                       Matr    nds
+                                                      up                                          ix
+                  ion I Name up                              n Ty                                         RACT
+                                                                                                          ($band
+                  D                                          pe                                           _amou
+                                                                                                          nt_ra
+                                                                                                          w;$581
+                                                                                                          11);0)
+
+                                                                                                          Regula
+                                                                                                          tion Ba
+                                                                                                          nd Ass
+                                                                                                          ertion:
+                                                                                                          EQUAL
+                                                                                                          S($582
+                                                                                                          16;1)
+                                                                                                          Employ
+                                                                                                          ee Rat
+                                                                                                          e: 100
+                                                                                                          Formul
+                                                                                                          a: MAX
+                                                                                                          (MIN
+                                                                                                          ($band
+                                                                                                          _amou
+                                                                                                          nt_ra
+                                                                                                          w;$581
+                                                                                                          11);0)
+
+                                                                                                          Regula
+                                                                                                          tion Ba
+                                                                                                          nd Ass
+                                                                                                          ertion:
+                                                                                                          NOT(E
+                                                                                                          QUALS
+                                                                                                          ($5821
+                                                                                                          6;1))
+                                                                                                          Employ
+                                                                                                          ee Rat
+                                                                                                          e: 100
+                                                                                                          Formul
+                                                                                                          a: $ba
+                                                                                                          nd_am
+                                                                                                          ount_r
+                                                                                                          aw
+
+111               938   CI DG                   soci  simp   flat  602  231                       5812    Regula
+
+                  4111 I Cont al_s                    le_ta        1    1                         0       tion As
+
+                        ributi                  ecur x             602 231                                sertio
+
+                        on Ge ity                                  2    2                                 n: NOT
+
+                        neral                                                                             (EQUA
+
+https://youtrack.hrblizz.dev/articles/CT-A-620                                                                     8/11
+8/14/26, 9:43 AM                                            CI: Specifications | Knowledge Base
+
+Ord               Reg    Regul                  Tax   Tax   Tax   Deb Cre                        Taxa    Regula
+                         ation                  Gro   Rule                                       bility  tion Ba
+inal              ulat   Name                   up    Gro   atio  it   dit                       Matr    nds
+                         and N                        up                                         ix
+                  ion I  ation                  soci        n Ty                                         LS($58
+                         al                     al_s                                                     203;1))
+                  D                             ecur        pe
+                         CI DG                  ity                                                      Regula
+121               938    I Cont                 inco  simp flat   602  231                       5800    tion Ba
+                         ributi                 me_   le_ta                                              nd Ass
+                  412    on -                   tax   x           3    3                         8       ertion:
+                         Other                                                                           EQUAL
+                  1      s                      inco              602 231                                S($582
+                         CI Pri                 me_                                                      15;1)
+                         vate                   tax               4    4                                 Employ
+                         Pensi                                                                           er Rat
+131               938    on Ca                        simp flat   581  999                       5810    e: 9.20
+                         pping                        le_ta
+                  413                                 x_po        01   99                        0       Employ
+                         CI Pri                       st_fo                                              er Rat
+                  1      vate                         rmul                                               e: 1.20
+                         Pensi                        a
+                         on                                                                              Employ
+141               938                                 simp flat   999  581                       216     er Rat
+                                                      le_ta                                              e: 0.40
+                  414                                 x           99   02                        4%      Employ
+                                                                                                         er Rat
+                  1                                                                                      e: 1.20
+
+                                                                                                         Employ
+                                                                                                         ee Rat
+                                                                                                         e: 10
+                                                                                                         Formul
+                                                                                                         a: MIN
+                                                                                                         ($band
+                                                                                                         _amou
+                                                                                                         nt_raw;
+                                                                                                         32000
+                                                                                                         0.00)
+
+                                                                                                         Employ
+                                                                                                         ee Rat
+                                                                                                         e: 100
+                                                                                                         Ceiling
+                                                                                                         Accou
+                                                                                                         nt: 581
+                                                                                                         01
+
+https://youtrack.hrblizz.dev/articles/CT-A-620                                                                    9/11
+8/14/26, 9:43 AM                                             CI: Specifications | Knowledge Base
+
+Ord               Reg    Regul                  Tax   Tax    Tax   Deb Cre                        Taxa    Regula
+                         ation                  Gro   Rule                                        bility  tion Ba
+inal              ulat   Name                   up    Gro    atio  it   dit                       Matr    nds
+                         CI Ta                  inco  up                                          ix
+                  ion I  xable                  me_          n Ty                                         Employ
+                         Base                   tax   simp                                        5800    ee Rat
+                  D                                   le_ta  pe                                   8       e: 100
+                         CI Mo                  inco  x_po                                        5810    Formul
+151               938    nthly                  me_   st_fo  flat  585 999                        2       a: ROU
+                         Tax G                  tax   rmul                                                ND($b
+                  415    ross                         a            52   99                                and_a
+                                                inco                                                      mount
+                  1      CI Fa                  me_                                                       _raw)
+                         mily T                 tax
+161               938    ax Cr                        simp diff    261  255                       5855       CI: T
+                         edits                  inco                                                      ax Tabl
+                  416                           me_   le_ta  eren  0    2                         2       e CI: T
+                         CI Mo                  tax                                                       ax Tabl
+                  1      nthly                        x_     tial                                         e
+                         Tax N
+                         et                           $$_                                                 Employ
+                                                                                                          ee Rat
+                                                      post                                                e: 100
+                                                                                                          Formul
+                                                      _for                                                a:
+
+                                                      mula                                                MAX(M
+                                                                                                          ULTIPL
+171               938                                 simp flat    581  999                       5855    Y(SUB
+                                                      le_ta                                               TRACT
+                  417                                 x_po         03   99                        2       ($5820
+                                                      st_fo                                               5;1);11
+                  1                                   rmul                                                000);
+                                                      a                                                   0)
+
+181               938                                 simp flat    255  261                       5810    Employ
+                                                      le_ta                                               ee Rat
+                  418                                 x_$$         2    0                         3       e: 100
+
+                  1
+
+Sub-articles 3                                                         Author                           Add sub-article
+
+Name                                                                         Mohit Jain              Last Updated
+                                                                             Mohit Jain
+     CI: Tax Table                                                           Mohit Jain              5 Aug 2026 06:18
+     CI: Gross                                                                                       5 Aug 2026 03:53
+     CI: Taxable Gross                                                                               5 Aug 2026 02:57
+
+https://youtrack.hrblizz.dev/articles/CT-A-620                                                                           10/11
+8/14/26, 9:43 AM                                CI: Specifications | Knowledge Base
+
+ Items mentioned here 3
+
+           CT-A-621 CI: Taxable Gross
+           CT-A-622 CI: Gross
+           CT-A-623 CI: Tax Table
+
+https://youtrack.hrblizz.dev/articles/CT-A-620                                       11/11
+

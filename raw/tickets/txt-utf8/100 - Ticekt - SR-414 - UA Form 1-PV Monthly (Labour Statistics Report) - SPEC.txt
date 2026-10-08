@@ -1,0 +1,92 @@
+9/29/26, 10:57 AM    UA: Form 1-PV Monthly (Labour Statistics Report) - SPEC : SR-414
+
+Created by Wallisson dos Santos Gomes about 2 months ago                                                                 2
+Updated by Lily Li about 7 hours ago                                                          Visible to issue readers
+
+ProjUectAs :/ FStoatrumtory1R-epPoVrts M/ …o/nStRh-4ly14 (LabouAsr…StaEtnitsertsiecasrchR… eport)3 o-f 3
+   SPEC
+
+         Project            State                     Priority                                       Assignee
+
+SR Statutory         O Open                   M Major                                               Wallisson
+       Reports                                                                                      dos Santos
+                            Spent time       Due Date                                               Gomes
+         Phase
+                           ?                 30 Sep 2026                                             Country
+       Product
+       Mapping              Research                  Developer                               U UA
+ P Phase -                  Analyst
+       Business                               ? No                                                   Redesign of
+       Analyst       W Wallisson                    developer
+                           Gomes                                                              ? old country
+         Business                                                                                   No
+
+ L Analyst
+       Lily Li
+
+Boards
+  Statutory Report…
+
+File: UA-1PV-001_MonthlyLabourReport_Spec.
+
+Inward mentions 1
+     M HRBS-12548 Ukraine Statistic reports
+
+LL Lily Li Commented 6 days ago (edited)
+        @Wallisson dos Santos Gomes Pls check column V of UA-1PV-001 Spec. Also, pls specify
+        the file format, which is not reflected under the report matrix sheet.
+
+        Thanks
+
+Wallisson dos Santos Gomes  Commented 5 days ago (edited)
+@Lily Li
+
+DD checked. Employment Contract Type isn't the field — use Labour Registry Person
+Category (D5): categories 1-2 = staff for r.1070's scope, category 3 (CPC) = civil-law,
+excluded.
+
+LL Lily Li Commented about 7 hours ago (edited)
+        @Wallisson dos Santos Gomes Pls check below issues:
+
+https://youtrack.hrblizz.dev/issue/SR-414/UA-Form-1-PV-Monthly-Labour-Statistics-Report-SPEC                                1/2
+9/29/26, 10:57 AM                  UA: Form 1-PV Monthly (Labour Statistics Report) - SPEC : SR-414
+
+Labour Registry Person Category (D5): categories 1-2 = staff, category 3 (CPC) = civil-law.
+What about "external part-time"? Which category indicates external part-time?
+
+Also, in my last comment, I mentioned that file format missing in the spec. Pls provide
+exact file format in report matrix.
+
+                   Field           Query
+                   No-data
+                   indicator       RA comment really confusing. Why you said "worth a direct check
+                                   if the 2024 text surfaces."
+                   Average FTE     If new HR field required, pls create "No-Data Indicator" in DD with
+                   headcount,      its option mapper.
+                   staff
+                                   1. What do you mean by "calendar-day average"? Pls give exact
+                   Headcount       formulas and an example.
+                   deviation flag  2. Pls confirm mapping below:
+                   (≥25%)          EXCLUDE from the "staff" population:
+                   Avg-salary      - maternity leave ($hr.labour_registry_person_category::key = 5
+                   deviation flag  )
+                   (≥10%)          - childcare leave ($hr.labour_registry_person_category::key = 4
+                                   or 6)
+                                   - conscripted/mobilised military service
+                                   ($hr.labour_registry_person_category::key = 7 or 8)
+                                   - contract suspended / evacuated / whereabouts unknown (
+                                   Which HR field or pay element is mapped to this?)
+                                   - unlimited unpaid leave under martial law (Art. 26(1), Law "On
+                                   Vacations") (There's no unlimited unpaid leave in DD/WTC. Can
+                                   this be mapped to 79410 Unpaid Leave Payout?)
+
+                                   Need to create a new HR field for client to enter reason text?
+                                   Column O mentions there's option mapper in Field Options sheet,
+                                   but there is not.
+
+                                   Need to create a new HR field for client to enter reason text?
+                                   Column O mentions there's option mapper in Field Options sheet,
+                                   but there is not.
+
+https://youtrack.hrblizz.dev/issue/SR-414/UA-Form-1-PV-Monthly-Labour-Statistics-Report-SPEC            2/2
+

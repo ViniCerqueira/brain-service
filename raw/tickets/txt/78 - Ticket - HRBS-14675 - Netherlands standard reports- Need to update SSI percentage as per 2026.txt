@@ -1,0 +1,144 @@
+9/21/26, 10:52 AM     Netherlands standard reports- Need to update SSI percentage as per 2026 : HRBS-14675
+
+Projects / HRBlizz Support / Tickets /     A... Enter sea...     1 of 6
+
+HRBS-14675
+
+Created by Suresh Jalihal 6 days ago                             HRBlizz Support Team
+Updated by Mohit Jain about 1 hour ago
+
+Netherlands standard reports- Need to update SSI
+percentage as per 2026
+
+  Tier 1
+
+       Project        CCs                         Priority                Type
+
+      HRBlizz         No CCs               M Medium               Q Question /
+      Support                                                           Inquiry
+                                 Assignee         Support Group
+       State                                                     Resolution Time
+                               Wallisson   C Compliance                Paused
+P Pending on                   dos Santos        Support
+      reporter                 Gomes                                      Spent time
+                                                  Estimation
+       SLA Violation             Country                          ??
+                                           ??
+? Reason                 N Netherlands                                    Legal Entity
+      ----                                        SLA status
+                                 Client                           L Phase
+       Environment                         ? No sla status              Live/BAU
+                         O Omnicom
+P Production
+
+       Boards
+
+      No visible
+      boards
+
+Hi Team,
+
+Kindly check the below 2 payroll statutory reports are having old SSI percentage in the report.
+Kindly update them as per 2026.
+
+Report code: netherland-ssc-pdf
+
+ZVW: 6.10%
+AOF Laag: 6.27%
+AOF Hoog: 7.63%
+AOF Uit : 7.63%
+AWF Laag: 2.74%
+AWF Haag: 7.74%
+ZW Flex: as per Legal entity field "company details"
+WGA : as per Legal entity field "company details"
+WKO: 0.50%
+
+Company Name
+Netherlands all entities: You can check it for below entities.
+
+1 REF-LE-02-229 Omnicom Public Relations Group B.V.
+2 REF-02-230 Excerpta Medica B.V.
+4 REF-02-235 VIDIBOKO
+
+https://youtrack.hrblizz.dev/tickets/HRBS-14675/Netherlands-standard-reports-Need-to-update-SSI-percentage-as-per-2026?backToIssues  1/3
+9/21/26, 10:52 AM     Netherlands standard reports- Need to update SSI percentage as per 2026 : HRBS-14675
+
+5 REF-02-236 TBWA Nederland B.V
+6 REF-02-618 ARA Groep B.V
+
+Attachments 1
+
+   PDF
+
+Netherland SSC Co
+ntributions... 21 kB
+
+Suresh Jalihal Commented 6 days ago
+Kindly check attached existing incorrect percentage report
+
+      PDF
+
+  Netherland SSC Co
+  ntributions... 21 kB
+
+Suresh Jalihal Commented 5 days ago
+Hi @Abarna Khaliq Kindly check this ticket and let me know if anything.
+
+Abarna Khaliq Commented 5 days ago
+@Suresh Jalihal i don't handle report things .
+@Crina Lorincz Dear can you please check with someone from reports .I have no idea
+who handles the statutory reports things.
+
+Kind regards,
+Abarna Khaliq
+Senior Specialist-Configurations
+
+Shaik Jani Sharif Commented about 3 hours ago
+Hello @Crina Lorincz This is to inform you that we have received your ticket. The Reports
+Team is actively reviewing the details, and we will provide you with updates at the earliest
+possible time.
+Thank you for your patience and understanding.
+
+Kind regards,
+Shaik Jani Sharif
+Senior Specialist - Reports
+
+Shaik Jani Sharif Commented about 3 hours ago
+Hello @Suresh Jalihal Could you please provide the specification file? I can see that this
+report is currently configured under Custom Reports rather than Statutory Reports.
+Thank you!
+Kind regards,
+Shaik Jani Sharif
+Senior Specialist - Reports
+
+https://youtrack.hrblizz.dev/tickets/HRBS-14675/Netherlands-standard-reports-Need-to-update-SSI-percentage-as-per-2026?backToIssues  2/3
+9/21/26, 10:52 AM  Netherlands standard reports- Need to update SSI percentage as per 2026 : HRBS-14675
+
+Suresh Jalihal Commented about 3 hours ago
+Hi @Shaik Jani Sharif I am not sure- this report should be standard report- As we always
+mention in the BPQ file and report matrix about this report to share with client. It's not any
+client specific it should be Netherland country specific and I don't have any specification
+for this. Kindly check with compliance team on this.
+
+Shaik Jani Sharif Commented about 3 hours ago
+Hello @Mohit Jain Could you please review the requirement and confirm whether this
+report falls under compliance? If yes, kindly provide the updated specification file; if not,
+please forward the ticket back to me.
+
+Thank you!
+
+netherland-ssc-pdf
+
+Kind regards,
+Shaik Jani Sharif
+Senior Specialist - Reports
+
+Mohit Jain Commented about 1 hour ago
+Please check if its compliance statutory report. @Wallisson dos Santos Gomes
+
+Kind regards
+Mohit Jain
+Head of Compliance Product
+
+https://youtrack.hrblizz.dev/tickets/HRBS-14675/Netherlands-standard-reports-Need-to-update-SSI-percentage-as-per-2026?backToIssues  3/3
+

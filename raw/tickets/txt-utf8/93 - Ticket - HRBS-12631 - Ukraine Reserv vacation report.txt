@@ -1,0 +1,296 @@
+9/28/26, 10:53 AM                          Ukraine Reserv vacation report : HRBS-12631
+
+Created by Nataliia Hahan about 2 months ago                                                 HRBlizz Support Team
+Updated by Nataliia Hahan about 1 month ago
+
+Ukraine Reserv vacation report
+
+  Tier 3
+
+       Project        CCs                         Priority                                            Type
+
+      HRBlizz         No CCs               M Medium                                           S Service
+      Support                                                                                       Request⁠
+                                 Assignee         Support Group
+       State                                                                                 Resolution Time
+                               Lily Li     C Compliance                                            Paused
+P Pending on                                     Support⁠
+      reporter⁠                  Country                                                              Spent time
+                                                  Estimation
+       SLA Violation     U Ukraine                                                            ??
+                                           ??
+? Reason                         Client                                                               Legal Entity
+      ----                                        SLA status
+                         A Altium                                                             L Phase
+       Environment                         ? No sla status                                          Live/BAU⁠
+
+P Production
+
+       Boards
+
+      No visible
+      boards
+
+Dear @lily
+
+In Ukraine, tracking the vacation reserve is also a statutory requirement at the state level —
+specifically: the entitled number of vacation days, the number of days already taken, and the
+remaining balance, calculated proportionally to time actually worked. This is internal report.
+
+With that in mind, please consider adding automatic vacation reserve calculation per employee in
+HRBlizz.
+
+Could we add the following fields/attributes to the Data Dictionary:
+
+Vacation days remaining – calculated automatically
+Vacation days used – calculated automatically from payroll
+Entitled vacation days – a field applicable to all employees
+
+For example: the standard entitlement is 24 days per year, counted from the hire date (i.e., from
+the hire date to the same date the following year, the employee is entitled to 24 days). Each
+month, vacation should accrue proportionally to time worked. When an employee is terminated,
+this data would let us pull the exact number of vacation days owed — or identify any excess days
+taken (overuse).
+
+We would also need an exportable vacation report showing, for a given period, how many days
+were taken and how many days remain.
+
+Example layout to be uploaded in Excel.
+
+Company Name
+Altium
+
+https://youtrack.hrblizz.dev/tickets/HRBS-12631/Ukraine-Reserv-vacation-report?backToIssues                         1/8
+9/28/26, 10:53 AM                     Ukraine Reserv vacation report : HRBS-12631
+
+        Attachments 6 Hidden files 5
+
+               XLS
+           Example_Mercans_
+           Rest_Vacati… 4 MB
+
+LL Lily Li Commented about 2 months ago
+        @Nataliia Hahan We can add those vacation days and balance pay element 79xxx to
+        WTC, but they won't be auto calculated in payroll. They're part of leave module. Pls check
+        with Vaishnavi on this part as well. Thanks
+
+        Kind regards,
+        Lily Li
+
+        Nataliia Hahan Commented about 2 months ago
+        @Vaishnavi Mane Dear Vaishnavi could you please help us with the authomatically
+        vacation calculation in HRBlizz.
+
+        Nataliia Hahan Commented about 2 months ago
+        @Wallisson dos Santos Gomes es mes s in Ukraine we use the average salary calculation
+        document for every employee which should be safed with HR orders and application more
+        then 3 years. The average salary calculated based of the last 12 months to calculate
+        vacation leaves, sick leaves, and donor leaves and Bussiness trips - (there 2 last month).
+        Please check the requrments.
+
+        Nataliia Hahan Commented about 2 months ago
+
+https://youtrack.hrblizz.dev/tickets/HRBS-12631/Ukraine-Reserv-vacation-report?backToIssues         2/8
+9/28/26, 10:53 AM           Ukraine Reserv vacation report : HRBS-12631
+
+Wallisson dos Santos Gomes  Commented about 2 months ago
+Hi Nataliia,
+
+Confirmed and now built into the files, not just explained:
+
+Vacation: 12 months (§7), already correct in the CCG, no change needed there.
+Donor leave: 2 months (§8), same rule as business trip. Added as a new leave type in the
+CCG (LC Art. 124) and a new wage type in the WTC (79414).
+Business trip: 2 months too, same §8 as donor leave. Also added to the WTC (79415). One
+extra rule specific to this one: pay is the GREATER of the 2-month average or the trip
+month's own daily rate (LC Art. 121 §4), not a flat average.
+Sick leave: 12 months, but a different regulation (Postanova No. 1266, not No. 100). Added
+a note in the CCG so this doesn't get built using the vacation formula by mistake.
+
+Also corrected in the CCG: the average salary section used to read as one universal 12-
+month formula. Now split into the 12-month and 2-month cases explicitly.
+
+One item still open on the new wage types: the D1 accrual type code for both 79414 and
+79415 is marked TBC, I couldn't confirm the right numeric code against the official
+classifier. Flagged in the WTC for whoever picks up the D1 mapping.
+
+Day-balance fields/report: still Vaishnavi's side, unchanged from before.
+
+Updated CCG and WTC (now v3.6) attached.
+
+@Lily Li Per HRBS-12631 (Altium), updated the Ukraine WTC (now v3.6, new codes
+79414/79415) and CCG (Module 8, now v1.1). Could you check both?
+
+https://youtrack.hrblizz.dev/tickets/HRBS-12631/Ukraine-Reserv-vacation-report?backToIssues  3/8
+9/28/26, 10:53 AM           Ukraine Reserv vacation report : HRBS-12631
+
+New version - WTC:
+https://docs.google.com/spreadsheets/d/1EU_G5ToEpot8ubYUHMDMhH9IGz5J8xYW/edit
+?gid=1302895882#gid=1302895882
+
+New version - CCG:
+https://docs.google.com/document/d/1vBliMDijoW9bhJbRtYVeKJE0q60PHr2J/edit
+
+Kind regards,
+Wallisson dos Santos Gomes
+
+Nataliia Hahan Commented about 2 months ago
+Dear @Lily Li I would you ask re this changies, it was completed, can we close this ticket
+now?
+
+Nataliia Hahan Commented about 2 months ago
+Hi @Wallisson dos Santos Gomes please check this 3 points in the your file of Ukraine
+guid:
+
+                   1. "3-banking-day rule" is overstated as universal. It only applies to cash disbursements
+                      or non-monetary income. For bank-transfer salaries (the vast majority of cases),
+                      PIT/Military Levy must be paid on the same day as the salary transfer — banks won't
+                      process the payroll payment without a simultaneous tax payment order. So "3 banking
+                      days" is the exception (cash), not the general rule.
+
+                   2. The 53-week year section is a hypothetical engineering construct, not a documented
+                      legal rule. Weekly payroll periods aren't standard practice under Ukrainian law (the
+                      norm is monthly accounting with payment at least twice a month, Labour Code Art.
+                      115). The logic itself is internally consistent, but it should be labeled as "how this
+                      would theoretically work," not as an established rule.
+
+https://youtrack.hrblizz.dev/tickets/HRBS-12631/Ukraine-Reserv-vacation-report?backToIssues                   4/8
+9/28/26, 10:53 AM                                             Ukraine Reserv vacation report : HRBS-12631
+
+                   3. Reporting frequency section is outdated. As of 2026 (Ministry of Finance Order No.
+                      243), legal entities (ТОВ) now file the unified Tax Calculation monthly — not quarterly.
+                      Since D1 and 4DF are both appendices of the same unified report, they can't have
+                      different frequencies. For legal entities (like GSK/Altium/SDL), both D1 and 4DF are
+                      now monthly, not "D1 monthly / 4DF quarterly, no structural change."
+
+Nataliia Hahan Commented about 2 months ago
+Dear @Wallisson dos Santos Gomes here is incorrect example of calculation basic salary:
+
+ 1. Wrong citation. Art. 115 of the Labour Code governs payment timing (twice a month,
+     holiday shift) — not the proration formula. There's no article establishing this
+     calculation method.
+
+ 2. Calendar-day method isn't the standard one. For a salaried employee who didn't work
+     a full month, the commonly used/recommended method prorates by working days per
+     schedule, not calendar days — this can produce a different result.
+
+ 3. The ЄСВ SSCminimum-base logic is fabricated and wrong. In the month of
+     hire/termination (incomplete calendar month), the minimum insurance contribution
+     requirement doesn't apply at all — ЄСВ is simply actual base × 22%, no comparison to
+     any (full or prorated) minimum wage needed. The "prorated minimum" step invented
+     here (8,647 × 21/31) has no basis in law. It happens to give the right final number in
+     this example only because actual pay already exceeds the full minimum wage — in
+     lower-pay cases this logic would incorrectly force a top-up that isn't legally required.
+
+Best Regards,
+Natalia
+
+Nataliia Hahan Commented about 2 months ago
+@Wallisson dos Santos Gomes
+
+Projects /pHleRaBselizczhSeucpkptohrist in/ foTiaclkseot:s /  Enter search req…                            838 of 1723
+
+HRBS-12631
+
+https://youtrack.hrblizz.dev/tickets/HRBS-12631/Ukraine-Reserv-vacation-report?backToIssues                             5/8
+9/28/26, 10:53 AM  Ukraine Reserv vacation report : HRBS-12631
+
+ 1. Disabled employee (8.41%) row — the minimum insurance contribution requirement
+     does not apply to this category at all. ЄСВ is simply 8.41% of actual base, even if
+     below minimum wage — no top-up to 8,647 required. Listing "Min Base: UAH 8,647"
+     here is misleading.
+
+ 2. Civil-law contract row — the "(if main place of work)" caveat is wrong. The minimum-
+     base requirement never applies to civil-law contract (ЦПД) remuneration, regardless of
+     main-place-of-work status. ЄСВ is always actual amount × 22% (capped only by the
+     max base), with no minimum floor.
+
+Nataliia Hahan Commented about 2 months ago
+@Wallisson dos Santos Gomes please see here:
+
+https://youtrack.hrblizz.dev/tickets/HRBS-12631/Ukraine-Reserv-vacation-report?backToIssues  6/8
+9/28/26, 10:53 AM  Ukraine Reserv vacation report : HRBS-12631
+
+ 1. Pseudo-code bug — the min-base check doesn't exclude is_disabled:
+
+if is_main_employer and usc_base < min_base:
+usc_base = min_base
+
+ 2. This will incorrectly top up disabled employees (8.41% rate) to the minimum base. The
+     min-base requirement never applies to disabled employees, regardless of main-
+     employer status. Should be:
+
+if is_main_employer and not is_disabled and usc_base < min_base:
+Developer Note (3) is wrong — "Partial month (hire/termination): min base is prorated by
+calendar days." Incorrect: in the month of hire/termination, the min-base requirement
+doesn't apply at all — not even a prorated version. USC is just actual base × rate, no floor
+comparison whatsoever.
+
+LL Lily Li Commented about 2 months ago
+        @Wallisson dos Santos Gomes Pls check below requirements from Nataliia.
+
+Kind regards,
+Lily Li
+
+Wallisson dos Santos Gomes Commented about 2 months ago
+@Nataliia Hahan @Lily Li — checked every point against the legislation. Most are correct
+and now fixed; one is not.
+
+Corrected in the guide (v1.2):
+
+ 1. PDFO/Military Levy timing — you're right. The "within 3 banking days" rule applies only
+     to non-monetary income or cash paid from the till. For bank-transfer salary (the normal
+
+https://youtrack.hrblizz.dev/tickets/HRBS-12631/Ukraine-Reserv-vacation-report?backToIssues   7/8
+9/28/26, 10:53 AM           Ukraine Reserv vacation report : HRBS-12631
+
+                   case), PDFO/ML is due at the moment of the transfer (TCU Art. 168.1, confirmed by
+                   DPS). Fixed in Module 1.2.
+
+                   2. USC minimum base in hire/termination month — you're right. In a partial
+                      (hire/termination) month the minimum base does NOT apply at all — USC is on actual
+                      salary with no floor, not a prorated floor. The old "prorated min = 8,647×(21/31)" gave
+                      the right answer in that example only because actual pay already exceeded the
+                      minimum; in a lower-pay case it would force a top-up that isn't legally due. Fixed in
+                      Modules 4.4 and 5.1.1 (Instruction №449 s.III).
+
+                   3. Disabled-employee minimum base — you're right. The min-base top-up is legally
+                      excluded for anyone on the 8.41% rate. Fixed the rate table, the pseudo-code (it now
+                      excludes is_disabled), and the developer note (Instruction №449 s.III; DPS ІПК
+                      04.02.2026 №676/ІПК).
+
+                   4. Proration method — you're right on both counts. Changed from calendar-day to
+                      working-day (per Держпраці letter 27.05.2019 №4340 and Мінсоцполітики letter
+                      15.04.2019 №553), and removed the wrong Art. 115 citation (Art. 115 governs pay
+                      timing, not proration).
+
+                   5. 4ДФ frequency — you're right. For legal entities the 4ДФ is an appendix of the monthly
+                      unified Податковий розрахунок, so it's monthly, not quarterly (from 1 Jan 2026, Law
+                      4536-IX; forms per MinFin Orders №4/№243/№284). Only FOPs file quarterly. Fixed in
+                      Modules 6.6, 10.3 and 1.2.
+
+Not changed — one point I couldn't confirm:
+
+                   6. Civil-law "(if main place of work)" caveat. You said this caveat is wrong and the
+                      minimum base never applies to ЦПД. The legislation says the opposite: when a ЦПД
+                      contractor is also an employee at that same employer (main place of work), the ЦПД
+                      pay is combined with salary and the combined total is tested against the minimum
+                      base — so the caveat is correct and stays. It's only a pure external contractor (not
+                      main place of work) where no minimum applies, which is exactly what the caveat says.
+
+Note on the 53-week section: it's labelled "rare, permitted" and presented as engine-
+handling guidance, not a legal rule, so I didn't treat it as an error — but I take your point
+and can add an explicit "theoretical" label if you'd prefer.
+
+Ukraine_Country_Configuration_Guide_FY2026_V1_2
+
+Kind regards,
+Wallisson dos Santos Gomes
+
+Nataliia Hahan Commented about 1 month ago
+Dear @Wallisson dos Santos Gomes , @Lily Li
+I would like to clarify re Reserv vacation report in HRBlizz System. We need to understend
+how we can create it in th eHRBlizz.
+
+https://youtrack.hrblizz.dev/tickets/HRBS-12631/Ukraine-Reserv-vacation-report?backToIssues                    8/8
+

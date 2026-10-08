@@ -1,0 +1,226 @@
+9/25/26, 2:33 AM                                              UA: D1-001_UnifiedSocialContribution : SR-160
+
+Created by Wallisson dos Santos Gomes 7 months ago            Visible to issue readers                                          3
+Updated by Lily Li 1 day ago
+
+UA: D1-001_UnifiedSocialContribution
+
+         Project                                  State                Priority                                     Assignee
+
+       Statutory                           R In Review         M Major                                             Michael
+       Reports                                                                                                     Mukosi John
+                                                  Spent time  Due Date
+         Phase                                                                                                      Country
+                                                 ?            31 Mar 2026
+       Final Review                                                                                          U UA
+ F Phase -                                        Research
+                                                  Analyst            Developer                                     Redesign of
+       Business
+       Analyst                             W Wallisson        M Michael                                      ? old country
+                                                 Gomes              Mukosi John                                   No
+         Business
+
+ L Analyst
+       Lily Li
+
+Boards
+  Statutory Report...
+
+UA-D1-001_UnifiedSocialContribution_Spec
+
+Items mentioned here 2
+     M SR-161 UA: 4DF-001_PersonalTax
+     M SR-163 UA: D6-001_SpecialSeniority
+
+Attachments 4 Hidden files 3
+
+     XML
+  unified social contri
+  bution 6 kB
+
+https://youtrack.hrblizz.dev/issue/SR-160                                                                                          1/6
+9/25/26, 2:33 AM                              UA: D1-001_UnifiedSocialContribution : SR-160
+
+LL Lily Li Commented 5 months ago (edited)
+        @Wallisson dos Santos Gomes I've converted the excel format to Google Sheets:
+        https://docs.google.com/spreadsheets/d/1xuSjd9B_-
+        K46xZDE95_AdjIFeGWDmV4qPCn3CGIKzew/edit?usp=sharing
+        Pls update the link in the task description. Thanks
+
+        Also, pls check queries under column V.
+
+        The column "D1 Insured Category ()" in WTC is not used in D1 report. Pls confirm
+        where it's required in D1 report.
+
+                  Wallisson dos Santos Gomes Commented 5 months ago
+                  Hi @Lily Li -- confirmed. The  column in the WTC is not directly mapped to any D1
+                  XML field.
+                  D1 Graf 8 (T1RXXXXG8 -- Insured Person Category) is sourced from the employee's HR
+                  master data ($hr.esv_category_code), not from the WTC.
+                  The WTC  column -- now correctly renamed to "Insured Person Type for ESV Engine"
+                  -- serves as a calculation engine filter only: it tells the payroll engine which category of
+                  worker can accrue a given WT (code 20 = standard labour contract; code 21 = civil-law
+                  contract / ), ensuring correct ESV rate routing and proper separation of D1 rows by
+                  insured person type. It's an engine-level parameter, not a reporting field.
+
+                  Wallisson dos Santos Gomes  Commented 5 months ago
+                  @Lily Li queries reverted.
+
+LL Lily Li Commented 4 months ago
+        Two queries pending. Others resolved
+
+LL Lily Li Commented 4 months ago
+        @Wallisson dos Santos Gomes
+
+        https://docs.google.com/spreadsheets/d/1xuSjd9B_-
+        K46xZDE95_AdjIFeGWDmV4qPCn3CGIKzew/edit?usp=sharing
+        Pls update the link in the task description. Thanks
+
+        Also, pls check one query under column V highlighted in purple.
+
+        Also, if the column "D1 Insured Category ()" in WTC is not used in D1 report, can we
+        remove it from WTC?
+
+                  Wallisson dos Santos Gomes Commented 4 months ago
+                  @Lily Li -- queries under Row 27 resolved. Two artifacts updated:
+                  WTC V3.2: WT 62964 (Top-up to minimum wage) -- cell R388, column D1 Accrual Type
+                  Code () set from blank to 13, per MFU  4 §IV.
+                  DD V3.3: New field added to Country Fields, row 20, ordinal 15.1 -- Part-Time Indicator
+                  (part_time_indicator, CM, Integer 0/1) immediately after Employment Contract Type.
+                  Needed because contract type alone cannot identify part-time status for Fixed-
+                  Term/Indefinite contracts. BA mapping for D1 Graf 22 is now: IF $hr.part_time_indicator = 1
+                  THEN output 1 ELSE output 0. If employment_contract_type = 3, field defaults to 1
+                  automatically.
+
+LL Lily Li Commented 4 months ago
+        @Wallisson dos Santos Gomes Thanks!
+
+https://youtrack.hrblizz.dev/issue/SR-160                                                                       2/6
+9/25/26, 2:33 AM                              UA: D1-001_UnifiedSocialContribution : SR-160
+
+                  For $hr.part_time_indicator, it should be M, not CM, because it cannot be set to 1
+                  automatically if employment_contract_type = 3.
+
+                  All fields should be manually configured.
+
+                  Wallisson dos Santos Gomes  Commented 4 months ago
+                  @Lily Li agreed.
+
+LL Lily Li Commented 4 months ago
+        Done
+
+LL Lily Li Commented 3 months ago (edited)
+        @Wallisson dos Santos Gomes Pls confirm below:
+
+        Same query for D5, D6, 4DF reports. Which language should the developer develop the
+        Ukraine reports? In English or Ukraine?
+
+Projects / Statutory Reports / Issues / SR-160               Assi...  Enter search req...
+
+              Michael Mukosi John Commented 3 months ago
+
+https://youtrack.hrblizz.dev/issue/SR-160                                                             3/6
+9/25/26, 2:33 AM                                    UA: D1-001_UnifiedSocialContribution : SR-160
+
+                  @Wallisson dos Santos Gomes Also clarify these fields
+
+                  We cannot find them on the spec.
+
+                  Wallisson dos Santos Gomes Commented 3 months ago (edited)
+                  @Lily Li @Michael Mukosi John -- both queries resolved. Details below; spec updated.
+
+                  1. Report language (D1, D5, D6, 4DF) -- Lily
+
+                  The reports must be developed in UKRAINIAN, not English. This is a statutory requirement.
+
+                  2. Payroll  Sum Graf 16/17/18/19/20 (all rows) -- Michael
+
+                  These fields ARE in the spec -- they're the table footer totals in Section D (TABLE
+                  FOOTER /  ), D1 Spec rows 37-41, file positions 031-035, XML footer
+                  elements R01G16 through R01G20. They were hard to locate because the BA Mapping
+                  column described them by name ("Total of [field]") rather than as an explicit SUM formula.
+                  I've now rewritten the BA Mapping to be explicit:
+
+                  | Footer field | XML element | Spec row | BA Mapping |
+                  | Total Accrued Gross Salary (all rows) | R01G16 | 37 | SUM(Graf 16 / pay element 58133)
+                  over all EMPLOYEE_ROW records |
+                  | Total Accrued Within ESV Base Limit (all rows) | R01G17 | 38 | SUM(Graf 17 / pay element
+                  58130) over all EMPLOYEE_ROW records |
+                  | Total Min-Wage Difference (all rows) | R01G18 | 39 | SUM(Graf 18) over all
+                  EMPLOYEE_ROW records; 0 if no part-time top-ups |
+                  | Total Employee ESV Withheld (legacy) | R01G19 | 40 | SUM(Graf 19) = 0.00 (employee
+                  ESV abolished 01.01.2016, Law 77-VIII) |
+                  | Total ESV Accrued by Employer (all rows) | R01G20 | 41 | SUM(Graf 20 / pay element
+                  2550) over all EMPLOYEE_ROW records; must reconcile with ESV paid to DPS |
+
+                  Mechanics: each footer total is the arithmetic sum of the corresponding per-employee
+                  detail column (Graf 16-20, rows 25-29) across every insured-person row in D1 Table 1. The
+
+https://youtrack.hrblizz.dev/issue/SR-160                                                                     4/6
+9/25/26, 2:33 AM                              UA: D1-001_UnifiedSocialContribution : SR-160
+
+                  DPS uses R01G16-G20 as control totals to verify the individual rows sum correctly, and
+                  R01G20 is the key figure reconciled against the employer's actual ESV payment. R01G19 is
+                  always 0.00 for any filing from 2016 onward (retained in the XSD for pre-2016 corrections
+                  only).
+
+                  Basis: MFU  (D1 table structure); Law 2464-VI; Law 77-VIII (2016 employee ESV
+                  abolition); DPS XSD R01G16-R01G20.
+
+                  Michael Mukosi John Commented 2 months ago
+                  @Lily Li We have configured this report at the country level in the acceptance
+                  environment. The report code is ua-unified-social-contribution. Attached is the XML
+                  template. unified social contribution.xml. Attached is also a sample from our test in the
+                  acceptance entity REF-02-370 Mercans Ukraine Unified Social Contribution Report 2026-
+                  01-01 - 2026-01-31.xml
+
+                    XML
+
+                  unified social contri
+                  bution 6 kB
+
+LL Lily Li Commented about 1 month ago (edited)
+        @Wallisson dos Santos Gomes
+
+          1. Document Type Flag is linked to HZ/HZN/HZU | C_DOC_STAN. As the mapping is
+             $legal_entity_hr.document_type_flag_d1, how to populate to each tag within
+             HZ/HZN/HZU | C_DOC_STAN. Example, if document type flag D1 = 011, 011 is
+             populated into which tag? How to do mapping for each tag, HZ, HZN, HZU,
+             C_DOC_STAN?
+
+          2. "HBOS" and "HBUH" does not exist in D1 Spec sheet. Pls check if other elements are
+             missing.
+
+                  Wallisson dos Santos Gomes  Commented about 1 month ago
+                  Hi @Lily Li
+
+                  Same header pattern confirmed as SR-163 (D6) and SR-161 (4DF) -- all
+                  three are annexes of the same J05 form.
+
+                  1. Mapping: 011 -> HZ=1/C_DOC_STAN=1, 012 -> HZN=1/C_DOC_STAN=2,
+                     013 -> HZU=1/C_DOC_STAN=3 (other two flags stay 0).
+
+                  2. Confirmed: only HBOS (director's name) and HBUH (accountant's name)
+                     were missing -- added to the spec, same pairing as HKBOS/HKBUH. Checked
+                     all 57 tags; nothing else missing.
+
+                  Updated spec attached.
+
+                  Kind regards,
+
+LL Lily Li Commented 1 day ago
+        @Michael Mukosi John Pls apply below changes:
+
+          1. BA mapping for row 4, row 27 updated.
+          2. New fields: row 46, 47
+
+LL Lily Li Commented 1 day ago
+
+https://youtrack.hrblizz.dev/issue/SR-160                                                                    5/6
+9/25/26, 2:33 AM                           UA: D1-001_UnifiedSocialContribution : SR-160
+
+                  @Wallisson dos Santos Gomes Pls add this field $legal_entity_hr.chief_accountant_name
+                  to DD. Thanks
+
+https://youtrack.hrblizz.dev/issue/SR-160                                                                6/6
+

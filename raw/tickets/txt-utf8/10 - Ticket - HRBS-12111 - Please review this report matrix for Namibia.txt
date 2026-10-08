@@ -1,0 +1,68 @@
+8/10/26, 12:00 AM                                Please review this report matrix for Namibia : HRBS-12111
+
+Projects / HRBlizz Support / Tickets / HRBS-12111                       Enter search request
+
+Created by Daniel Kelvin Balogun 20 days ago                             HRBlizz Support Team
+Updated by Ruchi Gupta 19 days ago
+
+Please review this report matrix for Namibia
+
+  Tier 1
+
+       Project        CCs                                 Priority                Type
+
+      HRBlizz         No CCs                       M Medium               S Service
+      Support                                                                   Request⁠
+                                 Assignee                 Support Group
+       State                                                             Resolution Time
+                               Wallisson           C Compliance            -16d
+O Open⁠                        dos Santos                Support⁠
+                               Gomes                                              Spent time
+       SLA Violation                                      Estimation
+                                 Country                                  ??
+? Reason                                           ??
+      ----               N Namibia                                                Legal Entity
+                                                          SLA status              Phase
+       Environment               Client
+                                                   ? No sla status         I Implementati
+P Production             B Baker                                                on⁠
+                               Hughes
+       Boards
+
+      No visible
+      boards
+
+Please review this report matrix for Namibia
+Most especially the statutory report
+Company Name
+Bker Hughes Namibia
+
+Attachments 1
+
+  XLSX
+
+Baker_Namibia _Re
+port_Matr… 102 kB
+
+Pradeep Duraisamy                                Commented 20 days ago
+Hi Team,
+
+Thank you for reaching out to Support team. We acknowledge the receipt of your ticket
+and we are actively reviewing the details.
+
+We will keep you posted with an update.
+
+https://youtrack.hrblizz.dev/tickets/HRBS-12111                                                             1/2
+8/10/26, 12:00 AM                                Please review this report matrix for Namibia : HRBS-12111
+
+                 Kind regards,
+                 Pradeep D
+
+     HRBlizz Support Team
+
+Pradeep Duraisamy Commented 20 days ago
+@Manju Shetija Could you please review and assist them on report matrix for the country
+Namibia.
+
+https://youtrack.hrblizz.dev/tickets/HRBS-12111                                                             2/2
+

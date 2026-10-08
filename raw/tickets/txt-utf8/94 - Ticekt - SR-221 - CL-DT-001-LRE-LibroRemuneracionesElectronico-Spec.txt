@@ -1,0 +1,59 @@
+9/28/26, 11:56 AM    CL-DT-001-LRE-LibroRemuneracionesElectronico-Spec : SR-221
+
+Projects / Statutory Reports / Issues / SR-221      As… Enter searc…                         7 of 8
+
+Created by Wallisson dos Santos Gomes 5 months ago  Visible to issue readers                                     3
+Updated by Ruchi Gupta about 5 hours ago
+
+CL-DT-001-LRE-LibroRemuneracionesElectronico-
+Spec
+
+         Project            State                        Priority                                   Assignee
+
+SR Statutory         P In Progress               M Major                                           Wallisson
+       Reports                                                                                     dos Santos
+                            Spent time          Due Date                                           Gomes
+         Phase
+                           ?                    31 Jul 2026                                         Country
+       Product
+       Mapping              Research                     Developer                           C CL
+ P Phase -                  Analyst
+       Business                                  ? No                                               Redesign of
+       Analyst       W Wallisson                       developer
+                           Gomes                                                             ? old country
+         Business                                                                                  No
+
+ R Analyst
+       Ruchi Gupta
+
+Boards
+  Statutory Report…
+
+CL-DT-001-LRE-LibroRemuneracionesElectronico-Spec
+
+RG Ruchi Gupta Commented 4 months ago
+        @Wallisson dos Santos Gomes : please check the yellow highlighted fields.
+
+Wallisson dos Santos Gomes Commented 4 months ago
+@Ruchi Gupta as we discussed, previous version was deleted, this is now an improved
+one, please review.
+
+RG Ruchi Gupta Commented 4 months ago
+        @Wallisson dos Santos Gomes : You can not just delete it. I already worked on that file.
+        This is not the way to update the documents.
+
+RG Ruchi Gupta Commented 13 days ago
+        @Wallisson dos Santos Gomes : The above link is not opening.
+
+Wallisson dos Santos Gomes  Commented 13 days ago
+@Ruchi Gupta link updated.
+
+https://youtrack.hrblizz.dev/issue/SR-221/CL-DT-001-LRE-LibroRemuneracionesElectronico-Spec                         1/2
+9/28/26, 11:56 AM  CL-DT-001-LRE-LibroRemuneracionesElectronico-Spec : SR-221
+
+RG Ruchi Gupta Commented about 5 hours ago
+        @Wallisson dos Santos Gomes : please add a column in WTC to reflect applicable report
+        code.
+
+https://youtrack.hrblizz.dev/issue/SR-221/CL-DT-001-LRE-LibroRemuneracionesElectronico-Spec    2/2
+

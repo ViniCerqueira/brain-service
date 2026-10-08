@@ -1,0 +1,144 @@
+9/23/26, 2:54 PM  Côte d'Ivoire :Single Tax Regime (Impôt Synthétique / Régime Simplifié) and employees are not subject to Personal Income Ta…
+
+Created by Sivaranjani Subbarayula 1 day ago                                                                  HRBlizz Support Team
+Updated by Sivaranjani Subbarayula about 8 hours ago
+
+Côte d'Ivoire :Single Tax Regime (Impôt Synthétique /
+Régime Simplifié) and employees are not subject to
+Personal Income Tax (PIT)
+
+       Project                CCs                                                              Priority                Type
+
+      HRBlizz                 No CCs                                                    M Medium               S Service
+      Support                                                                                                        Request⁠
+                                         Assignee                                              Support Group
+       State                                                                                                  Resolution Time
+                                       Wallisson                                        C Compliance                Paused
+P Pending on                           dos Santos                                             Support⁠
+      reporter⁠                        Gomes                                                                           Spent time
+                                                                                               Estimation
+       SLA Violation                     Country                                                               ??
+                                                                                        ??
+? Reason                         C Côte d'Ivoire                                                                       Legal Entity
+      ----                                                                                     SLA status              Phase
+                                         Client
+       Environment                                                                      ? No sla status        ? Please
+                                 ? No client                                                                         choose legal
+? No                                                                                                                 entity phase
+      environment
+
+                  Boards
+
+                  No visible
+                  boards
+
+Hi Team,
+
+Our system is currently calculating ITS for the Ivory Coast employee population. However, this
+population is classified under the (Single Tax Regime), under which employees are not subject to
+standard PIT withholding through payroll — remuneration is either exempt from payroll PIT
+withholding or covered under a separate, consolidated tax arrangement outside normal ITS
+deduction.
+
+Requesting compliance confirmation on:
+
+1.The correct system configuration/flag logic to distinguish STR-covered employees from
+
+standard-regime employees going forward.
+
+ProjAetcttasch/inHgRtBhleizSzySsutepmpoGrtTN/ aTnicdkeCtlsien/t HpaRyBrSeg-1is4t9e9r.6  Assi… Enter search r…
+
+Company Name
+REF-LE-03-105
+Production
+
+Attachments 5 Hidden files 3
+
+ZIP                           XLSX
+
+https://youtrack.hrblizz.dev/tickets/HRBS-14996                                                                                      1/3
+9/23/26, 2:54 PM  Côte d'Ivoire :Single Tax Regime (Impôt Synthétique / Régime Simplifié) and employees are not subject to Personal Income Ta…
+
+4225 - Baker Hugh                Jan and Feb simulat
+es EHO Ltd… 3 kB                 ion 21 kB
+
+                  Sivaranjani Subbarayula Commented 1 day ago
+                  @Pradeep Duraisamy please assign this to @Wallisson dos Santos Gomes
+
+                  Sivaranjani Subbarayula Commented 1 day ago
+                  @Wallisson dos Santos Gomes adding one more check point here For CNAMGS,FNH there
+                  is ceiling of 70000 in our Mercans system ,however in client pay register there ceiling is
+                  75000 for both the component mentioned .
+
+                  Govind Thakur Commented 1 day ago
+                  Client Jan Reports: BH Ivory Coast Payregister Jan26-Final.xlsx
+
+                  BH Ivory Coast Payregister Feb26-Final.xlsx
+
+                  Kind regards,
+                  Govind Thakur
+
+                  Wallisson dos Santos Gomes Commented about 18 hours ago
+                  @Sivaranjani Subbarayula @Govind Thakur
+
+                  1. No STR flag should be configured. ITS remains due.
+
+                  The impôt des microentreprises (and the régime de l'entreprenant) is "libératoire des
+                  autres impôts et taxes, à l'exclusion de l'impôt sur les traitements, salaires, pensions et
+                  rentes viagères (ITS) ... aussi bien à la charge des salariés que de l'employeur" — DGI, Le
+                  Système Fiscal Ivoirien. It replaces the entity's own patente, BIC/BNC and TVA. It has
+                  never covered the ITS withheld on wages.
+
+                  It is also inapplicable on the facts: the regime caps at 200 000 000 XOF of annual
+                  turnover, and the January payregister alone shows 18 employees and 46 100 070 XOF of
+                  earnings in one month.
+
+                  If the client maintains the position, please ask for the specific instrument — a convention
+                  d'établissement, an agrément, or a DGI ruling. A regime name is not an exemption.
+
+                  2. Ceiling: 70 000 is correct.
+
+                  Prestations familiales (5 %), maternité (0,75 %) and AT/MP (2–5 %) cap at 70 000
+                  XOF/month. 75 000 is the SMIG — the assiette floor, not the ceiling. Pension caps at 3 375
+                  000 (45 × SMIG). Source: CLEISS CI contribution sheet, updated 1 January 2025.
+
+                  The client file is itself inconsistent: 17 employees computed on 75 000, one (Boris-Alban
+                  Seka) on 70 000. Also note the columns labelled "CNAMGS" and "FNH" are Gabonese
+                  bodies that do not exist in Côte d'Ivoire — the amounts are AT/MP at 3 % and PF+AM at
+                  5,75 %.
+
+                  3. Defects found in the GTN while reviewing (REF-P201-861, January) — these need
+                  separate tickets.
+
+                  CNPS pension is booked then reversed. 2517 (+122 262) is cancelled by 2556 (−122 262);
+                  2537 (+149 432) by 2566 (−149 432). Total Deductions and Total Employer Contributions
+                  exclude it, so no CNPS pension is being charged on either side. The client register charges
+                  120 372,25 / 147 121,64.
+                  Employee 260699 CNPS is wrong (gross 5 693 282,96, above the pension ceiling): system
+
+https://youtrack.hrblizz.dev/tickets/HRBS-14996                                                                2/3
+9/23/26, 2:54 PM  Côte d'Ivoire :Single Tax Regime (Impôt Synthétique / Régime Simplifié) and employees are not subject to Personal Income Ta…
+
+                  returns EE 2 363, ER 2 888, PF 1 875, AM 281, AT/MP 1 125; correct is 212 625 / 259 875 /
+                  3 500 / 525 / 2 100.
+                  Wage type labels: 2531 says 5,75 % but pays PF 5 %; 2538 says Work Accident 0,75 % but
+                  pays Maternité; 2560 pays the actual AT/MP; 2569 is labelled "EIS", which does not exist in
+                  CI — the 1,2 % it pays is the CN employeur. No CE line exists, so expatriates (9,2 %) would
+                  be under-charged.
+                  Base differences vs the client: the client excludes 30 000 transport from the ITS and
+                  CNPS bases (Abidjan statutory prime de transport, arrêté 30/01/2020) and excludes the
+                  housing allowance from the ITS base. The engine applies neither. The transport exemption
+                  should be parameterised by location; the housing exclusion needs the client's basis, as a
+                  cash housing indemnity is normally taxable.
+
+                  ITS arithmetic itself is correct: 1 940 670,66 through the post-2024 brackets = 417 760,96,
+                  less RICF 11 000 (2 parts) = 406 760,96.
+
+                  Kind regards,
+                  Wallisson dos Santos Gomes
+
+                  Sivaranjani Subbarayula Commented about 8 hours ago
+                  @Wallisson dos Santos Gomes this is what we got from client on ITS confirmation.
+
+https://youtrack.hrblizz.dev/tickets/HRBS-14996                                                                3/3
+

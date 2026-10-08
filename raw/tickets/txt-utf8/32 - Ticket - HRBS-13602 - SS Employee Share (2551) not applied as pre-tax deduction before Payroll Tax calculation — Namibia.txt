@@ -1,0 +1,126 @@
+8/24/26, 1:00 PM  SS Employee Share (2551) not applied as pre-tax deduction before Payroll Tax calculation — Namibia : HRBS-13602
+
+Projects / HRBlizz Support / Tickets /       A… Enter sea…         2 of 2
+
+HRBS-13602
+
+Created by Daniel Kelvin Balogun 3 days ago                        HRBlizz Support Team
+Updated by Mohit Jain about 9 hours ago
+
+SS Employee Share (2551) not applied as pre-tax
+deduction before Payroll Tax calculation — Namibia
+
+  Tier 1
+
+       Project        CCs                           Priority                Type
+
+      HRBlizz         No CCs                 M Medium               S Service
+      Support                                                             Request⁠
+                                 Assignee           Support Group
+       State                                                       Resolution Time
+                               Wallisson     C Compliance            2d
+O Open⁠                        dos Santos          Support⁠
+                               Gomes                                        Spent time
+       SLA Violation                                Estimation
+                                 Country                            ??
+? Reason                                     ??
+      ----               N Namibia                                          Legal Entity
+                                                    SLA status              Phase
+       Environment               Client
+                                             ? No sla status         I Implementati
+P Production             B Baker                                          on⁠
+                               Hughes
+       Boards
+
+      No visible
+      boards
+
+The SS Employee Share deduction (Wage Type 2551, capped at NAD 99/month) currently
+reduces Net Pay correctly in the Gross-to-Net waterfall, but does not reduce the taxable base
+used to calculate Payroll Tax (2552). Per Baker Hughes's own Wage Type Catalogue, the
+documented Payroll Tax formula explicitly includes this as a pre-tax reduction ("Taxable base =
+Basic + Housing ... − SS Ee Pension Add"). This has also been independently confirmed as
+standard Namibian PAYE practice: statutory deductions including the SSC employee contribution
+are meant to be subtracted from gross income before arriving at taxable income, ahead of the
+PAYE calculation itself.
+
+        Evidence: Isolated on a clean employee record (no bonus, no data-entry irregularities) — Suli
+        Ndala, March 2026. Recurring pay = 46,212.91/month. If the 99 SS deduction were applied pre-
+        tax as specified, monthly tax should be 9,667.51. HRB's actual output is 9,697.21 — a gap of
+        exactly 29.70, which equals 99 × 30% (the marginal rate this employee's income falls into). The
+        same 29.70 gap reproduces identically across every employee with clean, correctly-entered data
+        (Tevin, Naem, Tomas), confirming this is systemic rather than employee-specific.
+
+        Requested actions:
+
+        Confirm with build team whether WT 2551 is flagged to reduce the taxable base for WT 2552's
+        calculation, or only to reduce Net Pay.
+
+https://youtrack.hrblizz.dev/tickets/HRBS-13602/SS-Employee-Share-2551-not-applied-as-pre-tax-deduction-before-Payroll-Tax-calculation-Nami… 1/3
+8/24/26, 1:00 PM  SS Employee Share (2551) not applied as pre-tax deduction before Payroll Tax calculation — Namibia : HRBS-13602
+
+Correct the Payroll Tax calculation to subtract the SS Employee Share before applying the
+bracket lookup, consistent with the WTC's documented formula.
+Re-run the affected employees and confirm the ~29.70/month adjustment (scaled by each
+employee's applicable marginal rate) is reflected.
+Note for tracking: this is independent of, and should be corrected in addition to, the previously
+logged annualization-methodology and stale-bracket-constant issues already open on this
+population.
+
+Company Name
+BH Namibia
+
+Attachments 3 Hidden files 2
+
+  XLSX
+
+Gross To Net 2026-
+03-01 - 20… 6 kB
+
+                  Daniel Kelvin Balogun Commented 3 days ago
+                  @Mohit Jain @pduraisamyENTITY: Entity: REF-LE-03-060
+
+                  Daniel Kelvin Balogun Commented 3 days ago
+
+                  @Mohit Jain
+
+                  Pradeep Duraisamy     Commented about 10 hours ago
+                  Hi Team,
+
+                  Thank you for reaching out to Support team. We acknowledge the receipt of your ticket
+                  and we are actively reviewing the details.
+
+                  We will keep you posted with an update.
+
+                  Kind regards,
+                  Pradeep D
+
+                  HRBlizz Support Team
+
+                  Pradeep Duraisamy     Commented about 10 hours ago
+                  Hi Mohit,
+
+                 Please review and assist them. Thanks
+
+https://youtrack.hrblizz.dev/tickets/HRBS-13602/SS-Employee-Share-2551-not-applied-as-pre-tax-deduction-before-Payroll-Tax-calculation-Nami… 2/3
+8/24/26, 1:00 PM  SS Employee Share (2551) not applied as pre-tax deduction before Payroll Tax calculation — Namibia : HRBS-13602
+
+                  Mohit Jain Commented about 9 hours ago
+                  As per current information avaiable, it is not a pre-tax deduction.
+
+                  2551 = MSD EE Contribution
+
+                  CCG
+                  Link:https://docs.google.com/document/d/1fvBJb0nkmvqJ8GVP_xbdniLYo662FFFHR7kvpl
+                  s7wY8/edit?tab=t.0
+
+                  Screenshot:
+
+                  Assigning this further to @Wallisson dos Santos Gomes to check this and resolve. Thanks.
+
+                  Kind regards
+                  Mohit Jain
+                  Head of Compliance Product
+
+https://youtrack.hrblizz.dev/tickets/HRBS-13602/SS-Employee-Share-2551-not-applied-as-pre-tax-deduction-before-Payroll-Tax-calculation-Nami… 3/3
+

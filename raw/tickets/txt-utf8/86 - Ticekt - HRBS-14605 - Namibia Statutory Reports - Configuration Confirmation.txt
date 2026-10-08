@@ -1,0 +1,108 @@
+9/25/26, 10:22 AM     Namibia Statutory Reports - Configuration Confirmation : HRBS-14605
+
+Projects / HRBlizz Support / Tickets /        A… Enter sea…                                                        2 of 3
+
+HRBS-14605
+
+Created by Daniel Kelvin Balogun 10 days ago                        HRBlizz Support Team
+Updated by Manju Shetija about 18 hours ago
+
+Namibia Statutory Reports - Configuration
+Confirmation
+
+  Tier 1
+
+       Project        CCs                            Priority                Type
+
+      HRBlizz         No CCs                  M Medium               S Service
+      Support                                                              Request⁠
+                                 Assignee            Support Group
+       State                                                        Resolution Time
+                               Wallisson      C Compliance            -7d
+O Open⁠                        dos Santos           Support⁠
+                               Gomes                                         Spent time
+       SLA Violation                                 Estimation
+                                 Country                             ??
+? Reason                                      ??
+      ----               N Namibia                                           Legal Entity
+                                                     SLA status              Phase
+       Environment               Client
+                                              ? No sla status         I Implementati
+P Production             B Baker                                           on⁠
+                               Hughes
+       Boards
+
+      No visible
+      boards
+
+For our Namibia entity, could you please confirm the current configuration status of the following
+statutory reports:
+
+1. Monthly PAYE Return - filed with the Namibia Revenue Agency (NamRA), due within 20 days
+   after month end. Please confirm this is configured and the correct progressive tax bands are
+   applied (note: Namibia's tax year runs March to February, not the calendar year - please
+   confirm the system is aligned to this cycle).
+
+2. SSC Contribution Return - monthly filing to the Social Security Commission. We have seen
+   conflicting rate information in our research (some sources cite 0.9% employer/0.9% employee
+   of insurable earnings capped around NAD 11,000/month salary, others cite a flat contribution
+   amount). Could you confirm the exact rate/cap Mercans is currently applying for our
+   employees?
+
+3. VET Levy Return - the 1% Vocational Education and Training levy, employer-only, paid to the
+   Namibia Training Authority, applicable if our total payroll is above the relevant threshold.
+   Please confirm whether this applies to us and if so, that it is configured.
+
+4. IT12E - annual employee tax certificates, and IT14E - the annual employer
+   summary/reconciliation return to NamRA, both due by 30 June following the March-February
+   tax year end. Please confirm these are configured and ready ahead of the relevant deadline.
+
+If any of the above are not yet fully configured, could you confirm what is required on our end
+and the expected turnaround time.
+
+https://youtrack.hrblizz.dev/tickets/HRBS-14605/Namibia-Statutory-Reports-Configuration-Confirmation?backToIssues          1/3
+9/25/26, 10:22 AM                    Namibia Statutory Reports - Configuration Confirmation : HRBS-14605
+
+        Company Name
+        BH Namibia
+
+        Attachments 1 Hidden file 1
+
+        Mohit Jain Commented 10 days ago
+        It is under development. thanks.
+
+        Kind regards
+        Mohit Jain
+        Head of Compliance Product
+
+        Daniel Kelvin Balogun Commented 10 days ago
+        @Mohit Jain can we get expected delivery date?
+
+KR Katrin Rudi Commented 7 days ago
+        @Daniel Kelvin Balogun
+        We have in configuration:
+          1. Monthly PAYE Return
+          2. Gross to Net
+          3. SSC Contribution Return
+        Payslip is already configured and in review with Compliance.
+        Reports under Configuration will be developed by September 25th. Once developed they
+        will go to Compliance review.
+        @Mohit Jain You can confirm regarding VET Levy Return and IT12E.
+
+        Kind regards,
+        Katrin Rudi
+
+        Mohit Jain Commented 7 days ago
+
+we only have these reports. we dont have VET Levy Return and IT12E.
+Kind regards
+
+https://youtrack.hrblizz.dev/tickets/HRBS-14605/Namibia-Statutory-Reports-Configuration-Confirmation?backToIssues  2/3
+9/25/26, 10:22 AM            Namibia Statutory Reports - Configuration Confirmation : HRBS-14605
+
+                 Mohit Jain
+
+Head of Compliance Product
+
+https://youtrack.hrblizz.dev/tickets/HRBS-14605/Namibia-Statutory-Reports-Configuration-Confirmation?backToIssues  3/3
+

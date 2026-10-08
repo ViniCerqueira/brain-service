@@ -1,0 +1,86 @@
+9/9/26, 12:49 PM                           ES: SEPE LLAMAMIENTO (callback) - SPEC : SR-144
+
+Created by Wallisson dos Santos Gomes 7 months ago            Visible to issue readers                3
+Updated by Lily Li about 3 hours ago
+
+ES: SEPE LLAMAMIENTO (callback) - SPEC
+
+         Project                                  State                Priority          Assignee
+
+SR Statutory                               O Open              M Major                  Wallisson
+       Reports                                                                          dos Santos
+                                                  Spent time  Due Date                  Gomes
+         Phase
+                                                 ?            28 Feb 2026                Country
+ D Deployed To
+       Production                                 Research             Developer  E ES
+                                                  Analyst
+         Business                                              B Brenet                  Redesign of
+                                           W Wallisson               Õispuu
+ L Analyst                                       Gomes                            ? old country
+       Lily Li                                                                          No
+
+Boards
+  Statutory Report…
+
+     SEPE LLAMAMIENTO (callback) - SPEC                       Assi…               Enter search req…
+     Attachments 3 Hidden files 3
+
+Projects / Statutory Reports / Issues / SR-144
+
+                  Drew Õispuu Commented 3 months ago
+                  @Lily Li SEPE LLAMAMIENTO report is ready for testing in Acceptance.
+
+LL Lily Li Commented about 2 months ago
+        No mapping change required. After downloading this report from system, the folder is
+        empty.
+
+                  Drew Õispuu Commented about 2 months ago
+                  @Lily Li The empty folder is expected behaviour, not a bug. SEPE LLAMAMIENTO is an
+                  event-driven report - it only generates a file when an employee has a callback/recall date
+                  ( sepe_callback_start_date ) within the reporting period, since a llamamiento is filed only
+                  when a fijo discontinuo worker is actually recalled.
+
+LL Lily Li Commented about 1 month ago
+        The testing in acceptance is passed. Sample file generated:
+        SEPE_LLAMAMIENTO_B65685703_202602.xml
+
+LL Lily Li Commented 1 day ago
+        @Drew Õispuu Pls deploy to production. Thanks
+
+                  Drew Õispuu Commented about 19 hours ago
+
+https://youtrack.hrblizz.dev/issue/SR-144                                                                      1/2
+9/9/26, 12:49 PM                             ES: SEPE LLAMAMIENTO (callback) - SPEC : SR-144
+
+                  @Lily Li Deployed to production.
+
+LL Lily Li Commented about 3 hours ago
+        @Wallisson dos Santos Gomes
+        A3 sample: L26S0001.XML
+        System generated file: SEPE_LLAMAMIENTO_B65685703_202602.xml
+
+                    Point                           Current       Reference                   Statu
+                     DATOS_USOLIBRE_EMPRESA         File          E3|T079214|C389|F20250808
+                    block                                                                     ❌ M
+                                                    The field
+                                                   explanation                               confir
+                                                    in the spec                               option
+                                                    looks not                                 specif
+                                                    clear to do
+                                                    the                                              
+                                                    mapping,
+                                                    so system
+                                                    generated
+                                                    file omits
+                                                    this block.
+                                                    This block
+                                                    is optional,
+                                                    right? What
+                                                    should be
+                                                    mapped
+                                                    here
+                                                    exactly?
+
+https://youtrack.hrblizz.dev/issue/SR-144                                                               2/2
+

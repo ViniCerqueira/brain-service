@@ -1,0 +1,351 @@
+9/10/26, 3:46 PM              Spain Regulation_Statutory report issues and testing feedback : HRBS-13757
+
+Projects / HRBlizz Support / Tickets / HRBS-13757  Assi… Enter search r…
+
+Created by Gulnaaz Parveen 16 days ago                                   HRBlizz Support Team
+Updated by Gulnaaz Parveen about 3 hours ago
+
+Spain Regulation_Statutory report issues and testing
+feedback
+
+  Tier 3
+
+       Project                CCs                         Priority                                                     Type
+
+      HRBlizz                 No CCs               M Medium                                                     I Incident⁠
+      Support
+                                         Assignee         Support Group                                       Resolution Time
+       State                                                                                                        Paused
+                                       Lily Li     C Compliance
+P Pending on                                             Support⁠                                                      Spent time
+      reporter⁠                          Country
+                                                          Estimation                                           ??
+       SLA Violation             S Spain
+                                                   ??                                                                  Legal Entity
+? Reason                                 Client                                                                        Phase
+      ----                                                SLA status
+                                M Mercans                                                                            Not legal
+       Environment                                 ? No sla status                                             N entity
+
+P Production                                                                                                         related
+                                                                                                                     ticket⁠
+
+                  Boards
+
+                  No visible
+                  boards
+
+Hi Lily/Mohit/Katrin,
+
+ 1. Spain SEPE CERTIFICA - Termination Certificate (XML) - Previous N periods (period
+     masterdata):
+     XML Schema format does not match as per SEPE website. Attached error snippet. Attached
+     sample from A3 "C_20260724_23_004226 Termination Certificate"
+
+ 2. Spain SEPE CONTRATA - New Contract (XML) - Period (period masterdata): Tested, SEPE
+     portal upload successful, waiting for SEPE confirmation.
+
+ 3. Spain SEPE LLAMAMIENTO - Fijo Discontinuo Callback (XML) - Period (period masterdata):
+     Unable to generate from HRB. No file being generated. Attached sample from A3 system
+     "L26G0001 300 Contrata SEPE"
+
+ 4. Spain SEPE PRORROGA - Contract Extension (XML) - Period (period masterdata) -
+     (Generated). Format looks file, attached smaple for validation from A3 system "P26G0003
+     PRORROGA - Contract Extension"
+
+Company Name
+SPAIN all clients
+
+Items mentioned here 1 Inward mentions 1
+
+https://youtrack.hrblizz.dev/tickets/HRBS-13757/Spain-RegulationStatutory-report-issues-and-testing-feedback                         1/7
+9/10/26, 3:46 PM               Spain Regulation_Statutory report issues and testing feedback : HRBS-13757
+
+Items mentioned here
+M SR-79 ES: Fichero de Bases – Sistema de Liquidación Directa (Social Security) - SPEC
+Inward mentions
+M SR-145 ES: SEPE CERTIFICA (termination) - SPEC
+
+Attachments 36 Hidden files 7                                   PDF
+
+      PDF                                                    Watlow Tax certific
+  Ainhoa-Avila-72697                                         ates -20… 554 kB
+  847E_202… 11 kB
+
+   PDF                 PDF                  PDF                 PDF
+
+Federated Hermes_   AG US_Certificado    GPN_Certificado de  Auvik_Certificado d
+Certifica… 154 kB   de Reten… 233 kB     Retencio… 221 kB    e Retenci… 287 kB
+
+   PDF
+
+Cynosure_Certifica
+do de Ret… 800 kB
+
+                      PNG                                       TXT
+
+                    Model 190 error par                      M190__2025 HRB fil
+                    t 2 207 kB                               es 1 kB
+
+   TXT                 TXT                  PDF                 TXT
+                                                             296 (2) 3 kB
+M296__2025 HRB Fi   Report190_1824002    Modelo 190 2025 Fi
+les 1 kB            27 1 kB              nal Subm… 215 kB
+
+   PDF                                                         XML
+
+Model 296 borrador                                           listadoErrores 19
+2025 (1… 286 kB                                              0 1 kB
+
+  XML                 XML                  XML                 XML
+
+listadoErrores 29   P26G0003 PRORRO      L26G0001 300 Con    C_20260724_23_00
+6 1 kB              GA -… 716 bytes      trata SEPE 1 kB     4226 Termi… 3 kB
+
+https://youtrack.hrblizz.dev/tickets/HRBS-13757/Spain-RegulationStatutory-report-issues-and-testing-feedback  2/7
+9/10/26, 3:46 PM                        Spain Regulation_Statutory report issues and testing feedback : HRBS-13757
+
+                 Gulnaaz Parveen  Commented 14 days ago
+                 @Katrin Rudi
+
+1. SEPE Certificate for Terminated employees: We have updated the data related to legal
+representative in acceptance test entity 'REF-04-261" still the report is not fetching these
+details. Attached error from the SEPE Portal.
+
+2. 111/216
+a) ES: Modelo 216 (Personal Income Tax IRPF) - Quarterly and monthly looks fine.
+b) ES: Modelo 111 (Personal Income Tax IRPF)- Quarterly and Monthly has same error while
+uploading file on portal, attached snippet.
+
+3. 190/296
+a) 190- Non Residents also appearing in 190 file.
+Apart from this error, File rejected on Tax Portal, error attached
+
+b) 296- File rejected on Tax Portal, error attached
+
+                                          XML
+
+                                        listadoErrores 19
+                                        0 1 kB
+
+  XML
+
+listadoErrores 29
+6 1 kB
+
+LL Lily Li Commented 10 days ago
+        @Gulnaaz Parveen M296 error explanation:
+
+        the file declares Ejercicio = 2026 — a year that hasn't ended yet — AEAT's server-side
+        validation flags this as invalid content for that field. This isn't a formatting bug; it's a
+        business-rule rejection: you cannot file an annual summary for a tax year that is still
+        ongoing.
+
+SEPE CERTIFICA
+<Datos_Representante> is showing legal representative data.
+SEPE_CERTIFICA_B65685703_202602.xml
+
+For M111 and M190, checking issue now.
+
+https://youtrack.hrblizz.dev/tickets/HRBS-13757/Spain-RegulationStatutory-report-issues-and-testing-feedback        3/7
+9/10/26, 3:46 PM                Spain Regulation_Statutory report issues and testing feedback : HRBS-13757
+
+                 Kind regards,
+                 Lily Li
+
+LL Lily Li Commented 10 days ago
+        @Gulnaaz Parveen M190
+
+        M190__2026.txt
+
+        Since the actual submission is happening sometime during calendar year 2026 — a year
+        that hasn't concluded yet — AEAT's portal correctly rejects Ejercicio = 2026 as invalid
+        content, because you cannot file an annual declaration for a year that's still in progress.
+
+        Non Residents not appearing in 190 file above.
+
+Kind regards,
+Lily Li
+
+Gulnaaz Parveen Commented 10 days ago
+@Lily Li As discussed, for report Fichero De Bases currently lot of codes are not mapped
+and I am attaching the file. Request you to help in getting this aligned. Also please check
+which settlement types can be combined in one report, also request to name the reports
+with L in beginning for better understanding. Please check which settlement types are in
+scope as in A3 we only have L00, L13, L00+L13 and L03. L13 the wage codes for the
+based to be checked, where the amounts are getting mapped from?
+
+Gulnaaz Parveen Commented 10 days ago
+@Lily Li Also for report ES: SEPE CERTIFICA, please check the below CNO codes list and
+also verify the field related to this in this report mapping.
+
+https://www.seg-social.es/wps/wcm/connect/wss/43c07033-9bc6-43e0-acca-
+fea462663adf/T90-TABLA+DE+OCUPACI%C3%93N+C.N.O.+2022-12.pdf?MOD=AJPERES
+
+LL Lily Li Commented 10 days ago
+        @Wallisson dos Santos Gomes pls check below issues:
+
+          1. Pls check these from Gulnaaz:
+
+   Pls recheck entire Fichero De Bases report spec based on this: Codigoes Fichero de
+   bases.xlsx
+
+   If you need to update report spec, update your changes in a different color in the same
+   report spec.
+2. For Certifica spec, profession code is 7 digits in the spec, but it's 4 digits in DD. Also,
+   in DD, there's no option mapper for cno code.
+
+   SR-79 ES: Fichero de Bases – Sistema de Liquidación Directa (Social Security) - SPEC
+
+   please check the below CNO codes list and also verify the field related to this in this
+   report mapping.
+
+   https://www.seg-social.es/wps/wcm/connect/wss/43c07033-9bc6-43e0-acca-
+   fea462663adf/T90-TABLA+DE+OCUPACI%C3%93N+C.N.O.+2022-12.pdf?
+
+https://youtrack.hrblizz.dev/tickets/HRBS-13757/Spain-RegulationStatutory-report-issues-and-testing-feedback  4/7
+9/10/26, 3:46 PM                 Spain Regulation_Statutory report issues and testing feedback : HRBS-13757
+
+                  MOD=AJPERES
+
+                  Kind regards,
+                  Lily Li
+
+                  Wallisson dos Santos Gomes  Commented 10 days ago
+                  Hi Lily,
+
+                  Fichero de Bases recheck (against Codigoes_Fichero_de_bases.xlsx): L00 and L13 are
+                  independent and can coexist for the same period (that's why A3 shows L00+L13); L03
+                  only ever covers periods earlier than the current L00, so it's always separate. Also
+                  confirmed: L01 in the settlement-type table isn't a real TGSS code — flagged, not deleted.
+                  L02 and L03 descriptions were wrong, corrected against the official TGSS SLD manual.
+                  L13 itself (row 135) was already correct — that's the code your question was actually
+                  about.
+
+                  CNO/CodProfesion: confirmed. DD is correct at 4 digits (matches CNO-11 and the T90
+                  table). The report's field mapping was passing that value straight through with no padding,
+                  against a field that requires 7 digits — that's why 3123 (a valid CNO code) got rejected.
+                  Fixed: right-pad to 7 with zeros before writing to CodProfesion.
+
+                  Spec v2.5 (Fichero de Bases) and v1.1 (CERTIFICA) updated
+
+                  Kind regards,
+
+                  Kind regards,
+                  Wallisson dos Santos Gomes
+
+LL Lily Li Commented 9 days ago
+        @Wallisson dos Santos Gomes In those two report tasks, no changes have been found.
+
+                  Kind regards,
+                  Lily Li
+
+                  Wallisson dos Santos Gomes  Commented 9 days ago
+                  @Lily Li
+
+                  Fichero de Bases and CERTIFICA both updated from the latest Drive versions you pointed
+                  me to.
+
+                  For CERTIFICA specifically: the CodProfesion fix was already in the file (row 30, from
+                  before) — nothing changed there. What I added this round was just a proper Version
+                  Control tab, same format as Fichero de Bases, so the fix history is easier to find without
+                  digging through Report Matrix.
+
+                  Fichero de Bases: reapplied the L01/L02/L03 corrections, and backfilled the v2.3/v2.4
+                  Version Control entries that were missing even though their content was already in the file.
+
+                  Kind regards,
+                  Wallisson dos Santos Gomes
+
+                  Gulnaaz Parveen Commented 8 days ago
+                  @Lily Li Model 190 and Model 296: Attached errors while loading files on Tax Portal for
+                  Model 190 and Model 296. Request to please investigate and also attached actual samples
+                  from A3 for your comparison
+
+https://youtrack.hrblizz.dev/tickets/HRBS-13757/Spain-RegulationStatutory-report-issues-and-testing-feedback    5/7
+9/10/26, 3:46 PM                      Spain Regulation_Statutory report issues and testing feedback : HRBS-13757
+
+                                        PNG
+
+                                      Model 190 error par
+                                      t 2 207 kB
+
+                     TXT                 TXT                  TXT
+
+                  M190__2025 HRB fil  M296__2025 HRB Fi    Report190_1824002
+                  es 1 kB             les 1 kB             27 1 kB
+
+                     PDF                 TXT                  PDF
+                                      296 (2) 3 kB
+                  Modelo 190 2025 Fi                       Model 296 borrador
+                  nal Subm… 215 kB                         2025 (1… 286 kB
+
+LL Lily Li Commented 6 days ago
+        @Gulnaaz Parveen I've compared A3 sample and system-generated files, and asked
+        Wallisson to check issues. Thanks
+
+        Kind regards,
+        Lily Li
+
+LL Lily Li Commented 6 days ago
+        @Gulnaaz Parveen Certifica CNO code padding issue has been resolved. Pls check file
+        generated: SEPE_CERTIFICA_B65685703_202602.xml
+        Or, you can generated from your end.
+        M111: positions have been adjusted. You can also generated from your end. File generated:
+        B65685703_2026_02.111
+        B65685703_2026_1T.111
+        Payslip tax rate display issue has been resolved: Spain Compliance Payslip EN - ESP01 -
+        ESP 01 - 2026-02-01 - 2026-02-28.pdf
+
+        Kind regards,
+        Lily Li
+
+LL Lily Li Commented 6 days ago
+        @Gulnaaz Parveen Payslip tax rate issue fix will be deployed to production today.
+
+        Kind regards,
+        Lily Li
+
+        Gulnaaz Parveen Commented about 3 hours ago
+        @Lily Li @Wallisson dos Santos Gomes Below feedback on report testing:
+
+https://youtrack.hrblizz.dev/tickets/HRBS-13757/Spain-RegulationStatutory-report-issues-and-testing-feedback      6/7
+9/10/26, 3:46 PM                       Spain Regulation_Statutory report issues and testing feedback : HRBS-13757
+
+                  1. Model 111: Tested for entity Test entity REF-04-261,Hermes Fund Managers Ireland
+                     Limited
+
+                     Feedback: IBAN was already updated in legal entity Bank details section. Tried
+                     uploading on Tax Portal, Error attached, please check and fix the bug
+
+                  2. Model 296: Tested for entity Test entity REF-04-261,Hermes Fund Managers Ireland
+                     Limited
+
+                     Feedback: Tried uploading on Tax Portal, Error attached, please check and fix the bug
+                  3. Annual Tax Certificate: Format does not match, attached samples
+
+                                                              PDF
+
+                                                           Watlow Tax certific
+                                                           ates -20… 554 kB
+
+                     PDF                  PDF                 PDF
+
+                  Federated Hermes_    AG US_Certificado   GPN_Certificado de
+                  Certifica… 154 kB    de Reten… 233 kB    Retencio… 221 kB
+
+                     PDF                  PDF
+
+                  Auvik_Certificado d  Cynosure_Certifica
+                  e Retenci… 287 kB    do de Ret… 800 kB
+
+                  Gulnaaz Parveen Commented about 3 hours ago
+                  @Lily Li @Wallisson dos Santos Gomes Attaching correct samples of annual certificate
+
+                        PDF
+
+                    Ainhoa-Avila-72697
+                    847E_202… 11 kB
+
+https://youtrack.hrblizz.dev/tickets/HRBS-13757/Spain-RegulationStatutory-report-issues-and-testing-feedback       7/7
+

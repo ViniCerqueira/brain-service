@@ -1,0 +1,104 @@
+9/11/26, 10:27 AM                                             ES: Employee Tax Certificate - SPEC : SR-342
+
+Projects / Statutory Reports / Issues / SR-342                Assi...             Enter search req...
+
+Created by Wallisson dos Santos Gomes about 2 months ago                                                    3
+Updated by Lily Li 25 minutes ago                                                 Visible to issue readers
+
+ES: Employee Tax Certificate - SPEC
+
+         Project                                  State                Priority                                    Assignee
+
+       Statutory                           R In Review         M Major                                            Wallisson
+       Reports                                                                                                    dos Santos
+                                                  Spent time  Due Date                                            Gomes
+         Phase
+                                                 ?            31 Aug 2026                                          Country
+       Final Review
+ F Phase -                                        Research             Developer                            E ES
+                                                  Analyst
+       Business                                                B Brenet                                            Redesign of
+       Analyst                             W Wallisson               Õispuu
+                                                 Gomes                                                      ? old country
+         Business                                                                                                 No
+
+ L Analyst
+       Lily Li
+
+Boards
+  Statutory Report...
+
+ES-CERT-001_CertificadoRetenciones_Spec
+
+Inward mentions 2
+     M HRBS-11736 SPAIN REGULATION_Employee Tax Certificate missing on list
+     M SR-83 ES: Modelo 190 (Personal Income Tax IRPF) - SPEC
+
+Attachments 2 Hidden files 2
+
+LL Lily Li Commented about 2 months ago
+        @Wallisson dos Santos Gomes Pls check queries in column V. This is urgent.
+
+        Thanks
+
+Wallisson dos Santos Gomes                 Commented about 2 months ago
+@Lily Li reverted.
+
+LL Lily Li Commented about 2 months ago
+        @Wallisson dos Santos Gomes Pls check queries in column V highlighted in red.
+
+https://youtrack.hrblizz.dev/issue/SR-342                                                                                       1/2
+9/11/26, 10:27 AM                                ES: Employee Tax Certificate - SPEC : SR-342
+
+                 Wallisson dos Santos Gomes  Commented about 2 months ago
+                 @Lily Li reverted.
+
+LL Lily Li Commented about 2 months ago (edited)
+        @Wallisson dos Santos Gomes Pls check further "New 1" queries in column V, highlighted
+        in red.
+
+        Thanks
+
+LL Lily Li Commented about 2 months ago
+        @Wallisson dos Santos Gomes As aligned, pls create new overpayment PE, new original
+        amount PE in WTC. I will assign the codes.
+
+        Thanks
+
+Wallisson dos Santos Gomes Commented about 2 months ago
+added in the v4.2 of the WTC: Spain Wage Type Catalogue V4.2
+
+LL Lily Li Commented about 1 month ago
+        @Katrin Rudi Pls assign this to the developer for development. Thanks.
+
+        It has been pending for a while
+
+LL Lily Li Commented 9 days ago
+        @Drew Õispuu Pls update the development status. Thanks
+
+Drew Õispuu Commented 9 days ago
+@Lily Li Report is available in acceptance and can be tested
+
+REport name: Spain Employee Tax Certificate
+
+LL Lily Li Commented 7 days ago
+        @Drew Õispuu Thank you!
+        Could you pls replace 58176 with 58552, 58177 with 58572? Thanks
+        58176, 58177 are old codes and should be replaced.
+
+Drew Õispuu Commented 7 days ago
+@Lily Li This has been updated
+
+LL Lily Li Commented 1 day ago
+        Certificado_Retenciones_ESP01_2026.pdf
+
+        acceptance testing passed.
+
+LL Lily Li Commented 25 minutes ago
+        @Wallisson dos Santos Gomes
+        A3 sample format: Ainhoa-Avila-72697847E_20230327122635[1].pdf
+        Below I have attached system-generated file. Their file formats are different.
+        If spec needs to be changed, pls highlight your changes. Thanks
+
+https://youtrack.hrblizz.dev/issue/SR-342                                                       2/2
+

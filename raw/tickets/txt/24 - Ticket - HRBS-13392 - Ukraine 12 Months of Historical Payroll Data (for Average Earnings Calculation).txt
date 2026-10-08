@@ -1,0 +1,184 @@
+8/20/26, 12:10 AM     Ukraine 12 Months of Historical Payroll Data (for Average Earnings Calculation) : HRBS-13392
+
+Created by Nataliia Hahan 1 day ago                                    HRBlizz Support Team
+Updated by Nataliia Hahan about 22 hours ago
+
+Ukraine 12 Months of Historical Payroll Data (for
+Average Earnings Calculation)
+
+  Tier 3
+
+       Project        CCs                               Priority                Type
+
+      HRBlizz         No CCs                     M Medium               S Service
+      Support                                                                 Request
+                                 Assignee               Support Group
+       State                                                           Resolution Time
+                               Archit Naik       L L2                    1d
+O Open                                                 Support
+                                 Country                                        Spent time
+       SLA Violation                                    Estimation
+                         U Ukraine                                      ??
+? Reason                                         ??
+      ----                       Client                                         Legal Entity
+                                                        SLA status
+       Environment       A Altium                                       L Phase
+                                                 ? No sla status              Live/BAU
+P Production
+
+       Boards
+
+      No visible
+      boards
+
+Issue Description:
+
+For correct payroll processing from day one of go-live, the system must contain 12 months of
+historical payroll data (accrued earnings by month, by employee) prior to the go-live period.
+
+Why this is required:
+
+Under Ukrainian legislation, average earnings are not calculated from a single period -- they are
+calculated based on the employee's actual earnings over a defined lookback period (calendar
+months preceding the event), depending on the calculation type:
+
+Sick pay / maternity (Procedure No. 1266) -- average earnings calculated based on the 12
+calendar months preceding the month of the insured event.
+Business trips, other guaranteed payments (Procedure No. 100) -- based on the last 2 calendar
+months preceding the event.
+Vacation pay -- based on the 12 calendar months preceding the month vacation begins.
+Indexation (Procedure No. 1078) -- depends on the base month and requires historical
+accumulated index values, not earnings history per se, but is similarly dependent on historical
+records being present in the system.
+
+If historical earnings data is missing or incomplete in the system, any average-earnings-based
+calculation performed immediately after go-live will be incorrect, because the system will only
+"see" earnings from the go-live month forward, not the required lookback window. This directly
+affects sick pay, vacation pay, and business trip payments for any employee whose qualifying
+event occurs in the first 12 months after go-live.
+
+https://youtrack.hrblizz.dev/tickets/HRBS-13392                                                                     1/3
+8/20/26, 12:10 AM         Ukraine 12 Months of Historical Payroll Data (for Average Earnings Calculation) : HRBS-13392
+
+What needs to be defined:
+
+Confirm where historical earnings data should be entered/loaded in the system -- i.e., is there a
+dedicated Master Data template/module for historical monthly earnings, separate from current-
+period payroll input, or should it be uploaded as opening balances?
+
+Confirm whether historical data also needs to include days worked / calendar days per month
+(required as the denominator in average earnings formulas), not just monetary amounts.
+Confirm the process and template for bulk-loading this data for all employees at once (given ~[X]
+employees per client), rather than manual entry per employee.
+Confirm the exact technical mechanism for this data load -- specifically:
+
+one-time database/backend load performed by the technical team?
+If it's a file-based upload -- what is the required file format/structure, and is there an existing
+template, or does one need to be created?
+
+Impact if not addressed:
+
+Incorrect average earnings calculations for sick pay, vacation pay, and business trip payments in
+the first 12 months after go-live.
+Compliance risk under Ukrainian labor law, as legally mandated calculation methodology would
+not be followed.
+Manual workaround calculations outside the system would be required as a stopgap, increasing
+risk of error and audit exposure.
+
+Request: Please confirm the correct method, location, template, and technical mechanism for
+loading 12 months of historical earnings data into the system ahead of go-live, and the resulting
+field-level requirements this creates in the Data Dictionary / Master Data templates.
+
+ProjCecotms p/anHyRNBalizmzeSupport / Tickets / HRBS-13392            Assi... Enter search r...
+
+     Altium
+
+Wallisson dos Santos Gomes                       Commented 1 day ago
+Hi @Nataliia Hahan ,
+
+Confirmed the legal basis and defined the field-level requirements. This isn't one dataset
+-- it's three separate elements, each tied to a different calculation:
+
+12 months of monthly earnings (ESV-subject) -- needed for sick pay/maternity (
+1266) and vacation pay ( 100, 12-month branch)
+12 months of calendar days worked/excused -- separate denominator, specific to sick pay
+( 1266) -- not the same as regular calendar days
+2 months of working days worked -- separate denominator, specific to business trips and
+other retained-pay events ( 100, 2-month branch)
+
+Indexation needs no historical earnings -- it only needs the base month, already covered
+by the existing "Effective Date of Current Salary" field.
+
+All 3 added to the Data Dictionary (v3.7) under a new "Historical Payroll Data (Pre-Go-Live
+Migration)" group, kept separate from regular EE-card fields since this is a one-time load,
+not ongoing master data.
+
+Ukraine_Data_Dictionary_V3.8
+
+Kind regards,
+Wallisson dos Santos Gomes
+
+Nataliia Hahan Commented about 22 hours ago
+Hi @Wallisson dos Santos Gomes
+
+https://youtrack.hrblizz.dev/tickets/HRBS-13392                                                                         2/3
+8/20/26, 12:10 AM  Ukraine 12 Months of Historical Payroll Data (for Average Earnings Calculation) : HRBS-13392
+
+Thanks -- this breakdown looks correct overall, and the separation into three distinct
+elements makes sense. Two clarifications before we finalize v3.8, as these affect how the
+fields should be defined/labeled:
+
+                   1. "Working days" for the 2-month branch ( 100 -- business trips/retained pay)
+
+For this calculation, the denominator is the number of working days according to the
+enterprise's work schedule for the 2-month period -- not the employee's actual
+attended/worked days. Could you confirm whether the field currently captures the
+scheduled working days rather than "days worked" in the literal sense? If the field is
+labeled/interpreted as "days actually worked," it could produce an incorrect denominator
+whenever an employee had any absence in those 2 months.
+
+                   2. Exclusions applied to the 12-month earnings dataset
+
+The 12-month earnings element is shared between sick pay/maternity ( 1266) and
+vacation pay ( 100, 12-month branch). However, the exclusion lists under these
+two procedures are not identical, so a single unified earnings dataset without calculation-
+specific filtering will produce incorrect results for at least one of the two calculation types.
+
+Under  1266, . 4 (sick pay/maternity), the following are excluded from the
+earnings base:
+
+One-time payments of a non-systemic nature not provided for by the wage system (e.g.,
+one-time bonuses not tied to labour results,   )
+Severance pay ( )
+Compensation for unused vacation (   )
+Payments for business trips (,    )
+Average earnings paid for previous periods (e.g., previously paid sick pay, vacation pay, or
+other average-earnings-based payments -- to avoid double-counting)
+Dividends, and payments not subject to 
+
+Under  100, . 4 (vacation pay, other guaranteed payments), the exclusion list is
+largely similar but includes some differences -- e.g., specific treatment of 
+ and matdopomoga may not fully mirror  1266's list, and there are
+additional nuances for certain compensation types.
+
+Request: Could you confirm specifically:
+
+Will the system apply two separate exclusion rule sets to the same 12-month earnings
+dataset -- one filter set when the calculation type = sick pay/maternity, and a different
+filter set when the calculation type = vacation pay? Or is a single exclusion rule applied
+regardless of purpose?
+If a single unified exclusion rule is planned, which wage types/income codes are currently
+flagged for exclusion, and can we get a full list to verify against both  1266 .4
+and  100 .4 before go-live?
+Is the exclusion logic tied to wage type codes (WTC) at the source, or will it need to be
+configured within the historical data load template itself?
+
+This needs to be resolved before finalizing v3.8, since applying the wrong exclusion set to
+either calculation will directly misstate average earnings and the resulting payment
+amount.
+
+Best Regards,
+Natalia
+
+https://youtrack.hrblizz.dev/tickets/HRBS-13392                                                                  3/3
+
